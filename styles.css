@@ -1,0 +1,170 @@
+/* ============================================= */
+/* Solvexa 3D Agency Experience — Custom Styles  */
+/* ============================================= */
+
+/* Base Reset & Scrollbar */
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+  }
+  body {
+    overscroll-behavior: none;
+  }
+  main > :first-child {
+    margin-top: 0 !important;
+  }
+  main > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+/* Selection Colors */
+::selection {
+  background: #d4af37;
+  color: #241a00;
+}
+
+/* Ambient Glow Pulse Animation */
+@keyframes ambientPulse {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.25; transform: scale(1.05); }
+}
+
+.ambient-glow {
+  animation: ambientPulse 8s ease-in-out infinite;
+}
+
+/* Floating Chip Entrance */
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.float-in {
+  animation: floatIn 0.8s ease-out forwards;
+}
+
+.float-in-delay-1 { animation-delay: 0.2s; opacity: 0; }
+.float-in-delay-2 { animation-delay: 0.4s; opacity: 0; }
+.float-in-delay-3 { animation-delay: 0.6s; opacity: 0; }
+
+/* Gradient Divider */
+.gradient-divider {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+}
+
+/* Auric Glow Effect for Cards on Hover */
+.card-auric-hover {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-auric-hover:hover {
+  box-shadow: 0 0 35px rgba(242, 202, 80, 0.15), 0 16px 48px -8px rgba(0, 0, 0, 0.65);
+}
+
+/* Violet Glow Variant */
+.card-violet-hover:hover {
+  box-shadow: 0 0 35px rgba(219, 184, 255, 0.15), 0 16px 48px -8px rgba(0, 0, 0, 0.65);
+}
+
+/* Hero Headline Metallic Sheen */
+@keyframes metallicSheen {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+.metallic-text {
+  background-size: 200% auto;
+  animation: metallicSheen 6s linear infinite;
+}
+
+/* Smooth Section Reveal on Scroll */
+@keyframes revealUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.reveal-section {
+  opacity: 0;
+  animation: revealUp 0.9s ease-out forwards;
+}
+
+/* Terminal Cursor Blink */
+@keyframes cursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.terminal-cursor::after {
+  content: '█';
+  animation: cursorBlink 1s step-end infinite;
+  color: #f2ca50;
+  margin-left: 2px;
+}
+
+/* Globe Wireframe Rotation */
+@keyframes globeRotate {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+}
+
+.globe-rotate {
+  animation: globeRotate 30s linear infinite;
+}
+
+/* Ping Animation for Status Dots */
+@keyframes customPing {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* Form Input Focus Glow */
+input:focus, textarea:focus, select:focus {
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
+}
+
+/* Radio Button Custom Checked State */
+label:has(input[type="radio"]:checked) {
+  border-color: #f2ca50 !important;
+  background-color: rgba(212, 175, 55, 0.12) !important;
+}
+
+/* Smooth Button Press */
+.btn-press {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-press:active {
+  transform: scale(0.95);
+}
+
+/* Team Photo Grayscale Transition */
+.team-photo {
+  filter: grayscale(100%) contrast(1.25);
+  transition: filter 0.5s ease;
+}
+.group:hover .team-photo {
+  filter: grayscale(0%) contrast(1);
+}
+
+/* Footer Wave SVG Animation */
+@keyframes footerWave {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.footer-wave {
+  animation: footerWave 40s linear infinite;
+}
