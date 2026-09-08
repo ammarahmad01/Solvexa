@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="28" fill="#000000" stroke="#FFFFFF" stroke-opacity="0.2" stroke-width="2"/>
+  <!-- CapCut interlocking angled chevrons -->
+  <path d="M28 36L64 56L28 76V36Z" fill="#FFFFFF"/>
+  <path d="M100 36L64 56L100 76V36Z" fill="#FFFFFF"/>
+  <path d="M28 92L64 72L100 92H28Z" fill="#FFFFFF"/>
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="kt-g" x1="128" y1="0" x2="0" y2="128" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E4485D"/>
+      <stop offset="0.5" stop-color="#C711E1"/>
+      <stop offset="1" stop-color="#7F52FF"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#kt-g)" d="M128 0H0v128h128L64 64l64-64zM0 128l64-64L0 0v128z"/>
+</svg>

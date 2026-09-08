@@ -1,9 +1,10 @@
+// @ts-nocheck
 "use client";
 import { useEffect, useRef } from "react";
 
 declare global {
   interface Window {
-    THREE: typeof import("three");
+    THREE: any;
   }
 }
 

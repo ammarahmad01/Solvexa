@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <rect width="128" height="128" rx="28" fill="#1C3C3C"/>
+  <!-- Parrot stylized icon -->
+  <circle cx="50" cy="46" r="18" fill="#2ECC71"/>
+  <circle cx="56" cy="44" r="4" fill="#1C3C3C"/>
+  <path d="M64 42l24 4-24 10z" fill="#E67E22"/>
+  <path d="M42 64c0-10 8-18 18-18h16v32H50c-4.4 0-8 3.6-8 8v14H32V78c0-7.7 4.5-14 10-14z" fill="#16A085"/>
+  <path d="M50 78h36v12H50z" fill="#F1C40F"/>
+  <path d="M58 90h28v18H58z" fill="#E74C3C"/>
+  <!-- Chain link symbol -->
+  <path d="M92 48a12 12 0 0 1 0 17l-10 10a12 12 0 0 1-17-17l4-4" stroke="#FFF" stroke-width="4" fill="none" stroke-linecap="round"/>
+</svg>

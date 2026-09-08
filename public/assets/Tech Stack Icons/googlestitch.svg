@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="gs-grad" x1="0" y1="0" x2="128" y2="128" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4285F4"/>
+      <stop offset="0.33" stop-color="#EA4335"/>
+      <stop offset="0.66" stop-color="#FBBC05"/>
+      <stop offset="1" stop-color="#34A853"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="#1C1A27" stroke="url(#gs-grad)" stroke-width="3"/>
+  <!-- Stitch embroidery diamond and cross patterns -->
+  <path d="M64 24L96 64 64 104 32 64Z" fill="none" stroke="url(#gs-grad)" stroke-width="6" stroke-linejoin="round" stroke-dasharray="6,4"/>
+  <circle cx="64" cy="64" r="16" fill="url(#gs-grad)"/>
+  <circle cx="64" cy="64" r="8" fill="#FFFFFF"/>
+</svg>

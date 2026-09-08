@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Space_Grotesk, Syne } from "next/font/google";
 import "./globals.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import BackgroundEffects from "../components/BackgroundEffects";
+import ScrollProgress from "../components/ScrollProgress";
+import BackToTopButton from "../components/BackToTopButton";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -21,8 +26,8 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
-  title: "Solvexa | Ultra-Luxury Creative Engineering",
-  description: "Digital experiences built to move businesses forward.",
+  title: "Solvexa | Where Creativity Meets Innovation — We Grow Your Business Online",
+  description: "Solvexa is a full-service digital agency delivering web & mobile app development, branding, video production, and growth marketing.",
 };
 
 export default function RootLayout({
@@ -31,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark scroll-smooth">
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
@@ -41,12 +46,14 @@ export default function RootLayout({
       <body
         className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} ${syne.variable} bg-background font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden`}
       >
-        <div className="fixed inset-0 pointer-events-none z-0">
-          <div className="absolute -top-40 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-secondary-container/20 blur-[140px] rounded-full"></div>
-          <div className="absolute top-1/3 -left-48 w-[600px] h-[600px] bg-primary-container/10 blur-[160px] rounded-full"></div>
-          <div className="absolute bottom-0 right-0 w-[800px] h-[500px] bg-surface-container-highest/30 blur-[180px] rounded-full"></div>
-        </div>
-        {children}
+        <ScrollProgress />
+        <BackToTopButton />
+        <BackgroundEffects />
+        <Navbar />
+        <main className="w-full pt-24 min-h-[calc(100vh-100px)] relative z-10">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );

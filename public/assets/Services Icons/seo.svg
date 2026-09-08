@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Analytics Growth Bars -->
+  <rect x="80" y="280" width="56" height="120" rx="12" fill="#FF7043" stroke="#1A202C" stroke-width="16"/>
+  <rect x="160" y="210" width="56" height="190" rx="12" fill="#FFB74D" stroke="#1A202C" stroke-width="16"/>
+  <rect x="240" y="140" width="56" height="260" rx="12" fill="#4DB6AC" stroke="#1A202C" stroke-width="16"/>
+  
+  <!-- Upward Trend Line -->
+  <path d="M70 250l85-70 85 45 110-105" stroke="#29B6F6" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <polygon points="360,105 350,145 320,115" fill="#29B6F6"/>
+
+  <!-- Magnifying Glass Lens & Rim -->
+  <circle cx="310" cy="270" r="110" fill="url(#lens-grad)" fill-opacity="0.85" stroke="#1A202C" stroke-width="24"/>
+  <circle cx="310" cy="270" r="82" stroke="#FFFFFF" stroke-width="12" stroke-opacity="0.6"/>
+  
+  <!-- Handle -->
+  <path d="M390 350l75 75c12 12 12 32 0 44s-32 12-44 0l-75-75" fill="#546E7A" stroke="#1A202C" stroke-width="24" stroke-linecap="round"/>
+
+  <!-- Text "SEO" inside lens -->
+  <text x="310" y="284" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="44" fill="#FFFFFF" letter-spacing="3">SEO</text>
+
+  <!-- Sparkles -->
+  <path d="M420 90l8 18 18 8-18 8-8 18-8-18-18-8 18-8 8-18z" fill="#FFD54F"/>
+  <path d="M120 70l5 12 12 5-12 5-5 12-5-12-12-5 12-5 5-12z" fill="#FFD54F"/>
+
+  <defs>
+    <linearGradient id="lens-grad" x1="220" y1="180" x2="400" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#26C6DA"/>
+      <stop offset="1" stop-color="#00838F"/>
+    </linearGradient>
+  </defs>
+</svg>

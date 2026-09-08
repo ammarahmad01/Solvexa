@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <!-- Target Rings -->
+  <circle cx="256" cy="270" r="180" fill="#0081FB" stroke="#1A202C" stroke-width="20"/>
+  <circle cx="256" cy="270" r="135" fill="#FFFFFF" stroke="#1A202C" stroke-width="16"/>
+  <circle cx="256" cy="270" r="90" fill="#FBBC05" stroke="#1A202C" stroke-width="16"/>
+  <circle cx="256" cy="270" r="45" fill="#EA4335" stroke="#1A202C" stroke-width="16"/>
+
+  <!-- Speaker / Announce Megaphone Accent (Top Left) -->
+  <path d="M110 130l-45 35v70l45 35h50l80 50V80l-80 50h-50z" fill="#FF7043" stroke="#1A202C" stroke-width="18" stroke-linejoin="round"/>
+  <path d="M265 150c18 20 18 60 0 80" stroke="#34A853" stroke-width="16" stroke-linecap="round"/>
+  <path d="M295 130c30 35 30 105 0 140" stroke="#0081FB" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- Golden Arrow hitting Bullseye -->
+  <path d="M430 90L275 250" stroke="#1A202C" stroke-width="24" stroke-linecap="round"/>
+  <path d="M430 90L275 250" stroke="#FFD54F" stroke-width="12" stroke-linecap="round"/>
+  <path d="M400 70l45 10-10 45-20-20-15-35z" fill="#EA4335" stroke="#1A202C" stroke-width="14" stroke-linejoin="round"/>
+  <polygon points="275,250 255,270 280,270" fill="#1A202C"/>
+
+  <!-- Sparkles -->
+  <path d="M430 260l6 14 14 6-14 6-6 14-6-14-14-6 14-6 6-14z" fill="#FFCA28"/>
+</svg>
