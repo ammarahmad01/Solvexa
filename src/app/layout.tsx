@@ -6,6 +6,7 @@ import Footer from "../components/Footer";
 import BackgroundEffects from "../components/BackgroundEffects";
 import ScrollProgress from "../components/ScrollProgress";
 import BackToTopButton from "../components/BackToTopButton";
+import WhatsAppButton from "../components/WhatsAppButton";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -49,6 +50,7 @@ export default function RootLayout({
       >
         <ScrollProgress />
         <BackToTopButton />
+        <WhatsAppButton />
         <BackgroundEffects />
         <Navbar />
         <main className="w-full pt-24 min-h-[calc(100vh-100px)] relative z-10">

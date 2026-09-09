@@ -4,13 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { servicesData } from "../data/services";
-import { workCategories } from "../data/work";
 import ServiceBrandIcon from "./ServiceBrandIcon";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [servicesOpen, setServicesOpen] = useState(false);
-  const [workOpen, setWorkOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -25,7 +23,6 @@ export default function Navbar() {
   // Close menus on route change
   useEffect(() => {
     setServicesOpen(false);
-    setWorkOpen(false);
     setMobileMenuOpen(false);
   }, [pathname]);
 
@@ -138,81 +135,17 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* Work Dropdown */}
-          <div
-            className="relative"
-            onMouseEnter={() => setWorkOpen(true)}
-            onMouseLeave={() => setWorkOpen(false)}
+          {/* Work */}
+          <Link
+            href="/work"
+            className={`px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all ${
+              isActive("/work")
+                ? "bg-surface-container-highest text-primary font-semibold shadow-[inset_0_1px_1px_rgba(242,202,80,0.2)]"
+                : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
+            }`}
           >
-            <Link
-              href="/work"
-              className={`px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all inline-flex items-center gap-1 ${
-                isActive("/work")
-                  ? "bg-surface-container-highest text-primary font-semibold shadow-[inset_0_1px_1px_rgba(242,202,80,0.2)]"
-                  : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
-              }`}
-            >
-              <span>Work</span>
-              <span className={`material-symbols-outlined text-sm transition-transform duration-200 ${workOpen ? "rotate-180" : ""}`}>
-                expand_more
-              </span>
-            </Link>
-
-            {/* Work Mega Dropdown: Matching 4-Column Grid */}
-            {workOpen && (
-              <div className="absolute top-full -left-64 lg:-left-72 pt-4 w-[860px] lg:w-[920px] pointer-events-auto">
-                <div className="p-3.5 rounded-2xl bg-surface-container-low/95 backdrop-blur-2xl border border-primary/30 shadow-[0_25px_60px_-15px_rgba(12,3,30,0.9),0_0_30px_rgba(212,175,55,0.15)] animate-in fade-in slide-in-from-top-2 duration-200">
-                  <div className="grid grid-cols-4 gap-2">
-                    {[
-                      { name: "Website Development", icon: "laptop_mac", desc: "Next.js & SaaS Platforms" },
-                      { name: "Mobile App Development", icon: "phone_iphone", desc: "iOS & Android Apps" },
-                      { name: "Desktop Applications", icon: "desktop_windows", desc: "Enterprise C# & .NET" },
-                      { name: "Game Development", icon: "sports_esports", desc: "Unity 3D & Procedural" },
-                      { name: "Database Management", icon: "storage", desc: "High-Concurrency Cloud DBs" },
-                      { name: "Branding & Logo Design", icon: "auto_awesome", desc: "Visual Identity Systems" },
-                      { name: "Video & Motion", icon: "movie_creation", desc: "Cinematic & 3D Stingers" },
-                    ].map((item) => (
-                      <Link
-                        key={item.name}
-                        href={`/work?category=${encodeURIComponent(item.name)}`}
-                        className="p-2.5 rounded-xl hover:bg-surface-container-high/80 transition-all flex items-start gap-2.5 group border border-transparent hover:border-outline-variant/40 hover:-translate-y-0.5"
-                      >
-                        <div className="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-on-primary transition-colors shrink-0">
-                          <span className="material-symbols-outlined text-base">{item.icon}</span>
-                        </div>
-                        <div className="min-w-0">
-                          <p className="text-xs font-semibold text-on-surface group-hover:text-primary transition-colors truncate">
-                            {item.name}
-                          </p>
-                          <p className="text-[11px] text-on-surface-variant line-clamp-1">
-                            {item.desc}
-                          </p>
-                        </div>
-                      </Link>
-                    ))}
-
-                    {/* 8th Tile: Explore All Work in the Grid */}
-                    <Link
-                      href="/work"
-                      className="p-2.5 rounded-xl transition-all flex items-start gap-2.5 group bg-gradient-to-br from-primary via-primary to-amber-500 text-on-primary shadow-md hover:shadow-lg hover:-translate-y-0.5 border border-primary-fixed"
-                    >
-                      <div className="w-8 h-8 rounded-lg bg-black/20 flex items-center justify-center text-on-primary group-hover:scale-110 transition-transform shrink-0">
-                        <span className="material-symbols-outlined text-base">arrow_forward</span>
-                      </div>
-                      <div className="min-w-0">
-                        <p className="text-xs font-bold text-on-primary truncate">
-                          Explore All Projects
-                        </p>
-                        <p className="text-[11px] text-on-primary/90 line-clamp-1 font-medium">
-                          Portfolio Archive &rarr;
-                        </p>
-                      </div>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+            Work
+          </Link>
 
           {/* About */}
           <Link
@@ -265,7 +198,7 @@ export default function Navbar() {
             href="/contact"
             className="relative inline-flex items-center justify-center px-space-lg py-space-xs rounded-full font-label-md text-label-md font-bold text-on-primary bg-gradient-to-r from-primary-fixed via-primary to-primary-container shadow-[0_4px_20px_rgba(212,175,55,0.35)] hover:shadow-[0_0_28px_rgba(242,202,80,0.65)] hover:scale-105 active:scale-95 transition-all duration-300 border border-primary-fixed/40"
           >
-            <span className="relative z-10">Get a Quote →</span>
+            <span className="relative z-10">Contact Us →</span>
           </Link>
 
           {/* Mobile Hamburger Button */}
@@ -304,11 +237,12 @@ export default function Navbar() {
             </Link>
             <Link
               href="/work"
+              onClick={() => setMobileMenuOpen(false)}
               className={`px-4 py-3 rounded-xl font-semibold text-sm transition-colors ${
                 isActive("/work") ? "bg-surface-container-highest text-primary" : "text-on-surface hover:bg-surface-container-high"
               }`}
             >
-              Work &amp; Portfolio Case Studies
+              Work
             </Link>
             <Link
               href="/about"
@@ -346,7 +280,7 @@ export default function Navbar() {
                 href="/contact"
                 className="w-full text-center py-3 rounded-full font-bold text-on-primary bg-gradient-to-r from-primary-fixed via-primary to-primary-container shadow-lg"
               >
-                Get in Touch Today
+                Contact Us →
               </Link>
             </div>
           </div>
