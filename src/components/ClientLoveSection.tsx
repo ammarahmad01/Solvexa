@@ -10,19 +10,10 @@ const ROTATION_INTERVAL = 2000; // Reduced time: moves every 2 seconds continuou
 export default function ClientLoveSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const imageRef = useRef<HTMLDivElement>(null);
   const quoteRef = useRef<HTMLDivElement>(null);
   const activeTestimonial = testimonialsData[activeIndex];
 
   const triggerAnimation = useCallback(() => {
-    if (imageRef.current) {
-      animate(imageRef.current, {
-        opacity: [0.6, 1],
-        scale: [0.97, 1],
-        duration: 300,
-        ease: "outQuad"
-      });
-    }
     if (quoteRef.current) {
       animate(quoteRef.current, {
         opacity: [0.5, 1],
@@ -101,28 +92,10 @@ export default function ClientLoveSection() {
           <div className="lg:col-span-8">
             <div className="relative rounded-3xl bg-surface-container-low/90 backdrop-blur-2xl border border-outline-variant/30 p-6 sm:p-8 lg:p-10 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.85),0_0_30px_rgba(212,175,55,0.08)] overflow-hidden">
               
-              {/* Main Content Layout: Side-by-Side Image and Message */}
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 items-center">
-                
-                {/* 1. Client Image Pane - 100% Unobstructed, Studio Framed */}
-                <div className="md:col-span-5 flex justify-center">
-                  <div
-                    ref={imageRef}
-                    className="relative w-full max-w-[240px] sm:max-w-[260px] h-[300px] sm:h-[350px] rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/30 bg-surface-container-lowest shrink-0 ring-1 ring-white/10 group"
-                  >
-                    <img
-                      key={`img-${activeTestimonial.id}`}
-                      src={activeTestimonial.image}
-                      alt={activeTestimonial.author}
-                      className="w-full h-full object-cover object-top filter contrast-[1.02] group-hover:scale-105 transition-transform duration-700"
-                    />
-                    {/* Clean subtle edge gradient at the base */}
-                    <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
-                  </div>
-                </div>
-
-                {/* 2. Client Message & Info Pane - Clean, Solid & Highly Legible */}
-                <div ref={quoteRef} className="md:col-span-7 flex flex-col justify-between h-full text-left">
+              {/* Main Content Layout */}
+              <div className="flex flex-col items-center">
+                {/* Client Message & Info Pane - Clean, Solid & Highly Legible */}
+                <div ref={quoteRef} className="w-full flex flex-col justify-between h-full text-left">
                   <div>
                     {/* Quotation Mark & Slide Counter */}
                     <div className="flex items-center justify-between mb-4">

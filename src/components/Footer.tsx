@@ -24,10 +24,6 @@ export default function Footer() {
               <p className="font-body-md text-body-md text-on-surface-variant mt-2">
                 We design and build digital experiences, software, and AI solutions that help businesses grow.
               </p>
-              <div className="flex items-center gap-2 mt-4 text-xs text-primary font-semibold">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                <span>Operating Globally from Rawalpindi, Pakistan</span>
-              </div>
             </div>
           </div>
 

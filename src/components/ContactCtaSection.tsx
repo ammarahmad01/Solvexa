@@ -33,20 +33,18 @@ export default function ContactCtaSection() {
 
         <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
           
-          {/* Left Column: Styled Headline, Body & Contact Points */}
-          <div className="lg:col-span-6 flex flex-col justify-between text-left h-full">
-            <div>
-              <h2 className="font-headline-lg text-3xl sm:text-4xl lg:text-5xl font-extrabold text-on-surface leading-tight tracking-tight">
-                Ready to Discuss Your Project With Us?{" "}
-                <span className="bg-gradient-to-r from-primary-fixed via-primary to-primary-container bg-clip-text text-transparent">
-                  Get in Touch Today to Get Started.
-                </span>
-              </h2>
+          {/* Left Column: Styled Headline, Body & Contact Points (No Badges) */}
+          <div className="lg:col-span-5 flex flex-col justify-center text-left">
+            <h2 className="font-headline-lg text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-on-surface leading-tight tracking-tight">
+              Ready to Discuss Your Project With Us?{" "}
+              <span className="bg-gradient-to-r from-primary-fixed via-primary to-primary-container bg-clip-text text-transparent">
+                Get in Touch Today to Get Started.
+              </span>
+            </h2>
 
-              <p className="font-body-lg text-base sm:text-lg text-on-surface-variant mt-4 leading-relaxed max-w-xl">
-                Whether you are looking to build a high-performance web platform, launch an iOS/Android app, or hire a dedicated engineering pod — our team responds within 24 hours.
-              </p>
-            </div>
+            <p className="font-body-lg text-base sm:text-lg text-on-surface-variant mt-4 leading-relaxed max-w-xl">
+              Whether you are looking to build a high-performance web platform, launch an iOS/Android app, or want AI solutions — our team responds within 24 hours.
+            </p>
 
             {/* Direct Contact Cards */}
             <div className="mt-8 space-y-3.5 w-full max-w-lg">
@@ -78,8 +76,8 @@ export default function ContactCtaSection() {
             </div>
           </div>
 
-          {/* Right Column: Properly Proportioned, Sized & Heighted Form */}
-          <div className="lg:col-span-6 flex flex-col h-full">
+          {/* Right Column: Perfectly Proportioned & Heighted Form */}
+          <div className="lg:col-span-7 flex flex-col justify-center">
             {submitted ? (
               <div className="h-full p-8 sm:p-12 rounded-3xl bg-surface-container-low/95 backdrop-blur-2xl border border-primary/50 text-center flex-1 flex flex-col items-center justify-center shadow-2xl animate-in zoom-in-95 duration-300">
                 <div className="w-16 h-16 rounded-full bg-primary/20 text-primary flex items-center justify-center mb-4 shadow-inner">
@@ -99,7 +97,7 @@ export default function ContactCtaSection() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="p-7 sm:p-9 lg:p-10 rounded-3xl bg-surface-container-low/90 backdrop-blur-2xl border border-outline-variant/30 shadow-2xl flex-1 flex flex-col justify-between gap-5 h-full"
+                className="p-7 sm:p-9 lg:p-10 rounded-3xl bg-surface-container-low/90 backdrop-blur-2xl border border-outline-variant/30 shadow-2xl flex flex-col gap-5"
               >
                 <div className="pb-1 border-b border-outline-variant/20">
                   <h3 className="text-xl sm:text-2xl font-bold text-white">Send Us a Project Brief</h3>
@@ -183,7 +181,6 @@ export default function ContactCtaSection() {
                     <option value="UI/UX Design" className="bg-surface-container-low text-on-surface">UI/UX &amp; Design Systems</option>
                     <option value="Digital Transformation" className="bg-surface-container-low text-on-surface">Digital Transformation</option>
                     <option value="MVP Development" className="bg-surface-container-low text-on-surface">MVP Development</option>
-                    <option value="Dedicated Engineering Pod" className="bg-surface-container-low text-on-surface">Dedicated Engineering Pods</option>
                   </select>
                 </div>
 

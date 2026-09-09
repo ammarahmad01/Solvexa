@@ -38,11 +38,6 @@ export default function HeroSection() {
             </span>
           </h1>
 
-          {/* Category Punchline */}
-          <p className="font-headline-sm text-sm sm:text-base lg:text-lg font-bold text-white/90 tracking-wide mb-4">
-            Websites <span className="text-primary mx-1.5">•</span> Apps <span className="text-primary mx-1.5">•</span> Software <span className="text-primary mx-1.5">•</span> AI
-          </p>
-
           {/* Value Proposition Description */}
           <p className="font-body-lg text-base sm:text-[17px] text-on-surface-variant max-w-xl mb-8 leading-relaxed font-normal">
             Solvexa delivers end-to-end digital solutions designed around your business from high-performance websites and mobile applications to custom software and intelligent AI-powered solutions that automate, optimize, and accelerate growth.
@@ -55,7 +50,7 @@ export default function HeroSection() {
               className="group relative inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-label-md text-xs sm:text-sm font-bold text-on-primary bg-gradient-to-r from-primary-fixed via-primary to-primary-container hover:shadow-[0_0_24px_rgba(242,202,80,0.5)] active:scale-95 transition-all duration-300 shadow-lg border border-primary-fixed/40 cursor-pointer"
             >
               <span>Get Started</span>
-              <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+              
             </Link>
 
             <Link

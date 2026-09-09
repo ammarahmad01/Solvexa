@@ -47,7 +47,7 @@ function SocialIcon({ network }: { network: string }) {
 
 export const metadata = {
   title: "Our Team | Solvexa - Digital Engineering & Creative Collective",
-  description: "Meet the engineers, architects, designers, and marketers building world-class digital experiences at Solvexa.",
+  description: "Meet the executive leadership — CEO, CTO, and CMO — driving world-class digital experiences at Solvexa.",
 };
 
 export default function TeamPage() {
@@ -61,11 +61,11 @@ export default function TeamPage() {
           <h1 className="font-headline-lg text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
             Meet Our Team —{" "}
             <span className="bg-gradient-to-r from-primary-fixed via-primary to-primary-container bg-clip-text text-transparent">
-              Engineers, Designers &amp; Strategists
+              Executive Leadership
             </span>
           </h1>
           <p className="font-body-lg text-base sm:text-lg text-on-surface-variant mt-5 max-w-2xl leading-relaxed">
-            A versatile collective committed to architectural rigor, aesthetic beauty, and moving your business metrics forward.
+            The leadership driving Solvexa&apos;s vision, technology, and growth — committed to architectural rigor, aesthetic beauty, and moving your business metrics forward.
           </p>
         </div>
       </section>
@@ -73,7 +73,7 @@ export default function TeamPage() {
       {/* Team Member Profiles */}
       <section className="relative w-full px-margin-mobile pb-space-2xl md:px-margin-tablet lg:px-margin-desktop">
         <div className="mx-auto flex max-w-[1240px] flex-col gap-6 sm:gap-7">
-          {teamData.map((member, index) => {
+          {teamData.slice(0, 3).map((member, index) => {
             const isEven = index % 2 === 0;
             return (
               <div
@@ -142,32 +142,18 @@ export default function TeamPage() {
                     </div>
                   </div>
 
-                  {/* Card Footer: Perfectly Aligned Social Icons & Connect Action */}
-                  <div className="mt-5 pt-3.5 border-t border-outline-variant/20 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      {Object.entries(member.social).map(([network, url]) =>
-                        url ? (
-                          <a
-                            key={network}
-                            href={url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={`${member.name} ${network}`}
-                            className="flex h-9 w-9 items-center justify-center rounded-xl bg-surface-container-high border border-outline-variant/35 text-white/85 transition-all hover:bg-primary hover:text-on-primary hover:border-primary hover:scale-105 shadow-sm"
-                          >
-                            <SocialIcon network={network} />
-                          </a>
-                        ) : null
-                      )}
-                    </div>
-
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono font-bold text-primary transition-transform hover:translate-x-1"
+                  {/* Card Footer: Connect Action with LinkedIn */}
+                  <div className="mt-5 pt-3.5 border-t border-outline-variant/20 flex items-center justify-end">
+                    <a
+                      href={member.social.linkedin || "/contact"}
+                      target={member.social.linkedin ? "_blank" : undefined}
+                      rel="noopener noreferrer"
+                      aria-label={`Connect with ${member.name} on LinkedIn`}
+                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold text-primary transition-colors hover:text-primary-fixed"
                     >
                       <span>Connect with {member.name.split(" ")[0]}</span>
-                      <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                    </Link>
+                      <SocialIcon network="linkedin" />
+                    </a>
                   </div>
                 </div>
 
@@ -220,8 +206,7 @@ export default function TeamPage() {
             href="mailto:info.solvexa@gmail.com?subject=Career%20Inquiry%20at%20Solvexa"
             className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-label-md text-sm font-bold text-on-primary bg-gradient-to-r from-primary-fixed via-primary to-primary-container hover:shadow-[0_0_24px_rgba(242,202,80,0.5)] active:scale-95 transition-all shadow-xl shrink-0"
           >
-            <span>Send Your Resume</span>
-            <span>→</span>
+            <span>Send your Resume</span>
           </a>
         </div>
       </section>

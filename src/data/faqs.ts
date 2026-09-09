@@ -7,11 +7,11 @@ export interface FaqItem {
 export const homeFaqs: FaqItem[] = [
   {
     q: "What does Solvexa do?",
-    a: "Solvexa is a full-service digital agency providing web and mobile app development, branding, video production, and digital marketing to businesses of all sizes worldwide."
+    a: "Solvexa is a full-service digital agency providing Ai solutions, web and mobile app development, branding, and digital marketing to businesses of all sizes worldwide."
   },
   {
     q: "What services does Solvexa offer?",
-    a: "We offer Web Development, Mobile App Development, UI/UX Design, Digital Marketing, Branding & Logo Design, Video Editing & Motion Graphics, Content Marketing, and MVP Development — each tailored to your specific business goals."
+    a: "We offer Ai solutions, Web Development, Mobile App Development, UI/UX Design, Digital Marketing, Branding & Logo Design, Video Editing & Motion Graphics, Content Marketing, and MVP Development — each tailored to your specific business goals."
   },
   {
     q: "Why should I choose Solvexa for my project?",

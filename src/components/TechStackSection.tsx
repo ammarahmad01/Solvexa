@@ -32,9 +32,6 @@ export default function TechStackSection() {
         
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
-          <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-2">
-            Proven Engineering Foundations
-          </span>
           <h2 className="font-headline-lg text-3xl sm:text-4xl lg:text-5xl font-extrabold text-on-surface tracking-tight">
             Our Technology Stack
           </h2>

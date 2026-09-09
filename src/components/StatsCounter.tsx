@@ -4,8 +4,8 @@ import AnimatedCounter from "./AnimatedCounter";
 
 export default function StatsCounter() {
   const stats = [
-    { from: 0, to: 100, suffix: "+", label: "Projects Delivered", desc: "Enterprise web, mobile & AI solutions" },
-    { from: 0, to: 50, suffix: "+", label: "Global Clients", desc: "Founders, scale-ups & enterprises" },
+    { from: 0, to: 50, suffix: "+", label: "Projects Delivered", desc: "Enterprise web, mobile & AI solutions" },
+    { from: 0, to: 10, suffix: "+", label: "Global Clients", desc: "Founders, scale-ups & enterprises" },
     { from: 80, to: 99.8, suffix: "%", decimals: 1, label: "On-Time Velocity", desc: "Guaranteed agile milestone releases" },
     { from: 1.0, to: 4.9, suffix: "/5", decimals: 1, label: "Client Satisfaction", desc: "Consistent verified 5-star ratings" }
   ];

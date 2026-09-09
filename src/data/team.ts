@@ -20,7 +20,7 @@ export interface TeamMember {
 export const teamData: TeamMember[] = [
   {
     id: "ammar-ahmed",
-    name: "Ammar Ahmed",
+    name: "Ammar Ahmad",
     role: "Chief Executive Officer (CEO)",
     department: "Executive Leadership",
     experience: "Executive Director",
@@ -33,7 +33,7 @@ export const teamData: TeamMember[] = [
     image: "/assets/ammar.png",
     skills: ["Strategic Vision", "Client Success", "Enterprise Partnerships", "Operations"],
     social: {
-      linkedin: "https://www.linkedin.com/company/solvexa1/posts/",
+      linkedin: "https://www.linkedin.com/in/ammar-ahmad-012a29261/",
       facebook: "https://www.facebook.com/profile.php?id=61573528962536",
       instagram: "https://www.instagram.com/solvexa_/"
     }
@@ -53,7 +53,7 @@ export const teamData: TeamMember[] = [
     image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=85",
     skills: ["Full-Stack Architecture", "Next.js & React", "WebGL & 3D", "Cloud & AI Pipelines"],
     social: {
-      linkedin: "https://www.linkedin.com/company/solvexa1/posts/",
+      linkedin: "https://www.linkedin.com/in/rohan-bin-ejaz-514177317/",
       facebook: "https://www.facebook.com/profile.php?id=61573528962536",
       instagram: "https://www.instagram.com/solvexa_/"
     }
@@ -73,7 +73,7 @@ export const teamData: TeamMember[] = [
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85",
     skills: ["Growth Marketing", "Brand Positioning", "Performance SEO", "Conversion Optimization"],
     social: {
-      linkedin: "https://www.linkedin.com/company/solvexa1/posts/",
+      linkedin: "https://www.linkedin.com/in/abdullah-abbasi-03133a404/",
       facebook: "https://www.facebook.com/profile.php?id=61573528962536",
       instagram: "https://www.instagram.com/solvexa_/"
     }

@@ -15,9 +15,6 @@ export default function FaqSection() {
       <div className="max-w-4xl mx-auto flex flex-col gap-6 sm:gap-8">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center">
-          <span className="font-label-caps text-label-caps text-primary tracking-widest uppercase mb-2">
-            Clear Answers
-          </span>
           <h2 className="font-headline-lg text-3xl sm:text-4xl lg:text-5xl font-extrabold text-on-surface">
             FAQ&apos;s
           </h2>

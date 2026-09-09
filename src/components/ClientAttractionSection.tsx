@@ -6,22 +6,19 @@ export default function ClientAttractionSection() {
       title: "Full-Stack Enterprise Engineering",
       category: "Web & Distributed Cloud",
       desc: "From distributed cloud microservices to ultra-responsive Next.js applications and 3D WebGL interfaces, we engineer systems that process heavy workloads with sub-second latency.",
-      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85",
-      points: ["Microsecond Query Response", "End-to-End Type Safety", "Zero-Downtime CI/CD"]
+      image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=85"
     },
     {
       title: "High-Engagement Mobile Ecosystems",
       category: "iOS & Android Cross-Platform",
       desc: "Offline-first architectures, buttery smooth touch gestures, and real-time synchronization that turn casual smartphone users into loyal, recurring enterprise customers.",
-      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=85",
-      points: ["60 FPS Fluid Motion", "Local-First Encrypted Cache", "Biometric Authentication"]
+      image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=85"
     },
     {
       title: "Autonomous AI & Intelligent Systems",
       category: "Machine Intelligence & Automation",
       desc: "Custom LLM orchestration, intelligent multi-agent pipelines, and predictive analytics that automate operational bottlenecks and generate measurable business ROI.",
-      image: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=85",
-      points: ["Custom Agentic Pipelines", "Self-Healing Automations", "Strict Data Privacy"]
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=85"
     }
   ];
 
@@ -72,15 +69,6 @@ export default function ClientAttractionSection() {
                   </p>
                 </div>
 
-                {/* Key Deliverables Checklist */}
-                <div className="pt-4 border-t border-outline-variant/20 flex flex-col gap-2">
-                  {item.points.map((point, pIdx) => (
-                    <div key={pIdx} className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary shrink-0"></span>
-                      <span className="text-xs font-mono text-on-surface font-medium">{point}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           ))}
