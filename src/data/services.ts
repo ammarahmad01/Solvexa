@@ -121,12 +121,12 @@ export const servicesData: ServiceItem[] = [
     technologies: [
       { name: "Next.js", role: "Framework", category: "Frontend" },
       { name: "React", role: "UI Library", category: "Frontend" },
+      { name: "Node.js", role: "Backend Runtime", category: "Backend" },
+      { name: "Express.js", role: "REST API", category: "Backend" },
       { name: "TypeScript", role: "Language", category: "Full-Stack" },
-      { name: "Node.js", role: "Runtime", category: "Backend" },
-      { name: "TailwindCSS", role: "Styling", category: "Frontend" },
       { name: "PostgreSQL", role: "Database", category: "Database" },
-      { name: "Docker", role: "DevOps", category: "Cloud" },
-      { name: "AWS", role: "Cloud Host", category: "Cloud" }
+      { name: "MongoDB", role: "Database", category: "Database" },
+      { name: "TailwindCSS", role: "Styling", category: "Frontend" }
     ],
     faqs: [
       { q: "How long does a custom web development sprint take?", a: "Standard MVP and marketing web platforms take 3 to 6 weeks. Complex enterprise SaaS platforms with multi-tenant databases typically take 6 to 12 weeks." },
@@ -232,11 +232,9 @@ export const servicesData: ServiceItem[] = [
     technologies: [
       { name: "React Native", role: "Mobile Framework", category: "Mobile" },
       { name: "Flutter", role: "Google Framework", category: "Mobile" },
-      { name: "TypeScript", role: "Language", category: "Core" },
+      { name: "Firebase", role: "Cloud Backend", category: "Backend" },
       { name: "Swift", role: "iOS Native", category: "Mobile" },
       { name: "Kotlin", role: "Android Native", category: "Mobile" },
-      { name: "Firebase", role: "Cloud Services", category: "Backend" },
-      { name: "Redux Toolkit", role: "State Engine", category: "Mobile" },
       { name: "Expo", role: "Tooling", category: "Mobile" }
     ],
     faqs: [

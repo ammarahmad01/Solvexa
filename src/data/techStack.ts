@@ -16,18 +16,20 @@ export const techTabsData: TechTab[] = [
     id: "web",
     name: "Web",
     tools: [
+      { name: "Next.js", icon: "/assets/Tech Stack Icons/nextjs.svg" },
+      { name: "React", icon: "/assets/Tech Stack Icons/react.svg" },
+      { name: "TypeScript", icon: "/assets/Tech Stack Icons/typescript.svg" },
+      { name: "JavaScript", icon: "/assets/Tech Stack Icons/javascript.svg" },
+      { name: "Tailwind CSS", icon: "/assets/Tech Stack Icons/tailwind.svg" },
       { name: "HTML5", icon: "/assets/Tech Stack Icons/html5.svg" },
       { name: "CSS3", icon: "/assets/Tech Stack Icons/css3.svg" },
-      { name: "JavaScript", icon: "/assets/Tech Stack Icons/javascript.svg" },
-      { name: "TypeScript", icon: "/assets/Tech Stack Icons/typescript.svg" },
-      { name: "React", icon: "/assets/Tech Stack Icons/react.svg" },
-      { name: "Next.js", icon: "/assets/Tech Stack Icons/nextjs.svg" },
       { name: "MERN", icon: "/assets/Tech Stack Icons/mern.svg" },
       { name: "PHP", icon: "/assets/Tech Stack Icons/php.svg" },
-      { name: "Webflow", icon: "/assets/Tech Stack Icons/webflow.svg" },
-      { name: "WordPress", icon: "/assets/Tech Stack Icons/wordpress.svg" },
       { name: "Laravel", icon: "/assets/Tech Stack Icons/laravel.svg" },
-      { name: "Shopify", icon: "/assets/Tech Stack Icons/shopify.svg" }
+      { name: "WordPress", icon: "/assets/Tech Stack Icons/wordpress.svg" },
+      { name: "Shopify", icon: "/assets/Tech Stack Icons/shopify.svg" },
+      { name: "WooCommerce", icon: "/assets/Tech Stack Icons/woocommerce.svg" },
+      { name: "Webflow", icon: "/assets/Tech Stack Icons/webflow.svg" }
     ]
   },
   {
@@ -36,10 +38,10 @@ export const techTabsData: TechTab[] = [
     tools: [
       { name: "React Native", icon: "/assets/Tech Stack Icons/react.svg" },
       { name: "Flutter", icon: "/assets/Tech Stack Icons/flutter.svg" },
+      { name: "Firebase", icon: "/assets/Tech Stack Icons/firebase.svg" },
       { name: "Swift", icon: "/assets/Tech Stack Icons/swift.svg" },
       { name: "Kotlin", icon: "/assets/Tech Stack Icons/kotlin.svg" },
-      { name: "Expo", icon: "/assets/Tech Stack Icons/expo.svg" },
-      { name: "Firebase", icon: "/assets/Tech Stack Icons/firebase.svg" }
+      { name: "Expo", icon: "/assets/Tech Stack Icons/expo.svg" }
     ]
   },
   {
@@ -48,8 +50,10 @@ export const techTabsData: TechTab[] = [
     tools: [
       { name: "Node.js", icon: "/assets/Tech Stack Icons/nodejs.svg" },
       { name: "Express.js", icon: "/assets/Tech Stack Icons/express.svg" },
-      { name: "C#", icon: "/assets/Tech Stack Icons/csharp.svg" },
       { name: "Python", icon: "/assets/Tech Stack Icons/python.svg" },
+      { name: "FastAPI", icon: "/assets/Tech Stack Icons/fastapi.svg" },
+      { name: "C#", icon: "/assets/Tech Stack Icons/csharp.svg" },
+      { name: "GraphQL", icon: "/assets/Tech Stack Icons/graphql.svg" },
       { name: "PHP", icon: "/assets/Tech Stack Icons/php.svg" },
       { name: "Laravel", icon: "/assets/Tech Stack Icons/laravel.svg" }
     ]
@@ -58,14 +62,17 @@ export const techTabsData: TechTab[] = [
     id: "ai-ml",
     name: "AI & ML",
     tools: [
-      { name: "TensorFlow", icon: "/assets/Tech Stack Icons/tensorflow.svg" },
-      { name: "Keras", icon: "/assets/Tech Stack Icons/keras.svg" },
-      { name: "Scikit-Learn", icon: "/assets/Tech Stack Icons/scikitlearn.svg" },
+      { name: "Python", icon: "/assets/Tech Stack Icons/python.svg" },
       { name: "PyTorch", icon: "/assets/Tech Stack Icons/pytorch.svg" },
+      { name: "TensorFlow", icon: "/assets/Tech Stack Icons/tensorflow.svg" },
       { name: "LangChain", icon: "/assets/Tech Stack Icons/langchain.svg" },
+      { name: "CrewAI", icon: "/assets/Tech Stack Icons/crewai.svg" },
+      { name: "Pinecone", icon: "/assets/Tech Stack Icons/pinecone.svg" },
       { name: "OpenAI / LLMs", icon: "/assets/Tech Stack Icons/openai.svg" },
       { name: "Agentic AI", icon: "/assets/Tech Stack Icons/agentic-ai.svg" },
-      { name: "Hugging Face", icon: "/assets/Tech Stack Icons/huggingface.svg" }
+      { name: "Hugging Face", icon: "/assets/Tech Stack Icons/huggingface.svg" },
+      { name: "Scikit-Learn", icon: "/assets/Tech Stack Icons/scikitlearn.svg" },
+      { name: "Keras", icon: "/assets/Tech Stack Icons/keras.svg" }
     ]
   },
   {
@@ -76,6 +83,8 @@ export const techTabsData: TechTab[] = [
       { name: "Adobe XD", icon: "/assets/Tech Stack Icons/adobexd.svg" },
       { name: "Photoshop", icon: "/assets/Tech Stack Icons/photoshop.svg" },
       { name: "Illustrator", icon: "/assets/Tech Stack Icons/illustrator.svg" },
+      { name: "InDesign", icon: "/assets/Tech Stack Icons/indesign.svg" },
+      { name: "Canva", icon: "/assets/Tech Stack Icons/canva.svg" },
       { name: "Google Stitch", icon: "/assets/Tech Stack Icons/googlestitch.svg" },
       { name: "After Effects", icon: "/assets/Tech Stack Icons/aftereffects.svg" },
       { name: "Blender", icon: "/assets/Tech Stack Icons/blender.svg" }
@@ -94,6 +103,19 @@ export const techTabsData: TechTab[] = [
     ]
   },
   {
+    id: "marketing",
+    name: "Digital Marketing & SEO",
+    tools: [
+      { name: "Meta Ads", icon: "/assets/Tech Stack Icons/meta.svg" },
+      { name: "Google Ads", icon: "/assets/Tech Stack Icons/googleads.svg" },
+      { name: "Google Analytics", icon: "/assets/Tech Stack Icons/analytics.svg" },
+      { name: "Search Console", icon: "/assets/Tech Stack Icons/searchconsole.svg" },
+      { name: "SEMrush", icon: "/assets/Tech Stack Icons/semrush.svg" },
+      { name: "Ahrefs", icon: "/assets/Tech Stack Icons/ahrefs.svg" },
+      { name: "Mailchimp", icon: "/assets/Tech Stack Icons/mailchimp.svg" }
+    ]
+  },
+  {
     id: "database",
     name: "Database",
     tools: [
@@ -107,7 +129,7 @@ export const techTabsData: TechTab[] = [
   },
   {
     id: "testing",
-    name: "Testing & DevOps",
+    name: "DevOps & Cloud",
     tools: [
       { name: "Docker", icon: "/assets/Tech Stack Icons/docker.svg" },
       { name: "Kubernetes", icon: "/assets/Tech Stack Icons/kubernetes.svg" },

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <!-- Pinecone Vector DB Icon -->
+  <defs>
+    <linearGradient id="pc-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#191919" />
+      <stop offset="100%" stopColor="#0B0F19" />
+    </linearGradient>
+  </defs>
+  <rect width="112" height="112" x="8" y="8" rx="28" fill="url(#pc-grad)" stroke="#22C55E" strokeWidth="3" />
+  <g transform="translate(32, 28) scale(0.68)">
+    <polygon points="47,6 88,30 47,54 6,30" fill="#22C55E" />
+    <polygon points="6,36 47,60 47,88 6,64" fill="#16A34A" />
+    <polygon points="47,60 88,36 88,64 47,88" fill="#15803D" />
+    <circle cx="47" cy="30" r="8" fill="#FFF" />
+  </g>
+</svg>

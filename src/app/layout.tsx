@@ -44,6 +44,7 @@ export default function RootLayout({
         />
       </head>
       <body
+        suppressHydrationWarning
         className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} ${syne.variable} bg-background font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden`}
       >
         <ScrollProgress />

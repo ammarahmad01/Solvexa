@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="100%" height="100%">
+  <!-- GraphQL Icon -->
+  <g fill="none" stroke="#E10098" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round" transform="translate(10, 10) scale(0.84)">
+    <polygon points="64,8 116,38 116,98 64,128 12,98 12,38" />
+    <polygon points="64,28 102,94 26,94" />
+  </g>
+  <g fill="#E10098" transform="translate(10, 10) scale(0.84)">
+    <circle cx="64" cy="8" r="9" />
+    <circle cx="116" cy="38" r="9" />
+    <circle cx="116" cy="98" r="9" />
+    <circle cx="64" cy="128" r="9" />
+    <circle cx="12" cy="98" r="9" />
+    <circle cx="12" cy="38" r="9" />
+    <circle cx="64" cy="28" r="7" />
+    <circle cx="102" cy="94" r="7" />
+    <circle cx="26" cy="94" r="7" />
+  </g>
+</svg>

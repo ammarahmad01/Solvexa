@@ -5,113 +5,188 @@ interface TechLogoProps {
   className?: string;
 }
 
+// Direct mapping from normalized tech aliases to SVG icon filenames in /assets/Tech Stack Icons/
+const ICON_FILE_MAP: Record<string, string> = {
+  // Web & Full-Stack
+  "next.js": "nextjs.svg",
+  "nextjs": "nextjs.svg",
+  "react": "react.svg",
+  "react native": "react.svg",
+  "reactjs": "react.svg",
+  "typescript": "typescript.svg",
+  "javascript": "javascript.svg",
+  "node.js": "nodejs.svg",
+  "nodejs": "nodejs.svg",
+  "node": "nodejs.svg",
+  "express": "express.svg",
+  "express.js": "express.svg",
+  "expressjs": "express.svg",
+  "python": "python.svg",
+  "c#": "csharp.svg",
+  "csharp": "csharp.svg",
+  "php": "php.svg",
+  "php 8.3": "php.svg",
+  "laravel": "laravel.svg",
+  "mern": "mern.svg",
+  "tailwind": "tailwind.svg",
+  "tailwindcss": "tailwind.svg",
+  "html5": "html5.svg",
+  "html": "html5.svg",
+  "css3": "css3.svg",
+  "css": "css3.svg",
+
+  // Databases & Backend
+  "postgresql": "postgresql.svg",
+  "postgres": "postgresql.svg",
+  "pgvector": "postgresql.svg",
+  "mongodb": "mongodb.svg",
+  "mongo": "mongodb.svg",
+  "mysql": "mysql.svg",
+  "mysql / mariadb": "mysql.svg",
+  "mariadb": "mysql.svg",
+  "redis": "redis.svg",
+  "supabase": "supabase.svg",
+  "fastapi": "fastapi.svg",
+  "graphql": "graphql.svg",
+  "graphql api": "graphql.svg",
+  "wpgraphql": "graphql.svg",
+
+  // Mobile
+  "flutter": "flutter.svg",
+  "firebase": "firebase.svg",
+  "swift": "swift.svg",
+  "kotlin": "kotlin.svg",
+  "expo": "expo.svg",
+
+  // Design & 3D
+  "figma": "figma.svg",
+  "figjam": "figma.svg",
+  "adobe xd": "adobexd.svg",
+  "adobexd": "adobexd.svg",
+  "photoshop": "photoshop.svg",
+  "adobe photoshop": "photoshop.svg",
+  "illustrator": "illustrator.svg",
+  "adobe illustrator": "illustrator.svg",
+  "indesign": "indesign.svg",
+  "adobe indesign": "indesign.svg",
+  "canva": "canva.svg",
+  "blender": "blender.svg",
+  "google stitch": "googlestitch.svg",
+  "googlestitch": "googlestitch.svg",
+  "stitch": "googlestitch.svg",
+
+  // Video & Motion
+  "premiere pro": "premierepro.svg",
+  "premierepro": "premierepro.svg",
+  "after effects": "aftereffects.svg",
+  "aftereffects": "aftereffects.svg",
+  "davinci resolve": "davinciresolve.svg",
+  "davinci": "davinciresolve.svg",
+  "capcut": "capcut.svg",
+  "final cut pro": "finalcutpro.svg",
+  "finalcutpro": "finalcutpro.svg",
+
+  // CMS & E-Commerce
+  "shopify": "shopify.svg",
+  "shopify liquid": "shopify.svg",
+  "shopify plus": "shopify.svg",
+  "liquid": "shopify.svg",
+  "hydrogen / react": "react.svg",
+  "hydrogen": "react.svg",
+  "wordpress": "wordpress.svg",
+  "wordpress 6.7+": "wordpress.svg",
+  "woocommerce": "woocommerce.svg",
+  "webflow": "webflow.svg",
+
+  // AI, ML & Data Science
+  "tensorflow": "tensorflow.svg",
+  "pytorch": "pytorch.svg",
+  "scikit-learn": "scikitlearn.svg",
+  "scikitlearn": "scikitlearn.svg",
+  "sklearn": "scikitlearn.svg",
+  "keras": "keras.svg",
+  "openai": "openai.svg",
+  "gpt": "openai.svg",
+  "gpt-4o": "openai.svg",
+  "chatgpt": "openai.svg",
+  "openai / claude": "openai.svg",
+  "claude 3.5 sonnet": "openai.svg",
+  "langchain": "langchain.svg",
+  "langchain / llamaindex": "langchain.svg",
+  "llamaindex": "langchain.svg",
+  "langgraph": "langchain.svg",
+  "langsmith": "langchain.svg",
+  "ragas": "langchain.svg",
+  "hugging face": "huggingface.svg",
+  "huggingface": "huggingface.svg",
+  "agentic ai": "agentic-ai.svg",
+  "agentic-ai": "agentic-ai.svg",
+  "agentic ai & autonomous systems": "agentic-ai.svg",
+  "crewai": "crewai.svg",
+  "pinecone": "pinecone.svg",
+  "pinecone / qdrant": "pinecone.svg",
+  "qdrant": "pinecone.svg",
+
+  // Marketing & SEO
+  "google ads": "googleads.svg",
+  "googleads": "googleads.svg",
+  "meta ads": "meta.svg",
+  "meta ads manager": "meta.svg",
+  "meta": "meta.svg",
+  "facebook": "meta.svg",
+  "meta capi": "meta.svg",
+  "google analytics": "analytics.svg",
+  "google analytics 4": "analytics.svg",
+  "ga4": "analytics.svg",
+  "analytics": "analytics.svg",
+  "google search console": "searchconsole.svg",
+  "search console": "searchconsole.svg",
+  "gsc": "searchconsole.svg",
+  "semrush": "semrush.svg",
+  "ahrefs": "ahrefs.svg",
+  "mailchimp": "mailchimp.svg",
+
+  // Hardware & IoT
+  "arduino": "arduino.svg",
+  "esp32 / arduino": "arduino.svg",
+  "esp32": "arduino.svg",
+
+  // DevOps & Cloud
+  "docker": "docker.svg",
+  "kubernetes": "kubernetes.svg",
+  "github": "github.svg",
+  "jira": "jira.svg",
+  "postman": "postman.svg",
+
+  // Web3 & Blockchain
+  "solidity": "solidity.svg",
+  "ethereum": "ethereum.svg",
+  "polygon": "polygon.svg",
+  "web3": "web3.svg"
+};
+
 export default function TechLogo({ name, className = "w-6 h-6" }: TechLogoProps) {
-  const normalized = name.toLowerCase().trim();
+  const raw = name || "";
+  const normalized = raw.toLowerCase().trim();
 
+  // 1. Direct or fuzzy lookup in SVG icons library
+  const matchedFile =
+    ICON_FILE_MAP[normalized] ||
+    Object.entries(ICON_FILE_MAP).find(([key]) => normalized.includes(key) || key.includes(normalized))?.[1];
+
+  if (matchedFile) {
+    return (
+      <img
+        src={`/assets/Tech%20Stack%20Icons/${matchedFile}`}
+        alt={raw}
+        className={`object-contain inline-block shrink-0 ${className}`}
+        loading="lazy"
+      />
+    );
+  }
+
+  // 2. Special branded inline vector logos
   switch (normalized) {
-    case "next.js":
-    case "nextjs":
-      return (
-        <svg className={className} viewBox="0 0 180 180" fill="currentColor">
-          <mask height="180" id="next-mask" maskUnits="userSpaceOnUse" width="180" x="0" y="0" style={{ maskType: "alpha" }}>
-            <circle cx="90" cy="90" fill="black" r="90" />
-          </mask>
-          <g mask="url(#next-mask)">
-            <circle cx="90" cy="90" data-circle="true" fill="black" r="90" />
-            <path d="M149.508 157.52L69.142 54H54V125.97H66.1136V69.3836L139.999 164.845C143.333 162.614 146.509 160.165 149.508 157.52Z" fill="url(#next-g1)" />
-            <rect fill="url(#next-g2)" height="72" width="12" x="115" y="54" />
-          </g>
-          <defs>
-            <linearGradient id="next-g1" x1="109" x2="144.5" y1="116.5" y2="160.5" gradientUnits="userSpaceOnUse">
-              <stop stopColor="white" />
-              <stop offset="1" stopColor="white" stopOpacity="0" />
-            </linearGradient>
-            <linearGradient id="next-g2" x1="121" x2="120.799" y1="54" y2="106.875" gradientUnits="userSpaceOnUse">
-              <stop stopColor="white" />
-              <stop offset="1" stopColor="white" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
-      );
-
-    case "react":
-    case "react native":
-      return (
-        <svg className={className} viewBox="-11.5 -10.23174 23 20.46348" fill="none">
-          <circle cx="0" cy="0" r="2.05" fill="#61DAFB" />
-          <g stroke="#61DAFB" strokeWidth="1" fill="none">
-            <ellipse rx="11" ry="4.2" />
-            <ellipse rx="11" ry="4.2" transform="rotate(60)" />
-            <ellipse rx="11" ry="4.2" transform="rotate(120)" />
-          </g>
-        </svg>
-      );
-
-    case "typescript":
-      return (
-        <svg className={className} viewBox="0 0 128 128">
-          <rect fill="#3178C6" height="128" rx="16" width="128" />
-          <path d="M88.94 100.83c-1.4 2.1-3.4 3.7-5.9 4.7-2.6 1.1-5.6 1.6-9.1 1.6-4.4 0-8.3-.9-11.7-2.7-3.4-1.8-6.1-4.4-8-7.8s-2.9-7.4-2.9-12c0-4.6 1-8.7 3-12.2 2-3.5 4.8-6.2 8.3-8.1 3.5-1.9 7.5-2.9 12-2.9 3.5 0 6.6.6 9.3 1.7s4.9 2.8 6.6 5l-7.7 6.4c-2.1-2.6-4.9-3.9-8.3-3.9-2.7 0-5.1.7-7.1 2.1s-3.6 3.4-4.6 5.9-1.6 5.5-1.6 8.7c0 3.3.5 6.3 1.6 8.9 1.1 2.6 2.7 4.5 4.8 5.8 2.1 1.3 4.6 2 7.6 2 3.8 0 7-1.4 9.6-4.2l7.7 6.9zM36.14 52.33h32.7v10.9h-10.4v43.9h-12v-43.9h-10.3v-10.9z" fill="#FFF" />
-        </svg>
-      );
-
-    case "python":
-      return (
-        <svg className={className} viewBox="0 0 128 128">
-          <path d="M63.5 8c-28.5 0-26.7 12.3-26.7 12.3l.03 12.8h27.1v3.8H26.3S8 34.8 8 63.3c0 28.6 16 27.6 16 27.6h9.5v-13.3s-.5-16 15.7-16h27s15.2.2 15.2-14.7V22.7S93.2 8 63.5 8zm-14.7 8.3c2.7 0 4.9 2.2 4.9 4.9 0 2.7-2.2 4.9-4.9 4.9-2.7 0-4.9-2.2-4.9-4.9 0-2.7 2.2-4.9 4.9-4.9z" fill="#3776AB" />
-          <path d="M64.5 120c28.5 0 26.7-12.3 26.7-12.3l-.03-12.8H64.1v-3.8h37.6s18.3 2.1 18.3-26.4c0-28.6-16-27.6-16-27.6h-9.5v13.3s.5 16-15.7 16h-27s-15.2-.2-15.2 14.7v24.2s-1.8 14.7 27.9 14.7zm14.7-8.3c-2.7 0-4.9-2.2-4.9-4.9 0-2.7 2.2-4.9 4.9-4.9 2.7 0 4.9 2.2 4.9 4.9 0 2.7-2.2 4.9-4.9 4.9z" fill="#FFD43B" />
-        </svg>
-      );
-
-    case "node.js":
-    case "nodejs":
-      return (
-        <svg className={className} viewBox="0 0 128 128">
-          <path d="M64 8l54 31.2v62.4L64 122.8 10 99.6V37.2L64 8z" fill="#339933" />
-          <path d="M64 24.3l40.1 23.2v46.3L64 117 23.9 93.8V47.5L64 24.3z" fill="#FFF" />
-          <path d="M64 40.5l26.2 15.1v30.2L64 100.9l-26.2-15.1V55.6L64 40.5z" fill="#339933" />
-        </svg>
-      );
-
-    case "flutter":
-      return (
-        <svg className={className} viewBox="0 0 128 128">
-          <path d="M78.6 8L16.4 70.2l19.4 19.4L117.4 8H78.6z" fill="#42A5F5" />
-          <path d="M78.6 63.8L43.8 98.6l19.4 19.4 19.4-19.4 34.8-34.8H78.6z" fill="#0D47A1" />
-          <path d="M63.2 118l19.4-19.4 19.4 19.4-19.4 19.4L63.2 118z" fill="#42A5F5" />
-        </svg>
-      );
-
-    case "figma":
-      return (
-        <svg className={className} viewBox="0 0 128 128">
-          <path d="M44 8h40a20 20 0 0 1 0 40H64V8H44a20 20 0 0 0 0 40h20V8z" fill="#F24E1E" />
-          <path d="M44 48a20 20 0 0 1 20-20v40H44a20 20 0 0 1 0-40z" fill="#A259FF" />
-          <path d="M44 88a20 20 0 0 1 20-20v40a20 20 0 0 1-20-20z" fill="#0ACF83" />
-          <circle cx="84" cy="68" r="20" fill="#1ABCFE" />
-          <path d="M84 8a20 20 0 0 1 0 40H64V8h20z" fill="#FF7262" />
-        </svg>
-      );
-
-    case "docker":
-      return (
-        <svg className={className} viewBox="0 0 128 128">
-          <path d="M123.6 57.5c-2.4-1.8-7.7-2.7-12.8-1.5-1.5-7.7-6.9-13.8-14.8-17.7-1.1-.5-2.3-.9-3.5-1.2l-2.4 4.5c.9.3 1.8.6 2.6 1 6.1 3 10.3 7.8 11.5 13.9-3.7-1-7.8-.5-11.4 1.3-4.9 2.5-8.2 6.9-9.3 12.4H3.8c-1.3 4.2-1.9 8.7-1.9 13.3 0 28.5 23.3 40.5 53.4 40.5 35.8 0 62.4-18.7 67.2-46.7 5.1-.3 9.4-2.8 11.6-6.6 2.4-4.2 1.3-9.5-2.1-13.2h-8.4z" fill="#2496ED" />
-          <rect fill="#2496ED" height="11.4" width="11.4" x="38.7" y="44" />
-          <rect fill="#2496ED" height="11.4" width="11.4" x="52.4" y="44" />
-          <rect fill="#2496ED" height="11.4" width="11.4" x="66" y="44" />
-          <rect fill="#2496ED" height="11.4" width="11.4" x="52.4" y="30.3" />
-        </svg>
-      );
-
-    case "postgresql":
-    case "postgres":
-      return (
-        <svg className={className} viewBox="0 0 128 128">
-          <path d="M64 8C33.1 8 8 33.1 8 64s25.1 56 56 56 56-25.1 56-56S94.9 8 64 8zm24.6 92.4c-4.3 1.3-9.2 1.8-14.5 1.8-16.7 0-28.7-7.2-34.4-20.7-3.8-9-3.3-21.7 1.4-33.1 5.4-13.1 15.6-22.3 27.2-24.8 2.7-.6 5.4-.8 8.1-.8 11.2 0 20.8 4.6 25.8 12.3 4.1 6.3 5 14.5 2.5 22.8-2.6 8.5-8.5 15.9-16.4 20.3-6.6 3.7-14.5 5.5-22.9 5.2-1.7-.1-3.3-.3-4.8-.7 1.9 4.8 5.7 8.2 10.9 9.8 4.2 1.3 9.2 1.4 14.6.2l2.5 7.9z" fill="#4169E1" />
-        </svg>
-      );
-
     case "aws":
       return (
         <svg className={className} viewBox="0 0 128 128">
@@ -135,15 +210,6 @@ export default function TechLogo({ name, className = "w-6 h-6" }: TechLogoProps)
           <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
           <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
           <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
-        </svg>
-      );
-
-    case "facebook":
-    case "meta":
-      return (
-        <svg className={className} viewBox="0 0 48 48">
-          <circle cx="24" cy="24" r="24" fill="#1877F2"/>
-          <path fill="#FFF" d="M29.5 24.5h-4v14h-6v-14h-3v-5h3v-3.5c0-4 2.5-6.5 6.5-6.5h4v5h-2.5c-1.5 0-2 .5-2 2V19.5h4.5l-.5 5z"/>
         </svg>
       );
 
@@ -177,17 +243,6 @@ export default function TechLogo({ name, className = "w-6 h-6" }: TechLogoProps)
         </svg>
       );
 
-    case "openai":
-    case "gpt":
-    case "chatgpt":
-      return (
-        <svg className={className} viewBox="0 0 48 48" fill="none">
-          <circle cx="24" cy="24" r="22" fill="#0A0A0A" stroke="#10A37F" strokeWidth="1.5"/>
-          <path d="M24 10a7.5 7.5 0 0 1 6.5 3.8l-1.3.8a6 6 0 0 0-5.2-3.1 6 6 0 0 0-5.2 3.1l-1.3-.8A7.5 7.5 0 0 1 24 10zm11.3 7a7.5 7.5 0 0 1 0 7.5l-1.3-.8a6 6 0 0 0 0-6l1.3-.7zm-2.8 13.5a7.5 7.5 0 0 1-6.5 3.8l-1.3-.8a6 6 0 0 0 5.2-3.1 6 6 0 0 0-5.2-3.1l1.3-.8a7.5 7.5 0 0 1 6.5 4zm-17 0a7.5 7.5 0 0 1-6.5-3.8l1.3-.8a6 6 0 0 0 5.2 3.1 6 6 0 0 0 5.2-3.1l1.3.8a7.5 7.5 0 0 1-6.5 3.8zm-2.8-13.5a7.5 7.5 0 0 1 0-7.5l1.3.8a6 6 0 0 0 0 6l-1.3.7z" fill="#10A37F"/>
-          <circle cx="24" cy="24" r="4" fill="#10A37F"/>
-        </svg>
-      );
-
     case "antigravity":
     case "agy":
       return (
@@ -207,8 +262,8 @@ export default function TechLogo({ name, className = "w-6 h-6" }: TechLogoProps)
 
     default:
       return (
-        <div className={`${className} rounded-lg bg-surface-container-highest flex items-center justify-center text-primary font-mono text-[10px] font-bold border border-primary/30`}>
-          {name.slice(0, 3).toUpperCase()}
+        <div className={`${className} rounded-md bg-surface-container-highest flex items-center justify-center text-primary font-mono text-[10px] font-bold border border-primary/30 shrink-0`}>
+          {raw.slice(0, 3).toUpperCase()}
         </div>
       );
   }

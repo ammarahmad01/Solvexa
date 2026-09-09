@@ -1,15 +1,10 @@
 "use client";
 
-import Script from "next/script";
 import Animations from "./Animations";
 
 export default function BackgroundEffects() {
   return (
     <>
-      <Script
-        src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"
-        strategy="beforeInteractive"
-      />
       <Animations />
       {/* Ambient background glow orbs */}
       <div className="fixed inset-0 pointer-events-none z-0">

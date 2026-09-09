@@ -62,4 +62,76 @@
   animation: slideTimer 3000ms linear forwards;
 }
 
+@keyframes teamProfileReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.team-profile {
+  animation: teamProfileReveal 650ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes servicesReveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.services-reveal {
+  animation: servicesReveal 700ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.services-card-media {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.services-card-image {
+  transform: scale(1.015) translateZ(0);
+  transition: transform 900ms cubic-bezier(0.22, 1, 0.36, 1), filter 900ms ease;
+  will-change: transform;
+}
+
+.group:hover .services-card-image {
+  transform: scale(1.065) rotateY(-2deg) translateZ(18px);
+  filter: saturate(1.08) contrast(1.03);
+}
+
+article:nth-child(even) .services-card-image {
+  transform: scale(1.015) translateZ(0);
+}
+
+article:nth-child(even):hover .services-card-image {
+  transform: scale(1.065) rotateY(2deg) translateZ(18px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .team-profile {
+    animation: none;
+  }
+
+  .services-reveal {
+    animation: none;
+  }
+
+  .services-card-image,
+  .group:hover .services-card-image,
+  article:nth-child(even) .services-card-image,
+  article:nth-child(even):hover .services-card-image {
+    transform: none;
+    transition: none;
+  }
+}
+
 
