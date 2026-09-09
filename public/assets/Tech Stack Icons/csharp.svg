@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <path fill="#9B4F96" d="M64 4l52 30v60L64 124 12 94V34L64 4z"/>
-  <path fill="#6A1577" d="M64 4l52 30v60L64 124V4z"/>
-  <text x="52" y="80" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="52" fill="#FFFFFF" text-anchor="middle">C</text>
-  <text x="86" y="68" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="34" fill="#FFFFFF" text-anchor="middle">#</text>
-</svg>

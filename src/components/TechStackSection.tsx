@@ -16,19 +16,19 @@ export default function TechStackSection() {
     if (gridRef.current) {
       animate(gridRef.current, {
         opacity: [0.3, 1],
-        translateY: [12, 0],
-        duration: 350,
+        translateY: [8, 0],
+        duration: 300,
         ease: "outQuad"
       });
     }
   };
 
   return (
-    <section className="relative w-full px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-16 sm:py-24 overflow-hidden bg-surface-container-lowest/60 border-t border-outline-variant/20" id="tech-stack">
+    <section className="relative w-full px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-14 sm:py-20 overflow-hidden bg-surface-container-lowest/60 border-t border-outline-variant/20" id="tech-stack">
       {/* Ambient background glows */}
       <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-6xl mx-auto flex flex-col gap-10 sm:gap-12 items-center">
+      <div className="max-w-6xl mx-auto flex flex-col gap-6 sm:gap-8 items-center">
         
         {/* Section Heading */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
@@ -40,16 +40,16 @@ export default function TechStackSection() {
           </p>
         </div>
 
-        {/* Navigation Bar - Matching Reference Image */}
-        <div className="w-full flex items-center justify-center border-b border-outline-variant/20 overflow-x-auto no-scrollbar">
-          <div className="flex items-center gap-6 sm:gap-10 md:gap-12 px-4 pb-0.5">
+        {/* Navigation Bar - Fixed overflow & horizontal scrolling so Web Development is never cut */}
+        <div className="w-full border-b border-outline-variant/20 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+          <div className="flex items-center gap-4 sm:gap-7 md:gap-9 px-4 sm:px-6 w-max mx-auto min-w-full justify-start lg:justify-center">
             {techTabsData.map((tab) => {
               const isActive = activeTabId === tab.id;
               return (
                 <button
                   key={tab.id}
                   onClick={() => handleTabChange(tab.id)}
-                  className={`relative pb-4 pt-2 text-base sm:text-lg font-bold tracking-tight transition-all duration-300 cursor-pointer whitespace-nowrap ${
+                  className={`relative shrink-0 pb-3 pt-2 text-sm sm:text-base md:text-lg font-bold tracking-tight transition-all duration-300 cursor-pointer whitespace-nowrap px-1 ${
                     isActive
                       ? "text-primary"
                       : "text-on-surface-variant hover:text-on-surface"
@@ -65,15 +65,15 @@ export default function TechStackSection() {
           </div>
         </div>
 
-        {/* Tech Logos Grid - 5 Icons Per Row on Desktop */}
+        {/* Tech Logos Grid - Consistent top alignment across all tabs */}
         <div
           ref={gridRef}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 max-w-5xl mx-auto w-full pt-4 min-h-[260px] justify-items-center"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-10 max-w-5xl mx-auto w-full pt-2 content-start items-start justify-items-center"
         >
           {activeTab.tools.map((tool, idx) => (
             <div
               key={`${activeTabId}-${idx}`}
-              className="flex flex-col items-center justify-center group cursor-pointer w-24 sm:w-28 transition-transform duration-300 hover:-translate-y-2"
+              className="flex flex-col items-center justify-center group cursor-pointer w-24 sm:w-28 transition-transform duration-300 hover:-translate-y-1.5"
             >
               {/* Squircle Card Container with Transparent/Subtle Glass Background */}
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl sm:rounded-3xl bg-white/[0.04] backdrop-blur-xl border border-white/10 group-hover:border-primary/60 flex items-center justify-center shadow-lg group-hover:shadow-[0_12px_30px_-8px_rgba(212,175,55,0.25)] transition-all duration-300 p-4">
@@ -85,7 +85,7 @@ export default function TechStackSection() {
               </div>
 
               {/* Tool Label */}
-              <span className="mt-3 text-xs sm:text-sm font-semibold text-on-surface group-hover:text-primary transition-colors text-center truncate max-w-full">
+              <span className="mt-2.5 text-xs sm:text-sm font-semibold text-on-surface group-hover:text-primary transition-colors text-center truncate max-w-full">
                 {tool.name}
               </span>
             </div>
