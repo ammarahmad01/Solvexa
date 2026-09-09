@@ -3,21 +3,46 @@ import { teamData } from "../../data/team";
 import StatsCounter from "../../components/StatsCounter";
 import ContactCtaSection from "../../components/ContactCtaSection";
 import ClientLoveSection from "../../components/ClientLoveSection";
+import HowWeWorkSection from "../../components/HowWeWorkSection";
 
 function SocialIcon({ network }: { network: string }) {
   if (network === "linkedin") {
-    return <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>;
+    return (
+      <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+      </svg>
+    );
   }
 
   if (network === "facebook") {
-    return <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" /></svg>;
+    return (
+      <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+      </svg>
+    );
   }
 
   if (network === "instagram") {
-    return <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" /></svg>;
+    return (
+      <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+      </svg>
+    );
   }
 
-  return <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.387.6.111.82-.261.82-.578 0-.286-.011-1.04-.016-2.04-3.338.725-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.755-1.333-1.755-1.089-.744.083-.729.083-.729 1.205.085 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.49 11.49 0 0 1 3.003-.404c1.018.005 2.043.138 3.003.404 2.292-1.552 3.299-1.23 3.299-1.23.655 1.653.243 2.873.12 3.176.769.84 1.235 1.911 1.235 3.221 0 4.61-2.806 5.624-5.478 5.921.43.372.823 1.103.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .32.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z" /></svg>;
+  if (network === "github") {
+    return (
+      <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 0C5.373 0 0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.387.6.111.82-.261.82-.578 0-.286-.011-1.04-.016-2.04-3.338.725-4.042-1.61-4.042-1.61-.546-1.386-1.333-1.755-1.333-1.755-1.089-.744.083-.729.083-.729 1.205.085 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.303-5.466-1.332-5.466-5.93 0-1.31.469-2.381 1.236-3.221-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.301 1.23a11.49 11.49 0 0 1 3.003-.404c1.018.005 2.043.138 3.003.404 2.292-1.552 3.299-1.23 3.299-1.23.655 1.653.243 2.873.12 3.176.769.84 1.235 1.911 1.235 3.221 0 4.61-2.806 5.624-5.478 5.921.43.372.823 1.103.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .32.216.694.825.576C20.565 21.796 24 17.3 24 12c0-6.627-5.373-12-12-12z" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
 }
 
 export const metadata = {
@@ -26,57 +51,6 @@ export const metadata = {
 };
 
 export default function TeamPage() {
-  const culturePillars = [
-    {
-      step: "01",
-      title: "Plan Together",
-      desc: "We start by understanding the vision, requirements, goals, and challenges. We define clear responsibilities, priorities, timelines, and milestones so everyone knows what we are working toward.",
-      icon: "map"
-    },
-    {
-      step: "02",
-      title: "Communicate Clearly",
-      desc: "Open and transparent communication keeps our team aligned. We share updates, discuss challenges, ask questions, and make sure everyone has the information they need to move forward.",
-      icon: "forum"
-    },
-    {
-      step: "03",
-      title: "Collaborate & Share Ideas",
-      desc: "Great solutions come from great collaboration. Team members share knowledge, challenge ideas constructively, and bring their expertise together to find smarter and more effective solutions.",
-      icon: "diversity_3"
-    },
-    {
-      step: "04",
-      title: "Meet & Stay Aligned",
-      desc: "Regular team meetings and project check-ins help us review progress, solve blockers, adjust priorities, and keep every project moving in the right direction.",
-      icon: "groups"
-    },
-    {
-      step: "05",
-      title: "Solve Problems Together",
-      desc: "When challenges arise, we do not point fingers, we find solutions. Whether it is a technical issue, tight deadline, or unexpected requirement, the team comes together to take action.",
-      icon: "build_circle"
-    },
-    {
-      step: "06",
-      title: "Emergency Sessions When It Matters",
-      desc: "Some situations require immediate attention. When critical issues or urgent deadlines arise, we organize focused sessions to coordinate responsibilities and get things back on track.",
-      icon: "bolt"
-    },
-    {
-      step: "07",
-      title: "Review, Improve & Learn",
-      desc: "We continuously review our work, learn from feedback, and improve our processes. Every project is an opportunity to become better, faster, and more efficient as a team.",
-      icon: "insights"
-    },
-    {
-      step: "08",
-      title: "Celebrate Success Together",
-      desc: "Every milestone matters. We recognize individual contributions, celebrate team achievements, and appreciate the people behind every successful project.",
-      icon: "celebration"
-    }
-  ];
-
   return (
     <div className="flex flex-col w-full text-on-surface select-none relative overflow-x-hidden">
       {/* Hero Header */}
@@ -97,136 +71,135 @@ export default function TeamPage() {
       </section>
 
       {/* Team Member Profiles */}
-      <section className="relative w-full px-margin-mobile pb-space-3xl md:px-margin-tablet lg:px-margin-desktop">
-        <div className="mx-auto flex max-w-[1120px] flex-col gap-4">
-          {teamData.map((member, index) => (
-            <div
-              key={member.id}
-              className="team-profile group relative grid overflow-hidden rounded-[1.5rem] bg-surface-container-low/85 shadow-[0_22px_60px_-42px_rgba(0,0,0,0.95)] backdrop-blur-2xl transition-all duration-500 hover:-translate-y-1 hover:bg-surface-container-high/75 lg:min-h-[390px] lg:grid-cols-[1.2fr_.8fr]"
-              style={{ animationDelay: `${index * 90}ms` }}
-            >
-              {/* Profile content */}
-              <div className={`flex min-h-0 flex-col justify-between p-6 sm:p-7 lg:p-8 ${index % 2 === 1 ? "lg:order-2" : ""}`}>
-                <div>
-                  <div className="mb-5 flex items-start justify-between gap-4">
-                    <div>
-                      <p className="mb-2 font-mono text-[10px] uppercase tracking-[0.2em] text-primary">{member.department}</p>
-                      <h2 className="font-headline-sm text-2xl font-bold leading-tight text-white transition-colors group-hover:text-primary sm:text-3xl">
-                        {member.name}
-                      </h2>
-                      <p className="mt-1 text-sm font-semibold text-primary">{member.role}</p>
-                    </div>
-                  </div>
-
+      <section className="relative w-full px-margin-mobile pb-space-2xl md:px-margin-tablet lg:px-margin-desktop">
+        <div className="mx-auto flex max-w-[1240px] flex-col gap-6 sm:gap-7">
+          {teamData.map((member, index) => {
+            const isEven = index % 2 === 0;
+            return (
+              <div
+                key={member.id}
+                className="team-profile group relative grid overflow-hidden rounded-[1.8rem] bg-surface-container-low/95 border border-outline-variant/30 hover:border-primary/50 shadow-xl hover:shadow-[0_18px_40px_-14px_rgba(242,202,80,0.16)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 lg:h-[400px] lg:grid-cols-12"
+                style={{ animationDelay: `${index * 60}ms` }}
+              >
+                {/* Content section: 7 cols on desktop with uniform padding */}
+                <div
+                  className={`flex flex-col justify-between p-7 sm:p-8 lg:p-8 lg:col-span-7 ${
+                    isEven ? "lg:order-1" : "lg:order-2"
+                  }`}
+                >
                   <div>
-                    <p className="mb-2 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-on-surface-variant">Current work</p>
-                    <p className="max-w-2xl text-sm leading-6 text-on-surface-variant sm:text-[15px]">{member.bio}</p>
-                  </div>
+                    {/* Department Meta */}
+                    <div className="mb-2 flex items-center justify-between">
+                      <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                        {member.department}
+                      </p>
+                      {member.experience ? (
+                        <p className="font-mono text-xs font-medium text-on-surface-variant/75">
+                          {member.experience}
+                        </p>
+                      ) : null}
+                    </div>
 
-                  <div className="mt-6 grid gap-5 border-t border-outline-variant/20 pt-5 sm:grid-cols-[1fr_auto]">
-                    <div>
-                      <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-on-surface-variant">Focus &amp; skills</p>
-                      <div className="flex flex-wrap gap-2">
-                        {member.skills.map((skill, skillIndex) => (
-                          <span key={skill} className="text-xs leading-5 text-on-surface-variant">
-                            {skill}{skillIndex < member.skills.length - 1 ? <span className="mx-2 text-primary/60">/</span> : null}
+                    {/* Member Name & Role */}
+                    <h2 className="font-headline-sm text-2xl sm:text-[28px] font-extrabold text-white transition-colors group-hover:text-primary leading-tight">
+                      {member.name}
+                    </h2>
+                    <p className="text-sm sm:text-[15px] font-semibold text-primary/95 mt-0.5">
+                      {member.role}
+                    </p>
+
+                    {/* Bio: Exactly 2 lines */}
+                    <p className="mt-3 text-sm leading-relaxed text-on-surface-variant line-clamp-2">
+                      {member.bio}
+                    </p>
+
+                    {/* Key Highlights: Exactly 2 points */}
+                    {member.highlights && member.highlights.length > 0 ? (
+                      <div className="mt-3 space-y-1.5 border-l-2 border-primary/30 pl-3">
+                        {member.highlights.slice(0, 2).map((item, hIdx) => (
+                          <div key={hIdx} className="flex items-center gap-2 text-xs sm:text-sm text-on-surface/90">
+                            <span className="material-symbols-outlined text-primary text-sm shrink-0">
+                              check_circle
+                            </span>
+                            <span className="line-clamp-1">{item}</span>
+                          </div>
+                        ))}
+                      </div>
+                    ) : null}
+
+                    {/* Focus & Skills: Clean Single-Line Tag List */}
+                    <div className="mt-3.5 pt-3 border-t border-outline-variant/15 flex items-center gap-x-2 text-xs">
+                      <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-primary shrink-0">
+                        Focus:
+                      </span>
+                      <div className="flex items-center gap-1.5 overflow-hidden">
+                        {member.skills.slice(0, 4).map((skill, sIdx, arr) => (
+                          <span key={skill} className="text-on-surface-variant font-medium whitespace-nowrap">
+                            {skill}{sIdx < arr.length - 1 ? <span className="mx-1.5 text-primary/40 font-normal">/</span> : null}
                           </span>
                         ))}
                       </div>
                     </div>
+                  </div>
 
-                    <div className="sm:min-w-[120px]">
-                      <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-[0.18em] text-on-surface-variant">Connect</p>
-                      <div className="flex flex-wrap gap-2 sm:justify-end">
-                        {Object.entries(member.social).map(([network, url]) => (
-                          url ? (
+                  {/* Card Footer: Perfectly Aligned Social Icons & Connect Action */}
+                  <div className="mt-5 pt-3.5 border-t border-outline-variant/20 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      {Object.entries(member.social).map(([network, url]) =>
+                        url ? (
                           <a
                             key={network}
                             href={url}
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label={`${member.name} ${network}`}
-                            className="flex h-8 w-8 items-center justify-center rounded-full bg-surface-container-highest text-on-surface-variant transition-colors hover:bg-primary hover:text-on-primary"
+                            className="flex h-9 w-9 items-center justify-center rounded-xl bg-surface-container-high border border-outline-variant/35 text-white/85 transition-all hover:bg-primary hover:text-on-primary hover:border-primary hover:scale-105 shadow-sm"
                           >
                             <SocialIcon network={network} />
                           </a>
-                          ) : null
-                        ))}
-                      </div>
+                        ) : null
+                      )}
                     </div>
+
+                    <Link
+                      href="/contact"
+                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-mono font-bold text-primary transition-transform hover:translate-x-1"
+                    >
+                      <span>Connect with {member.name.split(" ")[0]}</span>
+                      <span className="material-symbols-outlined text-sm">arrow_forward</span>
+                    </Link>
                   </div>
                 </div>
 
-                <div className="mt-6 flex items-center justify-between border-t border-outline-variant/20 pt-4">
-                  <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-on-surface-variant">Solvexa core collective</span>
-                  <Link href="/contact" className="inline-flex items-center gap-1.5 text-xs font-bold text-primary transition-transform group-hover:translate-x-1">
-                    Connect <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                  </Link>
+                {/* Member Image: Full card coverage without separate borders or inner container */}
+                <div
+                  className={`relative h-72 sm:h-80 lg:h-full lg:col-span-5 overflow-hidden bg-surface-container-lowest ${
+                    isEven ? "lg:order-2" : "lg:order-1"
+                  }`}
+                >
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    className="h-full w-full object-cover object-[center_16%] filter brightness-[0.98] contrast-[1.03] transition-transform duration-700 group-hover:scale-105"
+                  />
+                  {/* Subtle directional edge fade into the card body */}
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface-container-low/90 via-transparent to-transparent lg:hidden" />
+                  <div
+                    className={`pointer-events-none absolute inset-0 hidden lg:block ${
+                      isEven
+                        ? "bg-gradient-to-r from-surface-container-low/90 via-transparent to-transparent"
+                        : "bg-gradient-to-l from-surface-container-low/90 via-transparent to-transparent"
+                    }`}
+                  />
                 </div>
               </div>
-
-              {/* Profile image */}
-              <div className={`relative min-h-[260px] overflow-hidden bg-surface-container-lowest sm:min-h-[300px] lg:h-full lg:min-h-0 ${index % 2 === 1 ? "lg:order-1" : "lg:order-2"}`}>
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="h-full w-full object-cover object-[center_20%] contrast-[1.03] transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/45 via-transparent to-transparent" />
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
 
-      {/* How We Work Together */}
-      <section className="relative w-full overflow-hidden bg-surface-container-lowest/40 px-margin-mobile py-20 md:px-margin-tablet md:py-24 lg:px-margin-desktop">
-        <div className="pointer-events-none absolute left-1/2 top-0 h-80 w-[min(80vw,60rem)] -translate-x-1/2 rounded-full bg-primary/5 blur-[120px]" />
-        <div className="relative mx-auto flex max-w-[1280px] flex-col gap-12">
-          <div className="mx-auto max-w-3xl text-center">
-            <p className="mb-3 font-label-caps text-xs uppercase tracking-[0.2em] text-primary">Our working rhythm</p>
-            <h2 className="font-headline-lg text-3xl font-extrabold leading-tight text-on-surface sm:text-4xl lg:text-5xl">
-              Great Ideas Become Great Results When We Work as One.
-            </h2>
-            <p className="mt-5 text-base leading-7 text-on-surface-variant sm:text-lg">
-              At Solvexa, strong teams are built on trust, communication, collaboration, and a shared commitment to excellence. Every project brings together different skills and perspectives, and we work closely as one team to turn ideas into meaningful digital solutions.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-            {culturePillars.map((pillar) => (
-              <article
-                key={pillar.step}
-                className="group relative overflow-hidden rounded-[1.5rem] bg-surface-container-low/80 p-6 shadow-[0_18px_50px_-38px_rgba(0,0,0,0.95)] transition-all duration-300 hover:-translate-y-1 hover:bg-surface-container-high/75 sm:p-7"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">
-                    <span className="material-symbols-outlined text-xl">{pillar.icon}</span>
-                  </div>
-                  <div className="min-w-0">
-                    <div className="mb-2 flex items-center gap-3">
-                      <span className="font-mono text-[10px] font-bold tracking-[0.2em] text-primary/70">{pillar.step}</span>
-                      <span className="h-px w-8 bg-primary/30" />
-                    </div>
-                    <h3 className="font-headline-sm text-xl font-bold text-on-surface transition-colors group-hover:text-primary">
-                      {pillar.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-6 text-on-surface-variant">{pillar.desc}</p>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
-
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-            <p className="mt-8 font-headline-sm text-2xl font-bold text-white sm:text-3xl">One Team. One Vision. One Goal.</p>
-            <p className="mt-3 text-sm leading-6 text-on-surface-variant sm:text-base">
-              <strong className="font-semibold text-primary">We do not just work together, we grow together, solve together, and succeed together.</strong>
-            </p>
-          </div>
-        </div>
-      </section>
+      {/* How We Work Together Section */}
+      <HowWeWorkSection />
 
       {/* Stats Counter with Animated Numbers */}
       <StatsCounter />
