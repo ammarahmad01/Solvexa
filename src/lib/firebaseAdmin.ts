@@ -147,6 +147,7 @@ export interface CmsProjectPayload {
   brandSeparator?: string;
   title: string;
   brandLogoType?: string;
+  clientLogo?: string;
   deviceType?: "web" | "mobile" | "both";
   accentColor?: string;
   themeGlow?: string;
@@ -199,6 +200,7 @@ export async function getAllProjectsFromDb(): Promise<CmsProjectRecord[]> {
       brandSeparator: data.brandSeparator || "–",
       title: data.title || "",
       brandLogoType: data.brandLogoType || "custom-name-domain",
+      clientLogo: data.clientLogo || "",
       deviceType: data.deviceType || "web",
       accentColor: data.accentColor || "#f2ca50",
       themeGlow: data.themeGlow || "rgba(242, 202, 80, 0.25)",

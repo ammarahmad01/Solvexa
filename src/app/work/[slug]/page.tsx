@@ -170,7 +170,18 @@ export default async function ProjectDetailPage({ params }: WorkPageProps) {
           <div className="w-full grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 sm:p-6 rounded-3xl bg-surface-container-low/70 border border-outline-variant/25 mt-2 shadow-lg">
             <div>
               <p className="text-[10px] font-mono text-on-surface-variant uppercase tracking-wider">Client</p>
-              <p className="font-bold text-sm text-on-surface mt-1.5">{project.client}</p>
+              <div className="flex items-center gap-2 mt-1.5">
+                {project.clientLogo && (
+                  <img
+                    src={project.clientLogo}
+                    alt={project.client}
+                    className="h-5 w-auto object-contain"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                )}
+                <p className="font-bold text-sm text-on-surface">{project.client}</p>
+              </div>
             </div>
             <div>
               <p className="text-[10px] font-mono text-on-surface-variant uppercase tracking-wider">Timeline</p>

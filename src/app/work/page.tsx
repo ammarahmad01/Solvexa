@@ -2,7 +2,6 @@ import Link from "next/link";
 import { ProjectItem } from "../../data/work";
 import { getMergedWorkProjects } from "../../lib/firebaseAdmin";
 import ProjectBrandLogo from "../../components/ProjectBrandLogo";
-import ProjectDeviceDisplay from "../../components/ProjectDeviceDisplay";
 import TechLogo from "../../components/TechLogos";
 import ContactCtaSection from "../../components/ContactCtaSection";
 import ClientLoveSection from "../../components/ClientLoveSection";
@@ -36,14 +35,26 @@ function SectionHeader({ eyebrow, title, subtitle }: { eyebrow: string; title: s
    Project card content column (shared by left/right layouts)
 ============================================================ */
 function ProjectContent({ project }: { project: ProjectItem }) {
-  const hasTech = Array.isArray(project.technologies) && project.technologies.length > 0;
+  // Technologies to exclude from display (no proper icons)
+  const excludedTechs = [
+    "REST API",
+    "Dart",
+    "Machine Learning",
+    "Social Media",
+    "Content Strategies",
+    "Graphic Design",
+    "Google Maps",
+    "SQLite",
+    "Stripe API",
+  ];
+
+  const visibleTechs = project.technologies.filter(
+    (tech) => !excludedTechs.some((excluded) => tech.toLowerCase() === excluded.toLowerCase())
+  );
 
   return (
     <div className="flex flex-col items-start gap-4 sm:gap-5">
-      {/* Brand Logo */}
-      <ProjectBrandLogo type={project.brandLogoType} brandName={project.brandName} />
-
-      {/* Heading — brand name accented, title below, no separator dash */}
+      {/* Heading — brand name accented, title below */}
       <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug text-left">
         <span className="block" style={{ color: project.accentColor }}>
           {project.brandName}
@@ -57,13 +68,13 @@ function ProjectContent({ project }: { project: ProjectItem }) {
       </p>
 
       {/* Technology Stack (more visible, authentic vector marks) */}
-      {hasTech && (
+      {visibleTechs.length > 0 && (
         <div className="w-full flex flex-col gap-2">
           <p className="text-[11px] uppercase tracking-wider text-slate-400 font-semibold font-mono">
             Technology Stack
           </p>
           <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
-            {project.technologies.map((tech) => (
+            {visibleTechs.map((tech) => (
               <div
                 key={tech}
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-surface-container-high/70 border border-outline-variant/40 hover:border-primary/50 transition-all text-xs sm:text-[13px] font-medium text-slate-100"
@@ -245,12 +256,22 @@ export default async function WorkPage() {
                 href={`#${project.id}`}
                 className="group flex items-center gap-3 p-3.5 rounded-2xl bg-surface-container-low/50 border border-outline-variant/25 hover:border-outline-variant/60 transition-all"
               >
-                <span
-                  className="w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black font-mono shrink-0"
-                  style={{ backgroundColor: `${project.accentColor}22`, color: project.accentColor }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                {project.clientLogo ? (
+                  <img
+                    src={project.clientLogo}
+                    alt={project.brandName}
+                    className="w-8 h-8 rounded-xl object-contain shrink-0 bg-white/5 p-0.5"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                ) : (
+                  <span
+                    className="w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black font-mono shrink-0"
+                    style={{ backgroundColor: `${project.accentColor}22`, color: project.accentColor }}
+                  >
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                )}
                 <div className="min-w-0">
                   <p className="text-sm font-bold text-white truncate group-hover:text-primary transition-colors">
                     {project.brandName}
@@ -289,9 +310,41 @@ export default async function WorkPage() {
               <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
                 {isMockupLeft ? (
                   <>
-                    {/* Device Display (Left) */}
+                    {/* Project Image (Left) */}
                     <div className="lg:col-span-6 order-1">
-                      <ProjectDeviceDisplay project={project} isReversed={false} />
+                      {project.deviceType === "mobile" || project.deviceType === "both" ? (
+                        /* Mobile/Both: Show phone mockup with image */
+                        <div className="relative w-full flex items-center justify-center">
+                          <div className="relative w-36 sm:w-44 md:w-52 aspect-[9/16]">
+                            {/* Phone Frame */}
+                            <div className="absolute inset-0 rounded-[1.5rem] sm:rounded-[2rem] bg-slate-950 border-[3px] sm:border-4 border-slate-700/70 shadow-2xl" />
+                            {/* Screen with Image */}
+                            <div className="absolute inset-2 sm:inset-2.5 rounded-[1.25rem] sm:rounded-[1.5rem] overflow-hidden bg-slate-900">
+                              <img
+                                src={project.mobileImage || project.heroImage}
+                                alt={`${project.brandName} - ${project.title}`}
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </div>
+                            {/* Notch */}
+                            <div className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 w-16 sm:w-20 h-4 sm:h-5 bg-slate-950 rounded-b-lg sm:rounded-b-xl flex items-center justify-center">
+                              <div className="w-1.5 h-1.5 rounded-full bg-slate-700 mr-2" />
+                              <div className="w-6 sm:w-8 h-1 bg-slate-800 rounded-full" />
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        /* Web: Show image directly without container */
+                        <img
+                          src={project.heroImage}
+                          alt={`${project.brandName} - ${project.title}`}
+                          className="w-full max-h-[400px] sm:max-h-[460px] md:max-h-[540px] object-contain object-center"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      )}
                     </div>
 
                     {/* Content Column (Right) */}
@@ -306,9 +359,41 @@ export default async function WorkPage() {
                       <ProjectContent project={project} />
                     </div>
 
-                    {/* Device Display (Right) */}
+                    {/* Project Image (Right) */}
                     <div className="lg:col-span-6 order-1 lg:order-2">
-                      <ProjectDeviceDisplay project={project} isReversed={true} />
+                      {project.deviceType === "mobile" || project.deviceType === "both" ? (
+                        /* Mobile/Both: Show phone mockup with image */
+                        <div className="relative w-full flex items-center justify-center">
+                          <div className="relative w-36 sm:w-44 md:w-52 aspect-[9/16]">
+                            {/* Phone Frame */}
+                            <div className="absolute inset-0 rounded-[1.5rem] sm:rounded-[2rem] bg-slate-950 border-[3px] sm:border-4 border-slate-700/70 shadow-2xl" />
+                            {/* Screen with Image */}
+                            <div className="absolute inset-2 sm:inset-2.5 rounded-[1.25rem] sm:rounded-[1.5rem] overflow-hidden bg-slate-900">
+                              <img
+                                src={project.mobileImage || project.heroImage}
+                                alt={`${project.brandName} - ${project.title}`}
+                                className="w-full h-full object-cover"
+                                loading="lazy"
+                                decoding="async"
+                              />
+                            </div>
+                            {/* Notch */}
+                            <div className="absolute top-1.5 sm:top-2 left-1/2 -translate-x-1/2 w-16 sm:w-20 h-4 sm:h-5 bg-slate-950 rounded-b-lg sm:rounded-b-xl flex items-center justify-center">
+                              <div className="w-1.5 h-1.5 rounded-full bg-slate-700 mr-2" />
+                              <div className="w-6 sm:w-8 h-1 bg-slate-800 rounded-full" />
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        /* Web: Show image directly without container */
+                        <img
+                          src={project.heroImage}
+                          alt={`${project.brandName} - ${project.title}`}
+                          className="w-full max-h-[400px] sm:max-h-[460px] md:max-h-[540px] object-contain object-center"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      )}
                     </div>
                   </>
                 )}

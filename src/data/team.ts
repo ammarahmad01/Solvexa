@@ -21,17 +21,17 @@ export const teamData: TeamMember[] = [
   {
     id: "ammar-ahmed",
     name: "Ammar Ahmad",
-    role: "Chief Executive Officer (CEO)",
+    role: "Founder & Chief Executive Officer",
     department: "Executive Leadership",
-    experience: "Executive Director",
-    bio: "Visionary digital strategist directing Solvexa's global expansion, enterprise client partnerships, and world-class delivery standards with an unwavering focus on engineering excellence and client ROI.",
+    experience: "Founder & CEO",
+    bio: "Ammar leads Solvexa's overall vision, strategy, and client relationships, with expertise in full-stack development, artificial intelligence, and blockchain technology. He drives the company's technical and business direction, overseeing the delivery of scalable web applications, AI-powered tools, and blockchain-based systems.",
     highlights: [
-      "Global Enterprise Partnerships & Business Expansion",
-      "Strategic Governance & High-Impact Delivery Standards",
-      "Cross-Functional Team Culture & Client Success"
+      "Leads company vision, strategy, and client relationships",
+      "Expertise in full-stack development using modern web technologies",
+      "Oversees delivery of AI-powered and blockchain-based solutions"
     ],
     image: "/assets/Team/Ammar Ahmed.png",
-    skills: ["Strategic Vision", "Client Success", "Enterprise Partnerships", "Operations"],
+    skills: ["Company Vision", "Client Relationships", "Full-Stack Engineering", "AI & Blockchain"],
     social: {
       linkedin: "https://www.linkedin.com/in/ammar-ahmad-012a29261/",
       facebook: "https://www.facebook.com/profile.php?id=61573528962536",
@@ -41,17 +41,17 @@ export const teamData: TeamMember[] = [
   {
     id: "rohan-bin-ejaz",
     name: "Rohan Bin Ejaz",
-    role: "Chief Technology Officer (CTO)",
+    role: "Chief Technology Officer",
     department: "Engineering & Architecture",
-    experience: "Principal Architect",
-    bio: "Pioneering technologist spearheading Solvexa's full-stack architecture, 3D WebGL computation, distributed cloud infrastructure, and low-latency AI orchestration pipelines.",
+    experience: "CTO",
+    bio: "Rohan leads Solvexa's engineering direction, overseeing the development of web applications, mobile applications, and AI-powered systems. He is responsible for the company's technical architecture, ensuring products are scalable, reliable, and built on modern, industry-standard technologies.",
     highlights: [
-      "High-Scale Microservices & Cloud Infrastructure",
-      "Next.js, WebGL & Real-Time 3D Interactive Graphics",
-      "Autonomous AI Agent Orchestration & Distributed APIs"
+      "Leads technical architecture and engineering strategy",
+      "Oversees development of scalable web, mobile, and backend systems",
+      "Drives integration of artificial intelligence and machine learning into products"
     ],
     image: "/assets/Team/Rohan Bin Ejaz.png",
-    skills: ["Full-Stack Architecture", "Next.js & React", "WebGL & 3D", "Cloud & AI Pipelines"],
+    skills: ["Engineering Strategy", "Full-Stack & Mobile Development", "AI & ML Engineering", "Technical Architecture"],
     social: {
       linkedin: "https://www.linkedin.com/in/rohan-bin-ejaz-514177317/",
       facebook: "https://www.facebook.com/profile.php?id=61573528962536",
@@ -61,17 +61,17 @@ export const teamData: TeamMember[] = [
   {
     id: "abdullah-abbasi",
     name: "Abdullah Abbasi",
-    role: "Chief Marketing Officer (CMO)",
-    department: "Growth & Brand Strategy",
-    experience: "Growth Director",
-    bio: "Growth architect orchestrating Solvexa's multi-channel performance marketing, brand narratives, customer acquisition funnels, and global market positioning.",
+    role: "CMO & Creative Director",
+    department: "Marketing & Creative Direction",
+    experience: "CMO & Creative Director",
+    bio: "Abdullah leads Solvexa's brand, marketing, and creative direction, overseeing the visual identity and communication strategy that represents the company and its clients. He is responsible for the design, video, and marketing output that shapes how Solvexa presents itself to the world.",
     highlights: [
-      "High-Converting Customer Acquisition & Revenue Funnels",
-      "Global Brand Positioning & Digital Storytelling",
-      "Data-Driven Performance SEO & Audience Expansion"
+      "Leads brand strategy, marketing direction, and creative output",
+      "Oversees graphic design, branding, and marketing communications",
+      "Directs video production, motion graphics, and UI/UX design"
     ],
     image: "/assets/Team/abullah.png",
-    skills: ["Growth Marketing", "Brand Positioning", "Performance SEO", "Conversion Optimization"],
+    skills: ["Marketing & Brand Strategy", "Creative Direction", "Graphic Design & Video", "UI/UX & Animation"],
     social: {
       linkedin: "https://www.linkedin.com/in/abdullah-abbasi-03133a404/",
       facebook: "https://www.facebook.com/profile.php?id=61573528962536",

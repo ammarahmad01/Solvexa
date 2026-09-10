@@ -9,7 +9,7 @@ import SocialIcon from "../../components/SocialIcon";
 
 export const metadata = {
   title: "Our Team | Solvexa - Digital Engineering & Creative Collective",
-  description: "Meet the executive leadership — CEO, CTO, and CMO — driving world-class digital experiences at Solvexa.",
+  description: "Meet the executive leadership team driving world-class digital experiences at Solvexa.",
 };
 
 export default function TeamPage() {
@@ -19,16 +19,22 @@ export default function TeamPage() {
       <section className="relative w-full overflow-hidden px-margin-mobile pb-14 pt-12 text-center md:px-margin-tablet md:pb-20 lg:px-margin-desktop">
         <div className="pointer-events-none absolute left-1/2 top-[-12rem] h-[28rem] w-[min(80vw,60rem)] -translate-x-1/2 rounded-full bg-primary/10 blur-[130px]" />
         <div className="relative mx-auto flex max-w-4xl flex-col items-center">
-          <p className="mb-4 font-label-caps text-xs uppercase tracking-[0.22em] text-primary">Solvexa / the collective</p>
-          <h1 className="font-headline-lg text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Meet Our Team —{" "}
+          <h1 className="font-headline-lg text-5xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
             <span className="bg-gradient-to-r from-primary-fixed via-primary to-primary-container bg-clip-text text-transparent">
               Executive Leadership
             </span>
           </h1>
-          <p className="font-body-lg text-base sm:text-lg text-on-surface-variant mt-5 max-w-2xl leading-relaxed">
-            The leadership driving Solvexa&apos;s vision, technology, and growth — committed to architectural rigor, aesthetic beauty, and moving your business metrics forward.
-          </p>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white tracking-tight leading-snug mt-4 sm:mt-5 text-center">
+            The Leadership Behind Solvexa
+          </h2>
+          <div className="mt-6 sm:mt-7 max-w-3xl flex flex-col gap-3 text-center text-sm sm:text-[15px] text-on-surface-variant/90 leading-relaxed">
+            <p>
+              A focused leadership team driving strategy, engineering, and brand, turning ideas into digital products that deliver real results. Together, we combine technical expertise, creative vision, and business acumen to build solutions that matter.
+            </p>
+            <p>
+              From initial concept to final deployment, our leadership ensures every project meets the highest standards of quality, scalability, and user experience. We work closely with clients to understand their challenges and deliver tailored solutions that drive growth and innovation.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -40,7 +46,7 @@ export default function TeamPage() {
             return (
               <div
                 key={member.id}
-                className="team-profile group relative grid overflow-hidden rounded-[1.8rem] bg-surface-container-low/95 border border-outline-variant/30 hover:border-primary/50 shadow-xl hover:shadow-[0_18px_40px_-14px_rgba(242,202,80,0.16)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 lg:h-[400px] lg:grid-cols-12"
+                className="team-profile group relative grid overflow-hidden rounded-[1.8rem] bg-surface-container-low/95 border border-outline-variant/30 hover:border-primary/50 shadow-xl hover:shadow-[0_18px_40px_-14px_rgba(242,202,80,0.16)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 lg:h-[420px] lg:grid-cols-12"
                 style={{ animationDelay: `${index * 60}ms` }}
               >
                 {/* Content section: 7 cols on desktop with uniform padding */}
@@ -70,12 +76,12 @@ export default function TeamPage() {
                       {member.role}
                     </p>
 
-                    {/* Bio: Exactly 2 lines */}
-                    <p className="mt-3 text-sm leading-relaxed text-on-surface-variant line-clamp-2">
+                    {/* Bio: 3 lines */}
+                    <p className="mt-3 text-sm leading-relaxed text-on-surface-variant line-clamp-3">
                       {member.bio}
                     </p>
 
-                    {/* Key Highlights: Exactly 2 points */}
+                    {/* Key Highlights: 2 points */}
                     {member.highlights && member.highlights.length > 0 ? (
                       <div className="mt-3 space-y-1.5 border-l-2 border-primary/30 pl-3">
                         {member.highlights.slice(0, 2).map((item, hIdx) => (
@@ -129,6 +135,8 @@ export default function TeamPage() {
                     src={member.image}
                     alt={member.name}
                     className="h-full w-full object-cover object-[center_16%] filter brightness-[0.98] contrast-[1.03] transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                    decoding="async"
                   />
                   {/* Subtle directional edge fade into the card body */}
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface-container-low/90 via-transparent to-transparent lg:hidden" />
@@ -152,24 +160,32 @@ export default function TeamPage() {
       {/* Stats Counter with Animated Numbers */}
       <StatsCounter />
 
-      {/* Join Our Team Banner */}
+      {/* Closing CTA Section */}
       <section className="relative w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-space-xl">
         <div className="p-8 sm:p-12 rounded-3xl bg-gradient-to-r from-surface-container-low via-surface-container to-surface-container-lowest border border-primary/30 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
           <div>
-            <span className="text-xs font-mono text-primary uppercase tracking-widest font-bold">Careers at Solvexa</span>
+            <span className="text-xs font-mono text-primary uppercase tracking-widest font-bold">Start a Project</span>
             <h3 className="font-headline-sm text-2xl sm:text-3xl font-bold text-on-surface mt-1">
-              Want to Build the Future With Us?
+              Want to Work With Our Team?
             </h3>
             <p className="text-sm text-on-surface-variant mt-2 max-w-xl">
-              We are constantly seeking ambitious full-stack developers, mobile engineers, 3D artists, and growth strategists to join our team in Rawalpindi or remotely.
+              From strategy and design to engineering and AI, our leadership team works together to build digital products that deliver real results.
             </p>
           </div>
-          <a
-            href="mailto:info.solvexa@gmail.com?subject=Career%20Inquiry%20at%20Solvexa"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-label-md text-sm font-bold text-on-primary bg-gradient-to-r from-primary-fixed via-primary to-primary-container hover:shadow-[0_0_24px_rgba(242,202,80,0.5)] active:scale-95 transition-all shadow-xl shrink-0"
-          >
-            <span>Send your Resume</span>
-          </a>
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+            <a
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-label-md text-sm font-bold text-on-primary bg-gradient-to-r from-primary-fixed via-primary to-primary-container hover:shadow-[0_0_24px_rgba(242,202,80,0.5)] active:scale-95 transition-all shadow-xl"
+            >
+              <span>Start a Project</span>
+            </a>
+            <Link
+              href="/about"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full font-label-md text-sm font-bold text-primary border-2 border-primary/40 hover:border-primary hover:bg-primary/10 active:scale-95 transition-all"
+            >
+              <span>Meet the Full Team</span>
+            </Link>
+          </div>
         </div>
       </section>
 

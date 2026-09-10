@@ -28,7 +28,7 @@ export default function Footer() {
             <div className="flex flex-col gap-space-xs">
               <div className="flex items-center gap-space-xs">
                 <Link href="/">
-                  <img src="/assets/logo.png" alt="Solvexa Logo" className="h-14 w-auto object-contain drop-shadow-md hover:opacity-90 transition-opacity" />
+                  <img src="/assets/logo.png" alt="Solvexa Logo" className="h-14 w-auto object-contain drop-shadow-md hover:opacity-90 transition-opacity" loading="lazy" decoding="async" />
                 </Link>
               </div>
               <p className="font-body-md text-body-md text-on-surface-variant mt-2">

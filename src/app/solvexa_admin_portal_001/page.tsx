@@ -862,7 +862,7 @@ export default function AdminPortalPage() {
         {/* Left: Brand Mark */}
         <div className="flex items-center gap-3 sm:gap-4">
           <Link href="/" className="flex items-center group">
-            <img src="/assets/logo.png" alt="Solvexa" className="h-8 w-auto object-contain group-hover:scale-105 transition-transform" />
+            <img src="/assets/logo.png" alt="Solvexa" className="h-8 w-auto object-contain group-hover:scale-105 transition-transform" loading="lazy" decoding="async" />
           </Link>
 
           {/* Tab Switcher Pills */}

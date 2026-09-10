@@ -51,6 +51,8 @@ export default function ClientAttractionSection() {
                   src={item.image}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700 filter brightness-95 contrast-105"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-surface-container-low via-surface-container-low/20 to-transparent"></div>
               </div>

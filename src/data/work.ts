@@ -5,6 +5,7 @@ export interface ProjectItem {
   brandSeparator: string;
   title: string;
   brandLogoType: string;
+  clientLogo?: string;
   deviceType: "web" | "mobile" | "both";
   accentColor: string;
   themeGlow: string;
@@ -53,6 +54,7 @@ export const workData: ProjectItem[] = [
     brandSeparator: "–",
     title: "Punjab North — Digital Platform & Operations Ecosystem",
     brandLogoType: "alkhidmat",
+    clientLogo: "/assets/Client Logo/ALKHIDMAT-Logo.png",
     deviceType: "web",
     accentColor: "#10b981",
     themeGlow: "rgba(16, 185, 129, 0.25)",
@@ -60,8 +62,7 @@ export const workData: ProjectItem[] = [
     shortDesc: "Organizational website with online donations, CRM, ERP, and CMS.",
     description:
       "Alkhidmat Foundation Punjab North required a comprehensive digital platform capable of representing the organization's mission online while also supporting its operational and donation-related activities. Solvexa developed a modern organizational website combined with an online donation system and supporting management capabilities, giving visitors clear program information while giving the organization a structured way to manage digital content and operations.",
-    heroImage:
-      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/assets/Work/Alkhidmat.png",
     technologies: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL"],
     liveUrl: "#",
     client: "Alkhidmat Foundation Punjab North",
@@ -128,8 +129,7 @@ export const workData: ProjectItem[] = [
       "Educational platform with AI chatbot, school management, LMS, and CMS.",
     description:
       "Noor Educational System required more than a traditional educational website — it needed a digital ecosystem capable of presenting educational information while supporting students, staff, administration, learning resources, and communication. Solvexa developed a website integrated with an AI chatbot, school management capabilities, LMS functionality, and CMS features into one unified educational platform.",
-    heroImage:
-      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/assets/Work/Noor edu.png",
     technologies: ["Next.js", "React", "TypeScript", "OpenAI", "Node.js"],
     liveUrl: "#",
     client: "Noor Educational System",
@@ -189,7 +189,8 @@ export const workData: ProjectItem[] = [
     brandSeparator: "–",
     title: "Mobile Event Management Application",
     brandLogoType: "crowdcam",
-    deviceType: "mobile",
+    clientLogo: "/assets/Client Logo/Crowd Cam.png",
+    deviceType: "web",
     accentColor: "#f59e0b",
     themeGlow: "rgba(245, 158, 11, 0.25)",
     buttonGradient: "from-amber-500 to-orange-600",
@@ -197,10 +198,7 @@ export const workData: ProjectItem[] = [
       "Mobile event management application built with Flutter.",
     description:
       "CrowdCam is a mobile event management application developed with Flutter to simplify event-related activities and provide users with a centralized mobile experience. It focuses on organizing event information, managing users and event activities, and creating a smoother experience for participants and organizers.",
-    heroImage:
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
-    mobileImage:
-      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80",
+    heroImage: "/assets/Work/CrowdCam.png",
     technologies: ["Flutter", "Dart", "Firebase", "REST API"],
     liveUrl: "#",
     client: "CrowdCam",
@@ -260,8 +258,7 @@ export const workData: ProjectItem[] = [
       "Modern responsive website for an automotive business.",
     description:
       "Tayyab Autos required a modern online presence that could showcase its automotive products and services professionally while making it easier for potential customers to discover and contact the business. Solvexa created a responsive automotive website focused on clean presentation, strong visual hierarchy, easy navigation, and mobile accessibility.",
-    heroImage:
-      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/assets/Work/tayab auto.png",
     technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
     liveUrl: "#",
     client: "Tayyab Autos",
@@ -313,7 +310,8 @@ export const workData: ProjectItem[] = [
     brandSeparator: "–",
     title: "AI-Powered Personalized Meal Planning Platform",
     brandLogoType: "mealmates",
-    deviceType: "both",
+    clientLogo: "/assets/Client Logo/MealMates Logo.png",
+    deviceType: "web",
     accentColor: "#22c55e",
     themeGlow: "rgba(34, 197, 94, 0.25)",
     buttonGradient: "from-green-500 to-emerald-600",
@@ -321,10 +319,8 @@ export const workData: ProjectItem[] = [
       "AI-powered personalized meal planning platform.",
     description:
       "MealMates AI is an AI-powered meal planning platform combining machine learning, personalized recommendations, user management, administration, and mobile/web applications. The system generates personalized meal recommendations based on user information and preferences while providing an organized digital experience through web and mobile interfaces.",
-    heroImage:
-      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80",
-    mobileImage:
-      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=600&q=80",
+    heroImage: "/assets/Work/Meal Mates.png",
+    mobileImage: "/assets/Work/Meal Mates.png",
     technologies: ["Flutter", "Python", "Machine Learning", "REST API"],
     liveUrl: "#",
     client: "MealMates AI",
@@ -383,7 +379,8 @@ export const workData: ProjectItem[] = [
     brandSeparator: "–",
     title: "AI-Powered Plant Disease Detection & Care Management",
     brandLogoType: "plantguard",
-    deviceType: "both",
+    clientLogo: "/assets/Client Logo/PlantGurad.png",
+    deviceType: "web",
     accentColor: "#16a34a",
     themeGlow: "rgba(22, 163, 74, 0.25)",
     buttonGradient: "from-green-600 to-emerald-700",
@@ -391,10 +388,7 @@ export const workData: ProjectItem[] = [
       "AI-powered plant disease detection and care management app.",
     description:
       "PlantGuard is an AI-powered plant health application designed to identify plant diseases from images and provide a digital interface for plant care management. The project combines deep learning, computer vision, image classification, Flutter mobile development, and web application development, with a CNN-based deep learning model trained to classify plant images and identify potential diseases.",
-    heroImage:
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=80",
-    mobileImage:
-      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80",
+    heroImage: "/assets/Work/Plantguard.png",
     technologies: ["Python", "TensorFlow", "Flutter", "REST API"],
     liveUrl: "#",
     client: "PlantGuard",
@@ -782,7 +776,8 @@ export const workData: ProjectItem[] = [
     brandSeparator: "–",
     title: "AI-Powered Social Media Marketing & Management Assistant",
     brandLogoType: "nimbus",
-    deviceType: "both",
+    clientLogo: "/assets/Client Logo/Nimbus.png",
+    deviceType: "web",
     accentColor: "#ec4899",
     themeGlow: "rgba(236, 72, 153, 0.25)",
     buttonGradient: "from-pink-500 to-rose-600",
@@ -790,10 +785,8 @@ export const workData: ProjectItem[] = [
       "AI-powered social media marketing and management assistant.",
     description:
       "Nimbus is an AI-powered chatbot and digital assistant designed to support social media marketing and management activities across web and mobile experiences, combining conversational AI with business-focused workflows.",
-    heroImage:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
-    mobileImage:
-      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80",
+    heroImage: "/assets/Work/Nimbus.png",
+    mobileImage: "/assets/Work/Nimbus.png",
     technologies: ["Next.js", "React", "OpenAI", "Node.js", "Flutter"],
     liveUrl: "#",
     client: "Nimbus",
@@ -846,6 +839,7 @@ export const workData: ProjectItem[] = [
     brandSeparator: "–",
     title: "Collaborative Online Document Creation Platform",
     brandLogoType: "draftly",
+    clientLogo: "/assets/Client Logo/draftly LOGO.png",
     deviceType: "web",
     accentColor: "#6366f1",
     themeGlow: "rgba(99, 102, 241, 0.25)",
@@ -854,8 +848,7 @@ export const workData: ProjectItem[] = [
       "Collaborative online document creation platform.",
     description:
       "Draftly is a browser-based document creation and management platform designed around the experience of modern online document editors, providing users with a centralized environment to create, edit, organize, and manage digital documents through a clean web interface.",
-    heroImage:
-      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/assets/Work/draftly.png",
     technologies: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL"],
     liveUrl: "#",
     client: "Draftly",

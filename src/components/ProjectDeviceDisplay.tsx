@@ -144,7 +144,7 @@ function LaptopFrame({ project }: { project: ProjectItem }) {
                     <p>Protect Your Name.</p>
                   </div>
                   <div className="relative w-14 sm:w-24 h-7 sm:h-10 rounded bg-slate-200 overflow-hidden shadow border border-slate-300 flex items-center justify-center">
-                    <img src={project.heroImage} alt="Video thumbnail" className="w-full h-full object-cover" />
+                    <img src={project.heroImage} alt="Video thumbnail" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                     <div className="absolute w-3 sm:w-4 h-3 sm:h-4 rounded-full bg-[#0284c7] flex items-center justify-center text-white text-[6px] sm:text-[8px]">
                       ▶
                     </div>
@@ -229,7 +229,7 @@ function LaptopFrame({ project }: { project: ProjectItem }) {
               </div>
 
               <div className="relative w-full flex-grow overflow-hidden">
-                <img src={project.heroImage} alt={project.title} className="w-full h-full object-cover" />
+                <img src={project.heroImage} alt={project.title} className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/40 to-transparent flex flex-col justify-end p-2 sm:p-3.5">
                   <div className="flex items-center justify-between">
                     <div>
