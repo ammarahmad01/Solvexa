@@ -12,6 +12,11 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Do not render marketing navbar inside admin portal
+  if (pathname?.startsWith("/solvexa_admin_portal_001")) {
+    return null;
+  }
+
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -35,32 +40,32 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 px-margin-mobile md:px-margin-tablet lg:px-margin-desktop pt-space-md pointer-events-none">
       <div
-        className={`max-w-7xl mx-auto flex items-center justify-between h-16 sm:h-[72px] px-5 sm:px-8 rounded-full backdrop-blur-2xl transition-all duration-300 pointer-events-auto border ${
+        className={`max-w-7xl mx-auto flex items-center justify-between h-[72px] sm:h-[84px] px-6 sm:px-8 rounded-full backdrop-blur-2xl transition-all duration-300 pointer-events-auto border ${
           scrolled
-            ? "bg-surface-container-lowest/50 border-primary/30 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.8),0_0_20px_rgba(212,175,55,0.15)]"
-            : "bg-surface-container-lowest/20 border-white/10 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.4)] hover:border-white/20"
+            ? "bg-surface-container-lowest/60 border-primary/30 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.8),0_0_20px_rgba(212,175,55,0.15)]"
+            : "bg-surface-container-lowest/30 border-white/10 shadow-[0_10px_35px_-5px_rgba(0,0,0,0.4)] hover:border-white/20"
         }`}
       >
         {/* Logo */}
-        <div className="flex items-center gap-space-sm">
-          <Link className="flex items-center group" href="/">
+        <div className="flex items-center">
+          <Link className="flex items-center group py-1" href="/">
             <img
               src="/assets/logo.png"
               alt="Solvexa Logo"
-              className="h-8 sm:h-9 w-auto object-contain drop-shadow-md group-hover:opacity-90 transition-opacity"
+              className="h-10 sm:h-12 md:h-[50px] w-auto object-contain drop-shadow-md group-hover:opacity-95 transition-opacity"
             />
           </Link>
         </div>
 
         {/* Desktop Navigation Links */}
         <nav
-          className="hidden xl:flex items-center gap-1 p-1 rounded-full bg-white/[0.03] backdrop-blur-md border border-white/10"
+          className="hidden lg:flex items-center gap-2 sm:gap-2.5 p-1.5 rounded-full bg-white/[0.03] backdrop-blur-md border border-white/10 shadow-inner"
           data-active-classes="bg-surface-container-highest text-primary font-semibold shadow-[inset_0_1px_1px_rgba(242,202,80,0.2)]"
         >
           {/* Home */}
           <Link
             href="/"
-            className={`px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all ${
+            className={`px-4.5 py-2 rounded-full font-label-md text-sm font-medium transition-all ${
               isActive("/")
                 ? "bg-surface-container-highest text-primary font-semibold shadow-[inset_0_1px_1px_rgba(242,202,80,0.2)]"
                 : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
@@ -77,7 +82,7 @@ export default function Navbar() {
           >
             <Link
               href="/services"
-              className={`px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all inline-flex items-center gap-1 ${
+              className={`px-4.5 py-2 rounded-full font-label-md text-sm font-medium transition-all inline-flex items-center gap-1.5 ${
                 isActive("/services")
                   ? "bg-surface-container-highest text-primary font-semibold shadow-[inset_0_1px_1px_rgba(242,202,80,0.2)]"
                   : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
@@ -138,7 +143,7 @@ export default function Navbar() {
           {/* Work */}
           <Link
             href="/work"
-            className={`px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all ${
+            className={`px-4.5 py-2 rounded-full font-label-md text-sm font-medium transition-all ${
               isActive("/work")
                 ? "bg-surface-container-highest text-primary font-semibold shadow-[inset_0_1px_1px_rgba(242,202,80,0.2)]"
                 : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
@@ -150,7 +155,7 @@ export default function Navbar() {
           {/* About */}
           <Link
             href="/about"
-            className={`px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all ${
+            className={`px-4.5 py-2 rounded-full font-label-md text-sm font-medium transition-all ${
               isActive("/about")
                 ? "bg-surface-container-highest text-primary font-semibold shadow-[inset_0_1px_1px_rgba(242,202,80,0.2)]"
                 : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
@@ -162,7 +167,7 @@ export default function Navbar() {
           {/* Team */}
           <Link
             href="/team"
-            className={`px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all ${
+            className={`px-4.5 py-2 rounded-full font-label-md text-sm font-medium transition-all ${
               isActive("/team")
                 ? "bg-surface-container-highest text-primary font-semibold shadow-[inset_0_1px_1px_rgba(242,202,80,0.2)]"
                 : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
@@ -171,41 +176,22 @@ export default function Navbar() {
             Team
           </Link>
 
-          {/* Contact */}
-          <Link
-            href="/contact"
-            className={`px-space-md py-space-xs rounded-full font-label-md text-label-md transition-all ${
-              isActive("/contact")
-                ? "bg-surface-container-highest text-primary font-semibold shadow-[inset_0_1px_1px_rgba(242,202,80,0.2)]"
-                : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high"
-            }`}
-          >
-            Contact
-          </Link>
         </nav>
 
         {/* Right CTA Actions */}
-        <div className="flex items-center gap-space-sm">
-          <a
-            href="tel:+923288521417"
-            className="hidden md:inline-flex items-center gap-1.5 px-space-md py-space-xs rounded-full font-label-md text-xs text-on-surface-variant hover:text-primary transition-colors border border-outline-variant/30 hover:border-primary/40 bg-surface-container-lowest/40"
-          >
-            <span className="material-symbols-outlined text-sm text-primary">call</span>
-            <span>+92 328 8521417</span>
-          </a>
-
+        <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="relative inline-flex items-center justify-center px-space-lg py-space-xs rounded-full font-label-md text-label-md font-bold text-on-primary bg-gradient-to-r from-primary-fixed via-primary to-primary-container shadow-[0_4px_20px_rgba(212,175,55,0.35)] hover:shadow-[0_0_28px_rgba(242,202,80,0.65)] hover:scale-105 active:scale-95 transition-all duration-300 border border-primary-fixed/40"
+            className="relative inline-flex items-center justify-center px-6 py-2.5 sm:px-7 sm:py-2.5 rounded-full font-label-md text-sm sm:text-base font-bold text-on-primary bg-gradient-to-r from-primary-fixed via-primary to-primary-container shadow-[0_4px_20px_rgba(212,175,55,0.35)] hover:shadow-[0_0_28px_rgba(242,202,80,0.65)] hover:scale-105 active:scale-95 transition-all duration-300 border border-primary-fixed/40"
           >
-            <span className="relative z-10">Contact Us →</span>
+            <span className="relative z-10">Contact Us</span>
           </Link>
 
           {/* Mobile Hamburger Button */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high/60 border border-outline-variant/30 text-on-surface hover:text-primary transition-colors"
+            className="lg:hidden w-10 h-10 rounded-full flex items-center justify-center bg-surface-container-high/60 border border-outline-variant/30 text-on-surface hover:text-primary transition-colors"
             aria-label="Toggle navigation menu"
           >
             <span className="material-symbols-outlined text-xl">
@@ -217,10 +203,11 @@ export default function Navbar() {
 
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
-        <div className="xl:hidden mt-3 max-w-7xl mx-auto rounded-3xl bg-surface-container-low/95 backdrop-blur-2xl border border-outline-variant/40 shadow-2xl p-6 pointer-events-auto animate-in fade-in slide-in-from-top-3 duration-200">
+        <div className="lg:hidden mt-3 max-w-7xl mx-auto rounded-3xl bg-surface-container-low/95 backdrop-blur-2xl border border-outline-variant/40 shadow-2xl p-6 pointer-events-auto animate-in fade-in slide-in-from-top-3 duration-200">
           <div className="flex flex-col gap-2">
             <Link
               href="/"
+              onClick={() => setMobileMenuOpen(false)}
               className={`px-4 py-3 rounded-xl font-semibold text-sm transition-colors ${
                 isActive("/") ? "bg-surface-container-highest text-primary" : "text-on-surface hover:bg-surface-container-high"
               }`}
@@ -229,6 +216,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/services"
+              onClick={() => setMobileMenuOpen(false)}
               className={`px-4 py-3 rounded-xl font-semibold text-sm transition-colors ${
                 isActive("/services") ? "bg-surface-container-highest text-primary" : "text-on-surface hover:bg-surface-container-high"
               }`}
@@ -246,6 +234,7 @@ export default function Navbar() {
             </Link>
             <Link
               href="/about"
+              onClick={() => setMobileMenuOpen(false)}
               className={`px-4 py-3 rounded-xl font-semibold text-sm transition-colors ${
                 isActive("/about") ? "bg-surface-container-highest text-primary" : "text-on-surface hover:bg-surface-container-high"
               }`}
@@ -254,33 +243,20 @@ export default function Navbar() {
             </Link>
             <Link
               href="/team"
+              onClick={() => setMobileMenuOpen(false)}
               className={`px-4 py-3 rounded-xl font-semibold text-sm transition-colors ${
                 isActive("/team") ? "bg-surface-container-highest text-primary" : "text-on-surface hover:bg-surface-container-high"
               }`}
             >
               Our Team
             </Link>
-            <Link
-              href="/contact"
-              className={`px-4 py-3 rounded-xl font-semibold text-sm transition-colors ${
-                isActive("/contact") ? "bg-surface-container-highest text-primary" : "text-on-surface hover:bg-surface-container-high"
-              }`}
-            >
-              Contact Us
-            </Link>
             <div className="pt-4 mt-2 border-t border-outline-variant/20 flex flex-col gap-3">
-              <a
-                href="tel:+923288521417"
-                className="flex items-center gap-2 text-sm text-on-surface-variant hover:text-primary"
-              >
-                <span className="material-symbols-outlined text-base text-primary">call</span>
-                +92 328 8521417
-              </a>
               <Link
                 href="/contact"
-                className="w-full text-center py-3 rounded-full font-bold text-on-primary bg-gradient-to-r from-primary-fixed via-primary to-primary-container shadow-lg"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center py-3 rounded-full font-bold text-on-primary bg-gradient-to-r from-primary-fixed via-primary to-primary-container shadow-lg hover:shadow-xl transition-all"
               >
-                Contact Us →
+                Contact Us
               </Link>
             </div>
           </div>

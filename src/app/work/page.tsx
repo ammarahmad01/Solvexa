@@ -1,19 +1,23 @@
 import React from "react";
 import Link from "next/link";
-import { workData } from "../../data/work";
+import { ProjectItem } from "../../data/work";
+import { getMergedWorkProjects } from "../../lib/firebaseAdmin";
 import ProjectBrandLogo from "../../components/ProjectBrandLogo";
 import ProjectDeviceDisplay from "../../components/ProjectDeviceDisplay";
 import TechLogo from "../../components/TechLogos";
 import ContactCtaSection from "../../components/ContactCtaSection";
 import ClientLoveSection from "../../components/ClientLoveSection";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Work & Portfolio — Production Case Studies | Solvexa",
   description:
-    "Explore our complete portfolio of 15 production-grade SaaS platforms, AI ecosystems, mobile apps, enterprise terminals, and digital solutions built by Solvexa.",
+    "Explore our complete portfolio of production-grade SaaS platforms, AI ecosystems, mobile apps, enterprise terminals, and digital solutions built by Solvexa.",
 };
 
-export default function WorkPage() {
+export default async function WorkPage() {
+  const workData = (await getMergedWorkProjects()) as ProjectItem[];
   return (
     <div className="flex flex-col w-full text-on-surface select-none relative overflow-x-hidden">
       {/* ========================================================

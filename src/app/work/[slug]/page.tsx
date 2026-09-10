@@ -1,8 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { workData } from "../../../data/work";
+import { workData, ProjectItem } from "../../../data/work";
+import { getMergedWorkProjects } from "../../../lib/firebaseAdmin";
 import TechLogo from "../../../components/TechLogos";
 import ContactCtaSection from "../../../components/ContactCtaSection";
+
+export const dynamicParams = true;
 
 interface WorkPageProps {
   params: Promise<{
@@ -18,7 +21,8 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: WorkPageProps) {
   const { slug } = await params;
-  const project = workData.find((p) => p.slug === slug);
+  const allProjects = (await getMergedWorkProjects()) as ProjectItem[];
+  const project = allProjects.find((p) => p.slug === slug);
   if (!project) return { title: "Project Not Found | Solvexa" };
 
   return {
@@ -29,14 +33,15 @@ export async function generateMetadata({ params }: WorkPageProps) {
 
 export default async function ProjectDetailPage({ params }: WorkPageProps) {
   const { slug } = await params;
-  const projectIndex = workData.findIndex((p) => p.slug === slug);
+  const allProjects = (await getMergedWorkProjects()) as ProjectItem[];
+  const projectIndex = allProjects.findIndex((p) => p.slug === slug);
 
   if (projectIndex === -1) {
     notFound();
   }
 
-  const project = workData[projectIndex];
-  const nextProject = workData[(projectIndex + 1) % workData.length];
+  const project = allProjects[projectIndex];
+  const nextProject = allProjects[(projectIndex + 1) % allProjects.length];
 
   return (
     <div className="flex flex-col w-full text-on-surface select-none relative overflow-x-hidden">

@@ -1,7 +1,16 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import SocialIcon from "./SocialIcon";
 
 export default function Footer() {
+  const pathname = usePathname();
+
+  // Do not render marketing footer inside admin portal
+  if (pathname?.startsWith("/solvexa_admin_portal_001")) {
+    return null;
+  }
   return (
     <footer className="w-full relative z-10 mt-space-4xl bg-surface-container-lowest border-t border-outline-variant/20 overflow-hidden">
       {/* Ambient background SVG waves */}

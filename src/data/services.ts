@@ -5,6 +5,13 @@ export interface SubService {
   points: string[];
 }
 
+export interface ProcessStep {
+  step: string;
+  title: string;
+  desc: string;
+  deliverables: string;
+}
+
 export interface ServiceItem {
   id: string;
   slug: string;
@@ -15,13 +22,13 @@ export interface ServiceItem {
   shortDesc: string;
   heroImage: string;
   secondaryImage: string;
-  overview: string[];
-  icon: string;
   badge: string;
+  icon: string;
   subServicesTitle: string;
   subServices: SubService[];
+  overview: string[];
   whatsIncluded: string[];
-  process: { step: string; title: string; desc: string; deliverables: string }[];
+  process: ProcessStep[];
   industries: { name: string; desc: string; icon: string }[];
   hireBenefits: { title: string; desc: string; icon: string }[];
   technologies: { name: string; role: string; category: string }[];
@@ -30,85 +37,79 @@ export interface ServiceItem {
 }
 
 export const servicesData: ServiceItem[] = [
-  // 1. Web Development
+  // 01. Web Development & Enterprise Platforms
   {
     id: "web-dev",
     slug: "web-development",
-    aliases: ["web-applications"],
-    title: "Web Development",
-    heroHeadline: "Scalable Full-Stack Engineering & Ultra-Fast Web Experiences",
-    tagline: "Custom-built, high-performance websites & cloud web applications.",
-    shortDesc: "We build dynamic, high-performance web applications and enterprise platforms engineered for velocity, responsiveness, and scale.",
-    heroImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-    badge: "Full-Stack",
+    aliases: ["web-dev","web-applications","web-platforms"],
+    title: "Web Development & Enterprise Platforms",
+    heroHeadline: "Scalable Full-Stack Engineering & Ultra-Fast Enterprise Platforms",
+    tagline: "High-performance ERP, CRM, CMS, and eCommerce systems built for scale.",
+    shortDesc: "High-performance, scalable web systems engineered for maximum throughput, low latency, and intuitive operations built on sovereign, clean-code foundations.",
+    heroImage: "/assets/Services Images/Web Development image.jpeg",
+    secondaryImage: "/assets/Services Images/Web Development image.jpeg",
+    badge: "Enterprise Web",
     icon: "laptop_mac",
-    subServicesTitle: "Our Custom Web Development Services",
+    subServicesTitle: "Core Web & Enterprise Solutions",
     subServices: [
       {
-        title: "Enterprise SaaS Web Apps",
-        desc: "High-concurrency cloud software with tenant isolation, strict authentication, and sub-100ms API response rates.",
-        icon: "cloud_done",
-        points: ["Multi-tenant databases", "Role-based access control", "Automated billing & Stripe sync"]
-      },
-      {
-        title: "Next.js & React High-Velocity Frontends",
-        desc: "Blazing-fast rendering, server components, edge caching, and 100/100 Core Web Vitals optimization.",
-        icon: "speed",
-        points: ["Turbopack & App Router", "Sub-second cold starts", "Dynamic metadata & SEO schemas"]
-      },
-      {
-        title: "E-Commerce & Checkout Engines",
-        desc: "Custom high-conversion shopping platforms designed for high catalog volumes and instant checkout flows.",
-        icon: "shopping_cart",
-        points: ["Headless Shopify / MedusaJS", "Multi-currency gateways", "Real-time inventory sync"]
-      },
-      {
-        title: "Headless CMS & Custom WordPress",
-        desc: "Modular content architectures enabling marketing teams to publish without breaking developer workflows.",
-        icon: "edit_note",
-        points: ["Sanity, Strapi & Payload", "Custom Gutenberg blocks", "Zero-plugin security overhead"]
-      },
-      {
-        title: "REST & GraphQL API Microservices",
-        desc: "Robust backend endpoints with OpenAPI specifications, rate limiting, and distributed worker queues.",
+        title: "Enterprise Resource Planning (ERP)",
+        desc: "Centralized operations engines unifying supply chain tracking, automated payroll, multi-branch inventory, and role-based auditing.",
         icon: "hub",
-        points: ["Swagger documentation", "Redis caching layers", "Kafka / RabbitMQ pipelines"]
+        points: ["Supply chain & inventory tracking", "Automated payroll & financial audits", "Granular role-based access security"]
       },
       {
-        title: "3D WebGL & Interactive Experiences",
-        desc: "Spatial 3D product visualizers and interactive canvas experiences running smoothly at 60 FPS in browser.",
-        icon: "view_in_ar",
-        points: ["Three.js & GLSL shaders", "Mobile GPU optimization", "Interactive product configurators"]
+        title: "Customer Relationship Management (CRM)",
+        desc: "Tailored sales funnels, pipeline automation, omnichannel communication logs, automated invoicing, and third-party webhook integrations.",
+        icon: "support_agent",
+        points: ["Sales pipeline & lead tracking", "Omnichannel customer histories", "Automated invoicing & webhooks"]
+      },
+      {
+        title: "Headless & Bespoke CMS",
+        desc: "Decoupled content architectures separating presentation from data storage, supporting custom schemas and zero-bloat editorial workflows.",
+        icon: "space_dashboard",
+        points: ["Decoupled frontend & backend", "Custom relational schemas", "Sub-second editorial publishing"]
+      },
+      {
+        title: "eCommerce & Marketplaces",
+        desc: "High-concurrency digital commerce ecosystems with dynamic multi-currency wallets, automated tax engines, and low-friction checkout flows.",
+        icon: "shopping_bag",
+        points: ["High-concurrency checkout engines", "Multi-currency wallet integrations", "Automated tax & shipping rules"]
+      },
+      {
+        title: "Corporate & Portfolio Platforms",
+        desc: "High-converting brand platforms with kinetic micro-interactions, responsive 3D elements, dynamic metadata, and edge caching.",
+        icon: "laptop_mac",
+        points: ["Kinetic micro-interactions & WebGL", "Responsive design across all devices", "Global CDN edge caching"]
       }
     ],
     overview: [
-      "At Solvexa, web development goes far beyond writing clean code. We engineer mission-critical web applications that handle heavy real-time traffic, safeguard user data, and deliver frictionless conversions.",
-      "We replace bloated legacy monoliths with modern, decoupled architectures that scale smoothly as your user base expands across continents. Our CI/CD deployment pipelines guarantee zero-downtime releases and instant rollbacks."
+      "High-performance, scalable web systems engineered for maximum throughput, low latency, and intuitive operations.",
+      "From high-concurrency enterprise resource planning to client-facing web portfolios, every solution is built on sovereign, clean-code foundations — zero fragile shortcuts."
     ],
     whatsIncluded: [
-      "Custom Full-Stack Next.js 15 & React Architecture",
-      "TypeScript Strict Type Safety Across Client & Server",
-      "TailwindCSS Custom Design System & Responsive Tokens",
-      "PostgreSQL, MongoDB or MySQL Cloud Database Cluster",
-      "Automated End-to-End Testing (Playwright & Jest)",
-      "Global CDN Caching, SSL & Core Web Vitals Audit"
+      "Custom Full-Stack Next.js & Node.js Application",
+      "Enterprise Database Schema & Automated Backups",
+      "Tailwind CSS Responsive Design System",
+      "REST & GraphQL Microservices Architecture",
+      "Role-Based Access Control (RBAC) & OAuth 2.0",
+      "Full Source Code & Sovereign IP Ownership"
     ],
     process: [
-      { step: "01", title: "Concept & Architecture", desc: "Mapping user flows, API payloads, schema entities, and cloud infrastructure requirements.", deliverables: "System Architecture Blueprint & Tech Spec" },
-      { step: "02", title: "Interactive UI/UX Design", desc: "Wireframing, prototyping, and establishing component tokens in Figma for stakeholder alignment.", deliverables: "Complete Responsive Figma Prototype" },
-      { step: "03", title: "Agile Development", desc: "Sprint-based full-stack coding with continuous preview links deployed on every git commit.", deliverables: "Bi-Weekly Staging Environment Deployments" },
-      { step: "04", title: "Testing & Security Audit", desc: "Rigorous automated testing, cross-browser audits, load tests, and vulnerability scanning.", deliverables: "QA Pass Sign-Off & Performance Report" },
-      { step: "05", title: "Production Deployment", desc: "Zero-downtime cutover with automated domain DNS routing, CDN caching, and telemetry.", deliverables: "Live Production Release & Domain Handoff" },
-      { step: "06", title: "Ongoing Maintenance & SLA", desc: "24/7 uptime monitoring, server security patches, regular backups, and feature iterations.", deliverables: "SLA Support Agreement & Monthly Review" }
+      { step: "01", title: "Discovery & Scoping", desc: "Auditing business goals, technical constraints, and defining scope using MoSCoW prioritization.", deliverables: "System Architecture Blueprint & Tech Spec" },
+      { step: "02", title: "Architecture & Design", desc: "Designing database schemas, system architecture, and interactive Figma prototypes.", deliverables: "Complete Responsive Figma Prototype" },
+      { step: "03", title: "Engineering & Development", desc: "Sprint-based full-stack coding with continuous preview links deployed on every git commit.", deliverables: "Bi-Weekly Staging Deployments" },
+      { step: "04", title: "Testing & Quality Assurance", desc: "Rigorous automated testing, security vulnerability scans, and Core Web Vitals audits.", deliverables: "QA Pass Sign-Off & Performance Report" },
+      { step: "05", title: "Deployment & Launch", desc: "Zero-downtime cutover with automated domain DNS routing, CDN caching, and telemetry.", deliverables: "Live Production Release & Domain Handoff" },
+      { step: "06", title: "Growth & SLA Monitoring", desc: "24/7 uptime monitoring, server security patches, regular backups, and feature iterations.", deliverables: "SLA Support Agreement & Monthly Review" }
     ],
     industries: [
-      { name: "FinTech & Banking", desc: "High-frequency trade dashboards, encrypted wallets, and banking APIs.", icon: "account_balance" },
-      { name: "HealthTech & Med", desc: "HIPAA-compliant telemetry, appointment portals, and diagnostic viewers.", icon: "medical_services" },
-      { name: "E-Commerce & Retail", desc: "Global omni-channel storefronts with automated fulfillment webhooks.", icon: "storefront" },
-      { name: "SaaS & Enterprise", desc: "B2B client portals with granular role permissions and subscription billing.", icon: "business_center" },
-      { name: "Logistics & Fleet", desc: "Real-time dispatch tracking, route optimization, and manifest generation.", icon: "local_shipping" },
-      { name: "EdTech & Learning", desc: "Interactive course platforms, video streaming, and quiz analytics.", icon: "school" }
+      { name: "FinTech & Banking", desc: "Real-time ledger processing and multi-currency transactions.", icon: "account_balance" },
+      { name: "HealthTech & Med", desc: "HIPAA-ready patient portals and diagnostic records.", icon: "medical_services" },
+      { name: "E-Commerce & Retail", desc: "High-concurrency flash sales and inventory sync.", icon: "shopping_cart" },
+      { name: "SaaS & Enterprise", desc: "Multi-tenant cloud apps with subscription billing.", icon: "cloud" },
+      { name: "Logistics & Fleet", desc: "Live GPS asset tracking and automated dispatching.", icon: "local_shipping" },
+      { name: "EdTech & Learning", desc: "Interactive student portals and course progression engines.", icon: "school" }
     ],
     hireBenefits: [
       { title: "Fast 48-Hour Onboarding", desc: "Pre-vetted senior developers ready to join your repo within 2 business days.", icon: "bolt" },
@@ -119,107 +120,101 @@ export const servicesData: ServiceItem[] = [
       { title: "Full IP & Code Ownership", desc: "All intellectual property, repositories, and credentials belong 100% to you.", icon: "security" }
     ],
     technologies: [
-      { name: "Next.js", role: "Framework", category: "Frontend" },
       { name: "React", role: "UI Library", category: "Frontend" },
-      { name: "Node.js", role: "Backend Runtime", category: "Backend" },
-      { name: "Express.js", role: "REST API", category: "Backend" },
-      { name: "TypeScript", role: "Language", category: "Full-Stack" },
-      { name: "PostgreSQL", role: "Database", category: "Database" },
-      { name: "MongoDB", role: "Database", category: "Database" },
-      { name: "TailwindCSS", role: "Styling", category: "Frontend" }
+      { name: "Next.js", role: "App Framework", category: "Full-Stack" },
+      { name: "TypeScript", role: "Type Safety", category: "Core" },
+      { name: "Tailwind CSS", role: "Styling Engine", category: "Design" },
+      { name: "Node.js", role: "Server Runtime", category: "Backend" },
+      { name: "Python", role: "Services & APIs", category: "Backend" },
+      { name: "FastAPI", role: "High-Speed Microservices", category: "Backend" },
+      { name: "PostgreSQL", role: "Relational DB", category: "Database" },
+      { name: "MySQL", role: "Relational DB", category: "Database" },
+      { name: "Redis", role: "In-Memory Cache", category: "Caching" },
+      { name: "Supabase", role: "Cloud Postgres & Auth", category: "Database" },
+      { name: "MongoDB", role: "Document Store", category: "Database" },
+      { name: "AWS", role: "Cloud Infrastructure", category: "Cloud" },
+      { name: "Docker", role: "Containerization", category: "DevOps" }
     ],
     faqs: [
-      { q: "How long does a custom web development sprint take?", a: "Standard MVP and marketing web platforms take 3 to 6 weeks. Complex enterprise SaaS platforms with multi-tenant databases typically take 6 to 12 weeks." },
-      { q: "Will our website be SEO-optimized and score 95+ on Google Lighthouse?", a: "Yes. Every website we construct is server-rendered, complies strictly with Core Web Vitals, uses semantic HTML5 tags, and includes OpenGraph and Schema markup." },
-      { q: "Can we hire dedicated full-stack developers on a monthly retainer?", a: "Yes, our outsourcing pod model lets you hire 1 to 5 dedicated engineers fully dedicated to your backlog with weekly sprint demos." }
+      { q: "What tech stack do you recommend for high-concurrency web apps?", a: "We typically engineer with Next.js (App Router) on the frontend, Node.js or FastAPI microservices on the backend, and PostgreSQL with Redis caching for scalable, sub-second responses." },
+      { q: "Do we retain full ownership of the source code and IP?", a: "Yes, unconditionally. All repositories, Figma design files, cloud accounts, and IP belong 100% to you from day one." },
+      { q: "Can you modernize an existing legacy web application?", a: "Yes. We execute phased refactoring to migrate legacy PHP/Monolith applications to modern Next.js microservice architectures without disrupting live user traffic." }
     ],
     stats: [
-      { value: "99.9%", label: "Platform Uptime SLA" },
-      { value: "0.4s", label: "Average First Contentful Paint" },
-      { value: "65+", label: "Web Applications Shipped" },
-      { value: "100%", label: "Client Code Ownership" }
+      { value: "99.99%", label: "Uptime SLA Guarantee" },
+      { value: "< 100ms", label: "Average API Response Time" },
+      { value: "100%", label: "Clean Code & IP Ownership" },
+      { value: "48 hrs", label: "Rapid Onboarding Speed" }
     ]
   },
 
-  // 2. Mobile App Development
+  // 02. Mobile App Development
   {
     id: "mobile-dev",
     slug: "mobile-app-development",
-    aliases: ["mobile-applications"],
+    aliases: ["mobile-apps","mobile-development","app-development","ios-android-development"],
     title: "Mobile App Development",
     heroHeadline: "Fluid Native-Feel iOS & Android Apps Built for Scale",
-    tagline: "Seamless cross-platform apps powered by React Native and Flutter.",
-    shortDesc: "Create engaging, intuitive mobile applications that deliver seamless experiences on iOS and Android platforms.",
-    heroImage: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Native and cross-platform apps with offline-first, hardware-integrated performance.",
+    shortDesc: "Native and cross-platform mobile architectures engineered for smooth 60–120 FPS rendering, native hardware integration, and resilient offline-first operation across iOS and Android ecosystems.",
+    heroImage: "/assets/Services Images/Mobile App Development Image.jpeg",
+    secondaryImage: "/assets/Services Images/Mobile App Development Image.jpeg",
     badge: "iOS & Android",
     icon: "phone_iphone",
-    subServicesTitle: "Our Custom Mobile Development Services",
+    subServicesTitle: "Core Mobile Solutions",
     subServices: [
       {
-        title: "React Native Universal Apps",
-        desc: "Single codebase delivering native iOS and Android experiences with up to 90% code reusability.",
-        icon: "devices",
-        points: ["Native bridge modules", "Hermes engine performance", "Redux / Zustand state architecture"]
+        title: "Cross-Platform Engineering",
+        desc: "Single-codebase applications powered by Flutter and React Native delivering native execution speeds across operating systems.",
+        icon: "mobile_friendly",
+        points: ["Flutter & React Native frameworks", "Single shared codebase efficiency", "Fluid 60-120 FPS rendering"]
       },
       {
-        title: "Flutter Cross-Platform Apps",
-        desc: "Skia/Impeller-rendered pixel-perfect mobile applications with high animation fidelity.",
-        icon: "flutter",
-        points: ["Hardware acceleration", "Custom material styling", "Multi-platform expansion"]
+        title: "Native Platform Development",
+        desc: "High-performance native builds using Swift (SwiftUI) for iOS and Kotlin (Jetpack Compose) for Android.",
+        icon: "phone_iphone",
+        points: ["Swift & SwiftUI for iOS", "Kotlin & Jetpack Compose for Android", "Low-level OS memory optimization"]
       },
       {
-        title: "Offline-First Data Architecture",
-        desc: "Local SQLite / Realm / MMKV storage ensuring uninterrupted user workflow during network drops.",
-        icon: "cloud_off",
-        points: ["Optimistic UI updates", "Background sync queues", "Conflict resolution algorithms"]
+        title: "Offline-First Synchronization",
+        desc: "Local persistence via encrypted databases with automatic background sync and conflict resolution on reconnect.",
+        icon: "sync",
+        points: ["Encrypted local database storage", "Background delta synchronization", "Automated conflict resolution"]
       },
       {
-        title: "Hardware & Sensor Integration",
-        desc: "Direct integration with device camera, biometric FaceID, GPS geofencing, accelerometer, and Bluetooth.",
-        icon: "sensors",
-        points: ["Biometric auth", "Turn-by-turn map routing", "BLE beacon scanning"]
-      },
-      {
-        title: "Real-Time Push & Chat Engines",
-        desc: "WebSocket and Firebase Cloud Messaging pipelines for real-time order alerts and peer-to-peer messaging.",
-        icon: "notifications_active",
-        points: ["APNs & FCM notifications", "Socket.io streaming", "Deep-linking routing"]
-      },
-      {
-        title: "App Store Publishing & Compliance",
-        desc: "End-to-end management of Apple Developer and Google Play Console approvals, test tracks, and guidelines.",
-        icon: "store",
-        points: ["TestFlight beta distribution", "Privacy manifest audits", "App Store Optimization (ASO)"]
+        title: "Hardware Integration",
+        desc: "Low-latency sensor communication covering Bluetooth Low Energy (BLE), LiDAR, Camera2 API, biometric authentication, and background geofencing.",
+        icon: "developer_board",
+        points: ["Bluetooth Low Energy (BLE) & LiDAR", "Biometric FaceID & fingerprint auth", "Background GPS & geofencing"]
       }
     ],
     overview: [
-      "Solvexa engineers high-retention mobile experiences that users love to open every single day. We bridge native device performance with rapid cross-platform delivery so you launch faster without sacrificing UX quality.",
-      "From fintech payment apps with biometric encryption to logistics dispatch hubs with GPS background tracking, our engineering standards guarantee battery efficiency, low memory footprint, and crash-free sessions."
+      "Native and cross-platform mobile architectures engineered for smooth 60–120 FPS rendering, native hardware integration, and resilient offline-first operation across iOS and Android ecosystems.",
+      "We design intuitive mobile experiences that captivate users and leverage the full power of modern smartphone hardware."
     ],
     whatsIncluded: [
-      "iOS & Android Production Build via React Native / Flutter",
-      "Native Component Bridging & Native Module Architecture",
-      "Offline-First SQLite / MMKV Data Synchronization",
-      "Firebase Push Notifications & Analytics Integration",
-      "TestFlight & Google Play Internal Testing Tracks",
-      "Post-Launch Crashlytics Monitoring & Store Approval Guarantee"
+      "Native iOS & Android Universal Builds",
+      "Apple HIG & Google Material Design System",
+      "Offline-First Encrypted Database Architecture",
+      "Push Notification & Background Sync Services",
+      "TestFlight & Google Play Console Submission",
+      "Post-Launch Device Compatibility Maintenance"
     ],
     process: [
-      { step: "01", title: "App Blueprint & Specs", desc: "Defining user personas, offline caching logic, screen transitions, and SDK requirements.", deliverables: "Interactive Mobile Wireframes & Technical Specs" },
-      { step: "02", title: "Native UI/UX Design", desc: "Designing following Apple HIG and Google Material guidelines with dark mode support.", deliverables: "Complete Mobile Figma Prototype with Micro-Interactions" },
-      { step: "03", title: "Agile Development", desc: "Bi-weekly sprint builds compiled and delivered directly to your device via TestFlight.", deliverables: "TestFlight & APK Preview Builds" },
-      { step: "04", title: "Device Matrix Testing", desc: "Testing across dozens of physical screen sizes, CPU throttles, and network speeds.", deliverables: "Crash-Free Diagnostic Report" },
-      { step: "05", title: "Store Submission & Launch", desc: "Managing store metadata, compliance questionnaires, privacy manifests, and review approval.", deliverables: "Published App on Apple App Store & Google Play" },
-      { step: "06", title: "Continuous Iteration", desc: "Real-time crash monitoring, OS version compatibility updates, and feature updates.", deliverables: "Monthly Maintenance & Bug Fix Releases" }
+      { step: "01", title: "Discovery & Scoping", desc: "Defining user personas, offline caching logic, screen transitions, and SDK requirements.", deliverables: "Mobile Wireframes & Technical Specs" },
+      { step: "02", title: "Architecture & Design", desc: "Designing following Apple HIG and Google Material guidelines with dark mode support.", deliverables: "Mobile Figma Prototype with Micro-Interactions" },
+      { step: "03", title: "Engineering & Development", desc: "Bi-weekly sprint builds compiled and delivered directly to your device via TestFlight.", deliverables: "TestFlight & APK Preview Builds" },
+      { step: "04", title: "Device Matrix Testing", desc: "Testing across physical screen sizes, CPU throttles, and varying network speeds.", deliverables: "Crash-Free Diagnostic Report" },
+      { step: "05", title: "Store Submission & Launch", desc: "Managing store metadata, compliance questionnaires, privacy manifests, and review approval.", deliverables: "Published App on App Store & Google Play" },
+      { step: "06", title: "Growth & SLA Monitoring", desc: "Real-time crash monitoring, OS version compatibility updates, and feature updates.", deliverables: "Monthly Maintenance & Bug Fix Releases" }
     ],
     industries: [
-      { name: "FinTech & Payments", desc: "Biometric mobile banking, crypto wallets, and micro-investment apps.", icon: "payments" },
-      { name: "Health & Fitness", desc: "Workout trackers, telehealth consultations, and wearable device sync.", icon: "fitness_center" },
-      { name: "On-Demand Delivery", desc: "Live driver tracking, customer dispatch, and automated billing.", icon: "moped" },
-      { name: "Social & Community", desc: "Real-time feed algorithms, video reels, and instant group chat.", icon: "forum" },
-      { name: "Enterprise Field CRM", desc: "Sales rep order capture, offline inventory checks, and digital signatures.", icon: "assignment" },
-      { name: "Travel & Hospitality", desc: "Room bookings, interactive flight maps, and digital room key access.", icon: "flight" }
+      { name: "FinTech & Payments", desc: "Biometric login, QR code payments, and instant alerts.", icon: "wallet" },
+      { name: "Health & Fitness", desc: "HealthKit integration, workout logs, and wearable sync.", icon: "fitness_center" },
+      { name: "On-Demand Delivery", desc: "Live GPS driver tracking, push alerts, and routing.", icon: "delivery_dining" },
+      { name: "Social & Community", desc: "Real-time chat, story feeds, and interactive media.", icon: "forum" },
+      { name: "Enterprise Field CRM", desc: "Offline data capture for technicians and field agents.", icon: "badge" },
+      { name: "Travel & Hospitality", desc: "Digital keycards, ticket scanning, and itinerary planning.", icon: "flight" }
     ],
     hireBenefits: [
       { title: "React Native & Flutter Leads", desc: "Hire senior mobile engineers with verified App Store deployments.", icon: "mobile_friendly" },
@@ -230,343 +225,309 @@ export const servicesData: ServiceItem[] = [
       { title: "Direct Slack Communication", desc: "Daily direct collaboration with your mobile squad without intermediary layers.", icon: "chat" }
     ],
     technologies: [
-      { name: "React Native", role: "Mobile Framework", category: "Mobile" },
-      { name: "Flutter", role: "Google Framework", category: "Mobile" },
-      { name: "Firebase", role: "Cloud Backend", category: "Backend" },
-      { name: "Swift", role: "iOS Native", category: "Mobile" },
-      { name: "Kotlin", role: "Android Native", category: "Mobile" },
-      { name: "Expo", role: "Tooling", category: "Mobile" }
+      { name: "Flutter", role: "Cross-Platform Framework", category: "Mobile" },
+      { name: "React Native", role: "Cross-Platform Framework", category: "Mobile" },
+      { name: "Swift", role: "Native iOS", category: "Mobile" },
+      { name: "Kotlin", role: "Native Android", category: "Mobile" },
+      { name: "Firebase", role: "Auth, Push & Database", category: "Backend" },
+      { name: "Expo", role: "React Native Tooling", category: "Mobile" }
     ],
     faqs: [
-      { q: "Do you develop for both iOS and Android simultaneously?", a: "Yes. By utilizing React Native or Flutter, we deliver synchronized builds for both iPhone and Android devices from a single high-quality codebase." },
-      { q: "Who manages the developer accounts on the App Store?", a: "You retain full ownership of your Apple and Google developer accounts. We request developer team permissions to upload and manage the submissions on your behalf." },
-      { q: "Can the app function when users lose internet access?", a: "Yes, we implement offline-first architecture with local encrypted databases that instantly sync whenever network connectivity restores." }
+      { q: "Should we build cross-platform (Flutter/React Native) or native?", a: "Cross-platform using Flutter or React Native delivers 95% shared code with near-identical performance to native, saving significant development cost. Native (Swift/Kotlin) is reserved for specialized low-level hardware or Bluetooth drivers." },
+      { q: "How do you handle App Store & Play Store approval?", a: "We manage the entire submission pipeline, from privacy manifests and app metadata to review communication, guaranteeing successful store publication." },
+      { q: "Does the app work without an internet connection?", a: "Yes. We build offline-first data architectures that persist records locally and sync changes automatically once connectivity resumes." }
     ],
     stats: [
-      { value: "45+", label: "Mobile Apps Published" },
-      { value: "99.8%", label: "Crash-Free User Sessions" },
-      { value: "60 FPS", label: "Smooth Animation Standard" },
-      { value: "4.8/5", label: "Average App Store Rating" }
+      { value: "60-120", label: "FPS Smooth Rendering" },
+      { value: "99.8%", label: "Crash-Free Session Rate" },
+      { value: "100%", label: "Store Approval Guarantee" },
+      { value: "40%", label: "Cost Savings with Shared Code" }
     ]
   },
 
-  // 3. UI/UX Design
+  // 03. UI/UX Design & Design Systems
   {
     id: "ui-ux",
     slug: "ui-ux-design",
-    aliases: ["ui-ux"],
-    title: "UI/UX Design",
+    aliases: ["ui-ux","ux-design","ui-design","product-design"],
+    title: "UI/UX Design & Design Systems",
     heroHeadline: "Human-Centered Design Systems & Intuitive Digital Interfaces",
-    tagline: "Interfaces that are as functional as they are beautiful.",
-    shortDesc: "Craft visually stunning, user-friendly interfaces and comprehensive Figma design systems that elevate conversions and engagement.",
-    heroImage: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Human-centered, accessible interfaces backed by scalable design systems.",
+    shortDesc: "Human-centered product design that translates complex enterprise logic into intuitive, conversion-focused interfaces backed by scalable design systems.",
+    heroImage: "/assets/Services Images/Ux and Ui Development Images.jpeg",
+    secondaryImage: "/assets/Services Images/Ux and Ui Development Images.jpeg",
     badge: "Human-Centered",
     icon: "palette",
-    subServicesTitle: "Our Custom UI/UX Design Services",
+    subServicesTitle: "Core UI/UX Solutions",
     subServices: [
       {
-        title: "User Research & Heuristic Audits",
-        desc: "Quantitative behavioral analysis, user interviews, and competitor gap mapping to uncover friction points.",
-        icon: "psychology",
-        points: ["Persona development", "Customer journey mapping", "Conversion funnel analysis"]
+        title: "Enterprise Design Systems",
+        desc: "Atomic design tokens (color, typography, spatial units, component variants) built in Figma for direct translation to Tailwind CSS.",
+        icon: "token",
+        points: ["Figma atomic token architecture", "Direct translation to Tailwind CSS", "Comprehensive variant libraries"]
       },
       {
-        title: "Wireframing & Information Architecture",
-        desc: "Low-fidelity structural blueprints defining navigation hierarchies and content priority before visual styling.",
-        icon: "schema",
-        points: ["Sitemaps & user flows", "Low-fidelity wireframes", "Task completion optimization"]
+        title: "UX Discovery & Journey Mapping",
+        desc: "User research, heuristic reviews, information architecture (IA), and low-fidelity wireframing to remove conversion bottlenecks.",
+        icon: "travel_explore",
+        points: ["User persona research & interviews", "Information architecture (IA) mapping", "Conversion bottleneck audits"]
       },
       {
-        title: "Comprehensive Figma Design Systems",
-        desc: "Atomic UI components, responsive auto-layout variants, and CSS-aligned design tokens.",
-        icon: "view_quilt",
-        points: ["Dark & Light mode tokens", "Typography & color scales", "Accessible WCAG contrast ratios"]
+        title: "High-Fidelity Interface Design",
+        desc: "Bespoke dark and light UI layouts with micro-interactions, depth, and strict WCAG 2.1 AA/AAA accessibility compliance.",
+        icon: "palette",
+        points: ["Bespoke dark and light mode UI", "Tactile micro-interaction design", "WCAG 2.1 AA/AAA compliance"]
       },
       {
-        title: "High-Fidelity Interactive Prototypes",
-        desc: "Realistic clickable prototypes with smart animations simulating real application physics.",
+        title: "Interactive Prototyping",
+        desc: "Realistic clickable prototypes for usability validation, investor demos, and complete engineering handoffs.",
         icon: "touch_app",
-        points: ["Figma smart-animate", "Micro-interaction specs", "Usability test recordings"]
-      },
-      {
-        title: "Conversion Rate Optimization (CRO)",
-        desc: "Data-backed landing page and checkout redesigns specifically engineered to maximize signup and purchase conversions.",
-        icon: "trending_up",
-        points: ["A/B variant design", "Heatmap analysis", "Value-proposition clarity"]
-      },
-      {
-        title: "Developer Handoff & Token Specs",
-        desc: "Pixel-perfect handoff files with explicit spacing units, flexbox specifications, and export-ready SVG assets.",
-        icon: "developer_mode",
-        points: ["Token JSON export", "Responsive breakpoints", "Zero-ambiguity developer specs"]
+        points: ["High-fidelity clickable prototypes", "Usability test validation", "Pixel-perfect developer handoffs"]
       }
     ],
     overview: [
-      "Great digital design solves real business problems. At Solvexa, our design team combines cognitive psychology with sleek modern aesthetics to craft digital products that reduce user churn and accelerate adoption.",
-      "We design directly with engineering constraints in mind. Our components translate 1-to-1 into modern Tailwind CSS and React code, eliminating the frustrating gap between Figma mockups and production builds."
+      "Human-centered product design that translates complex enterprise logic into intuitive, conversion-focused interfaces.",
+      "Every project is anchored by a scalable design system that maps directly to production code, ensuring design consistency across platforms."
     ],
     whatsIncluded: [
-      "Complete Master Figma Library (.fig) with Auto-Layout 5.0",
-      "Interactive Multi-Platform Prototypes (Desktop, Tablet, Mobile)",
-      "Design Tokens Architecture (Colors, Typography, Spacing, Shadows)",
-      "Comprehensive Icon & Illustration Vector Archive",
-      "Usability Testing Documentation & User Journey Maps",
-      "Complete Developer Handoff Guide with CSS/Tailwind Properties"
+      "Complete Figma Design System & UI Kit",
+      "Atomic Token Specs (Typography, Colors, Spacers)",
+      "High-Fidelity Desktop, Tablet & Mobile Views",
+      "Interactive Clickable Prototyping",
+      "Micro-Interaction & Motion Specs",
+      "Developer Handoff Documentation"
     ],
     process: [
-      { step: "01", title: "Discovery & Empathy", desc: "Researching target user pain points, business goals, and competitive benchmarks.", deliverables: "User Persona Deck & Competitive Benchmark" },
-      { step: "02", title: "Information Architecture", desc: "Mapping core navigation structures and user flow diagrams.", deliverables: "Sitemaps & Low-Fidelity Wireframes" },
-      { step: "03", title: "Visual Exploration", desc: "Establishing moodboards, typography pairings, color systems, and visual identity.", deliverables: "2 Visual Style Directions for Sign-Off" },
-      { step: "04", title: "High-Fidelity Screen Design", desc: "Fleshing out all product states, edge cases, error states, and responsive views.", deliverables: "Complete Screen Design Archive in Figma" },
+      { step: "01", title: "Discovery & User Research", desc: "Researching target user pain points, business goals, and competitive benchmarks.", deliverables: "User Persona Deck & Benchmarks" },
+      { step: "02", title: "Information Architecture", desc: "Mapping core navigation structures, information hierarchies, and user flows.", deliverables: "Sitemaps & Low-Fidelity Wireframes" },
+      { step: "03", title: "Visual Exploration & Tokens", desc: "Establishing moodboards, typography pairings, color systems, and token foundations.", deliverables: "Visual Style Direction & Tokens" },
+      { step: "04", title: "High-Fidelity UI Design", desc: "Fleshing out product states, edge cases, error states, and responsive views in Figma.", deliverables: "Complete Screen Design Archive" },
       { step: "05", title: "Interactive Prototyping", desc: "Linking screens with tactile micro-interactions and transitions for usability tests.", deliverables: "Clickable Usability Test Prototype" },
-      { step: "06", title: "Developer Handoff", desc: "Exporting tokenized design system files and conducting handoff review with engineers.", deliverables: "Design System Tokens & Developer Walkthrough" }
+      { step: "06", title: "Developer Handoff & Specs", desc: "Specifying design tokens, redlines, and animation curves for pixel-perfect coding.", deliverables: "Figma Dev Mode Token Package" }
     ],
     industries: [
-      { name: "B2B SaaS Platforms", desc: "Complex multi-table analytics, dashboard filters, and data visualizers.", icon: "analytics" },
-      { name: "FinTech & Crypto", desc: "High-trust checkout screens, investment portfolios, and transaction logs.", icon: "currency_exchange" },
-      { name: "Modern Consumer Apps", desc: "Addictive social feeds, onboarding wizards, and gamified reward loops.", icon: "thumb_up" },
-      { name: "Health & Telemedicine", desc: "Accessible patient records, doctor scheduling, and clean diagnostic readouts.", icon: "health_and_safety" },
-      { name: "Luxury E-Commerce", desc: "Immersive product displays, editorial lookbooks, and one-tap checkout.", icon: "diamond" },
-      { name: "Enterprise Dashboards", desc: "Dense operational controls with custom charting and real-time alerts.", icon: "grid_view" }
+      { name: "B2B SaaS Platforms", desc: "Complex analytics dashboards, data tables, and onboarding.", icon: "dashboard" },
+      { name: "FinTech & Crypto", desc: "Trust-centric portfolios, transaction views, and biometric flows.", icon: "credit_card" },
+      { name: "Modern Consumer Apps", desc: "Engaging social feeds, micro-animations, and swipe gestures.", icon: "smartphone" },
+      { name: "Health & Telemedicine", desc: "Accessible patient records, appointment booking, and charting.", icon: "health_and_safety" },
+      { name: "Luxury E-Commerce", desc: "Editorial product storytelling, mega menus, and checkout.", icon: "shopping_bag" },
+      { name: "Enterprise Dashboards", desc: "Multi-tier permissions, audit tables, and dense data displays.", icon: "monitoring" }
     ],
     hireBenefits: [
-      { title: "Figma Master Certified", desc: "Designers fluent in variables, component properties, and auto-layout.", icon: "stars" },
-      { title: "Technical Designers", desc: "Our designers know CSS flexbox and grid, guaranteeing clean dev implementation.", icon: "code" },
-      { title: "Rapid 5-Day Wireframing", desc: "Review working low-fidelity flows within the first week of engagement.", icon: "calendar_today" },
-      { title: "Uncompromising Polish", desc: "Curated typography, micro-interactions, and visual harmony that wow users.", icon: "auto_awesome" },
-      { title: "Design System Continuity", desc: "Easily maintain and scale your brand identity across multiple apps and teams.", icon: "account_tree" },
-      { title: "Direct Figma Collaboration", desc: "Leave comments directly on the canvas and participate in live co-design calls.", icon: "mode_comment" }
+      { title: "Design Tokens First", desc: "Every component is mapped to reusable tokens that translate directly into clean Tailwind code.", icon: "token" },
+      { title: "Accessibility Compliance", desc: "We adhere strictly to WCAG 2.1 AA/AAA contrast and sizing standards.", icon: "accessibility_new" },
+      { title: "Conversion-Centric UX", desc: "We design user flows optimized to minimize drop-off and maximize activation.", icon: "trending_up" },
+      { title: "Figma Dev-Ready Handoff", desc: "Zero ambiguity. Developers get clear padding, variant properties, and token variables.", icon: "code" },
+      { title: "Rapid Clickable Prototypes", desc: "Experience real app flows on your phone before engineers write a line of code.", icon: "touch_app" },
+      { title: "Seamless Iteration Cycles", desc: "Collaborate directly in Figma with real-time commenting and bi-weekly design reviews.", icon: "rate_review" }
     ],
     technologies: [
-      { name: "Figma", role: "Core Design Suite", category: "Design" },
-      { name: "Adobe XD", role: "Prototyping", category: "Design" },
-      { name: "Photoshop", role: "Raster Art", category: "Design" },
-      { name: "Illustrator", role: "Vector Art", category: "Design" },
-      { name: "After Effects", role: "Motion Design", category: "Motion" },
-      { name: "FigJam", role: "Brainstorming", category: "Research" }
+      { name: "Figma", role: "UI/UX & Design Systems", category: "Design" },
+      { name: "Adobe XD", role: "Interface Prototyping", category: "Design" },
+      { name: "Photoshop", role: "Raster Asset Editing", category: "Design" },
+      { name: "Illustrator", role: "Vector & Icon Design", category: "Design" },
+      { name: "After Effects", role: "Micro-Interaction Motion", category: "Motion" },
+      { name: "Blender", role: "3D Asset Modeling", category: "3D" }
     ],
     faqs: [
-      { q: "What format will the final design files be delivered in?", a: "You receive organized Figma (.fig) project files with interactive components, responsive constraints, style tokens, and export-ready assets." },
-      { q: "How many design revisions are included in a project?", a: "We iterate collaboratively during the conceptual phase until you are completely satisfied with the look and feel before expanding to all screens." },
-      { q: "Can our engineers easily build your Figma designs?", a: "Yes! Our designers build components with flexbox, CSS padding, and tokenized variables so developers have zero guesswork during build." }
+      { q: "What deliverables do we receive at the end of a design sprint?", a: "You receive an organized Figma master file containing atomic design tokens, responsive desktop and mobile screens, component libraries, and interactive prototypes." },
+      { q: "How do your designers collaborate with developers?", a: "Our designers use tokenized systems and Figma Dev Mode, aligning spacing and naming directly with Tailwind CSS so engineering handoff is seamless." },
+      { q: "Do you design both light and dark modes?", a: "Yes. All design systems include synchronized semantic token palettes for both high-contrast dark mode and clean light mode." }
     ],
     stats: [
-      { value: "120+", label: "Design Systems Built" },
-      { value: "+65%", label: "Average Conversion Lift" },
-      { value: "100%", label: "WCAG Accessibility Compliant" },
-      { value: "48 hrs", label: "Rapid Prototype Turnaround" }
+      { value: "100%", label: "Figma Tokenized Systems" },
+      { value: "WCAG AA", label: "Accessibility Standard" },
+      { value: "2.4x", label: "Conversion Lift via Redesign" },
+      { value: "Zero", label: "Developer Handoff Friction" }
     ]
   },
 
-  // 4. Digital Marketing
+  // 04. Digital Marketing & Performance Growth
   {
     id: "digital-marketing",
     slug: "digital-marketing",
-    title: "Digital Marketing",
+    aliases: ["marketing","performance-marketing","digital-growth"],
+    title: "Digital Marketing & Performance Growth",
     heroHeadline: "Data-Driven Performance Growth & Multi-Channel Customer Acquisition",
-    tagline: "Performance marketing, conversion funnels, and paid advertising that scale revenue.",
-    shortDesc: "Accelerate your market acquisition with high-impact PPC funnels, conversion optimization, and multi-channel performance strategies.",
-    heroImage: "https://images.unsplash.com/photo-1533750516457-a7f992034fec?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Data-driven acquisition systems focused on ROAS, CAC, and LTV.",
+    shortDesc: "Data-driven customer acquisition systems that replace vanity metrics with predictable return on ad spend (ROAS), reduced customer acquisition costs (CAC), and increased customer lifetime value (LTV).",
+    heroImage: "/assets/Services Images/Digital_marketing_work.jpeg",
+    secondaryImage: "/assets/Services Images/Digital_marketing_work.jpeg",
     badge: "ROI-Focused",
     icon: "campaign",
-    subServicesTitle: "Our Custom Digital Marketing Services",
+    subServicesTitle: "Core Growth Solutions",
     subServices: [
       {
-        title: "Omnichannel Acquisition Strategy",
-        desc: "Coordinated campaigns bridging search intent, social awareness, and email retargeting loops.",
-        icon: "hub",
-        points: ["Multi-touch attribution", "Audience cohort modeling", "Budget optimization algorithms"]
-      },
-      {
-        title: "Paid Media Management",
-        desc: "Surgical ad management across Google Ads, Meta, TikTok, and LinkedIn targeting qualified buyers.",
-        icon: "ads_click",
-        points: ["Negative keyword pruning", "Creative fatigue mitigation", "Bid strategy testing"]
-      },
-      {
-        title: "High-Converting Funnel Architecture",
-        desc: "Split-testing dedicated landing pages to drop customer acquisition costs and boost form completions.",
-        icon: "filter_alt",
-        points: ["A/B headline testing", "Form abandonment reduction", "Clear CTA visual hierarchy"]
-      },
-      {
-        title: "Automated Lifecycle Nurturing",
-        desc: "Automated onboarding, cart recovery, and VIP nurture email sequences tailored to user behavior.",
-        icon: "mark_email_read",
-        points: ["Drip campaign logic", "Klaviyo & Mailchimp setups", "Deliverability optimization"]
+        title: "Omnichannel Performance Campaigns",
+        desc: "Scaled media buying across Google, Meta, and major search and social discovery platforms.",
+        icon: "campaign",
+        points: ["Full-funnel media buying strategies", "Cross-platform budget allocation", "Audience cohort segmentation"]
       },
       {
         title: "Conversion Rate Optimization (CRO)",
-        desc: "Analyzing click heatmaps and session recordings to remove purchase friction points.",
-        icon: "trending_up",
-        points: ["Hotjar & Clarity heatmaps", "Checkout optimization", "Value-proposition clarity"]
+        desc: "Systematic A/B and multivariate split-testing across messaging, layout hierarchy, and checkout friction points.",
+        icon: "tune",
+        points: ["Systematic A/B multivariate testing", "Checkout friction elimination", "Data-backed landing page redesigns"]
       },
       {
-        title: "Real-Time Telemetry & Attribution",
-        desc: "Transparent Looker Studio dashboards reporting true customer acquisition cost and ROAS.",
-        icon: "query_stats",
-        points: ["GA4 custom event tracking", "Multi-touch attribution", "Live executive reporting"]
+        title: "Lifecycle & Retention Automation",
+        desc: "Granular RFM (Recency, Frequency, Monetary) segmentation across automated email and customer communication funnels.",
+        icon: "mail",
+        points: ["Automated email lifecycle flows", "RFM customer segmentation", "LTV maximization workflows"]
+      },
+      {
+        title: "First-Party Tracking Architecture",
+        desc: "Cookieless server-side tracking pipelines ensuring full attribution despite browser ad-blockers and privacy sandboxes.",
+        icon: "verified_user",
+        points: ["Server-side Meta CAPI setup", "First-party data attribution", "Real-time revenue telemetry"]
       }
     ],
     overview: [
-      "Marketing that cannot be tied to pipeline revenue is a waste of capital. Solvexa approaches growth marketing through a rigorous engineering lens: tracking every dollar, optimizing conversion friction, and scaling what works.",
-      "We build multi-channel acquisition funnels that capture prospective clients whether they are actively searching on Google or browsing industry content on LinkedIn and Meta."
+      "Data-driven customer acquisition systems that replace vanity metrics with predictable return on ad spend (ROAS), reduced customer acquisition costs (CAC), and increased customer lifetime value (LTV).",
+      "We build integrated funnels combining paid search, paid social, conversion optimization, and automated retention loops."
     ],
     whatsIncluded: [
-      "Complete Technical & Competitive Market Audit",
-      "Full PPC Account Architecture & Daily Bid Management",
-      "High-Converting Ad Copy & Creative Variations",
-      "Server-Side Conversion API (CAPI) & GA4 Tracking Setup",
-      "Weekly Optimization Sprints & Budget Reallocation",
-      "24/7 Access to Live Looker Studio Performance Dashboard"
+      "Omnichannel Media Buying Strategy",
+      "Server-Side Meta CAPI & Conversion Tracking",
+      "A/B Split-Tested Conversion Funnels",
+      "Automated Lifecycle Email & SMS Workflows",
+      "Weekly Attribution & ROAS Reporting",
+      "Creative Ad Asset Production"
     ],
     process: [
-      { step: "01", title: "Audit & Opportunity Scan", desc: "Auditing current ad accounts, funnel drop-offs, and competitor ad spend.", deliverables: "Growth Audit & Opportunity Matrix" },
-      { step: "02", title: "Strategy & Funnel Design", desc: "Formulating customer acquisition pathways and budget allocations.", deliverables: "3-Month Channel Growth Roadmap" },
-      { step: "03", title: "Tracking & Pixel Setup", desc: "Deploying server-side tracking, conversion webhooks, and GA4 events.", deliverables: "Verified Conversion Tracking Infrastructure" },
-      { step: "04", title: "Campaign Launch & Creative", desc: "Publishing creative ad variants, high-intent copy, and landing pages.", deliverables: "Live Multi-Channel Campaigns" },
-      { step: "05", title: "Daily Tuning & A/B Testing", desc: "Pruning low-yield keywords, testing copy angles, and optimizing bids.", deliverables: "Weekly Performance & ROAS Reports" },
-      { step: "06", title: "Scale High-Performing Cohorts", desc: "Scaling high-performing audiences while maintaining target CPA thresholds.", deliverables: "Monthly Scaling Strategy Deck" }
+      { step: "01", title: "Discovery & Tracking Audit", desc: "Auditing current attribution, tracking pixels, conversion rates, and acquisition costs.", deliverables: "Tracking Audit & Implementation Plan" },
+      { step: "02", title: "Creative & Copy Sprint", desc: "Developing high-impact visual hooks, angles, and headline variations.", deliverables: "Ad Creative Vault for Approval" },
+      { step: "03", title: "Account & Funnel Setup", desc: "Structuring campaigns, custom audiences, and server-side tracking pipelines.", deliverables: "Configured Campaign Accounts" },
+      { step: "04", title: "Testing & Validation", desc: "Gathering statistical data on lowest cost-per-click and highest converting cohorts.", deliverables: "Cohort Performance Matrix" },
+      { step: "05", title: "Scaling & Optimization", desc: "Allocating budget into proven creative winners while trimming underperformers.", deliverables: "Scaling Budget Allocation" },
+      { step: "06", title: "Retention & LTV Expansion", desc: "Implementing automated email/SMS flows to compound customer lifetime value.", deliverables: "Weekly Performance & ROAS Reports" }
     ],
     industries: [
-      { name: "B2B SaaS", desc: "Demo booking funnels, LinkedIn thought leadership, and high-intent search.", icon: "cloud" },
-      { name: "E-Commerce", desc: "Shopping ads, dynamic catalog retargeting, and abandoned cart flows.", icon: "shopping_bag" },
-      { name: "Professional Services", desc: "High-value consultation bookings for legal, consulting, and finance.", icon: "work" },
-      { name: "Real Estate & Housing", desc: "Geo-targeted lead generation for luxury properties and developments.", icon: "apartment" },
-      { name: "Healthcare & Clinics", desc: "Local map ranking, patient review campaigns, and appointment ads.", icon: "local_hospital" },
-      { name: "Mobile Apps", desc: "Cost-per-install (CPI) campaigns with in-app event tracking.", icon: "app_shortcut" }
+      { name: "Direct-to-Consumer (DTC)", desc: "High-velocity catalog ads and dynamic retargeting.", icon: "shopping_cart" },
+      { name: "B2B SaaS & Tech", desc: "Book-a-demo funnels and lead generation.", icon: "cloud" },
+      { name: "High-Ticket Services", desc: "Qualified inbound lead capture and consults.", icon: "business_center" },
+      { name: "Healthcare & Clinics", desc: "Patient appointment bookings and localized treatment ads.", icon: "medical_services" },
+      { name: "Education & Coaching", desc: "Webinar funnels, masterclasses, and cohort enrollments.", icon: "school" },
+      { name: "E-Commerce Stores", desc: "Product category ads and checkout optimization.", icon: "shopping_bag" }
     ],
     hireBenefits: [
-      { title: "Direct ROI Alignment", desc: "We focus on revenue and qualified pipeline, not vanity impressions.", icon: "monetization_on" },
-      { title: "No Long-Term Lock-In", desc: "Month-to-month contracts based on performance and verified results.", icon: "handshake" },
-      { title: "Certified Media Buyers", desc: "Google Premier & Meta Certified advertising specialists.", icon: "military_tech" },
-      { title: "In-House Creative Squad", desc: "Video editors and designers producing fresh ad creative every week.", icon: "palette" },
-      { title: "Full Account Transparency", desc: "You maintain 100% ownership of your ad accounts and payment methods.", icon: "lock_open" },
-      { title: "Weekly Executive Briefings", desc: "Regular 30-minute syncs to review CAC, ROAS, and upcoming initiatives.", icon: "event" }
+      { title: "Direct ROAS Focus", desc: "We track pipeline revenue and profit, not superficial vanity impressions.", icon: "monetization_on" },
+      { title: "Server-Side Tracking", desc: "99% attribution accuracy resistant to iOS 14 and cookie blocking.", icon: "security" },
+      { title: "Daily Bid Optimization", desc: "Active monitoring to avoid budget burn during low-conversion windows.", icon: "tune" },
+      { title: "100% Account Ownership", desc: "Your ad accounts, your billing, your data. Complete transparency.", icon: "lock_open" },
+      { title: "In-House Creative Studio", desc: "Copywriters and designers producing fresh ad assets constantly.", icon: "palette" },
+      { title: "Bi-Weekly Strategy Calls", desc: "Clear reviews of customer acquisition cost and upcoming promotional launches.", icon: "event" }
     ],
     technologies: [
-      { name: "Google Ads", role: "Search & Display", category: "PPC" },
-      { name: "Meta Ads Manager", role: "Social Paid", category: "PPC" },
-      { name: "SEMrush", role: "SEO Intel", category: "SEO" },
-      { name: "Ahrefs", role: "Backlink Analysis", category: "SEO" },
-      { name: "Google Analytics 4", role: "Telemetry", category: "Analytics" },
-      { name: "Looker Studio", role: "Dashboards", category: "Reporting" }
+      { name: "Google Ads", role: "Search & PMax Campaigns", category: "Paid Search" },
+      { name: "Meta Ads", role: "Social Campaigns", category: "Paid Social" },
+      { name: "Meta CAPI", role: "Server-Side Tracking", category: "Attribution" },
+      { name: "Google Analytics 4", role: "Web Analytics", category: "Analytics" },
+      { name: "SEMrush", role: "Competitor Intelligence", category: "SEO/SEM" },
+      { name: "Ahrefs", role: "Backlink & Keyword Intel", category: "SEO/SEM" },
+      { name: "Mailchimp", role: "Lifecycle Email Flows", category: "Retention" }
     ],
     faqs: [
-      { q: "How soon do we see measurable results from marketing campaigns?", a: "PPC campaigns on Google and Meta deliver leads within 48 to 72 hours of launch. Technical SEO gains build compounding organic momentum over 6 to 12 weeks." },
-      { q: "Do you create the ad graphics and copy in-house?", a: "Yes, our team handles all copywriting, graphic design, and video reels required for ad creatives." },
-      { q: "Who pays the advertising platform costs (Google/Meta)?", a: "You pay ad networks directly through your credit card for 100% financial transparency. Solvexa only charges an agreed management fee." }
+      { q: "What is the recommended minimum ad spend to get started?", a: "We typically recommend a minimum ad spend of $1,500 to $3,000 per month to gather statistical conversion data and scale winning funnels effectively." },
+      { q: "How do you solve iOS 14 tracking and attribution loss?", a: "We deploy server-side tracking (Meta CAPI) bypassing browser ad-blockers to achieve 99% attribution accuracy." },
+      { q: "Who owns the ad accounts and creative assets?", a: "You own 100% of all ad accounts, tracking pixels, and creative deliverables. We operate as authorized agency managers." }
     ],
     stats: [
-      { value: "4.2x", label: "Average Client ROAS" },
-      { value: "$2.5M+", label: "Ad Spend Managed" },
-      { value: "+180%", label: "Organic Search Traffic Lift" },
-      { value: "24/7", label: "Live Dashboard Access" }
+      { value: "4.4x", label: "Average Client ROAS" },
+      { value: "$3M+", label: "Ad Spend Managed" },
+      { value: "-35%", label: "Average CAC Reduction" },
+      { value: "99%", label: "Attribution Accuracy" }
     ]
   },
 
-  // 5. SEO (Search Engine Optimization)
+  // 05. Search Engine Optimization (SEO & GEO)
   {
     id: "seo",
     slug: "seo",
-    aliases: ["search-engine-optimization"],
-    title: "SEO (Search Engine Optimization)",
+    aliases: ["search-engine-optimization","technical-seo","geo-optimization"],
+    title: "Search Engine Optimization (SEO & GEO)",
     heroHeadline: "Organic Search Dominance & Technical SEO That Generates Inbound Pipeline",
-    tagline: "Rank higher on Google, capture high-intent buyers, and build compounding organic traffic.",
-    shortDesc: "Dominate Google search results with technical SEO audits, Core Web Vitals optimization, high-intent keyword clustering, and backlink authority.",
-    heroImage: "https://images.unsplash.com/photo-1571786256017-aee7a0c009b6?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Technical SEO plus Generative Engine Optimization for AI search visibility.",
+    shortDesc: "Modern organic visibility strategies combining technical, code-level crawl optimization, semantic knowledge graphs, and Generative Engine Optimization (GEO) to win positions in Google Search and AI answer engines.",
+    heroImage: "/assets/Services Images/SEO.jpeg",
+    secondaryImage: "/assets/Services Images/SEO.jpeg",
     badge: "Organic Growth",
     icon: "travel_explore",
-    subServicesTitle: "Our Comprehensive SEO Services",
+    subServicesTitle: "Core SEO & GEO Solutions",
     subServices: [
       {
-        title: "Technical SEO & Architecture Audit",
-        desc: "Eliminate crawl errors, duplicate paths, index bloat, and canonical loops to maximize crawl efficiency.",
+        title: "Technical SEO & Architecture",
+        desc: "Dynamic sitemap management, canonical enforcement, crawl budget optimization, and structured redirect mapping.",
         icon: "build_circle",
-        points: ["Robots.txt & XML sitemaps", "Canonical tag verification", "Core Web Vitals 95+ score"]
+        points: ["Dynamic XML sitemap automation", "Canonical enforcement & redirect maps", "Crawl budget maximization"]
       },
       {
-        title: "High-Intent Keyword Intelligence",
-        desc: "Uncover commercial search queries with high conversion intent rather than hollow volume keywords.",
-        icon: "manage_search",
-        points: ["Competitor keyword gap analysis", "Search intent categorization", "Topical cluster blueprints"]
+        title: "Core Web Vitals Engineering",
+        desc: "Optimization for sub-second Largest Contentful Paint (LCP), low Interaction to Next Paint (INP), and zero Cumulative Layout Shift (CLS).",
+        icon: "speed",
+        points: ["Sub-second Largest Contentful Paint", "Zero Cumulative Layout Shift", "Edge caching & script deferral"]
       },
       {
-        title: "On-Page Semantic Optimization",
-        desc: "Structuring H1-H3 hierarchies, schema markup, metadata, and internal links for algorithmic clarity.",
-        icon: "article",
-        points: ["JSON-LD schema integration", "Semantic keyword density", "Click-through rate (CTR) titles"]
+        title: "Semantic Schema & Entity Modeling",
+        desc: "Custom nested JSON-LD schema graphs (Organization, SoftwareApplication, Product, FAQPage) to establish domain authority.",
+        icon: "schema",
+        points: ["Nested JSON-LD entity graphs", "Rich snippet search enhancement", "Search engine knowledge mapping"]
       },
       {
-        title: "Authoritative Link Building (PR)",
-        desc: "Earning white-hat editorial backlinks from high-DR industry publications to build domain authority.",
-        icon: "link",
-        points: ["Editorial outreach pitches", "Digital PR guest contributions", "Unlinked brand mention reclamation"]
-      },
-      {
-        title: "Programmatic & Local SEO",
-        desc: "Scaling geo-targeted pages and Google Business Profile optimizations to capture regional customers.",
-        icon: "location_on",
-        points: ["Google Business Profile audit", "Local citation distribution", "Localized landing page templates"]
-      },
-      {
-        title: "SEO Telemetry & Position Tracking",
-        desc: "Transparent position tracking, Google Search Console telemetry, and monthly impact reporting.",
-        icon: "query_stats",
-        points: ["Daily rank tracking", "GSC indexation health check", "Executive organic revenue report"]
+        title: "Generative Engine Optimization (GEO)",
+        desc: "Content structures and high-density answer blocks optimized for direct citation in Google AI Overviews, Perplexity, and ChatGPT Search.",
+        icon: "psychology",
+        points: ["Direct citation in AI overviews", "High-density answer blocks", "Entity authority clustering"]
       }
     ],
     overview: [
-      "Paid ads stop delivering the minute your budget runs out. Organic search engine optimization creates a durable, compounding asset that delivers high-intent inbound prospects month after month.",
-      "Solvexa blends deep technical engineering (SSR, edge caching, schema markup) with high-authority topical clusters. We ensure search engine crawlers understand your site's expertise and reward you with tier-1 rankings."
+      "Modern organic visibility strategies combining technical, code-level crawl optimization, semantic knowledge graphs, and Generative Engine Optimization (GEO) to win positions in Google Search and AI answer engines.",
+      "Paid ads stop delivering the minute budget runs out. Organic SEO and GEO create compounding, durable inbound pipeline month after month."
     ],
     whatsIncluded: [
       "Comprehensive 120-Point Technical SEO Audit",
-      "Target Keyword Mapping & Priority Action Roadmap",
+      "Core Web Vitals 95+ Score Remediation",
       "Full JSON-LD Rich Schema Implementation",
-      "Monthly Editorial Backlink Acquisition",
-      "Internal Linking Structure & Content Gap Audit",
-      "24/7 Access to Keyword Ranking Dashboard"
+      "GEO Answer Block Optimization for AI Engines",
+      "Target Keyword Mapping & Pillar Architecture",
+      "Monthly Organic Telemetry & Ranking Dashboard"
     ],
     process: [
-      { step: "01", title: "Full Technical Audit", desc: "Auditing site speed, indexing, 404s, mobile usability, and schema health.", deliverables: "Technical SEO Audit & Action Matrix" },
-      { step: "02", title: "Keyword & Competitor Recon", desc: "Discovering high-intent keyword gaps your direct competitors rank for.", deliverables: "Topical Cluster Keyword Map" },
-      { step: "03", title: "On-Page Code Remediation", desc: "Fixing heading hierarchies, metadata, speed bottlenecks, and structured data.", deliverables: "Clean On-Page SEO Implementation" },
-      { step: "04", title: "Content Architecture", desc: "Creating or updating high-authority pillar pages targeting target keyword clusters.", deliverables: "Published Optimized Pillar Pages" },
+      { step: "01", title: "Discovery & Technical Audit", desc: "Auditing site speed, indexing, 404s, mobile usability, and schema health.", deliverables: "Technical SEO Audit & Action Matrix" },
+      { step: "02", title: "Keyword & Entity Recon", desc: "Discovering high-intent keyword gaps and generative search query patterns.", deliverables: "Topical Cluster Keyword Map" },
+      { step: "03", title: "Code & Core Web Vitals Remediation", desc: "Fixing heading hierarchies, speed bottlenecks, and structured data.", deliverables: "Clean On-Page SEO Implementation" },
+      { step: "04", title: "GEO Answer Block Structuring", desc: "Creating authoritative pillar pages formatted for AI search citations.", deliverables: "Published Optimized Pillar Pages" },
       { step: "05", title: "Authority Link Building", desc: "Executing targeted white-hat outreach to gain high-DR editorial backlinks.", deliverables: "Monthly Verified Backlink Report" },
-      { step: "06", title: "Review & Scaling", desc: "Analyzing search console telemetry and scaling ranking keyword positions.", deliverables: "Monthly Organic Traffic & Revenue Report" }
+      { step: "06", title: "Growth & Telemetry Tracking", desc: "Analyzing search console telemetry and scaling ranking keyword positions.", deliverables: "Monthly Organic Traffic & Revenue Report" }
     ],
     industries: [
-      { name: "B2B Software & SaaS", desc: "Capturing bottom-of-funnel software evaluation searches.", icon: "cloud" },
+      { name: "B2B Software & SaaS", desc: "Capturing software evaluation and comparison searches.", icon: "cloud" },
       { name: "E-Commerce Stores", desc: "Product category and high-intent buying keyword rankings.", icon: "shopping_bag" },
       { name: "Medical & Health Clinics", desc: "Local patient search, condition guides, and map pack dominance.", icon: "medical_services" },
       { name: "Legal & Law Practices", desc: "High-value litigation, corporate counsel, and practice area keywords.", icon: "gavel" },
       { name: "Real Estate & Brokerages", desc: "Localized property search, neighborhood guides, and listings.", icon: "apartment" },
-      { name: "FinTech & Financial Advisory", desc: "Compliance-safe financial education and calculator keyword rankings.", icon: "account_balance" }
+      { name: "FinTech & Financial Advisory", desc: "Compliance-safe financial education and calculator rankings.", icon: "account_balance" }
     ],
     hireBenefits: [
-      { title: "Strict White-Hat Practices", desc: "100% compliant with Google Search essentials and spam policies.", icon: "verified" },
       { title: "Engineer-Led Optimization", desc: "Our SEO specialists write code and implement technical fixes directly.", icon: "code" },
-      { title: "Topical Authority Focus", desc: "We build complete content clusters that position you as the definitive leader.", icon: "psychology" },
+      { title: "Strict White-Hat Practices", desc: "100% compliant with Google Search essentials and spam policies.", icon: "verified" },
+      { title: "GEO & AI Search Ready", desc: "Optimized for Google AI Overviews, Perplexity, and ChatGPT search citations.", icon: "psychology" },
       { title: "Transparent Position Reports", desc: "Real-time dashboards tracking every keyword change and organic click.", icon: "analytics" },
-      { title: "Sustainable Long-Term ROI", desc: "Compounding organic traffic that keeps lowering your customer acquisition cost.", icon: "trending_up" },
+      { title: "Sustainable Long-Term ROI", desc: "Compounding organic traffic that keeps lowering customer acquisition costs.", icon: "trending_up" },
       { title: "No Black-Box Promises", desc: "Clear weekly documentation of every change, link, and article published.", icon: "fact_check" }
     ],
     technologies: [
-      { name: "Ahrefs", role: "Backlink & Gap Intel", category: "SEO" },
-      { name: "SEMrush", role: "Keyword Tracking", category: "SEO" },
-      { name: "Google Search Console", role: "Crawl Telemetry", category: "Analytics" },
-      { name: "Screaming Frog", role: "Crawler Spider", category: "Audit" },
-      { name: "SurferSEO", role: "Content NLP", category: "Content" },
-      { name: "Schema.org", role: "Structured Data", category: "Code" }
+      { name: "Ahrefs", role: "Backlink & Keyword Intel", category: "SEO" },
+      { name: "SEMrush", role: "Search Position Tracking", category: "SEO" },
+      { name: "Google Analytics 4", role: "Organic Traffic Telemetry", category: "Analytics" },
+      { name: "Next.js", role: "High-Speed SSR Frontend", category: "Code" },
+      { name: "HTML5", role: "Semantic Markup", category: "Code" },
+      { name: "WordPress", role: "CMS Architecture", category: "CMS" }
     ],
     faqs: [
-      { q: "How long does it take to see rankings improve with SEO?", a: "Technical and on-page fixes often show ranking improvements within 3 to 6 weeks. Significant competitive keyword moves and domain authority growth generally compound over 3 to 6 months." },
-      { q: "Do you guarantee #1 ranking on Google?", a: "No ethical agency can guarantee specific #1 positions because search algorithms constantly evolve. We guarantee proven white-hat methodologies, technical perfection, and verifiable traffic growth." },
-      { q: "How is technical SEO different from content SEO?", a: "Technical SEO ensures search engines can crawl, render, and index your website instantly without errors. Content SEO ensures the text itself satisfies the user's search query better than any competitor." }
+      { q: "What is Generative Engine Optimization (GEO)?", a: "GEO optimizes your content structure, entity relationships, and answer blocks so AI search engines (like Perplexity, ChatGPT Search, and Google AI Overviews) quote and cite your brand as the definitive source." },
+      { q: "How long does it take to see rankings improve with SEO?", a: "Technical and on-page fixes often show ranking improvements within 3 to 6 weeks. Significant competitive keyword moves and domain authority growth compound over 3 to 6 months." },
+      { q: "How does site speed affect SEO rankings?", a: "Google uses Core Web Vitals as a direct ranking factor. Sub-second load times and zero layout shifts give your pages a measurable advantage over slower competitors." }
     ],
     stats: [
       { value: "+210%", label: "Average Organic Traffic Growth" },
@@ -576,77 +537,65 @@ export const servicesData: ServiceItem[] = [
     ]
   },
 
-  // 6. Google Ads & Meta Ads
+  // 06. Google & Meta Paid Advertising
   {
     id: "google-meta-ads",
     slug: "google-meta-ads",
-    aliases: ["ppc-advertising"],
-    title: "Google Ads & Meta Ads",
+    aliases: ["google-ads","meta-ads","paid-media","ppc-advertising"],
+    title: "Google & Meta Paid Advertising",
     heroHeadline: "Hyper-Targeted Paid Acquisition with Proven Positive ROAS",
-    tagline: "Turn ad spend into predictable revenue across Google Search, Performance Max, Instagram, and Facebook.",
-    shortDesc: "Precision-targeted paid advertising campaigns across Google Search, Performance Max, Instagram, and Facebook yielding high ROAS.",
-    heroImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    tagline: "High-ROI paid search and paid social campaigns with server-side tracking.",
+    shortDesc: "High-ROI paid advertising engines that balance intent-driven search traffic with dynamic visual retargeting to accelerate customer acquisition and maintain scalable margins.",
+    heroImage: "/assets/Services Images/Google Ads.jpeg",
+    secondaryImage: "/assets/Services Images/Google Ads.jpeg",
     badge: "High ROAS",
     icon: "ads_click",
-    subServicesTitle: "Our Paid Media Advertising Services",
+    subServicesTitle: "Core Paid Media Solutions",
     subServices: [
       {
-        title: "Google Search & Shopping (PMax)",
-        desc: "Capturing high-intent users actively searching for your solutions with surgical bidding.",
+        title: "High-Intent Search & Shopping",
+        desc: "Tiered Google Search campaigns targeting transactional intent, combined with Performance Max (PMax) asset groups.",
         icon: "search",
-        points: ["Negative keyword filtering", "Quality Score improvement", "Dynamic ad copy variations"]
+        points: ["Transactional keyword targeting", "Performance Max asset groups", "Negative keyword scrub protocols"]
       },
       {
-        title: "Meta Ads (Facebook & Instagram)",
-        desc: "High-retention visual creative testing targeting interest, demographic, and lookalike cohorts.",
+        title: "Scalable Paid Social",
+        desc: "Meta Advantage+ Shopping Campaigns (ASC), automated audience exclusions, and broad-targeting acquisition funnels.",
         icon: "share",
-        points: ["Creative fatigue cycling", "Video hook testing", "Broad targeting algorithms"]
+        points: ["Advantage+ Shopping Campaigns", "Automated audience exclusions", "Broad-targeting scaling funnels"]
       },
       {
-        title: "Conversion API & Server-Side Tracking",
-        desc: "First-party data tracking bypassing iOS 14+ cookie blocking for 99% data accuracy.",
-        icon: "verified_user",
-        points: ["Meta CAPI webhooks", "Google Enhanced Conversions", "Server GTM setup"]
+        title: "Dynamic Creative Testing (DCT)",
+        desc: "Iterative creative testing matrix isolating visual hooks, angles, copy variants, and calls to action.",
+        icon: "auto_awesome",
+        points: ["Visual hook & angle testing", "Creative fatigue mitigation", "Iterative copy & CTA variations"]
       },
       {
-        title: "Audience Retargeting & Lookalikes",
-        desc: "Multi-step retargeting sequences reminding warm visitors to complete signup or purchase.",
-        icon: "sync",
-        points: ["Cart abandoner incentives", "High-LTV lookalike audiences", "Sequential storytelling ads"]
-      },
-      {
-        title: "Landing Page Split-Testing (CRO)",
-        desc: "Dedicated conversion landing pages built to maximize paid traffic signup rates.",
-        icon: "web",
-        points: ["Zero-friction form design", "Visual hierarchy testing", "Mobile-first load times"]
-      },
-      {
-        title: "Attribution Modeling & Weekly Tuning",
-        desc: "Transparent attribution modeling showing real CAC, cost per demo, and revenue return.",
-        icon: "insights",
-        points: ["Real ROAS calculations", "Daily budget pacing", "Live Looker Studio reports"]
+        title: "Conversion API Integration",
+        desc: "Full server-side Meta Conversions API (CAPI) and Google Enhanced Conversions setups to maintain precise attribution.",
+        icon: "sync_alt",
+        points: ["Server-side Meta CAPI pipeline", "Google Enhanced Conversions", "99% attribution accuracy"]
       }
     ],
     overview: [
-      "Burning cash on ads without granular tracking or creative iteration is the fastest way to drain capital. At Solvexa, our media buyers operate with scientific rigor: daily bid management, aggressive A/B testing of angles, and server-side tracking.",
-      "We build integrated funnels where Google captures users with active intent, while Meta nurtures and scales brand awareness, producing compounded returns on every ad dollar deployed."
+      "High-ROI paid advertising engines that balance intent-driven search traffic with dynamic visual retargeting to accelerate customer acquisition and maintain scalable margins.",
+      "We operate with scientific rigor: daily bid management, aggressive A/B testing of angles, and server-side tracking to turn ad spend into predictable revenue."
     ],
     whatsIncluded: [
       "Account Restructure & Conversion Tracking Setup",
-      "Full Copywriting & Video Creative Assets",
       "Server-Side Meta CAPI & Google Enhanced Tracking",
+      "Full Copywriting & Visual Creative Assets",
       "Daily Bid Tuning & Negative Keyword Maintenance",
       "A/B Split-Tested Conversion Landing Pages",
-      "Weekly Strategic Sync & Real-Time Looker Dashboard"
+      "Weekly Strategic Sync & Transparent Reporting"
     ],
     process: [
-      { step: "01", title: "Tracking & Pixel Audit", desc: "Verifying conversion triggers, offline events, and pixel firing health.", deliverables: "Tracking Audit & Implementation Plan" },
+      { step: "01", title: "Discovery & Tracking Audit", desc: "Verifying conversion triggers, offline events, and pixel firing health.", deliverables: "Tracking Audit & Implementation Plan" },
       { step: "02", title: "Creative & Copy Sprint", desc: "Producing 10+ ad creative hooks, angles, and headline variations.", deliverables: "Ad Creative Vault for Approval" },
       { step: "03", title: "Account Architecture", desc: "Structuring campaign hierarchy (Search, PMax, Top-of-Funnel, Retargeting).", deliverables: "Configured Campaign Accounts" },
       { step: "04", title: "Testing Phase (Days 1-14)", desc: "Gathering statistical data on lowest cost-per-click and highest converting cohorts.", deliverables: "Initial Cohort Performance Matrix" },
-      { step: "05", title: "Scaling Winners", desc: "Pumping budget into proven creative and audience winners while cutting underperformers.", deliverables: "Scaling Budget Allocation" },
-      { step: "06", title: "Continuous Creative Refresh", desc: "Introducing fresh creatives weekly to prevent fatigue and maintain ROAS.", deliverables: "Weekly Performance Reports" }
+      { step: "05", title: "Scaling Winners", desc: "Allocating budget into proven creative and audience winners while cutting underperformers.", deliverables: "Scaling Budget Allocation" },
+      { step: "06", title: "Growth & Creative Refresh", desc: "Introducing fresh creatives weekly to prevent fatigue and maintain ROAS.", deliverables: "Weekly Performance Reports" }
     ],
     industries: [
       { name: "Direct-to-Consumer (DTC)", desc: "High-velocity catalog ads, dynamic retargeting, and unboxing reels.", icon: "shopping_cart" },
@@ -658,19 +607,17 @@ export const servicesData: ServiceItem[] = [
     ],
     hireBenefits: [
       { title: "Direct ROAS Focus", desc: "We track pipeline revenue and profit, not superficial vanity impressions.", icon: "monetization_on" },
-      { title: "In-House Creative Studio", desc: "Motion designers and copywriters creating fresh ad assets constantly.", icon: "palette" },
       { title: "Server-Side Tracking", desc: "99% attribution accuracy resistant to iOS 14 and third-party cookie bans.", icon: "security" },
       { title: "100% Account Ownership", desc: "Your ad accounts, your billing, your data. Complete transparency.", icon: "lock_open" },
       { title: "Daily Bid Optimization", desc: "Active monitoring to avoid budget burn during low-conversion windows.", icon: "tune" },
+      { title: "In-House Creative Studio", desc: "Motion designers and copywriters creating fresh ad assets constantly.", icon: "palette" },
       { title: "Bi-Weekly Strategy Calls", desc: "Clear reviews of customer acquisition cost and upcoming promotional launches.", icon: "event" }
     ],
     technologies: [
-      { name: "Google Ads", role: "Search & PMax", category: "Ads" },
-      { name: "Meta Ads Manager", role: "Social Campaigns", category: "Ads" },
-      { name: "Google Tag Manager", role: "Server Tracking", category: "Analytics" },
-      { name: "Meta CAPI", role: "Server Tracking", category: "Analytics" },
-      { name: "Looker Studio", role: "Reporting", category: "BI" },
-      { name: "Hotjar", role: "Landing Page CRO", category: "CRO" }
+      { name: "Google Ads", role: "Search & PMax Campaigns", category: "Ads" },
+      { name: "Meta Ads", role: "Social Campaigns", category: "Ads" },
+      { name: "Meta CAPI", role: "Server-Side Tracking", category: "Analytics" },
+      { name: "Google Analytics 4", role: "Attribution Telemetry", category: "Analytics" }
     ],
     faqs: [
       { q: "What is the recommended minimum ad budget to get started?", a: "We typically recommend a minimum ad spend of $1,500 to $3,000 per month on ad platforms to gather sufficient conversion data and scale winning creatives effectively." },
@@ -685,185 +632,162 @@ export const servicesData: ServiceItem[] = [
     ]
   },
 
-  // 7. Branding & Logo Design
+  // 07. Brand Identity & Design Systems
   {
     id: "branding",
     slug: "branding-logo",
-    aliases: ["branding-logo-design"],
-    title: "Branding & Logo Design",
+    aliases: ["branding","brand-identity","logo-design","visual-identity"],
+    title: "Brand Identity & Design Systems",
     heroHeadline: "Iconic Visual Identities That Command Market Authority",
-    tagline: "Complete identity systems that make your business unforgettable.",
-    shortDesc: "Command market authority with bespoke vector identity marks, comprehensive brand guidelines, color systems, and 3D kinetic reveals.",
-    heroImage: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1542744094-3a31f272c490?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Cohesive visual branding built on strategy, typography, and design tokens.",
+    shortDesc: "Cohesive visual branding strategies that turn businesses into recognizable market leaders through mathematical precision, typography systems, and enduring brand assets.",
+    heroImage: "/assets/Services Images/branding and logo.jpeg",
+    secondaryImage: "/assets/Services Images/branding and logo.jpeg",
     badge: "Identity Systems",
     icon: "auto_awesome",
-    subServicesTitle: "Our Custom Branding & Identity Services",
+    subServicesTitle: "Core Brand Solutions",
     subServices: [
       {
-        title: "Bespoke Logo Mark Design",
-        desc: "Custom vector geometry, wordmarks, and responsive lockups designed to work from favicon to billboard.",
-        icon: "draw",
-        points: ["Golden-ratio geometry", "Monogram & icon marks", "Horizontal & stacked lockups"]
+        title: "Brand Strategy & Positioning",
+        desc: "Competitive whitespace mapping, brand archetypes, value propositions, and tone-of-voice documentation.",
+        icon: "psychology",
+        points: ["Competitive whitespace mapping", "Archetype & value proposition design", "Comprehensive tone-of-voice guidelines"]
       },
       {
-        title: "Color Harmony & Token Architecture",
-        desc: "Scientifically balanced primary, secondary, and accent palettes calibrated for digital UI and CMYK print.",
-        icon: "colorize",
-        points: ["Accessible contrast standards", "Dark/light mode variations", "Exact Pantone matching"]
+        title: "Responsive Logo Systems",
+        desc: "Geometric, vector-grid logo suites engineered from micro-favicons up to large-scale print production.",
+        icon: "auto_awesome",
+        points: ["Mathematical vector grid geometry", "Scalable responsive lockups", "Favicon to billboard versatility"]
       },
       {
-        title: "Typography System & Hierarchy",
-        desc: "Curated font pairings with strict scales for headlines, subheadings, body copy, and UI captions.",
-        icon: "format_size",
-        points: ["Commercial font licenses", "Webfont font-face rules", "Kerning & letter-spacing specs"]
+        title: "Semantic Color & Type Hierarchy",
+        desc: "Standardized color tokens (Pantone, CMYK, RGB, Hex) and web-font stacks optimized for cross-platform legibility.",
+        icon: "palette",
+        points: ["Pantone, CMYK, RGB, Hex tokens", "Web-font paired typography stacks", "High-contrast accessibility standards"]
       },
       {
-        title: "Comprehensive Brand Guidelines Book",
-        desc: "A definitive 40+ page brand manual detailing logo clearspace, forbidden treatments, and tone of voice.",
+        title: "Collateral & Brand Manuals",
+        desc: "Executive stationery kits, investor deck styling, social media templates, and comprehensive brand guideline manuals.",
         icon: "menu_book",
-        points: ["Usage rules & spacing", "Tone & messaging guide", "Co-branding standards"]
-      },
-      {
-        title: "Corporate Collateral & Stationery",
-        desc: "Print-ready business cards, letterheads, presentation slide decks, and digital social media kits.",
-        icon: "badge",
-        points: ["Pitch deck templates", "Vector business cards", "Social profile header banners"]
-      },
-      {
-        title: "3D Motion Logo Reveal Animations",
-        desc: "Cinematic 3D kinetic animations that introduce your brand across video showcases, podcasts, and pitch decks.",
-        icon: "animation",
-        points: ["4K Ultra-HD motion stingers", "Spatial sound design", "Transparent alpha video export"]
+        points: ["Complete brand guideline manuals", "Executive stationery & slide decks", "Social media vector templates"]
       }
     ],
     overview: [
-      "Your brand is the immediate visual and emotional perception people have of your business. In a crowded marketplace, generic branding signals amateur execution. Solvexa crafts distinctive, luxury-grade brand systems that establish instant trust and command premium pricing.",
-      "We combine strategic market positioning with meticulous vector craftsmanship. Every curve, font weight, and color choice is engineered with intention."
+      "Cohesive visual branding strategies that turn businesses into recognizable market leaders through mathematical precision, typography systems, and enduring brand assets.",
+      "We build identity systems that scale effortlessly from digital screen tokens to massive print collateral."
     ],
     whatsIncluded: [
-      "Master Vector Logo Suite (AI, EPS, SVG, PDF, transparent PNG)",
-      "Comprehensive 50+ Page Digital Brand Guidelines PDF",
-      "Typography Suite with Licensed Web & Desktop Fonts",
-      "Executive Stationery Kit (Business cards, Letterheads, Envelopes)",
-      "Social Media Identity Pack (Avatars, Banner templates, Post mockups)",
-      "Full Intellectual Property Transfer & Commercial Copyright"
+      "Full Vector Logo Suite (Primary, Secondary, Monogram)",
+      "Comprehensive 40+ Page Brand Guideline Manual",
+      "Color System (Pantone, CMYK, RGB, Hex Tokens)",
+      "Web & Print Typography Pairing Licenses",
+      "Executive Stationery & Investor Slide Decks",
+      "Social Media Avatar & Header Kit"
     ],
     process: [
-      { step: "01", title: "Brand Archetype Discovery", desc: "Interviewing stakeholders to define tone, mission, and competitor differentiation.", deliverables: "Brand Positioning & Moodboard Deck" },
-      { step: "02", title: "Conceptual Sketching", desc: "Exploring 3 distinct creative logo directions with varying visual metaphors.", deliverables: "3 Comprehensive Brand Concept Decks" },
-      { step: "03", title: "Vector Precision & Refinement", desc: "Refining chosen concept with mathematical geometry and optical kerning.", deliverables: "Refined Vector Lockup Drafts" },
-      { step: "04", title: "Typography & Color Architecture", desc: "Finalizing color palettes, digital tokens, and headline pairings.", deliverables: "Master Color & Typography Spec" },
-      { step: "05", title: "Collateral & Guidelines Assembly", desc: "Applying the brand to stationery, pitch decks, and assembling the manual.", deliverables: "50-Page Brand Manual PDF" },
-      { step: "06", title: "Final Asset Archive Delivery", desc: "Packaging all vector files, high-res PNGs, and font files for team usage.", deliverables: "Complete Brand Asset Master ZIP" }
+      { step: "01", title: "Discovery & Archetype Mapping", desc: "Analyzing market positioning, competitive whitespace, and customer personas.", deliverables: "Brand Strategy Document & Moodboard" },
+      { step: "02", title: "Concept Generation", desc: "Developing 3 distinct conceptual directions with custom vector sketches.", deliverables: "3 Conceptual Logo Directions" },
+      { step: "03", title: "Refinement & Typography", desc: "Fine-tuning geometric proportions, kerning, and color harmonies on chosen route.", deliverables: "Vector Geometry & Typography Lockup" },
+      { step: "04", title: "Token System & Colors", desc: "Defining semantic color palettes (Pantone, CMYK, Hex) and CSS variables.", deliverables: "Color Token & Accessibility Matrix" },
+      { step: "05", title: "Collateral & Deck Design", desc: "Styling stationery, investor pitch decks, and digital asset templates.", deliverables: "Executive Brand Collateral Kit" },
+      { step: "06", title: "Brand Manual Delivery", desc: "Assembling the definitive brand manual with usage dos/don'ts and asset packages.", deliverables: "Final Brand Guideline Manual & Vectors" }
     ],
     industries: [
-      { name: "Luxury & Lifestyle", desc: "High-end jewelry, luxury automotive, and bespoke fashion houses.", icon: "spa" },
-      { name: "Technology & AI", desc: "Cybersecurity, neural networks, and deep tech ventures.", icon: "memory" },
-      { name: "Venture Capital & Finance", desc: "Institutional private equity, hedge funds, and boutique advisories.", icon: "account_balance_wallet" },
-      { name: "Hospitality & Architecture", desc: "Boutique hotels, architectural practices, and fine dining.", icon: "villa" },
-      { name: "Health & Biotechnology", desc: "Pharmaceutical laboratories, wellness brands, and clinics.", icon: "biotech" },
-      { name: "Gaming & Entertainment", desc: "Interactive media studios, esports teams, and content creators.", icon: "sports_esports" }
+      { name: "Luxury & Lifestyle", desc: "Refined minimalist typography and packaging design.", icon: "diamond" },
+      { name: "Technology & AI", desc: "Geometric icons, dark mode interfaces, and tech identities.", icon: "terminal" },
+      { name: "Venture Capital & Finance", desc: "Trust-centric corporate palettes and investor decks.", icon: "account_balance" },
+      { name: "Hospitality & Architecture", desc: "Bespoke spatial signage and tactile stationery.", icon: "apartment" },
+      { name: "Health & Biotechnology", desc: "Clean medical aesthetics, clarity, and certified standards.", icon: "biotech" },
+      { name: "Gaming & Entertainment", desc: "High-energy typography, dynamic motion marks, and 3D.", icon: "sports_esports" }
     ],
     hireBenefits: [
-      { title: "100% Bespoke Geometry", desc: "No generic templates or AI generation — every mark is hand-crafted.", icon: "brush" },
-      { title: "Unlimited Concept Iteration", desc: "We collaborate closely until you are completely confident in the mark.", icon: "published_with_changes" },
-      { title: "Complete IP Ownership", desc: "Full commercial copyright transferred unconditionally upon sign-off.", icon: "verified_user" },
-      { title: "Production-Ready Vectors", desc: "Optimized SVG files ready for web developers and print shops.", icon: "picture_as_pdf" },
-      { title: "3D Animation Included", desc: "A cinematic 4K motion logo stinger ready for your video intro.", icon: "movie_creation" },
-      { title: "Pitch Deck Templates", desc: "Professionally designed slide master layouts matching your brand.", icon: "slideshow" }
+      { title: "Vector Mathematical Precision", desc: "Logos constructed with geometric grid systems that scale infinitely without distortion.", icon: "architecture" },
+      { title: "Production-Ready Formats", desc: "Receive all industry formats: SVG, EPS, PDF, AI, and optimized WebP.", icon: "folder_zip" },
+      { title: "Web Token Integration", desc: "Brand colors and typography translate directly to CSS and Tailwind tokens.", icon: "palette" },
+      { title: "Full Copyright Transfer", desc: "You receive 100% intellectual property ownership of the finalized brand identity.", icon: "verified" },
+      { title: "Investor-Grade Aesthetics", desc: "Position your company to command premium pricing and attract top-tier capital.", icon: "monetization_on" },
+      { title: "Rapid 14-Day Delivery", desc: "Structured design sprints delivering complete identity packages without delays.", icon: "speed" }
     ],
     technologies: [
-      { name: "Adobe Illustrator", role: "Vector Art", category: "Design" },
-      { name: "Photoshop", role: "Mockups", category: "Design" },
-      { name: "After Effects", role: "3D Motion", category: "Motion" },
-      { name: "InDesign", role: "Brand Books", category: "Print" },
-      { name: "Cinema 4D", role: "Spatial 3D", category: "3D" },
-      { name: "Figma", role: "Digital Tokens", category: "UI" }
+      { name: "Illustrator", role: "Vector Logo Construction", category: "Design" },
+      { name: "Photoshop", role: "Brand Mockups & Textures", category: "Design" },
+      { name: "Adobe InDesign", role: "Brand Guidelines & Editorial", category: "Design" },
+      { name: "Figma", role: "Digital Brand Systems", category: "Design" },
+      { name: "Canva", role: "Template Systems", category: "Templates" },
+      { name: "After Effects", role: "Animated Logo Reveals", category: "Motion" }
     ],
     faqs: [
-      { q: "How many logo concepts do you present initially?", a: "We deliver 3 to 4 distinct creative concepts, each accompanied by realistic mockups (signage, stationery, mobile screens) so you see how the identity works in the real world." },
-      { q: "Who owns the rights to the logo and brand assets?", a: "You own 100% of all intellectual property, vector files, and trademarks upon final payment." },
-      { q: "What if our team needs custom packaging or physical swag designed?", a: "We provide complete print-ready packaging, corporate swag, apparel, and signage layouts as part of our full brand identity engagements." }
+      { q: "What file formats will we receive for our logo?", a: "You receive industry-standard vector files (AI, EPS, SVG, PDF) alongside web-optimized transparent PNGs and WebP files in all color variations." },
+      { q: "Do you provide full trademark and copyright ownership?", a: "Yes. Upon final delivery, all intellectual property rights and copyrights transfer 100% to your company." },
+      { q: "What is included in the brand guideline manual?", a: "The manual specifies exact logo spacing, minimum sizing, secondary lockups, color codes (Pantone, CMYK, RGB, Hex), typography rules, and real-world collateral examples." }
     ],
     stats: [
-      { value: "80+", label: "Brand Identities Created" },
-      { value: "100%", label: "Client Satisfaction" },
-      { value: "40+", label: "Pages per Brand Book" },
-      { value: "5/5", label: "Client Review Score" }
+      { value: "100%", label: "Vector Precision Geometry" },
+      { value: "40+ Pg", label: "Definitive Brand Manual" },
+      { value: "14 Days", label: "Average Brand Sprint Time" },
+      { value: "100%", label: "Client IP Ownership" }
     ]
   },
 
-  // 8. Video Editing & Motion Graphics
+  // 08. Video Production & Motion Graphics
   {
     id: "video-motion",
     slug: "video-motion-graphics",
-    aliases: ["video-editing-motion"],
-    title: "Video Editing & Motion Graphics",
+    aliases: ["video-production","video-editing","motion-graphics","video-editing-motion"],
+    title: "Video Production & Motion Graphics",
     heroHeadline: "Cinematic Visual Storytelling & High-Retention Motion Graphics",
-    tagline: "Commercial video editing, dynamic reels, and 3D kinetic animations that captivate.",
-    shortDesc: "Cinematic commercial video post-production, dynamic viral social reels, 3D motion stingers, and Hollywood-grade DaVinci color grading.",
-    heroImage: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Cinematic motion design and post-production for conversion-driven video.",
+    shortDesc: "Cinematic motion design and post-production assets tailored to grab attention, explain complex digital systems, and drive conversions across modern feeds.",
+    heroImage: "/assets/Services Images/Video Editing.jpeg",
+    secondaryImage: "/assets/Services Images/Video Editing.jpeg",
     badge: "Cinematic",
     icon: "movie_creation",
-    subServicesTitle: "Our Custom Video & Motion Services",
+    subServicesTitle: "Core Motion & Video Solutions",
     subServices: [
       {
-        title: "Commercial & Corporate Showcases",
-        desc: "High-production brand documentaries, product launch films, and investor highlight reels.",
-        icon: "videocam",
-        points: ["4K HDR mastering", "Narrative scripting", "Professional voiceover sync"]
-      },
-      {
-        title: "High-Retention Social Video Reels",
-        desc: "Fast-paced TikTok, Instagram Reels, and YouTube Shorts edited with kinetic text and sound effects.",
-        icon: "smart_display",
-        points: ["Hook retention pacing", "Dynamic captions", "Trending audio sync"]
-      },
-      {
-        title: "2D & 3D Logo Reveal Animations",
-        desc: "Cinematic animated ident reveals with custom particle physics, volumetric light, and sound design.",
-        icon: "animation",
-        points: ["Cinema 4D / Blender", "Specular reflections", "Custom audio logo sting"]
-      },
-      {
-        title: "Animated Product Explainer Demos",
-        desc: "Engaging 2D vector and 3D explainer animations simplifying complex software functionality.",
+        title: "SaaS Walkthroughs & UI Demos",
+        desc: "Transforming raw interface interactions into polished 60 FPS demonstrations within 3D hardware viewports.",
         icon: "play_circle",
-        points: ["Vector character animation", "UI screencast simulation", "Step-by-step walkthroughs"]
+        points: ["60 FPS interface screencasts", "3D device viewport framing", "Kinetic cursor & gesture animations"]
       },
       {
-        title: "Hollywood-Grade Color Grading",
-        desc: "DaVinci Resolve color development turning standard raw camera profiles into cinematic film looks.",
-        icon: "color_lens",
-        points: ["LUT creation", "Skin-tone precision", "Atmospheric contrast control"]
+        title: "Paid Social Motion Ads",
+        desc: "Direct-response video assets built around high-impact 3-second visual hooks, kinetic captions, and sound design.",
+        icon: "smart_display",
+        points: ["High-retention 3-second visual hooks", "Burned-in kinetic captions", "Platform-native aspect ratios (9:16, 16:9)"]
       },
       {
-        title: "Sound Design & Audio Mastering",
-        desc: "Foley sound effects, ambient atmospheric audio, and loudness mastering conforming to broadcast standards.",
-        icon: "volume_up",
-        points: ["Audio cleanup & noise removal", "Dynamic sound effects", "-14 LUFS standard mastering"]
+        title: "3D Kinetic Typography",
+        desc: "Custom animated type engines and lower-thirds reflecting brand identity guidelines.",
+        icon: "text_fields",
+        points: ["Custom animated type engines", "Branded lower-thirds & titles", "Dynamic easing & physics motion"]
+      },
+      {
+        title: "Color Grading & Sound Design",
+        desc: "Broadcast-standard color-managed grading alongside multi-track foley, cleanup, and platform-compliant loudness normalization.",
+        icon: "tune",
+        points: ["DaVinci Resolve color timing", "Foley sound effects & audio cleanup", "Broadcast loudness normalization"]
       }
     ],
     overview: [
-      "In the modern attention economy, static content is easily ignored. Video is the single most effective medium for communicating value, driving emotional engagement, and accelerating conversions.",
-      "Solvexa's post-production team combines cinematic pacing with high-impact motion graphics to ensure your videos captivate audiences from the opening second."
+      "Cinematic motion design and post-production assets tailored to grab attention, explain complex digital systems, and drive conversions across modern feeds.",
+      "Video is the single most effective medium for communicating value, driving emotional engagement, and accelerating conversions in the modern attention economy."
     ],
     whatsIncluded: [
       "4K Ultra-HD & Full HD Multi-Format Master Exports",
-      "Aspect Ratios: 16:9 (YouTube), 9:16 (Reels/TikTok), 1:1 (Social)",
+      "Aspect Ratios: 16:9 (YouTube/Web), 9:16 (Reels/TikTok), 1:1 (Social)",
       "Custom Kinetic Typography & Subtitle Burn-In",
-      "Licensed Commercial Background Music & Sound Effects",
+      "Licensed Commercial Background Music & Sound Design",
       "Professional DaVinci Resolve Color Grade",
-      "Revisions Until Absolute Satisfaction"
+      "Unlimited Review Revisions on Sprints"
     ],
     process: [
-      { step: "01", title: "Creative Brief & Storyboard", desc: "Defining pacing, visual style, music tone, and narrative milestones.", deliverables: "Storyboard Deck & Music Direction" },
+      { step: "01", title: "Discovery & Storyboard", desc: "Defining pacing, visual style, music tone, and narrative milestones.", deliverables: "Storyboard Deck & Music Direction" },
       { step: "02", title: "Assembly Cut", desc: "Rough editing of raw clips synchronized to music tempo and voiceover.", deliverables: "Draft 1 Preview Link" },
       { step: "03", title: "Motion Graphics & Kinetic Text", desc: "Injecting animated overlays, lower thirds, callouts, and transitions.", deliverables: "Draft 2 with Motion Graphics" },
       { step: "04", title: "Color Grading & Audio Master", desc: "Color timing in DaVinci Resolve, dialogue cleanup, and Foley sound design.", deliverables: "Color & Audio Mastered Preview" },
-      { step: "05", title: "Multi-Format Export", desc: "Exporting high-bitrate MP4 and ProRes files in 16:9, 9:16, and 1:1.", deliverables: "Final 4K Master Deliverable Archive" }
+      { step: "05", title: "Multi-Format Export", desc: "Exporting high-bitrate MP4 and ProRes files in 16:9, 9:16, and 1:1.", deliverables: "Final 4K Master Deliverable Archive" },
+      { step: "06", title: "Growth & SLA Monitoring", desc: "Tracking video retention curves and iterating hooks on future edits.", deliverables: "Retention Analysis & Iteration Plan" }
     ],
     industries: [
       { name: "Consumer Brands", desc: "High-energy product showcases and lifestyle reels.", icon: "shopping_cart" },
@@ -871,7 +795,7 @@ export const servicesData: ServiceItem[] = [
       { name: "Creators & Influencers", desc: "YouTube video editing and vertical short-form retention optimization.", icon: "person" },
       { name: "Real Estate", desc: "Cinematic drone fly-throughs and luxury estate tours.", icon: "home" },
       { name: "Music & Entertainment", desc: "Music video post-production and teaser trailers.", icon: "music_note" },
-      { name: "Corporate & B2B", desc: "Company culture showcases, client video testimonials, and conference intros.", icon: "corporate_fare" }
+      { name: "Corporate & B2B", desc: "Company culture showcases and client video testimonials.", icon: "corporate_fare" }
     ],
     hireBenefits: [
       { title: "Turn Raw Clips into Gold", desc: "Send us raw footage from phones or cameras and receive polished videos.", icon: "auto_fix_high" },
@@ -882,16 +806,17 @@ export const servicesData: ServiceItem[] = [
       { title: "4K Master Delivery", desc: "High-bitrate ProRes and H.265 files ready for web, TV, or social feeds.", icon: "hd" }
     ],
     technologies: [
-      { name: "Premiere Pro", role: "NLE Editing", category: "Video" },
-      { name: "After Effects", role: "Motion & VFX", category: "Motion" },
-      { name: "DaVinci Resolve", role: "Color Grading", category: "Color" },
-      { name: "Blender", role: "3D Animation", category: "3D" },
-      { name: "Adobe Audition", role: "Audio Cleanup", category: "Audio" }
+      { name: "DaVinci Resolve", role: "Color Grading & Audio", category: "Post-Production" },
+      { name: "Premiere Pro", role: "NLE Video Assembly", category: "Editing" },
+      { name: "After Effects", role: "Motion & Visual Effects", category: "Motion" },
+      { name: "Blender", role: "3D Animation & Modeling", category: "3D" },
+      { name: "CapCut", role: "Vertical Short-Form", category: "Social" },
+      { name: "Final Cut Pro", role: "Rapid macOS Editing", category: "Editing" }
     ],
     faqs: [
-      { q: "What footage do we need to provide?", a: "You can provide raw video recorded on camera or smartphone via Google Drive or Dropbox. We can also source licensed stock footage and construct motion graphics from scratch." },
-      { q: "Can you create videos in both horizontal and vertical formats?", a: "Yes, every video project can be exported in 16:9 for YouTube and website embeds, as well as 9:16 vertical for Instagram Reels and TikTok." },
-      { q: "Do you provide voiceovers and music?", a: "Yes, we handle professional human voiceovers in multiple accents and license commercial background audio tracks included in the project price." }
+      { q: "What footage do we need to provide?", a: "You can provide raw footage recorded on camera or smartphone via Google Drive or Dropbox. We also source licensed stock footage and construct 100% motion graphics from scratch." },
+      { q: "Can you export videos in both landscape and vertical formats?", a: "Yes. Every project includes exports in 16:9 for YouTube and website embeds, as well as 9:16 vertical for Instagram Reels, TikTok, and YouTube Shorts." },
+      { q: "Do you provide voiceovers and music licensing?", a: "Yes. We source professional voiceovers in multiple accents and license commercial background audio tracks included in project pricing." }
     ],
     stats: [
       { value: "350+", label: "Videos Edited & Produced" },
@@ -901,165 +826,150 @@ export const servicesData: ServiceItem[] = [
     ]
   },
 
-  // 9. MVP Development
+  // 09. Rapid MVP Development
   {
     id: "mvp-dev",
     slug: "mvp-development",
-    title: "MVP Development",
-    heroHeadline: "From Vision to Working Production Prototype in 4 Weeks",
-    tagline: "Validate your startup idea fast with production-grade engineering.",
-    shortDesc: "Transform startup concepts into production-ready clickable and functional software in 4 weeks, primed for investor demos and early users.",
-    heroImage: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+    aliases: ["rapid-mvp-development","mvp-launch","startup-mvp","mvp"],
+    title: "Rapid MVP Development",
+    heroHeadline: "From Vision to Working Production Prototype in 4–6 Weeks",
+    tagline: "Production-grade MVPs delivered in 4–6 weeks for founders and innovators.",
+    shortDesc: "Zero-to-one product development delivering production-grade minimum viable software products within 4 to 6 weeks for early-stage founders and corporate innovators.",
+    heroImage: "/assets/Services Images/MVP Development.jpeg",
+    secondaryImage: "/assets/Services Images/MVP Development.jpeg",
     badge: "Speed to Market",
     icon: "rocket_launch",
-    subServicesTitle: "Our MVP Development Services",
+    subServicesTitle: "Core MVP Solutions",
     subServices: [
       {
-        title: "Product Scope & MoSCoW Prioritization",
-        desc: "Cutting non-essential features to zero in on the single core value loop that users will pay for.",
-        icon: "tune",
-        points: ["Core feature scoping", "User journey simplification", "Sprint milestone mapping"]
+        title: "Scope Definition (MoSCoW)",
+        desc: "Removing bloated roadmaps to prioritize essential features that directly validate user intent and monetization.",
+        icon: "checklist",
+        points: ["MoSCoW priority roadmap", "Core value loop isolation", "Sprint milestone scheduling"]
       },
       {
-        title: "Clickable Investor Pitch Prototype",
-        desc: "High-fidelity interactive prototype ready to demonstrate to angel investors, incubators, and prospective clients.",
-        icon: "preview",
-        points: ["Realistic demo data", "Figma clickable flows", "Pitch deck slide embeds"]
+        title: "Scalable Code Foundations",
+        desc: "Built on production-ready Next.js and PostgreSQL backends rather than fragile, unmaintainable no-code tools.",
+        icon: "code",
+        points: ["Next.js & TypeScript architecture", "PostgreSQL database modeling", "Clean sovereign code ownership"]
       },
       {
-        title: "Rapid Full-Stack Production Build",
-        desc: "Deploying battle-tested Next.js, Supabase, and Tailwind building blocks to ship production code in weeks.",
-        icon: "speed",
-        points: ["Auth & session management", "Stripe payment integration", "PostgreSQL database"]
+        title: "Turnkey Auth & Monetization",
+        desc: "Complete authentication (OAuth, magic links) and billing infrastructure (subscriptions, webhooks, usage limits).",
+        icon: "credit_card",
+        points: ["OAuth & magic link authentication", "Automated subscription webhooks", "Usage tiering & rate limiting"]
       },
       {
-        title: "Third-Party API & AI Integrations",
-        desc: "Connecting OpenAI / Anthropic LLM models, SendGrid, Twilio, and Stripe webhooks seamlessly.",
-        icon: "integration_instructions",
-        points: ["OpenAI API streaming", "Automated email triggers", "Webhook error retries"]
-      },
-      {
-        title: "Telemetry & Cohort Analytics Setup",
-        desc: "PostHog and Mixpanel integration to track retention loops, activation rates, and drop-off points.",
-        icon: "analytics",
-        points: ["Event tracking setup", "Funnel analytics", "Session replay recording"]
-      },
-      {
-        title: "V1.0 Launch & Post-Launch Support",
-        desc: "Deploying to live production with domain setup, SSL, error logging, and bug warranty.",
-        icon: "verified",
-        points: ["Vercel production deploy", "Sentry error monitoring", "30-day bug warranty"]
+        title: "Behavioral Analytics Setup",
+        desc: "Built-in event tracking to evaluate customer onboarding friction and retention from day one.",
+        icon: "insights",
+        points: ["User onboarding funnel tracking", "Event instrumentation & metrics", "Retention cohort analysis"]
       }
     ],
     overview: [
-      "For startups, speed to market is life or death. Spending six months building a sprawling software suite without real user validation is the most common reason early ventures fail.",
-      "Solvexa helps founders scope, design, and ship functional Minimum Viable Products in 4 to 6 weeks. We build on clean, scalable foundations (Next.js, TypeScript, PostgreSQL) so your MVP becomes the foundation for version 2.0 without requiring a total rewrite."
+      "Zero-to-one product development delivering production-grade minimum viable software products within 4 to 6 weeks for early-stage founders and corporate innovators.",
+      "We cut bloated roadmaps to build clean, functional software ready to acquire paying customers and pitch investors."
     ],
     whatsIncluded: [
-      "Product Specification & Core Feature MoSCoW Document",
-      "Interactive High-Fidelity Clickable Prototype in Figma",
-      "Production-Ready Full-Stack Web or Mobile Application",
-      "Authentication, User Roles & Secure Database Schema",
-      "Stripe or Paddle Automated Payment & Subscription Checkout",
-      "Comprehensive Codebase Repository with 100% IP Ownership"
+      "Production Next.js 16 Full-Stack Codebase",
+      "Supabase / PostgreSQL Database Architecture",
+      "Authentication & User Management (OAuth / Email)",
+      "Stripe Subscription & Checkout Integration",
+      "Clean UI/UX Design System in Figma & Tailwind",
+      "Full Source Code & Sovereign IP Ownership"
     ],
     process: [
-      { step: "01", title: "Value Scoping Sprint", desc: "Defining the core user loop and stripping out feature bloat.", deliverables: "1-Page Feature Scope & Architecture Plan" },
-      { step: "02", title: "Rapid UX Prototyping", desc: "Designing all key user screens in Figma within 5 business days.", deliverables: "Clickable Figma Investor Prototype" },
-      { step: "03", title: "High-Velocity Build", desc: "Building frontend and backend simultaneously using modular components.", deliverables: "Live Staging App with Auth & Database" },
-      { step: "04", title: "Payment & API Integration", desc: "Connecting Stripe checkout, email webhooks, and third-party APIs.", deliverables: "Working Checkout & User Onboarding" },
-      { step: "05", title: "Production Launch", desc: "Deploying to live production and configuring real-time telemetry.", deliverables: "Live V1.0 Launch to First 100 Users" }
+      { step: "01", title: "Discovery & MoSCoW Scoping", desc: "Isolating the single core value loop that users will pay for and discarding bloat.", deliverables: "MVP Feature Specification Deck" },
+      { step: "02", title: "Figma UX/UI Sprint (Week 1)", desc: "Designing clickable interactive prototypes with dark mode and mobile views.", deliverables: "Clickable Figma Investor Prototype" },
+      { step: "03", title: "Core Engineering (Weeks 2-4)", desc: "Full-stack Next.js and PostgreSQL coding with auth and payment webhooks.", deliverables: "Working Alpha Staging Environment" },
+      { step: "04", title: "Testing & User Feedback (Week 5)", desc: "User journey testing, security audits, and behavioral analytics setup.", deliverables: "Beta QA Pass & Fixes" },
+      { step: "05", title: "Production Deployment (Week 6)", desc: "DNS cutover on AWS or Vercel with real payment gateways and live telemetry.", deliverables: "Live Production Software & Repo Handoff" },
+      { step: "06", title: "Post-Launch Iteration", desc: "Analyzing early user feedback and planning the post-seed feature roadmap.", deliverables: "30-Day Warranty & Roadmap Review" }
     ],
     industries: [
-      { name: "AI Startups", desc: "LLM agent interfaces, prompt workflows, and automated reasoning tools.", icon: "smart_toy" },
-      { name: "FinTech & Neobanks", desc: "Micro-lending prototypes, expense splitters, and crypto dashboards.", icon: "savings" },
-      { name: "Marketplaces", desc: "Two-sided buyer/seller platforms with escrow and messaging.", icon: "store" },
-      { name: "Health & Wellness", desc: "Patient intake wizards, habit tracking apps, and provider portals.", icon: "favorite" },
-      { name: "SaaS Productivity", desc: "Task management tools, workflow automations, and team hubs.", icon: "check_circle" }
+      { name: "AI Startups", desc: "LLM wrappers, specialized copilots, and model interfaces.", icon: "neurology" },
+      { name: "FinTech & Neobanks", desc: "Micro-investing, payroll advances, and wallet prototypes.", icon: "wallet" },
+      { name: "Marketplaces", desc: "Two-sided service platforms and escrow payments.", icon: "storefront" },
+      { name: "Health & Wellness", desc: "Telehealth consults, booking engines, and wellness apps.", icon: "spa" },
+      { name: "B2B SaaS", desc: "Workflow automation, CRM add-ons, and team portals.", icon: "cloud" },
+      { name: "SaaS Productivity", desc: "Task managers, collaboration hubs, and document engines.", icon: "check_circle" }
     ],
     hireBenefits: [
-      { title: "4-Week Delivery Sprint", desc: "Go from concept napkin to live production in 30 days.", icon: "timer" },
-      { title: "No Throwaway Code", desc: "Built with production TypeScript and Next.js so you scale seamlessly.", icon: "code" },
-      { title: "Investor Demo Ready", desc: "Impress angel investors and accelerators with a sleek, working product.", icon: "trending_up" },
-      { title: "Fixed Price & Scope", desc: "Predictable upfront pricing with zero scope creep surprises.", icon: "price_check" },
-      { title: "Full Code Ownership", desc: "100% repository rights transferred immediately upon project completion.", icon: "verified_user" }
+      { title: "Fixed-Price Guarantee", desc: "Predictable, transparent budget with zero hidden hourly creep.", icon: "payments" },
+      { title: "Production-Grade Code", desc: "No throwaway no-code apps. You receive scalable Next.js and Postgres code.", icon: "code" },
+      { title: "Investor-Ready Demos", desc: "Clean UI/UX and responsive design built to impress angel investors and VCs.", icon: "trending_up" },
+      { title: "100% Sovereign IP", desc: "All GitHub repositories, accounts, and designs belong unconditionally to you.", icon: "verified" },
+      { title: "Turnkey Payments & Auth", desc: "Start charging customers on day one with built-in subscription billing.", icon: "credit_card" },
+      { title: "Direct Architect Access", desc: "Work directly with lead full-stack engineers on daily Slack channels.", icon: "chat" }
     ],
     technologies: [
-      { name: "Next.js", role: "Framework", category: "Full-Stack" },
-      { name: "Supabase", role: "Auth & DB", category: "Backend" },
-      { name: "TypeScript", role: "Type Safety", category: "Core" },
-      { name: "TailwindCSS", role: "Design Engine", category: "Frontend" },
-      { name: "Stripe", role: "Payments", category: "Finance" },
-      { name: "Vercel", role: "Edge Hosting", category: "Cloud" }
+      { name: "Next.js", role: "Full-Stack Application Layer", category: "Core" },
+      { name: "React", role: "Frontend UI Components", category: "Frontend" },
+      { name: "TypeScript", role: "Type-Safe Architecture", category: "Core" },
+      { name: "Tailwind CSS", role: "Rapid Utility Styling", category: "Design" },
+      { name: "Supabase", role: "PostgreSQL & Auth Engine", category: "Database" },
+      { name: "PostgreSQL", role: "Relational Database", category: "Database" },
+      { name: "Node.js", role: "Backend Microservices", category: "Backend" },
+      { name: "Docker", role: "Container Packaging", category: "DevOps" },
+      { name: "AWS", role: "Cloud Hosting", category: "Cloud" },
+      { name: "GitHub Actions", role: "CI/CD Automation", category: "DevOps" }
     ],
     faqs: [
-      { q: "How long does an MVP build take from start to finish?", a: "Our streamlined MVP sprint typically takes 3 to 6 weeks depending on third-party API dependencies and database complexity." },
-      { q: "Can the MVP code be kept when we raise investment and scale?", a: "Yes! We build with production-grade TypeScript, Next.js, and relational databases. Your MVP code serves as the durable foundation for your future engineering team." },
-      { q: "What is included in the MVP package?", a: "You receive user authentication, relational database, responsive UI/UX, payment processing, transactional emails, and deployment to production." }
+      { q: "Can we really launch a production MVP in 4 to 6 weeks?", a: "Yes. By rigorously prioritizing features using MoSCoW rules and leveraging our pre-architected Next.js/PostgreSQL patterns, we eliminate months of unnecessary delay." },
+      { q: "Is the code scalable or will we need to rewrite it later?", a: "It is 100% production-ready, clean TypeScript code built on standard industry foundations (Next.js, Tailwind, PostgreSQL) that can scale to hundreds of thousands of users." },
+      { q: "What happens after the MVP is launched?", a: "We provide 30 days of complimentary bug warranty and can continue as your dedicated engineering pod to build v2 features as you scale." }
     ],
     stats: [
-      { value: "4 Weeks", label: "Average Delivery Sprint" },
-      { value: "$12M+", label: "Raised by Clients Post-MVP" },
-      { value: "28+", label: "MVPs Shipped to Date" },
-      { value: "100%", label: "On-Time Launch Record" }
+      { value: "4-6 Wks", label: "Idea to Production Launch" },
+      { value: "100%", label: "Sovereign Code Ownership" },
+      { value: "Zero", label: "Fragile No-Code Shortcuts" },
+      { value: "$12M+", label: "Capital Raised by Our MVPs" }
     ]
   },
 
-  // 10. Shopify Development
+  // 10. Shopify Store Development & Headless Commerce
   {
     id: "shopify-dev",
     slug: "shopify-development",
-    title: "Shopify Development",
+    aliases: ["shopify-store-development","shopify","shopify-plus","ecommerce-development"],
+    title: "Shopify Store Development & Headless Commerce",
     heroHeadline: "High-Converting Shopify & Shopify Plus E-Commerce Storefronts",
-    tagline: "Custom Liquid themes, headless Hydrogen stores, and checkout optimizations that drive sales.",
-    shortDesc: "Create high-converting, customized Shopify stores that enhance your e-commerce experience and drive sales.",
-    heroImage: "https://images.unsplash.com/photo-1556742049-0a67e5572293?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Custom Liquid and Hydrogen storefronts built for volume and speed.",
+    shortDesc: "Custom eCommerce platforms engineered for high order volumes, sub-second response times, and optimized average order values (AOV).",
+    heroImage: "/assets/Services Images/Shopify.jpeg",
+    secondaryImage: "/assets/Services Images/Shopify.jpeg",
     badge: "E-Commerce",
     icon: "shopping_bag",
-    subServicesTitle: "Our Custom Shopify Development Services",
+    subServicesTitle: "Core Shopify Solutions",
     subServices: [
       {
-        title: "Bespoke Shopify Theme Engineering",
-        desc: "Clean, zero-bloat Liquid theme development engineered for sub-second page loads and mobile conversions.",
+        title: "Custom Liquid Themes",
+        desc: "Clean themes built from the ground up using Online Store 2.0 architecture, avoiding slow third-party page builders.",
         icon: "brush",
-        points: ["Liquid 2.0 architecture", "Modular section blocks", "Mobile-first checkout flows"]
+        points: ["Online Store 2.0 Liquid code", "Zero third-party builder bloat", "Sub-second mobile loading"]
       },
       {
-        title: "Headless Shopify & Hydrogen",
-        desc: "Cutting-edge React / Next.js frontends powered by Shopify Storefront API for complete creative freedom.",
+        title: "Headless Commerce (Hydrogen)",
+        desc: "Decoupled, edge-rendered storefronts powered by Shopify Hydrogen and Next.js via Storefront GraphQL APIs.",
         icon: "developer_board",
-        points: ["Shopify Storefront API", "Hydrogen / Remix framework", "Infinite product filtering"]
+        points: ["Shopify Storefront GraphQL API", "Hydrogen / Next.js edge rendering", "Infinite dynamic product filtering"]
       },
       {
-        title: "Custom Shopify App Development",
-        desc: "Private and public Shopify apps extending admin functionality, custom ERP syncs, and warehouse webhooks.",
-        icon: "extension",
-        points: ["Shopify Admin GraphQL API", "Automated fulfillment sync", "Custom loyalty reward logic"]
-      },
-      {
-        title: "Checkout & Cart Optimization",
-        desc: "Shopify Plus checkout extensions, 1-click upsells, slide-out carts, and payment gateway configuration.",
+        title: "Checkout Extensibility",
+        desc: "Custom checkout modifications, order bumps, custom rules via Shopify Functions, and integrated B2B wholesale portals.",
         icon: "shopping_cart_checkout",
-        points: ["Shopify Functions discounts", "Slide cart cross-sells", "Multi-currency localized checkout"]
+        points: ["Shopify Functions discount logic", "Slide-out cart upsells & bumps", "B2B wholesale customer pricing"]
       },
       {
-        title: "Platform Migration to Shopify",
-        desc: "Zero-data-loss migration from WooCommerce, Magento, or BigCommerce including order and customer histories.",
-        icon: "swap_horiz",
-        points: ["301 redirect mapping", "Customer password handling", "SKU & inventory data mapping"]
-      },
-      {
-        title: "Performance & Conversion Audit",
-        desc: "Audit app overhead, eliminate redundant scripts, and achieve 90+ Google Lighthouse performance scores.",
-        icon: "speed",
-        points: ["App bloat elimination", "WebP image optimization", "Core Web Vitals tuning"]
+        title: "ERP & 3PL Integrations",
+        desc: "Automated inventory and order routing syncing Shopify stores with internal ERPs, warehouse networks, and CRM tools.",
+        icon: "inventory_2",
+        points: ["Automated 3PL warehouse routing", "ERP inventory synchronization", "Multi-location fulfillment logic"]
       }
     ],
     overview: [
-      "A cookie-cutter Shopify template loaded with 30 competing apps creates a sluggish store that hemorrhages conversions. At Solvexa, we engineer tailored Shopify architectures that combine clean custom Liquid code with high-intent UX design.",
-      "Whether you are launching an ambitious DTC brand or migrating an enterprise store with 50,000 SKUs to Shopify Plus, our certified Shopify developers guarantee seamless inventory synchronization, reliable checkout, and blisteringly fast load times."
+      "Custom eCommerce platforms engineered for high order volumes, sub-second response times, and optimized average order values (AOV).",
+      "Whether you are launching a high-velocity DTC brand or managing an enterprise store with 50,000 SKUs on Shopify Plus, our certified developers ensure seamless inventory sync and sub-second load times."
     ],
     whatsIncluded: [
       "Custom Shopify 2.0 Theme Engineered from Figma Designs",
@@ -1070,20 +980,20 @@ export const servicesData: ServiceItem[] = [
       "30-Day Post-Launch SLA & Bug Warranty"
     ],
     process: [
-      { step: "01", title: "Store Architecture & UX", desc: "Auditing catalog taxonomy, customer paths, and conversion friction.", deliverables: "E-Commerce Wireframe & Store Spec" },
+      { step: "01", title: "Discovery & UX Audit", desc: "Auditing catalog taxonomy, customer paths, and checkout friction points.", deliverables: "E-Commerce Wireframe & Store Spec" },
       { step: "02", title: "Custom Figma Design", desc: "Crafting bespoke desktop and mobile e-commerce screens.", deliverables: "Full Shopify UI Design in Figma" },
       { step: "03", title: "Liquid & Section Coding", desc: "Developing custom modular sections inside Shopify Theme 2.0.", deliverables: "Private Shopify Preview Store" },
-      { step: "04", title: "App & Payment Integration", desc: "Integrating Klaviyo, reviews, ERP webhooks, and payment gateways.", deliverables: "Functional E-Commerce Testing Store" },
+      { step: "04", title: "App & Payment Integration", desc: "Integrating reviews, ERP webhooks, and payment gateways.", deliverables: "Functional E-Commerce Testing Store" },
       { step: "05", title: "Data Migration & QA", desc: "Migrating products, customer records, order history, and setting 301 redirects.", deliverables: "Data Verification Sign-Off" },
       { step: "06", title: "Launch & Go-Live", desc: "Zero-downtime DNS cutover, live test purchases, and speed verification.", deliverables: "Live Shopify Store & Staff Training" }
     ],
     industries: [
-      { name: "Apparel & Luxury Fashion", desc: "Lookbook layouts, size recommendation calculators, and color swatch variants.", icon: "checkroom" },
+      { name: "Apparel & Luxury Fashion", desc: "Lookbook layouts, size recommendation calculators, and color swatches.", icon: "checkroom" },
       { name: "Health & Beauty (Cosmetics)", desc: "Subscription refills, bundle builders, and customer review showcases.", icon: "spa" },
       { name: "Electronics & Tech Gear", desc: "Interactive tech spec comparisons, warranty add-ons, and manuals.", icon: "devices" },
-      { name: "Food & Beverage", desc: "Perishable delivery scheduling, multi-pack bundles, and regional tax rules.", icon: "restaurant" },
+      { name: "Food & Beverage", desc: "Perishable delivery scheduling, multi-pack bundles, and regional taxes.", icon: "restaurant" },
       { name: "Home & Interior Decor", desc: "High-resolution zoom visualizers, room mockups, and dimensional guides.", icon: "chair" },
-      { name: "Sports & Outdoor Equipment", desc: "Heavy item freight calculation, gear selector wizards, and warranty registration.", icon: "sports_tennis" }
+      { name: "Sports & Outdoor Equipment", desc: "Freight calculation, gear selector wizards, and warranty registration.", icon: "sports_tennis" }
     ],
     hireBenefits: [
       { title: "Zero App Bloat", desc: "We code custom features directly into Liquid, saving thousands in monthly app fees.", icon: "savings" },
@@ -1091,19 +1001,21 @@ export const servicesData: ServiceItem[] = [
       { title: "Shopify Plus Experts", desc: "Experience with checkout extensions, scripts, and multi-store international expansion.", icon: "verified" },
       { title: "Complete SEO Preservation", desc: "Rigorous 301 redirects ensuring your existing organic Google rankings remain intact.", icon: "shield" },
       { title: "Conversion-Centric UX", desc: "Slide carts, sticky checkout buttons, and dynamic upsells that lift AOV.", icon: "trending_up" },
-      { title: "Full Admin Handover", desc: "Intuitive theme customization controls allowing your non-technical team to edit content.", icon: "admin_panel_settings" }
+      { title: "Full Admin Handover", desc: "Modular section controls allowing non-technical teams to edit content easily.", icon: "admin_panel_settings" }
     ],
     technologies: [
-      { name: "Shopify Liquid", role: "Template Engine", category: "Core" },
-      { name: "Shopify Plus", role: "Enterprise Tier", category: "Platform" },
-      { name: "Hydrogen / React", role: "Headless Frontend", category: "Headless" },
-      { name: "GraphQL API", role: "Storefront Data", category: "API" },
-      { name: "TailwindCSS", role: "Styling", category: "Frontend" },
-      { name: "Klaviyo", role: "Email & Retention", category: "Marketing" }
+      { name: "Shopify", role: "E-Commerce Core Platform", category: "Core" },
+      { name: "Shopify Liquid", role: "Theme Template Engine", category: "Frontend" },
+      { name: "Shopify Plus", role: "Enterprise Architecture", category: "Platform" },
+      { name: "WooCommerce", role: "Catalog Migration & Tools", category: "E-Commerce" },
+      { name: "GraphQL", role: "Storefront API Data", category: "API" },
+      { name: "Tailwind CSS", role: "Modular UI Styling", category: "Design" },
+      { name: "TypeScript", role: "Custom Script Logic", category: "Code" },
+      { name: "React", role: "Headless Components", category: "Frontend" }
     ],
     faqs: [
-      { q: "Can you migrate our store from WooCommerce or Magento without losing orders?", a: "Yes. We execute automated and verified database migrations that migrate all historical customers, order records, SKUs, and establish 301 URL redirects so your Google rankings don't drop." },
-      { q: "Do you build headless Shopify stores using Next.js or Hydrogen?", a: "Yes. For brands requiring bespoke web applications or custom interactive experiences, we build headless storefronts powered by Shopify's GraphQL Storefront API." },
+      { q: "Can you migrate our store from WooCommerce or Magento without losing orders?", a: "Yes. We execute automated and verified database migrations that transfer all historical customers, orders, SKUs, and establish 301 URL redirects so Google rankings remain steady." },
+      { q: "Do you build headless Shopify stores using Next.js?", a: "Yes. For brands requiring bespoke web applications or custom interactive experiences, we build headless storefronts powered by Shopify's GraphQL Storefront API." },
       { q: "Will our marketing team be able to customize page sections easily?", a: "Absolutely. We build modular Shopify Theme 2.0 sections, meaning your marketing team can drag, drop, and edit banner content, text, and images without writing code." }
     ],
     stats: [
@@ -1114,216 +1026,198 @@ export const servicesData: ServiceItem[] = [
     ]
   },
 
-  // 11. WordPress Development
+  // 11. WordPress & Enterprise CMS Development
   {
     id: "wordpress-dev",
     slug: "wordpress-development",
-    title: "WordPress Development",
+    aliases: ["wordpress-enterprise-cms","wordpress","cms-development","headless-wordpress"],
+    title: "WordPress & Enterprise CMS Development",
     heroHeadline: "High-Performance Custom WordPress & WooCommerce Architecture",
-    tagline: "Build high-performance websites with WordPress tailored to your brand and business needs.",
-    shortDesc: "Build high-performance websites with WordPress tailored to your brand and needs with zero plugin bloat.",
-    heroImage: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Custom Gutenberg blocks, ACF Pro, and headless WordPress architecture.",
+    shortDesc: "Lightweight, secure WordPress architectures that replace bloated pre-made templates with custom Gutenberg block ecosystems and Advanced Custom Fields (ACF Pro).",
+    heroImage: "/assets/Services Images/wordpress.jpeg",
+    secondaryImage: "/assets/Services Images/wordpress.jpeg",
     badge: "Custom CMS",
     icon: "space_dashboard",
-    subServicesTitle: "Our Custom WordPress Development Services",
+    subServicesTitle: "Core WordPress Solutions",
     subServices: [
       {
-        title: "Bespoke Gutenberg Block Themes",
-        desc: "Custom WordPress Full Site Editing (FSE) themes using native Gutenberg blocks for intuitive content publishing.",
+        title: "Custom Gutenberg Blocks",
+        desc: "Native React-powered editor blocks letting teams build layouts without breaking global styles or bloating code.",
         icon: "view_quilt",
-        points: ["Custom ACF / Gutenberg blocks", "Zero reliance on heavy page builders", "Clean semantic HTML5"]
+        points: ["Native React Gutenberg block suite", "Strict visual style enforcement", "Zero builder plugin dependencies"]
       },
       {
-        title: "WooCommerce Scalable Storefronts",
-        desc: "High-volume WooCommerce stores with optimized database indexes, custom checkout flows, and Stripe webhooks.",
-        icon: "store",
-        points: ["Custom cart & checkout", "High-SKU performance tuning", "Payment & tax integrations"]
+        title: "ACF Pro Content Modeling",
+        desc: "Structured relational schemas and flexible content modules tailored for distraction-free editorial workflows.",
+        icon: "schema",
+        points: ["ACF Pro flexible content schemas", "Custom post type taxonomies", "Intuitive authoring dashboard"]
       },
       {
-        title: "Headless WordPress & REST API",
-        desc: "Decoupled WordPress serving as a headless backend feeding Next.js or mobile applications via WPGraphQL.",
+        title: "Headless WordPress",
+        desc: "WordPress used as a decoupled API engine, delivering content via WPGraphQL to high-velocity Next.js frontends.",
         icon: "hub",
-        points: ["WPGraphQL endpoints", "Next.js ISR caching", "Ultra-secure decoupled admin"]
+        points: ["Decoupled WPGraphQL endpoints", "Next.js ISR frontends", "Hardened isolated admin backend"]
       },
       {
-        title: "WordPress Security & Hardening",
-        desc: "Enterprise hardening protocols, XML-RPC disablers, two-factor auth, and automated malware scanning.",
+        title: "Enterprise Hardening & Caching",
+        desc: "Redis object caching, custom database indexing, and strict endpoint security to guarantee sub-second page loads.",
         icon: "security",
-        points: ["Cloudflare WAF integration", "Database prefix masking", "DDoS mitigation"]
-      },
-      {
-        title: "Speed Optimization (90+ Core Web Vitals)",
-        desc: "Eliminating plugin bloat, implementing Redis object caching, database query pruning, and CDN setups.",
-        icon: "speed",
-        points: ["Redis object cache", "CSS/JS tree shaking", "Sub-second server response time"]
-      },
-      {
-        title: "Custom Plugin Development",
-        desc: "Tailored PHP plugins built to extend WordPress functionality without relying on vulnerable public plugins.",
-        icon: "extension",
-        points: ["OOP PHP architecture", "Custom post types & taxonomies", "Strict WordPress coding standards"]
+        points: ["Redis object cache acceleration", "Custom MySQL query optimization", "Automated backup & WAF firewall"]
       }
     ],
     overview: [
-      "Over 40% of the web is powered by WordPress, but poorly configured sites with 40+ plugins suffer from slow load times, frequent crashes, and security vulnerabilities. Solvexa builds bespoke, high-performance WordPress platforms.",
-      "We replace bloated visual builder templates with clean custom Gutenberg blocks, optimized database indexing, and Redis caching. You get an intuitive content editor for your marketing team combined with enterprise-grade speed."
+      "Lightweight, secure WordPress architectures that replace bloated pre-made templates with custom Gutenberg block ecosystems and Advanced Custom Fields (ACF Pro).",
+      "We build custom WordPress sites that load in under a second, stay secure, and empower non-technical marketing teams to publish without fear."
     ],
     whatsIncluded: [
-      "Custom WordPress Theme Engineered from Scratch",
-      "Full Gutenberg Custom Blocks Library Tailored to Your Brand",
-      "WooCommerce or Custom Lead Generation Funnel Integration",
-      "Redis Object Caching & Cloudflare Enterprise Speed Setup",
-      "Comprehensive Security Hardening & Automated Daily Backups",
-      "Full Editor Documentation & Video Walkthrough Training"
+      "Bespoke Gutenberg Block Theme (Zero Elementor/Divi Bloat)",
+      "Advanced Custom Fields Pro Relational Architecture",
+      "Redis Object Caching & MySQL Database Indexing",
+      "Automated Daily Backups & WAF Security Rules",
+      "Full SEO Schema & Metadata Integration",
+      "Staff CMS Training Video Library"
     ],
     process: [
-      { step: "01", title: "Information Architecture", desc: "Mapping content types, taxonomies, and editor user flows.", deliverables: "Content Model Blueprint" },
-      { step: "02", title: "UI/UX Design in Figma", desc: "Designing responsive page templates and dynamic state layouts.", deliverables: "Complete Figma Layout Archive" },
-      { step: "03", title: "Custom Theme Engineering", desc: "Writing clean PHP, SCSS, and modular Gutenberg blocks.", deliverables: "Staging WordPress Environment" },
-      { step: "04", title: "Performance & Caching", desc: "Configuring Redis object caching, asset minification, and database indexing.", deliverables: "95+ Lighthouse Score Report" },
-      { step: "05", title: "Content Migration & QA", desc: "Importing existing posts, media assets, and verifying 301 redirects.", deliverables: "QA Pass Sign-Off" },
-      { step: "06", title: "Launch & Security Seal", desc: "DNS cutover, SSL provisioning, and hardening against brute-force attacks.", deliverables: "Live Production Site & Admin Access" }
+      { step: "01", title: "Discovery & IA Scoping", desc: "Auditing content schemas, editorial workflows, and post relationships.", deliverables: "Content Architecture Blueprint" },
+      { step: "02", title: "Custom Figma Design", desc: "Designing responsive layouts and modular block specifications.", deliverables: "Figma UI Block System" },
+      { step: "03", title: "Custom Gutenberg Coding", desc: "Building native React blocks and registering clean custom post types.", deliverables: "Private Staging WordPress Build" },
+      { step: "04", title: "Database & Security Tuning", desc: "Configuring Redis caching, table indexing, and XML-RPC lockdown.", deliverables: "Speed & Security Audit Sign-Off" },
+      { step: "05", title: "Content Migration & QA", desc: "Migrating articles, media, establishing 301 redirects, and SSL cutover.", deliverables: "Verified Content Migration" },
+      { step: "06", title: "Launch & Go-Live", desc: "Zero-downtime DNS deployment with continuous security monitoring.", deliverables: "Live WordPress Site & Video Handoff" }
     ],
     industries: [
-      { name: "Publishing & Media Outlets", desc: "High-traffic newsrooms, editorial workflows, and paywall access systems.", icon: "newspaper" },
-      { name: "Corporate & Enterprise", desc: "Multi-language portals, investor relations, and compliance disclosures.", icon: "business" },
-      { name: "Non-Profit & Philanthropy", desc: "Donation forms, annual report showcases, and volunteer portals.", icon: "volunteer_activism" },
-      { name: "Educational Institutions", desc: "Course catalogs, faculty directories, and student application flows.", icon: "school" },
-      { name: "Professional Advisory", desc: "Thought leadership articles, case study libraries, and consultation booking.", icon: "work" },
-      { name: "Hospitality & Tourism", desc: "Experience reservations, interactive location maps, and multilingual guides.", icon: "travel_explore" }
+      { name: "Publishing & Media Outlets", desc: "High-traffic news feeds, editorial workflows, and paywalls.", icon: "newspaper" },
+      { name: "Corporate & Enterprise", desc: "Investor relations, compliance newsrooms, and multi-language portals.", icon: "corporate_fare" },
+      { name: "Non-Profit & Philanthropy", desc: "Donation processing, campaign storytelling, and volunteer forms.", icon: "volunteer_activism" },
+      { name: "Educational Institutions", desc: "Faculty directories, course catalogs, and academic event calendars.", icon: "school" },
+      { name: "Professional Advisory", desc: "Whitepaper downloads, case study archives, and consult bookings.", icon: "business_center" },
+      { name: "Hospitality & Tourism", desc: "Property portfolios, virtual guides, and dynamic booking integrations.", icon: "hotel" }
     ],
     hireBenefits: [
-      { title: "No Page Builder Lag", desc: "Zero Elementor or Divi bloat — lightweight custom Gutenberg code that flies.", icon: "speed" },
-      { title: "Rock-Solid Security", desc: "Hardened WordPress configurations that withstand brute force and SQL injection attacks.", icon: "security" },
-      { title: "Intuitive Publishing", desc: "Non-technical marketing staff can edit text and publish posts with effortless ease.", icon: "edit_note" },
-      { title: "Clean Database Schemas", desc: "Optimized wp_posts and postmeta queries that scale to millions of monthly views.", icon: "database" },
-      { title: "Full Code Ownership", desc: "No recurring subscription themes — your theme code is 100% yours.", icon: "code" },
-      { title: "Strict Coding Standards", desc: "Adherence to official WordPress Coding Standards (WPCS) and PHP 8.2+.", icon: "verified" }
+      { title: "Zero Plugin Bloat", desc: "We replace 30 competing plugins with clean, bespoke native PHP & React code.", icon: "cleaning_services" },
+      { title: "90+ PageSpeed Scores", desc: "Sub-second load times engineered via clean semantic HTML and server caching.", icon: "speed" },
+      { title: "Custom Gutenberg Freedom", desc: "Your marketing team can build rich landing pages without breaking branding.", icon: "edit_note" },
+      { title: "Enterprise Security", desc: "Hardened wp-config, custom login URLs, and Cloudflare WAF protection.", icon: "shield" },
+      { title: "Headless Ready", desc: "Easily connect WPGraphQL to Next.js or mobile applications anytime.", icon: "hub" },
+      { title: "Comprehensive Video Training", desc: "We record custom screencasts teaching your team how to update every single page.", icon: "ondemand_video" }
     ],
     technologies: [
-      { name: "WordPress 6.7+", role: "Core CMS", category: "CMS" },
-      { name: "PHP 8.3", role: "Backend Engine", category: "Backend" },
-      { name: "WooCommerce", role: "E-Commerce", category: "E-Commerce" },
-      { name: "WPGraphQL", role: "API Protocol", category: "API" },
-      { name: "MySQL / MariaDB", role: "Database", category: "Database" },
-      { name: "Redis", role: "Object Caching", category: "Performance" }
+      { name: "WordPress", role: "Core CMS Engine", category: "CMS" },
+      { name: "PHP", role: "Server Runtime", category: "Backend" },
+      { name: "WooCommerce", role: "E-Commerce Extension", category: "E-Commerce" },
+      { name: "GraphQL", role: "WPGraphQL API Headless", category: "API" },
+      { name: "MySQL", role: "Relational Database", category: "Database" },
+      { name: "Redis", role: "High-Speed Object Caching", category: "Caching" },
+      { name: "JavaScript", role: "Gutenberg Block React Logic", category: "Frontend" },
+      { name: "Tailwind CSS", role: "Theme Styling", category: "Design" }
     ],
     faqs: [
-      { q: "Do you use Elementor or pre-made WordPress themes?", a: "No. We build custom, lightweight Gutenberg themes from scratch. This guarantees 95+ performance scores, eliminates plugin conflicts, and keeps your code secure." },
-      { q: "Can you optimize our existing slow WordPress website?", a: "Yes. We conduct speed audits, purge redundant database queries, configure Redis caching, optimize images, and optimize server configs to slash load times." },
-      { q: "Can WordPress be used headlessly with Next.js?", a: "Yes. We frequently use WordPress as a headless CMS, allowing your content editors to use the familiar WordPress admin while Next.js powers a blazing-fast edge frontend." }
+      { q: "Why do you avoid page builders like Elementor or Divi?", a: "Pre-made page builders inject dozens of render-blocking CSS/JS files that destroy Core Web Vitals scores. We build native Gutenberg blocks that render cleanly and load in under 1 second." },
+      { q: "How do you keep WordPress secure from hackers?", a: "We eliminate insecure third-party plugins, restrict wp-admin via IP/MFA rules, change default endpoints, and deploy web application firewalls (WAF)." },
+      { q: "Can we use WordPress as a headless CMS with Next.js?", a: "Yes. We configure WPGraphQL on WordPress and consume the API in Next.js using Incremental Static Regeneration (ISR) for instant page loads." }
     ],
     stats: [
-      { value: "0.5s", label: "Average Server Response Time" },
-      { value: "95+", label: "Google PageSpeed Score" },
+      { value: "< 1.0s", label: "Average Page Load Time" },
+      { value: "95+", label: "Lighthouse Performance Score" },
       { value: "70+", label: "WordPress Sites Delivered" },
       { value: "Zero", label: "Plugin Bloat" }
     ]
   },
 
-  // 12. AI & ML Solutions
+  // 12. AI & Machine Learning Solutions
   {
     id: "ai-ml",
     slug: "ai-ml-solutions",
-    aliases: ["ai-solutions"],
-    title: "AI & ML Solutions",
+    aliases: ["ai-machine-learning","machine-learning","artificial-intelligence","ai-solutions"],
+    title: "AI & Machine Learning Solutions",
     heroHeadline: "Enterprise Machine Learning Systems & Applied Predictive Intelligence",
-    tagline: "Empower your operations with predictive algorithms, computer vision, and intelligent automation.",
-    shortDesc: "Empower your operations with predictive machine learning algorithms, computer vision pipelines, NLP models, and enterprise automation.",
-    heroImage: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Predictive models, computer vision, and production MLOps pipelines.",
+    shortDesc: "Production-ready machine learning pipelines and custom predictive models built to turn complex business data into automated, high-accuracy decisions.",
+    heroImage: "/assets/Services Images/Ai and Ml.jpeg",
+    secondaryImage: "/assets/Services Images/Ai and Ml.jpeg",
     badge: "Intelligent Systems",
     icon: "psychology",
-    subServicesTitle: "Our Custom AI & Machine Learning Services",
+    subServicesTitle: "Core AI & Machine Learning Solutions",
     subServices: [
       {
-        title: "Predictive Analytics & Forecasting",
-        desc: "Statistical machine learning models that forecast demand, customer churn, revenue projections, and inventory needs.",
+        title: "Custom Predictive Models",
+        desc: "Supervised and unsupervised pipelines for customer churn prediction, demand forecasting, dynamic pricing, and fraud detection.",
         icon: "insights",
-        points: ["Time-series forecasting", "Customer churn modeling", "Anomaly detection pipelines"]
+        points: ["Time-series demand forecasting", "Customer churn & risk scoring", "Dynamic pricing optimization"]
       },
       {
-        title: "Computer Vision & Visual AI",
-        desc: "Object detection, visual quality inspection, OCR document scanning, and facial biometric verification.",
+        title: "Computer Vision Systems",
+        desc: "Vision Transformer and convolutional models for automated defect classification, document parsing (OCR), and image segmentation.",
         icon: "visibility",
-        points: ["YOLOv8 / OpenCV pipelines", "Defect inspection in manufacturing", "Document text extraction (OCR)"]
+        points: ["Automated defect classification", "Document parsing & OCR extraction", "Real-time camera feed analysis"]
       },
       {
-        title: "Natural Language Processing (NLP)",
-        desc: "Sentiment analysis, multi-lingual translation, entity extraction, and conversational intent routing.",
+        title: "Natural Language Intelligence",
+        desc: "Domain-specific text classification, intent recognition, entity extraction, and sentiment scoring models.",
         icon: "translate",
-        points: ["Named Entity Recognition (NER)", "Customer sentiment analytics", "Automated ticket categorization"]
+        points: ["Named entity recognition (NER)", "Customer sentiment analytics", "Automated ticket routing"]
       },
       {
-        title: "Intelligent Process Automation",
-        desc: "Automating repetitive data extraction, invoice reconciliation, and operational decision branches.",
-        icon: "precision_manufacturing",
-        points: ["Automated invoice processing", "ERP data synchronization", "Zero-human error loops"]
-      },
-      {
-        title: "Recommendation Engines",
-        desc: "Collaborative filtering and deep neural network recommendation systems that lift average order value and user retention.",
-        icon: "recommend",
-        points: ["Personalized feed generation", "E-commerce product upsells", "Dynamic content ranking"]
-      },
-      {
-        title: "MLOps & Cloud Pipeline Deployment",
-        desc: "Production model serving with Docker, FastAPI, Triton Inference Server, and automated retraining pipelines.",
+        title: "Production MLOps",
+        desc: "Model containerization, data drift monitoring, automated re-training pipelines, and low-latency API serving.",
         icon: "cloud_sync",
-        points: ["FastAPI microservices", "Model drift monitoring", "GPU autoscaling on AWS / GCP"]
+        points: ["FastAPI containerized microservices", "Data & model drift monitoring", "Automated retraining triggers"]
       }
     ],
     overview: [
-      "Artificial intelligence is only valuable when it solves concrete business problems: cutting labor hours, predicting churn before it happens, and unlocking insights trapped inside unstructured enterprise data.",
-      "Solvexa engineers end-to-end AI/ML pipelines from data ingestion and cleaning to custom model training and production MLOps deployment. We ensure your machine learning models deliver measurable business ROI."
+      "Production-ready machine learning pipelines and custom predictive models built to turn complex business data into automated, high-accuracy decisions.",
+      "We engineer end-to-end AI/ML pipelines from data cleaning to custom model training and production MLOps deployment."
     ],
     whatsIncluded: [
       "Data Feasibility Audit & Problem Framing Document",
-      "Cleaned, Validated, and Versioned Dataset Pipeline",
+      "Cleaned, Validated & Versioned Dataset Pipeline",
       "Trained & Validated Machine Learning Model Weights",
       "Containerized FastAPI / Triton Inference REST API",
       "Automated Model Drift Monitoring & Retraining Triggers",
-      "Full Source Code, Weights, and Architecture Documentation"
+      "Full Source Code, Weights & Architecture Docs"
     ],
     process: [
       { step: "01", title: "Problem Framing & Data Audit", desc: "Evaluating business objectives, data quality, bias risks, and ROI benchmarks.", deliverables: "AI Feasibility Study & Metric Goals" },
       { step: "02", title: "Data Ingestion & Feature Prep", desc: "Cleaning, normalizing, and feature-engineering historical datasets.", deliverables: "Processed Training & Validation Datasets" },
-      { step: "03", title: "Model Architecture & Baseline", desc: "Testing baseline algorithms (XGBoost, Scikit-learn, PyTorch) against targets.", deliverables: "Model Performance Comparison Benchmark" },
+      { step: "03", title: "Model Architecture & Baseline", desc: "Testing baseline algorithms against performance targets.", deliverables: "Model Performance Comparison Benchmark" },
       { step: "04", title: "Hyperparameter Tuning", desc: "Fine-tuning weights, cross-validation, and optimizing precision-recall curves.", deliverables: "High-Accuracy Production Model" },
-      { step: "05", title: "Inference API Deployment", desc: "Packaging model inside Docker containers with GPU acceleration and REST endpoints.", deliverables: "Live Inference API & Swagger Docs" },
+      { step: "05", title: "Inference API Deployment", desc: "Packaging models inside Docker containers with GPU acceleration and REST endpoints.", deliverables: "Live Inference API & Swagger Docs" },
       { step: "06", title: "Drift Monitoring & MLOps", desc: "Setting automated alerts for concept drift and scheduling recurring retraining.", deliverables: "MLOps Dashboard & Maintenance SLA" }
     ],
     industries: [
-      { name: "FinTech & Risk Underwriting", desc: "Fraud detection, credit risk scoring, and automated algorithmic signals.", icon: "account_balance" },
-      { name: "Manufacturing & Logistics", desc: "Defect inspection on assembly lines, predictive maintenance, and route planning.", icon: "precision_manufacturing" },
+      { name: "FinTech & Risk Underwriting", desc: "Fraud detection, credit risk scoring, and algorithmic signals.", icon: "account_balance" },
+      { name: "Manufacturing & Logistics", desc: "Defect inspection on assembly lines, predictive maintenance, and routing.", icon: "precision_manufacturing" },
       { name: "Healthcare & Diagnostics", desc: "Medical imaging scan analysis, patient risk stratification, and trial data.", icon: "medical_services" },
-      { name: "Retail & E-Commerce", desc: "Demand forecasting, dynamic pricing algorithms, and personalized recommendations.", icon: "shopping_bag" },
+      { name: "Retail & E-Commerce", desc: "Demand forecasting, dynamic pricing algorithms, and recommendations.", icon: "shopping_bag" },
       { name: "Insurance & Claims", desc: "Damage photo analysis, automated claims processing, and risk assessments.", icon: "verified_user" },
       { name: "Agriculture & Agritech", desc: "Satellite crop yield analysis, soil sensor telemetry, and disease detection.", icon: "eco" }
     ],
     hireBenefits: [
       { title: "Senior AI Scientists", desc: "Engineers with deep foundations in mathematics, statistics, and neural networks.", icon: "school" },
       { title: "Data Security & Privacy", desc: "Your data stays private. We sign strict NDAs and deploy on your private cloud.", icon: "lock" },
-      { title: "Production MLOps Focus", desc: "We don't build toys in Jupyter notebooks; we ship hardened production inference APIs.", icon: "rocket_launch" },
+      { title: "Production MLOps Focus", desc: "We ship hardened production inference APIs ready for scale.", icon: "rocket_launch" },
       { title: "Predictable Cost Models", desc: "Optimized model quantization that reduces cloud GPU inferencing costs by up to 60%.", icon: "savings" },
-      { title: "Explainable AI (XAI)", desc: "Transparent SHAP / LIME visualizations so stakeholders understand model decisions.", icon: "visibility" },
+      { title: "Explainable AI (XAI)", desc: "Transparent visualizations so stakeholders understand model decisions.", icon: "visibility" },
       { title: "Full Model Ownership", desc: "You own 100% of the training code, curated datasets, and final model weights.", icon: "verified" }
     ],
     technologies: [
-      { name: "Python", role: "Core Language", category: "Language" },
-      { name: "PyTorch", role: "Deep Learning", category: "AI/ML" },
-      { name: "TensorFlow", role: "Neural Networks", category: "AI/ML" },
-      { name: "Scikit-Learn", role: "Machine Learning", category: "AI/ML" },
-      { name: "FastAPI", role: "Inference API", category: "Backend" },
-      { name: "Docker", role: "Containerization", category: "DevOps" },
-      { name: "PostgreSQL", role: "Vector & Tabular", category: "Database" },
-      { name: "AWS SageMaker", role: "Cloud MLOps", category: "Cloud" }
+      { name: "Python", role: "Core AI Language", category: "Language" },
+      { name: "PyTorch", role: "Deep Learning Neural Networks", category: "AI/ML" },
+      { name: "TensorFlow", role: "Deep Learning Models", category: "AI/ML" },
+      { name: "Scikit-Learn", role: "Machine Learning Algorithms", category: "AI/ML" },
+      { name: "Hugging Face", role: "Transformer Pipelines", category: "AI/ML" },
+      { name: "FastAPI", role: "High-Speed Inference API", category: "Backend" },
+      { name: "Docker", role: "Containerized Serving", category: "DevOps" },
+      { name: "PostgreSQL", role: "Vector & Tabular Data", category: "Database" },
+      { name: "Pandas", role: "Data Processing", category: "Data" },
+      { name: "NumPy", role: "Numerical Arrays", category: "Data" },
+      { name: "AWS", role: "GPU Cloud Infrastructure", category: "Cloud" }
     ],
     faqs: [
-      { q: "How much data do we need before we can train an AI model?", a: "It depends on the task. Classical machine learning (churn prediction, tabular classification) can succeed with thousands of rows. Deep learning and computer vision require more data, but transfer learning can dramatically lower requirements." },
+      { q: "How much data do we need before training an AI model?", a: "It depends on the task. Classical machine learning (churn prediction, tabular classification) can succeed with thousands of rows. Deep learning and computer vision require more data, but transfer learning can lower requirements." },
       { q: "Can we deploy the AI model on our own private servers?", a: "Yes. All models and inference containers are fully self-hostable on your own AWS, GCP, Azure, or on-premises GPU infrastructure." },
-      { q: "How do you prevent hallucinations or inaccurate model predictions?", a: "We apply rigorous cross-validation, out-of-distribution testing, confidence score thresholds, and human-in-the-loop validation fallbacks." }
+      { q: "How do you prevent inaccurate model predictions?", a: "We apply rigorous cross-validation, confidence score thresholds, out-of-distribution testing, and human-in-the-loop fallback procedures." }
     ],
     stats: [
       { value: "99.2%", label: "Model Classification Accuracy" },
@@ -1333,77 +1227,65 @@ export const servicesData: ServiceItem[] = [
     ]
   },
 
-  // 13. LLMs & RAG Systems
+  // 13. LLMs & Enterprise RAG Systems
   {
     id: "llms-rag",
     slug: "llms-rag",
-    aliases: ["rag-systems"],
-    title: "LLMs & RAG Systems",
+    aliases: ["enterprise-rag","rag-systems","llm-development","llm-rag"],
+    title: "LLMs & Enterprise RAG Systems",
     heroHeadline: "Private Retrieval-Augmented Generation & Custom Enterprise LLM Architectures",
-    tagline: "Ground frontier AI models in your proprietary enterprise data with zero hallucinations.",
-    shortDesc: "Enterprise Retrieval-Augmented Generation systems, vector database indexing, private document embeddings, and context-aware LLM reasoning.",
-    heroImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Context-aware, hallucination-resistant AI grounded in your private data.",
+    shortDesc: "Context-aware Large Language Model platforms connected securely to proprietary business documentation, delivering grounded answers with verified citations and zero data leakage.",
+    heroImage: "/assets/Services Images/llms.jpeg",
+    secondaryImage: "/assets/Services Images/llms.jpeg",
     badge: "GenAI",
     icon: "neurology",
-    subServicesTitle: "Our Custom LLM & RAG Services",
+    subServicesTitle: "Core LLM & RAG Solutions",
     subServices: [
       {
-        title: "Advanced Hybrid RAG Pipelines",
-        desc: "Combining dense vector semantic search with sparse BM25 keyword matching and cross-encoder re-ranking.",
+        title: "Production RAG Pipelines",
+        desc: "Context-aware document chunking, hybrid search (BM25 + dense vectors), and cross-encoder reranking to preserve document context.",
         icon: "hub",
-        points: ["Dense + Sparse hybrid retrieval", "Cross-encoder re-ranking", "Sub-200ms document retrieval"]
+        points: ["Dense vector + BM25 hybrid search", "Cross-encoder semantic reranking", "Context-aware document chunking"]
       },
       {
-        title: "Proprietary Knowledge Base Indexing",
-        desc: "Ingesting complex PDFs, spreadsheets, Notion docs, codebases, and SQL schemas into secure vector databases.",
+        title: "Enterprise Vector Databases",
+        desc: "High-concurrency vector store setups configured with role-based access control and isolated tenant partitions.",
         icon: "dataset",
-        points: ["Context-aware chunking", "OCR table parsing", "Automated re-indexing webhooks"]
+        points: ["Role-based access partitioning", "High-concurrency vector indexing", "Sub-200ms document recall"]
       },
       {
-        title: "Enterprise Copilots & Chat Interfaces",
-        desc: "Sleek Next.js chat interfaces with streaming responses, markdown rendering, and strict citation links to source pages.",
-        icon: "chat",
-        points: ["Direct page citation links", "Streaming token rendering", "Session memory & thread history"]
-      },
-      {
-        title: "Prompt Engineering & Evaluation Suites",
-        desc: "Rigorous automated evaluation testing accuracy, hallucination rates, and prompt injection defense using Ragas.",
+        title: "Hallucination Mitigation",
+        desc: "Strict contextual grounding constraints, zero-temperature execution, and automated citation mapping to source documents.",
         icon: "fact_check",
-        points: ["Ragas evaluation benchmarks", "Adversarial prompt testing", "Golden test dataset curation"]
+        points: ["Zero-hallucination grounding prompt", "Direct page & paragraph citations", "Verifiable evidence logging"]
       },
       {
-        title: "Self-Hosted Open-Source LLMs",
-        desc: "Deploying open-weights models (Llama 3, Mistral, DeepSeek) on private cloud VPCs with vLLM acceleration.",
+        title: "Private Cloud Deployments",
+        desc: "Self-hosted open-weights models deployed in air-gapped VPCs to guarantee complete data isolation.",
         icon: "dns",
-        points: ["vLLM high-throughput serving", "Zero data leakage to external APIs", "AWQ / GGUF model quantization"]
-      },
-      {
-        title: "Structured Output & JSON Function Calling",
-        desc: "Enforcing strict Pydantic JSON schema outputs for seamless downstream API workflows and databases.",
-        icon: "code",
-        points: ["Guaranteed JSON schema output", "Pydantic data validation", "Deterministic API triggers"]
+        points: ["Private VPC model deployment", "Zero external API data leakage", "Quantized high-throughput inferencing"]
       }
     ],
     overview: [
-      "Off-the-shelf generative AI models hallucinate facts, lack knowledge of your private internal documents, and leak confidential intellectual property when accessed through public endpoints.",
-      "Solvexa designs production-grade Retrieval-Augmented Generation (RAG) architectures. We index your proprietary enterprise documents into high-performance vector databases, apply cross-encoder re-ranking, and feed exact relevant context into LLMs with verifiable citations."
+      "Context-aware Large Language Model platforms connected securely to proprietary business documentation, delivering grounded answers with verified citations and zero data leakage.",
+      "Instead of asking models to recall facts from memory, our RAG systems search your private documents, provide verified citations, and eliminate hallucinations."
     ],
     whatsIncluded: [
       "Custom Document Extraction & Chunking Architecture",
       "Vector Database Setup (Pinecone, Qdrant, or pgvector)",
-      "Hybrid Retrieval Pipeline with Cohere / BGE Re-Ranker",
+      "Hybrid Retrieval Pipeline with Semantic Re-Ranker",
       "Streaming Chat Frontend in Next.js with Source Citations",
-      "Automated Ragas Evaluation Benchmark & Quality Suite",
+      "Automated Evaluation Benchmark & Quality Suite",
       "Full VPC Deployment with Zero Data Training Guarantees"
     ],
     process: [
-      { step: "01", title: "Document & Schema Audit", desc: "Auditing knowledge corpus (PDFs, docs, databases) and defining query personas.", deliverables: "RAG Architecture Specification" },
+      { step: "01", title: "Discovery & Schema Audit", desc: "Auditing knowledge corpus (PDFs, docs, databases) and defining query personas.", deliverables: "RAG Architecture Specification" },
       { step: "02", title: "Chunking & Vector Indexing", desc: "Implementing hierarchical chunking and generating embeddings with OpenAI / BGE.", deliverables: "Vector Database Cluster Ingested" },
       { step: "03", title: "Hybrid Retrieval & Re-ranking", desc: "Configuring dense vector search + BM25 keyword matching + cross-encoder re-ranking.", deliverables: "Benchmarked Retrieval Pipeline" },
       { step: "04", title: "Prompt & Context Guardrails", desc: "Writing system prompts, citation rules, and guardrails to eradicate hallucinations.", deliverables: "Guarded Prompt Pipeline" },
       { step: "05", title: "Streaming Frontend Build", desc: "Building responsive chat UI with markdown code syntax highlighting and sources.", deliverables: "Live Interactive Copilot Application" },
-      { step: "06", title: "Automated Evaluation & SLA", desc: "Running test suites against 200+ golden Q&A queries to guarantee 99%+ accuracy.", deliverables: "Ragas Accuracy Audit & Production Release" }
+      { step: "06", title: "Growth & Accuracy Benchmarks", desc: "Running test suites against 200+ golden Q&A queries to guarantee 99%+ accuracy.", deliverables: "Accuracy Audit & Production Release" }
     ],
     industries: [
       { name: "Legal & Compliance", desc: "Instant searching through thousands of contracts, case precedents, and statutory filings.", icon: "gavel" },
@@ -1416,25 +1298,26 @@ export const servicesData: ServiceItem[] = [
     hireBenefits: [
       { title: "Zero Hallucinations", desc: "Strict citation-grounded RAG pipelines that refuse to guess when information is missing.", icon: "verified" },
       { title: "Strict Data Privacy", desc: "Deploy in your own private cloud or VPC; your data is never used to train public models.", icon: "security" },
-      { title: "State-of-the-Art Re-ranking", desc: "We use cross-encoder re-rankers that retrieve the exact paragraph needed every time.", icon: "filter_list" },
+      { title: "State-of-the-Art Re-ranking", desc: "Cross-encoder re-rankers that retrieve the exact paragraph needed every time.", icon: "filter_list" },
       { title: "Fast Streaming UI", desc: "Real-time token streaming with sub-500ms time-to-first-token response rates.", icon: "bolt" },
       { title: "Multi-Modal Support", desc: "Extract insights from embedded charts, complex tables, diagrams, and scanned images.", icon: "image" },
-      { title: "Automated Test Benchmarks", desc: "Continuous regression testing using Ragas to ensure retrieval precision never degrades.", icon: "checklist" }
+      { title: "Continuous Test Benchmarks", desc: "Continuous regression testing ensuring retrieval precision never degrades.", icon: "checklist" }
     ],
     technologies: [
-      { name: "LangChain / LlamaIndex", role: "Orchestration", category: "AI" },
-      { name: "Pinecone / Qdrant", role: "Vector DB", category: "Database" },
-      { name: "pgvector", role: "Postgres Vectors", category: "Database" },
-      { name: "OpenAI / Claude", role: "Frontier LLMs", category: "AI" },
-      { name: "vLLM", role: "Self-Hosted Engine", category: "Infrastructure" },
-      { name: "Next.js", role: "Copilot UI", category: "Frontend" },
-      { name: "FastAPI", role: "Streaming Backend", category: "Backend" },
-      { name: "Ragas", role: "Eval Framework", category: "Testing" }
+      { name: "LangChain", role: "LLM Orchestration", category: "AI" },
+      { name: "Pinecone", role: "Vector Database", category: "Database" },
+      { name: "OpenAI", role: "Frontier Foundation Models", category: "AI" },
+      { name: "Claude AI", role: "Long-Context Reasoning", category: "AI" },
+      { name: "Google Gemini", role: "Multimodal Models", category: "AI" },
+      { name: "PostgreSQL", role: "pgvector Storage", category: "Database" },
+      { name: "Next.js", role: "Streaming Chat UI", category: "Frontend" },
+      { name: "FastAPI", role: "Async Streaming Backend", category: "Backend" },
+      { name: "Python", role: "Data Chunking Pipeline", category: "Language" }
     ],
     faqs: [
-      { q: "How do RAG systems prevent AI from making things up (hallucinating)?", a: "Instead of asking the LLM to recall information from memory, RAG searches your private documents for the exact paragraphs, passes them as verified evidence in the prompt, and instructs the LLM to cite its sources explicitly." },
-      { q: "Can we use our own local open-source models instead of OpenAI?", a: "Yes. We regularly deploy Llama 3, Mistral, and DeepSeek on private AWS/Azure GPU instances using vLLM so your company data never leaves your infrastructure." },
-      { q: "How are updates to documents handled?", a: "We implement automated synchronization webhooks: when a document is created, updated, or deleted in Google Drive, Notion, or S3, the vector embeddings are updated in real-time." }
+      { q: "How do RAG systems prevent AI hallucinations?", a: "Instead of asking the LLM to recall facts from training memory, RAG retrieves verified paragraphs from your private documents and instructs the model to only answer using provided evidence with exact citations." },
+      { q: "Can we use self-hosted open-source models instead of public APIs?", a: "Yes. We deploy models like Llama 3 and Mistral on your private AWS or Azure VPCs so internal company data never leaves your infrastructure." },
+      { q: "How are updates to knowledge documents handled?", a: "We establish automated synchronization webhooks: when files in S3, Notion, or Google Drive change, vector embeddings update in real-time." }
     ],
     stats: [
       { value: "< 0.5%", label: "Hallucination Rate" },
@@ -1444,85 +1327,73 @@ export const servicesData: ServiceItem[] = [
     ]
   },
 
-  // 14. Agentic AI & Autonomous Systems
+  // 14. Autonomous AI Agents
   {
     id: "agentic-ai",
     slug: "agentic-ai",
-    aliases: ["autonomous-agents"],
-    title: "Agentic AI & Autonomous Systems",
+    aliases: ["autonomous-ai-agents","ai-agents","autonomous-agents","agentic-systems"],
+    title: "Autonomous AI Agents",
     heroHeadline: "Multi-Agent Workflows, Tool-Calling Systems & Autonomous Task Execution",
-    tagline: "Deploy autonomous AI agents that reason, plan, call tools, and execute multi-step business workflows.",
-    shortDesc: "Autonomous multi-agent workflows with tool-calling capabilities, LangGraph / CrewAI orchestration, and self-healing business processes.",
-    heroImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Multi-agent systems that plan, execute, and self-correct within guardrails.",
+    shortDesc: "Self-directing, multi-agent systems engineered to plan, execute multi-step workflows, call business APIs, and self-correct within guarded enterprise boundaries.",
+    heroImage: "/assets/Services Images/agentic ai.jpeg",
+    secondaryImage: "/assets/Services Images/agentic ai.jpeg",
     badge: "Autonomous",
     icon: "smart_toy",
-    subServicesTitle: "Our Custom Agentic AI Services",
+    subServicesTitle: "Core Agentic Solutions",
     subServices: [
       {
-        title: "Multi-Agent Orchestration (LangGraph & CrewAI)",
-        desc: "Designing collaborative teams of specialized agents with supervisor nodes, state memory, and cyclic execution graphs.",
-        icon: "hub",
-        points: ["Cyclic state graph workflows", "Supervisor / worker topologies", "Persistent thread memory"]
+        title: "Multi-Agent Swarms",
+        desc: "Orchestrator-worker and consensus-driven agent networks decomposing large operational goals into parallelized steps.",
+        icon: "smart_toy",
+        points: ["Supervisor & worker agent graphs", "Parallel goal decomposition", "Persistent thread state memory"]
       },
       {
-        title: "Autonomous Tool Calling & API Execution",
-        desc: "Equipping agents with custom tools to query SQL databases, send emails, trigger webhooks, and invoke third-party APIs.",
+        title: "Deterministic Tool Calling",
+        desc: "Strict function execution connecting AI agents to internal ERPs, databases, CRMs, and developer tools via validated JSON payloads.",
         icon: "build",
-        points: ["Safe tool execution sandboxes", "Strict JSON parameter validation", "Automated error recovery"]
+        points: ["Safe execution sandboxes", "Strict JSON schema validation", "Automated error recovery"]
       },
       {
-        title: "Human-in-the-Loop (HITL) Guardrails",
-        desc: "Configuring interrupt checkpoints where human approval is required before high-stakes financial or database actions.",
+        title: "Cognitive Architecture",
+        desc: "ReAct (Reason + Act) patterns, reflection loops, and persistent vector-backed episodic memory.",
+        icon: "psychology",
+        points: ["ReAct reasoning & execution loops", "Episodic memory vector retrieval", "Self-critique & iterative tuning"]
+      },
+      {
+        title: "Human-in-the-Loop Safeguards",
+        desc: "Configurable confidence thresholds requiring manager sign-off on critical state-changing actions.",
         icon: "how_to_reg",
-        points: ["One-click Slack / Email approvals", "Rollback execution states", "Audit trail logging"]
-      },
-      {
-        title: "Self-Reflecting & Correcting Loops",
-        desc: "Agents that inspect their own output, test code in sandboxes, catch errors, and iteratively refine until success.",
-        icon: "autorenew",
-        points: ["Self-critique validation", "Sandboxed Python execution", "Iterative bug fixing"]
-      },
-      {
-        title: "Autonomous Research & Data Crawling",
-        desc: "Agents that scour web sources, aggregate pricing intelligence, synthesize competitor moves, and draft reports.",
-        icon: "travel_explore",
-        points: ["Headless browser web extraction", "Structured markdown synthesis", "Real-time market tracking"]
-      },
-      {
-        title: "Agent Telemetry & Observability",
-        desc: "LangSmith and Arize Phoenix tracing tracking step-by-step agent reasoning, tool payloads, and latency bottlenecks.",
-        icon: "monitoring",
-        points: ["Step-by-step reasoning traces", "Token consumption monitoring", "Cost attribution per task"]
+        points: ["Approval checkpoints for critical actions", "One-click Slack / Dashboard approvals", "Full state rollback capabilities"]
       }
     ],
     overview: [
-      "The next frontier of AI is not chatbots that merely talk; it is autonomous agents that take action. Agentic AI systems can plan complex multi-step tasks, choose the right tools, query databases, execute code, and self-correct when something breaks.",
-      "Solvexa engineers state-of-the-art multi-agent workflows using LangGraph and CrewAI. We build robust systems that automate complex, multi-hour human operational workflows with deterministic safety guardrails."
+      "Self-directing, multi-agent systems engineered to plan, execute multi-step workflows, call business APIs, and self-correct within guarded enterprise boundaries.",
+      "The future of AI is not passive chatbots that merely talk; it is autonomous agents that execute real operational work safely and reliably."
     ],
     whatsIncluded: [
-      "Agent Architecture Graph & State Machine Specification",
-      "Custom Toolset Integration (CRM, SQL, APIs, Email)",
+      "Agent State Machine Graph Architecture",
+      "Custom Toolset Integration (SQL, CRMs, APIs)",
       "Human-in-the-Loop Approval Modal & Slack Notifications",
-      "Sandboxed Code Execution & Self-Correction Logic",
-      "Complete LangSmith Tracing & Observability Setup",
-      "Deployment on Docker / Kubernetes with Auto-Recovery"
+      "Sandboxed Code Execution & Self-Correction Loops",
+      "Complete Observability & Tracing Setup",
+      "Production Container Deployment with Auto-Recovery"
     ],
     process: [
-      { step: "01", title: "Workflow Mapping", desc: "Deconstructing target business processes into granular reasoning steps and tools.", deliverables: "Agent Workflow Graph Diagram" },
-      { step: "02", title: "Tool & API Construction", desc: "Writing safe Python tool functions with rigorous Pydantic schemas.", deliverables: "Verified Tool Registry" },
+      { step: "01", title: "Discovery & Workflow Mapping", desc: "Deconstructing target business processes into granular reasoning steps and tools.", deliverables: "Agent Workflow Graph Diagram" },
+      { step: "02", title: "Tool & API Construction", desc: "Writing safe tool functions with rigorous Pydantic parameter schemas.", deliverables: "Verified Tool Registry" },
       { step: "03", title: "State Graph Engineering", desc: "Implementing cyclical logic, error fallbacks, and supervisor nodes in LangGraph.", deliverables: "Compiled Multi-Agent Engine" },
       { step: "04", title: "Human Approval Gateways", desc: "Setting up pause/resume interrupt points for human review on critical actions.", deliverables: "HITL Notification & Review UI" },
       { step: "05", title: "Stress & Adversarial Testing", desc: "Subjecting agents to thousands of edge cases, bad inputs, and infinite loop traps.", deliverables: "Resilience & Test Benchmark Report" },
-      { step: "06", title: "Production Deployment", desc: "Deploying agent worker nodes with queue management and LangSmith observability.", deliverables: "Live Autonomous Agent System" }
+      { step: "06", title: "Growth & SLA Monitoring", desc: "Deploying agent worker nodes with queue management and telemetry observability.", deliverables: "Live Autonomous Agent System" }
     ],
     industries: [
-      { name: "Customer Operations & Support", desc: "Autonomous tier-2 support agents that diagnose issues, check databases, and issue refunds.", icon: "support_agent" },
-      { name: "Financial Reconciliation", desc: "Agents that compare invoices against bank feeds, spot anomalies, and prepare ledger entries.", icon: "account_balance" },
+      { name: "Customer Operations & Support", desc: "Autonomous tier-2 support agents that diagnose issues and check databases.", icon: "support_agent" },
+      { name: "Financial Reconciliation", desc: "Agents that compare invoices against bank feeds and spot anomalies.", icon: "account_balance" },
       { name: "Software Development (DevOps)", desc: "Autonomous code review agents, bug reproducers, and pull request generators.", icon: "terminal" },
-      { name: "Healthcare Admin", desc: "Pre-authorizations, insurance claims verification, and patient intake coordination.", icon: "health_and_safety" },
-      { name: "Procurement & Supply Chain", desc: "Automated supplier vendor outreach, quote comparisons, and purchase order drafts.", icon: "local_shipping" },
-      { name: "Sales Outreach & Enrichment", desc: "Autonomous prospect qualification, LinkedIn enrichment, and personalized email drafting.", icon: "send" }
+      { name: "Healthcare Admin", desc: "Pre-authorizations, insurance claims verification, and intake coordination.", icon: "health_and_safety" },
+      { name: "Procurement & Supply Chain", desc: "Automated supplier vendor outreach, quote comparisons, and purchase orders.", icon: "local_shipping" },
+      { name: "Sales Outreach & Enrichment", desc: "Autonomous prospect qualification, LinkedIn enrichment, and email drafting.", icon: "send" }
     ],
     hireBenefits: [
       { title: "LangGraph Certified Experts", desc: "Pioneering team building complex cyclic state graphs and multi-agent topologies.", icon: "hub" },
@@ -1530,129 +1401,122 @@ export const servicesData: ServiceItem[] = [
       { title: "Human Oversight Guaranteed", desc: "High-consequence actions always require human sign-off via Slack or dashboard.", icon: "how_to_reg" },
       { title: "Self-Healing Workflows", desc: "Agents automatically catch errors, diagnose root causes, and retry alternative tools.", icon: "autorenew" },
       { title: "Full Execution Tracing", desc: "Inspect every thought, token, tool call, and latency spike in real-time.", icon: "insights" },
-      { title: "Direct Enterprise Integrations", desc: "Connect seamlessly to Salesforce, HubSpot, Jira, Postgres, Slack, and Zapier.", icon: "cable" }
+      { title: "Direct Enterprise Integrations", desc: "Connect seamlessly to Jira, Postgres, Slack, and cloud databases.", icon: "cable" }
     ],
     technologies: [
-      { name: "LangGraph", role: "State Machine Graph", category: "Framework" },
-      { name: "CrewAI", role: "Role-Based Agents", category: "Framework" },
-      { name: "Python", role: "Core Language", category: "Language" },
-      { name: "LangSmith", role: "Tracing & Observability", category: "DevOps" },
-      { name: "Claude 3.5 Sonnet", role: "Reasoning Engine", category: "LLM" },
-      { name: "GPT-4o", role: "Multimodal Agent", category: "LLM" },
-      { name: "FastAPI", role: "Worker Queue", category: "Backend" },
-      { name: "Docker", role: "Sandbox Isolation", category: "Security" }
+      { name: "LangGraph", role: "Cyclic State Machine Graph", category: "Framework" },
+      { name: "CrewAI", role: "Role-Based Agent Swarms", category: "Framework" },
+      { name: "Python", role: "Core Language & Tools", category: "Language" },
+      { name: "LangChain", role: "Tool Execution Primitives", category: "AI" },
+      { name: "Claude AI", role: "High-Order Reasoning Engine", category: "AI" },
+      { name: "OpenAI", role: "Multimodal Agent Models", category: "AI" },
+      { name: "FastAPI", role: "Worker Queue & REST API", category: "Backend" },
+      { name: "Docker", role: "Sandbox Isolation", category: "Security" },
+      { name: "Redis", role: "Thread State Persistence", category: "Caching" },
+      { name: "PostgreSQL", role: "Memory Logs & Audit Trails", category: "Database" }
     ],
     faqs: [
-      { q: "What prevents an autonomous agent from getting stuck in an infinite loop?", a: "We engineer strict recursion limits, deterministic state graph cycles, and timeout monitors in LangGraph. If an agent fails to reach resolution after N iterations, it triggers a human fallback." },
-      { q: "Can an agent take destructive actions (like deleting records or charging cards)?", a: "No action of that nature is permitted autonomously. We implement Human-in-the-Loop (HITL) checkpoints: the agent stages the proposed action and pauses until a designated team member approves it." },
-      { q: "How is Agentic AI different from simple chatbot automation?", a: "Chatbots only output text based on prompts. Agents have goals, maintain working memory, formulate plans, execute API actions, evaluate results, and iteratively solve complex multi-step problems." }
+      { q: "What prevents an autonomous agent from getting stuck in an infinite loop?", a: "We engineer strict recursion limits, deterministic state graph cycles, and timeout monitors in LangGraph. If an agent fails to resolve an issue after N iterations, it triggers a human fallback." },
+      { q: "Can an agent take destructive actions (like deleting records or transferring funds)?", a: "No action of that nature is permitted autonomously. We implement Human-in-the-Loop (HITL) checkpoints: the agent stages the proposed action and pauses until a human manager explicitly approves it." },
+      { q: "How is Agentic AI different from simple chatbot automation?", a: "Chatbots only output text based on prompts. Agents have goals, maintain working memory, formulate multi-step plans, execute tool calls, evaluate results, and iteratively solve complex problems." }
     ],
     stats: [
       { value: "85%", label: "Manual Workflow Time Saved" },
       { value: "Zero", label: "Unauthorized Tool Executions" },
       { value: "15+", label: "Multi-Agent Deployments" },
-      { value: "100%", label: "LangSmith Tracing Coverage" }
+      { value: "100%", label: "State Tracing Coverage" }
     ]
   },
 
-  // 15. Model Training & Fine-Tuning
+  // 15. Custom Model Training & Fine-Tuning
   {
     id: "model-training",
     slug: "model-training",
-    aliases: ["fine-tuning"],
-    title: "Model Training & Fine-Tuning",
+    aliases: ["custom-model-training","fine-tuning","llm-fine-tuning","lora-training"],
+    title: "Custom Model Training & Fine-Tuning",
     heroHeadline: "Custom Deep Learning Architectures, Domain Fine-Tuning & Quantized Deployment",
-    tagline: "Tailor open-weights LLMs and specialized neural networks specifically to your domain data.",
-    shortDesc: "Custom neural network architecture, LoRA/QLoRA domain fine-tuning, synthetic dataset curation, and scalable GPU deployment pipelines.",
-    heroImage: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=1200&q=80",
+    tagline: "LoRA/QLoRA fine-tuning, alignment, and quantization for proprietary models.",
+    shortDesc: "Adapting foundation models into specialized, proprietary systems optimized for custom enterprise tasks, private vocabularies, and low-latency deployments.",
+    heroImage: "/assets/Services Images/model training.jpeg",
+    secondaryImage: "/assets/Services Images/model training.jpeg",
     badge: "Deep Learning",
     icon: "tune",
-    subServicesTitle: "Our Model Training & Fine-Tuning Services",
+    subServicesTitle: "Core Model Training Solutions",
     subServices: [
       {
-        title: "LoRA & QLoRA Parameter-Efficient Fine-Tuning",
-        desc: "Adapting large models (Llama 3.3, Mistral, Gemma) using low-rank adapters with minimal GPU VRAM overhead.",
+        title: "Parameter-Efficient Fine-Tuning (PEFT)",
+        desc: "Implementing LoRA, QLoRA, and DoRA on open-source foundation models to minimize compute overhead.",
         icon: "tune",
-        points: ["4-bit & 8-bit quantization", "Low-rank adapter merges", "Drastic reduction in compute costs"]
+        points: ["LoRA & QLoRA weight adapters", "Low VRAM compute training", "Targeted domain specialization"]
       },
       {
-        title: "Synthetic Dataset Generation & Cleaning",
-        desc: "Generating, de-duplicating, and validating thousands of high-quality synthetic instruction pairs using LLM-as-a-judge.",
+        title: "Instruction Dataset Engineering",
+        desc: "Curation, deduplication, and quality-filtering pipelines turning enterprise records into instruction-response datasets.",
         icon: "dataset",
-        points: ["Deduplication & outlier removal", "Alpaca / ShareGPT formatting", "Automated quality scoring"]
+        points: ["Enterprise record extraction", "Automated deduplication & scoring", "Clean instruction-response pairs"]
       },
       {
-        title: "Supervised Fine-Tuning (SFT)",
-        desc: "Teaching foundation models your organization's exact formatting, tone of voice, terminology, and reasoning styles.",
-        icon: "school",
-        points: ["Instruction tuning", "Loss curve monitoring", "Evaluation checkpoints & early stopping"]
-      },
-      {
-        title: "DPO & RLHF Alignment",
-        desc: "Direct Preference Optimization (DPO) aligning model responses to human preference pairs without complex reward models.",
+        title: "Model Alignment (DPO / ORPO)",
+        desc: "Direct Preference Optimization ensuring the model follows exact enterprise safety, tone, and JSON schema requirements.",
         icon: "thumb_up",
-        points: ["Preference pair annotation", "DPO loss alignment", "Eliminating unwanted behaviors"]
+        points: ["Direct Preference Optimization (DPO)", "Strict enterprise safety guardrails", "Guaranteed JSON schema output"]
       },
       {
-        title: "Model Quantization & Edge Optimization",
-        desc: "Compressing trained models to AWQ, GGUF, and TensorRT-LLM formats for high-throughput serving on mobile or cloud.",
+        title: "Quantization & Distillation",
+        desc: "Knowledge distillation and weight quantization (INT4, FP8, AWQ, GGUF) reducing memory footprints for local deployments.",
         icon: "compress",
-        points: ["TensorRT-LLM acceleration", "AWQ 4-bit inference", "4x faster token throughput"]
-      },
-      {
-        title: "Evaluation & Benchmarking Suites",
-        desc: "Rigorous automated benchmark testing against MMLU, GSM8K, and custom domain-specific validation sets.",
-        icon: "fact_check",
-        points: ["Domain benchmark harness", "Catastrophic forgetting checks", "Side-by-side win rate reports"]
+        points: ["4-bit / 8-bit model quantization", "Knowledge distillation pipelines", "Low-latency edge deployment"]
       }
     ],
     overview: [
-      "General foundation models are jacks of all trades and masters of none. When you require an AI that writes in your exact corporate voice, uses proprietary domain taxonomy, or adheres to strict output schemas 100% of the time, fine-tuning is the definitive answer.",
-      "Solvexa specializes in Parameter-Efficient Fine-Tuning (PEFT) using LoRA and QLoRA, synthetic dataset engineering, and Direct Preference Optimization (DPO). We transform versatile open-weights foundation models into specialized, cost-effective domain experts."
+      "Adapting foundation models into specialized, proprietary systems optimized for custom enterprise tasks, private vocabularies, and low-latency deployments.",
+      "General foundation models are jacks of all trades. When you need an AI that writes in your exact corporate voice or adheres to strict schemas 100% of the time, fine-tuning is the definitive answer."
     ],
     whatsIncluded: [
       "Domain Dataset Curation, Cleaning & Formatting",
-      "LoRA / QLoRA Hyperparameter Configuration & Training Runs",
+      "LoRA / QLoRA Hyperparameter Configuration & Distributed Runs",
       "Direct Preference Optimization (DPO) Alignment",
       "Catastrophic Forgetting & Quality Benchmark Audit",
-      "Merged Model Weights Archive (Hugging Face / GGUF Format)",
-      "High-Throughput vLLM / TensorRT Inference Setup Guide"
+      "Merged Model Weights Archive in Hugging Face / GGUF Format",
+      "High-Throughput Production Inference Container"
     ],
     process: [
-      { step: "01", title: "Dataset Audit & Objective", desc: "Auditing domain data and establishing clear accuracy and latency objectives.", deliverables: "Training Roadmap & Dataset Spec" },
+      { step: "01", title: "Discovery & Objective", desc: "Auditing domain data and establishing clear accuracy and latency objectives.", deliverables: "Training Roadmap & Dataset Spec" },
       { step: "02", title: "Data Preparation & Synthesis", desc: "Extracting, formatting, cleaning, and validating high-quality instruction pairs.", deliverables: "Clean JSONL Training Dataset" },
-      { step: "03", title: "Base Model Selection", desc: "Benchmarking candidates (Llama 3, Mistral, Qwen) on raw domain capability.", deliverables: "Selected Foundation Architecture" },
+      { step: "03", title: "Base Model Selection", desc: "Benchmarking candidate foundation models on raw domain capability.", deliverables: "Selected Foundation Architecture" },
       { step: "04", title: "LoRA / QLoRA Training Run", desc: "Executing training on distributed GPUs with loss curve monitoring and early stopping.", deliverables: "Trained Adapter Weights & Loss Logs" },
       { step: "05", title: "Alignment & Benchmarking", desc: "Applying DPO alignment and running automated domain benchmark evaluations.", deliverables: "Model Performance & Benchmark Deck" },
-      { step: "06", title: "Quantization & Serving", desc: "Quantizing to AWQ/TensorRT-LLM and containerizing for production inference.", deliverables: "Production-Ready Inference Docker Image" }
+      { step: "06", title: "Quantization & Serving", desc: "Quantizing weights and containerizing inside high-throughput Docker images.", deliverables: "Production-Ready Inference Image" }
     ],
     industries: [
-      { name: "Medical & Clinical Notes", desc: "Fine-tuning models on medical terminology, ICD-10 coding, and clinical trial summaries.", icon: "medical_services" },
-      { name: "Legal Document Analysis", desc: "Teaching models exact legal brief conventions, contractual clauses, and statutory citations.", icon: "gavel" },
-      { name: "Financial & Tax Advisory", desc: "Training on regional accounting standards, tax codes, and audit disclosure formats.", icon: "account_balance" },
+      { name: "Medical & Clinical Notes", desc: "Fine-tuning models on medical terminology, ICD-10 coding, and clinical summaries.", icon: "medical_services" },
+      { name: "Legal Document Analysis", desc: "Teaching models exact legal brief conventions, contractual clauses, and citations.", icon: "gavel" },
+      { name: "Financial & Tax Advisory", desc: "Training on regional accounting standards, tax codes, and audit formats.", icon: "account_balance" },
       { name: "Custom Code Generation", desc: "Fine-tuning on proprietary internal SDKs, frameworks, and coding standards.", icon: "terminal" },
       { name: "Specialized Customer Support", desc: "Replicating exact customer care tone, return policies, and brand vocabulary.", icon: "support_agent" },
-      { name: "Academic Research & STEM", desc: "Specialized models for chemical informatics, mathematical proofs, and physics simulations.", icon: "science" }
+      { name: "Academic Research & STEM", desc: "Specialized models for chemical informatics and mathematical simulations.", icon: "science" }
     ],
     hireBenefits: [
       { title: "Cost-Effective QLoRA", desc: "We fine-tune state-of-the-art models on single or dual GPUs, slashing training costs.", icon: "savings" },
       { title: "No Catastrophic Forgetting", desc: "Carefully balanced training mixes ensuring models retain general reasoning abilities.", icon: "psychology" },
       { title: "Complete IP & Weight Ownership", desc: "You own all resulting model weights, adapter files, and synthetic datasets unconditionally.", icon: "verified" },
       { title: "Synthetic Data Mastery", desc: "We turn sparse raw text into tens of thousands of high-yield training examples.", icon: "auto_awesome" },
-      { title: "Blistering Inference Speed", desc: "Quantized TensorRT-LLM builds delivering hundreds of tokens per second.", icon: "speed" },
-      { title: "Private Cloud Execution", desc: "Training executed securely on RunPod, Lambda Labs, AWS, or your private on-prem GPUs.", icon: "security" }
+      { title: "Blistering Inference Speed", desc: "Quantized builds delivering hundreds of tokens per second.", icon: "speed" },
+      { title: "Private Cloud Execution", desc: "Training executed securely on RunPod, AWS, or your private on-prem GPUs.", icon: "security" }
     ],
     technologies: [
       { name: "PyTorch", role: "Deep Learning Engine", category: "Core" },
-      { name: "Hugging Face", role: "Transformers & TRL", category: "Library" },
-      { name: "Unsloth", role: "Fast Fine-Tuning", category: "Optimization" },
-      { name: "vLLM", role: "Inference Engine", category: "Serving" },
-      { name: "TensorRT-LLM", role: "GPU Acceleration", category: "Inference" },
-      { name: "Weights & Biases", role: "Experiment Tracking", category: "MLOps" }
+      { name: "Hugging Face", role: "Transformers & PEFT", category: "Library" },
+      { name: "Python", role: "Core AI Scripting", category: "Language" },
+      { name: "TensorFlow", role: "Neural Network Modeling", category: "AI/ML" },
+      { name: "Scikit-Learn", role: "Evaluation Metrics", category: "AI/ML" },
+      { name: "Pandas", role: "Dataset Engineering", category: "Data" },
+      { name: "NumPy", role: "Matrix Operations", category: "Data" },
+      { name: "Docker", role: "GPU Containerization", category: "DevOps" },
+      { name: "AWS", role: "Cloud GPU Clusters", category: "Cloud" }
     ],
     faqs: [
-      { q: "When should we fine-tune an LLM versus using RAG?", a: "Use RAG when you need an AI to pull in dynamic external knowledge and cite source documents. Use fine-tuning when you need the model to learn a specific tone of voice, follow a rigid formatting schema, or specialize in domain terminology." },
+      { q: "When should we fine-tune an LLM versus using RAG?", a: "Use RAG when you need an AI to pull in dynamic external knowledge and cite source documents. Use fine-tuning when you need the model to learn a specific tone of voice, follow a rigid formatting schema, or specialize in proprietary domain terminology." },
       { q: "How many training examples are required for fine-tuning?", a: "With modern LoRA and instruction tuning, significant behavioral improvements can be achieved with as few as 500 to 2,000 high-quality, diverse instruction-response pairs." },
       { q: "Do we have to share our training data with third parties?", a: "Never. All training runs occur inside isolated GPU containers on your cloud or dedicated private compute pods under strict NDAs." }
     ],
@@ -1664,114 +1528,104 @@ export const servicesData: ServiceItem[] = [
     ]
   },
 
-  // 16. FYP Ideas & Academic Prototypes
+  // 16. FYP Ideas, Mentorship & Academic Prototyping
   {
     id: "fyp-ideas",
     slug: "fyp-ideas",
-    aliases: ["academic-prototypes"],
-    title: "FYP Ideas & Academic Prototypes",
+    aliases: ["fyp-ideas-mentorship","academic-prototyping","fyp-mentorship","fyp-projects"],
+    title: "FYP Ideas, Mentorship & Academic Prototyping",
     heroHeadline: "Innovative Final Year Project Concepts, Architectural Blueprints & Production Prototypes",
-    tagline: "Turn academic concepts into award-winning software, hardware, and AI graduation projects.",
-    shortDesc: "Comprehensive Final Year Project concepts, technical implementation blueprints, working hardware/software prototypes, and thesis support.",
-    heroImage: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1600&q=80",
-    secondaryImage: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80",
+    tagline: "Research-grade problem formulation, prototyping, and thesis support.",
+    shortDesc: "Bridging university research and production-grade engineering through structured mentorship, defensible problem definitions, working prototypes, and rigorous academic reports.",
+    heroImage: "/assets/Services Images/fpy.jpeg",
+    secondaryImage: "/assets/Services Images/fpy.jpeg",
     badge: "Innovation Hub",
     icon: "school",
-    subServicesTitle: "Our Comprehensive FYP & Academic Prototype Services",
+    subServicesTitle: "Core Academic Solutions",
     subServices: [
       {
-        title: "Cutting-Edge FYP Concept Formulation",
-        desc: "Brainstorming high-novelty, commercially viable project ideas across AI, IoT, Blockchain, and Full-Stack Engineering.",
+        title: "Research Problem Formulation",
+        desc: "Selecting defensible, research-grade problem statements backed by IEEE/ACM literature reviews.",
         icon: "lightbulb",
-        points: ["Novelty & feasibility assessments", "University committee proposal decks", "Scope & sprint milestone mapping"]
+        points: ["Novelty & feasibility assessments", "IEEE/ACM literature reviews", "Committee-ready proposal decks"]
       },
       {
-        title: "Full-Stack Working Software Prototypes",
-        desc: "Clean, production-quality codebases (Next.js, FastAPI, Flutter, PostgreSQL) built to demonstrate in viva evaluations.",
+        title: "Working Functional Prototypes",
+        desc: "Complete implementation combining modern frontends, robust backend APIs, and applied AI/ML pipelines.",
         icon: "code",
-        points: ["Clean modular architecture", "Responsive modern UI/UX", "Comprehensive documentation & comments"]
+        points: ["Next.js, FastAPI & Flutter builds", "Applied machine learning integration", "Clean, commented sovereign code"]
       },
       {
-        title: "AI, Computer Vision & Deep Learning Models",
-        desc: "End-to-end machine learning pipelines with dataset preparation, model training, evaluation metrics, and live camera feeds.",
-        icon: "psychology",
-        points: ["YOLO / PyTorch implementations", "Accuracy & F1-score visualization charts", "Interactive web dashboards"]
+        title: "Empirical Benchmarking",
+        desc: "Formal performance telemetry (inference latency, F1-scores, resource footprints) evaluated against baseline algorithms.",
+        icon: "query_stats",
+        points: ["Inference latency & throughput logs", "F1-score & accuracy metrics", "Baseline algorithm comparison charts"]
       },
       {
-        title: "IoT & Embedded Hardware Integration",
-        desc: "Connecting microcontrollers (ESP32, Arduino, Raspberry Pi) to cloud MQTT brokers and mobile telemetry apps.",
-        icon: "memory",
-        points: ["Sensor telemetry acquisition", "Cloud MQTT / Firebase sync", "Real-time hardware control apps"]
-      },
-      {
-        title: "System Architecture & UML Documentation",
-        desc: "Exhaustive documentation packages with ER diagrams, sequence flows, architectural schematics, and test cases.",
-        icon: "schema",
-        points: ["Complete IEEE formatted reports", "UML & Data Flow Diagrams (DFD)", "Unit & integration testing tables"]
-      },
-      {
-        title: "Viva Voce & Presentation Coaching",
-        desc: "Preparation for academic defense: pitch slide decks, simulated viva questioning, and live demo rehearsal guides.",
-        icon: "co_present",
-        points: ["Definitive pitch slide deck", "Mock defense question prep", "Demonstration script & fail-safes"]
+        title: "Defense & Documentation Prep",
+        desc: "Comprehensive LaTeX thesis drafting, architectural diagrams (DFD, UML), and simulated defense presentations.",
+        icon: "menu_book",
+        points: ["LaTeX thesis & IEEE format papers", "UML & system architecture diagrams", "Simulated mock defense coaching"]
       }
     ],
     overview: [
-      "A standout Final Year Project (FYP) is often the catalyst for graduate employment, startup incubator admissions, or master's scholarship offers. Many students struggle with overly ambitious scopes, outdated tech stacks, or lackluster presentation materials.",
-      "Solvexa mentors computer science, software engineering, and data science students by providing vetted project concepts, modern architectural blueprints, production-grade working codebases, and rigorous viva defense preparation."
+      "Bridging university research and production-grade engineering through structured mentorship, defensible problem definitions, working prototypes, and rigorous academic reports.",
+      "We help ambitious students, researchers, and innovators build award-winning graduation software, hardware, and AI systems."
     ],
     whatsIncluded: [
-      "Vetted Project Proposal Document with Novelty Justification",
-      "Fully Functional, Commented Source Code Repository",
-      "Interactive Web or Mobile Application Frontend",
-      "Comprehensive 60+ Page Final Documentation / Thesis Draft",
-      "High-Impact PowerPoint Viva Presentation Slide Deck",
-      "1-on-1 Viva Preparation & Technical Walkthrough Coaching"
+      "Research Topic Formulation & Proposal Document",
+      "Full Working Production Prototype (Frontend, Backend, DB)",
+      "Applied AI/ML Model Pipeline with Evaluation Charts",
+      "Comprehensive Architecture Diagrams (UML, DFD, ERD)",
+      "LaTeX Thesis & IEEE Publication-Ready Paper Draft",
+      "Mock Viva Defense Coaching & Slide Presentation"
     ],
     process: [
-      { step: "01", title: "Idea Selection & Approval", desc: "Aligning on project topic, supervisor preferences, and committee criteria.", deliverables: "Approved Project Proposal & Spec" },
-      { step: "02", title: "System Architecture & Design", desc: "Drafting UML diagrams, entity relationships, and wireframes.", deliverables: "Complete System Design Document" },
-      { step: "03", title: "Prototype Development", desc: "Building the working core engine, algorithms, and responsive UI.", deliverables: "Working Prototype Alpha Build" },
-      { step: "04", title: "Testing & Metric Benchmarking", desc: "Running test suites, measuring latency/accuracy, and generating charts.", deliverables: "Empirical Results & Graphs" },
-      { step: "05", title: "Thesis & Documentation", desc: "Drafting introduction, literature review, methodology, and conclusion.", deliverables: "Complete Bound Project Report Draft" },
-      { step: "06", title: "Viva Presentation Rehearsal", desc: "Slide design, live demo setup, and mock question-and-answer preparation.", deliverables: "Presentation Deck & Viva Coaching" }
+      { step: "01", title: "Topic Formulation & Defense", desc: "Formulating novel, research-grade problem statements and passing committee approval.", deliverables: "Project Proposal & Literature Review" },
+      { step: "02", title: "System Blueprint & Spec", desc: "Defining entity schemas, hardware sensor connections, and system architecture.", deliverables: "System Architecture & UML Diagrams" },
+      { step: "03", title: "Core Prototype Build", desc: "Implementing full-stack code, machine learning pipelines, and hardware drivers.", deliverables: "Working Prototype Alpha" },
+      { step: "04", title: "Empirical Testing & Results", desc: "Benchmarking against baselines and generating validation charts (F1, precision).", deliverables: "Empirical Results & Telemetry Data" },
+      { step: "05", title: "Thesis Drafting & Review", desc: "Drafting complete thesis chapters conforming to university formatting guidelines.", deliverables: "Complete Thesis Draft" },
+      { step: "06", title: "Mock Defense & Handoff", desc: "Conducting mock defense presentations and technical code walkthroughs.", deliverables: "Viva Slide Deck & Working Codebase" }
     ],
     industries: [
-      { name: "Computer Science & Software Eng", desc: "Distributed systems, cloud platforms, and innovative developer tools.", icon: "computer" },
-      { name: "Artificial Intelligence & Data Science", desc: "LLM agents, medical image classification, and automated recommendation engines.", icon: "psychology" },
-      { name: "Cybersecurity & Cryptography", desc: "Network intrusion detection, biometric encryption, and blockchain verification.", icon: "security" },
-      { name: "Internet of Things (IoT) & Robotics", desc: "Smart agriculture, autonomous rovers, and home automation telemetry.", icon: "precision_manufacturing" },
-      { name: "Healthcare & Biomedical Tech", desc: "Telemedicine portals, wearable health trackers, and ECG classification.", icon: "favorite" },
-      { name: "FinTech & Decentralized Systems", desc: "DeFi protocols, algorithmic trading simulators, and smart contract escrow.", icon: "account_balance" }
+      { name: "Artificial Intelligence & Vision", desc: "Computer vision, deep learning classifiers, and LLMs.", icon: "psychology" },
+      { name: "IoT & Smart Hardware", desc: "Arduino, ESP32, sensor telemetry, and automation.", icon: "memory" },
+      { name: "Healthcare Informatics", desc: "Telemedicine portals, wearable tracking, and imaging.", icon: "medical_services" },
+      { name: "Blockchain & Web3", desc: "Smart contracts, decentralized voting, and NFT systems.", icon: "currency_bitcoin" },
+      { name: "Autonomous Systems", desc: "Robotics, obstacle avoidance, and agent swarms.", icon: "smart_toy" },
+      { name: "Cybersecurity & Cryptography", desc: "Network intrusion detection and encrypted messaging.", icon: "security" }
     ],
     hireBenefits: [
-      { title: "Novelty & Innovation Focus", desc: "Projects that impress university faculty and evaluators with modern relevance.", icon: "star" },
-      { title: "Production-Grade Tech Stacks", desc: "Build using modern Next.js, FastAPI, Flutter, and PyTorch, not outdated templates.", icon: "code" },
-      { title: "Clean, Fully Commented Code", desc: "Every line of code is structured and commented so you can explain it easily during viva.", icon: "description" },
-      { title: "Complete Documentation", desc: "UML diagrams, flowcharts, literature reviews, and testing tables included.", icon: "menu_book" },
-      { title: "Viva Defence Coaching", desc: "Rehearse with experienced software engineers who anticipate challenging questions.", icon: "co_present" },
-      { title: "Portfolio Asset for Hiring", desc: "Transform your university project into a standout GitHub portfolio centerpiece.", icon: "work" }
+      { title: "Senior Engineering Mentorship", desc: "Learn directly from production software architects and AI engineers.", icon: "school" },
+      { title: "IEEE Publication Standards", desc: "Methodologies and documentation formatted to peer-reviewed academic standards.", icon: "article" },
+      { title: "Clean Modular Code", desc: "Thoroughly documented codebases that are easy to explain during faculty viva reviews.", icon: "code" },
+      { title: "Empirical Proof & Metrics", desc: "Generate concrete graphs, confusion matrices, and benchmark tables for defense.", icon: "insights" },
+      { title: "Complete Viva Preparation", desc: "Practice with mock viva cross-examinations addressing common faculty questions.", icon: "record_voice_over" },
+      { title: "100% Student Code Ownership", desc: "You own all code, thesis files, and designs completely for graduation.", icon: "verified" }
     ],
     technologies: [
-      { name: "Python", role: "Core Language", category: "Language" },
-      { name: "Next.js", role: "Web Application", category: "Frontend" },
-      { name: "FastAPI", role: "REST Backend", category: "Backend" },
-      { name: "Flutter", role: "Mobile Application", category: "Mobile" },
-      { name: "PyTorch", role: "Machine Learning", category: "AI/ML" },
-      { name: "PostgreSQL", role: "Database", category: "Database" },
-      { name: "ESP32 / Arduino", role: "Microcontrollers", category: "Hardware" },
-      { name: "Docker", role: "Deployment", category: "DevOps" }
+      { name: "Python", role: "Machine Learning & Prototyping", category: "Language" },
+      { name: "Next.js", role: "Interactive Web Portal", category: "Frontend" },
+      { name: "FastAPI", role: "High-Performance Backend", category: "Backend" },
+      { name: "Flutter", role: "Mobile Application Prototype", category: "Mobile" },
+      { name: "PyTorch", role: "Deep Learning Research", category: "AI/ML" },
+      { name: "TensorFlow", role: "Neural Network Models", category: "AI/ML" },
+      { name: "PostgreSQL", role: "Relational Research Data", category: "Database" },
+      { name: "Firebase", role: "Rapid Real-time Sync", category: "Backend" },
+      { name: "Arduino", role: "Hardware Sensors & IoT", category: "IoT" },
+      { name: "Docker", role: "Reproducible Environment", category: "DevOps" }
     ],
     faqs: [
-      { q: "Can Solvexa help us formulate an original, approved project idea?", a: "Yes! We maintain an active incubator of high-novelty concepts combining AI, IoT, and full-stack engineering tailored to get immediate supervisor approval." },
-      { q: "Will I understand the code well enough to defend it in my viva exam?", a: "Yes. We provide thorough 1-on-1 code walkthrough sessions, detailed inline comments, and mock viva questions so you understand every function and algorithm intimately." },
-      { q: "Do you provide complete documentation following university guidelines?", a: "Yes. We format comprehensive project reports including Chapter 1-5 (Introduction, Literature Review, Methodology, Implementation, and Results) following standard IEEE / university formats." }
+      { q: "Can Solvexa help formulate a novel FYP topic from scratch?", a: "Yes. We evaluate current IEEE/ACM research trends in AI, IoT, and Web3 to propose novel, high-feasibility project concepts that pass university evaluation committees." },
+      { q: "Is the code delivered clean and commented for evaluation?", a: "Every line of code is structured modularly with clear docstrings, comments, and architecture diagrams so you can confidently explain every module during viva." },
+      { q: "Do you assist with the final thesis and viva presentation?", a: "Yes. We guide literature reviews, methodology chapters, empirical benchmark generation, and conduct simulated mock defenses with presentation slide decks." }
     ],
     stats: [
-      { value: "100%", label: "Viva Defense Pass Rate" },
-      { value: "40+", label: "Academic Projects Mentored" },
-      { value: "A / 4.0", label: "Average Project Grade" },
-      { value: "100%", label: "Original Code Guarantee" }
+      { value: "4.0 GPA", label: "Average Project Defense Grade" },
+      { value: "60+", label: "Prototypes Mentored & Shipped" },
+      { value: "100%", label: "Academic Defense Pass Rate" },
+      { value: "IEEE", label: "Publication Documentation Standard" }
     ]
   }
 ];

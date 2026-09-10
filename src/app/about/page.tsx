@@ -3,6 +3,7 @@ import Link from "next/link";
 import TechLogo from "../../components/TechLogos";
 import ClientLoveSection from "../../components/ClientLoveSection";
 import ContactCtaSection from "../../components/ContactCtaSection";
+import About3DImageCard from "../../components/About3DImageCard";
 
 export const metadata = {
   title: "About Us | Solvexa — Where Creativity Meets Innovation",
@@ -221,12 +222,11 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Right Image */}
+          {/* Right Image with 3D Animation */}
           <div className="lg:col-span-5 flex items-center justify-center">
-            <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80"
+            <About3DImageCard
+              src="/assets/About/About Us.png"
               alt="About Solvexa Studio"
-              className="w-full h-[380px] sm:h-[440px] lg:h-[480px] object-cover rounded-3xl shadow-2xl"
             />
           </div>
         </div>
@@ -235,12 +235,11 @@ export default function AboutPage() {
       {/* SECTION: WHO WE ARE */}
       <section className="relative w-full px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-space-2xl border-t border-outline-variant/15 bg-surface-container-lowest/40">
         <div className="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          {/* Left Image */}
+          {/* Left Image with 3D Animation */}
           <div className="lg:col-span-5 flex items-center justify-center order-2 lg:order-1">
-            <img
-              src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+            <About3DImageCard
+              src="/assets/About/Who we are.png"
               alt="Who We Are - Team Collaboration"
-              className="w-full h-[380px] sm:h-[440px] lg:h-[480px] object-cover rounded-3xl shadow-2xl"
             />
           </div>
 
@@ -341,12 +340,11 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Right Image */}
+          {/* Right Image with 3D Animation */}
           <div className="lg:col-span-5 flex items-center justify-center">
-            <img
-              src="https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=1200&q=80"
+            <About3DImageCard
+              src="/assets/About/Our mission.jpeg"
               alt="Our Mission - Practical Engineering"
-              className="w-full h-[380px] sm:h-[440px] lg:h-[480px] object-cover rounded-3xl shadow-2xl"
             />
           </div>
         </div>
@@ -355,12 +353,11 @@ export default function AboutPage() {
       {/* SECTION: OUR VISION */}
       <section className="relative w-full px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-space-2xl border-t border-outline-variant/15">
         <div className="max-w-[1240px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
-          {/* Left Image */}
+          {/* Left Image with 3D Animation */}
           <div className="lg:col-span-5 flex items-center justify-center order-2 lg:order-1">
-            <img
-              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
+            <About3DImageCard
+              src="/assets/About/Our vision.jpeg"
               alt="Our Vision - Digital Future"
-              className="w-full h-[380px] sm:h-[440px] lg:h-[480px] object-cover rounded-3xl shadow-2xl"
             />
           </div>
 

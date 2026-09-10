@@ -34,6 +34,7 @@ const CONTACT_FAQS: FaqItem[] = [
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   const [formData, setFormData] = useState({
@@ -46,13 +47,36 @@ export default function ContactPage() {
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
+    setErrorMessage("");
+    try {
+      const res = await fetch("/api/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "contact_us",
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.service,
+          budget: formData.budget,
+          message: formData.message,
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.error || "Failed to submit inquiry");
+      }
       setSubmitted(true);
-    }, 800);
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : "Failed to send message. Please try again.";
+      setErrorMessage(msg);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const toggleFaq = (index: number) => {
@@ -124,6 +148,12 @@ export default function ContactPage() {
                     <p className="text-xs sm:text-sm text-on-surface-variant mt-1">
                       Fill out the form below and we will respond within 24 hours.
                     </p>
+                    {errorMessage && (
+                      <div className="mt-3 p-3 rounded-xl bg-error/15 border border-error/40 text-error text-xs font-medium flex items-center gap-2 animate-in fade-in">
+                        <span className="material-symbols-outlined text-base">error</span>
+                        <span>{errorMessage}</span>
+                      </div>
+                    )}
                   </div>
 
                   {/* Name & Email */}

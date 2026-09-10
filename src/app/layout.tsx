@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Space_Grotesk, Syne } from "next/font/google";
 import "./globals.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
-import BackgroundEffects from "../components/BackgroundEffects";
-import ScrollProgress from "../components/ScrollProgress";
-import BackToTopButton from "../components/BackToTopButton";
-import WhatsAppButton from "../components/WhatsAppButton";
+import SiteLayoutWrapper from "../components/SiteLayoutWrapper";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -37,7 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
+    <html lang="en" className="dark scroll-smooth" data-scroll-behavior="smooth">
       <head>
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
@@ -48,15 +43,7 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${plusJakartaSans.variable} ${spaceGrotesk.variable} ${syne.variable} bg-background font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container min-h-screen relative overflow-x-hidden`}
       >
-        <ScrollProgress />
-        <BackToTopButton />
-        <WhatsAppButton />
-        <BackgroundEffects />
-        <Navbar />
-        <main className="w-full pt-24 min-h-[calc(100vh-100px)] relative z-10">
-          {children}
-        </main>
-        <Footer />
+        <SiteLayoutWrapper>{children}</SiteLayoutWrapper>
       </body>
     </html>
   );

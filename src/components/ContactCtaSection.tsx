@@ -5,6 +5,7 @@ import { useState } from "react";
 export default function ContactCtaSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -14,13 +15,45 @@ export default function ContactCtaSection() {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
+    setErrorMessage("");
+    try {
+      const res = await fetch("/api/submissions", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "project_brief",
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          company: formData.company,
+          service: formData.service,
+          message: formData.message,
+          sourceUrl: typeof window !== "undefined" ? window.location.href : "",
+        }),
+      });
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSubmitted(true);
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          company: "",
+          service: "Web Development",
+          message: ""
+        });
+      } else {
+        setErrorMessage(data.error || "Failed to submit. Please try again.");
+      }
+    } catch (err) {
+      console.error("Submission error:", err);
+      setErrorMessage("Network error. Please check your connection and try again.");
+    } finally {
       setLoading(false);
-      setSubmitted(true);
-    }, 600);
+    }
   };
 
   return (
@@ -102,6 +135,12 @@ export default function ContactCtaSection() {
                 <div className="pb-1 border-b border-outline-variant/20">
                   <h3 className="text-xl sm:text-2xl font-bold text-white">Send Us a Project Brief</h3>
                   <p className="text-xs sm:text-sm text-on-surface-variant mt-1">Fill out the details below and we will get back to you within 24 hours.</p>
+                  {errorMessage && (
+                    <div className="mt-3 p-3 rounded-xl bg-error/15 border border-error/40 text-error text-xs font-medium flex items-center gap-2 animate-in fade-in">
+                      <span className="material-symbols-outlined text-base">error</span>
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
                 </div>
 
                 {/* Full Name & Work Email */}
