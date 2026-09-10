@@ -10,16 +10,14 @@ export default function ProjectDeviceDisplay({ project, isReversed }: ProjectDev
   const { deviceType, accentColor } = project;
 
   return (
-    <div className="relative w-full max-w-xl mx-auto lg:max-w-none flex items-center justify-center">
-      {/* Glass Card Container (blends seamlessly with website theme, NO solid opaque blue block!) */}
-      <div className="relative w-full aspect-[4/3] sm:aspect-[16/11] rounded-2xl sm:rounded-[2.2rem] bg-surface-container-low/40 backdrop-blur-2xl border border-outline-variant/30 hover:border-outline-variant/60 transition-all duration-300 p-3 sm:p-6 lg:p-8 flex items-center justify-center overflow-hidden shadow-[0_15px_40px_-15px_rgba(0,0,0,0.8)] group">
-        {/* Themed Ambient Radial Glow */}
-        <div
-          className="absolute inset-0 pointer-events-none opacity-25 group-hover:opacity-35 transition-opacity duration-500"
-          style={{
-            background: `radial-gradient(circle at center, ${accentColor} 0%, transparent 70%)`,
-          }}
-        />
+    <div className="group relative w-full max-w-xl mx-auto lg:max-w-none flex items-center justify-center py-2 sm:py-4">
+      {/* Themed Ambient Radial Glow (borderless — image sits directly on the page) */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-20 group-hover:opacity-30 transition-opacity duration-500"
+        style={{
+          background: `radial-gradient(circle at center, ${accentColor} 0%, transparent 65%)`,
+        }}
+      />
 
         {/* Subtle Watermark Network Nodes matching reference but translucent */}
         <div
@@ -54,7 +52,7 @@ export default function ProjectDeviceDisplay({ project, isReversed }: ProjectDev
             CASE 1: WEB APPLICATION (Laptop Display)
         ======================================================== */}
         {deviceType === "web" && (
-          <div className="relative w-[94%] sm:w-[90%] z-10 drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)]">
+          <div className="relative w-full sm:w-[92%] z-10 drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)] transition-transform duration-500 group-hover:scale-[1.015]">
             <LaptopFrame project={project} />
           </div>
         )}
@@ -63,7 +61,7 @@ export default function ProjectDeviceDisplay({ project, isReversed }: ProjectDev
             CASE 2: MOBILE APPLICATION (Mobile Phone Display)
         ======================================================== */}
         {deviceType === "mobile" && (
-          <div className="relative z-10 flex items-center justify-center drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)]">
+          <div className="relative z-10 flex items-center justify-center drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)] transition-transform duration-500 group-hover:scale-[1.02]">
             <PhoneFrame project={project} size="large" />
           </div>
         )}
@@ -72,19 +70,18 @@ export default function ProjectDeviceDisplay({ project, isReversed }: ProjectDev
             CASE 3: BOTH WEB & MOBILE (Laptop + Phone Dual Display)
         ======================================================== */}
         {deviceType === "both" && (
-          <div className="relative w-full h-full flex items-center justify-center z-10">
+          <div className="relative w-full flex items-center justify-center z-10 transition-transform duration-500 group-hover:scale-[1.015]">
             {/* Main Laptop Mockup (Centered) */}
-            <div className="relative w-[84%] sm:w-[80%] -translate-x-2 sm:-translate-x-4 drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)]">
+            <div className="relative w-[86%] sm:w-[82%] -translate-x-2 sm:-translate-x-4 drop-shadow-[0_15px_30px_rgba(0,0,0,0.85)]">
               <LaptopFrame project={project} />
             </div>
 
-            {/* Overlapping Phone Mockup (Front Corner, Responsive scaling) */}
-            <div className="absolute right-1 sm:right-4 bottom-1.5 sm:bottom-4 z-20 drop-shadow-[0_20px_35px_rgba(0,0,0,0.95)] transform rotate-1 sm:rotate-2 hover:rotate-0 transition-transform duration-300">
+            {/* Overlapping Phone Mockup (Front Corner — shape preserved, scaled down for balance) */}
+            <div className="absolute right-1 sm:right-4 bottom-1.5 sm:bottom-4 z-20 drop-shadow-[0_20px_35px_rgba(0,0,0,0.95)] origin-bottom-right rotate-1 sm:rotate-2 scale-[0.72] sm:scale-[0.82] md:scale-[0.88] hover:rotate-0 transition-transform duration-300">
               <PhoneFrame project={project} size="compact" />
             </div>
           </div>
         )}
-      </div>
     </div>
   );
 }
@@ -266,7 +263,8 @@ function LaptopFrame({ project }: { project: ProjectItem }) {
 }
 
 // -------------------------------------------------------------
-// Smartphone Chassis Subcomponent (Optimized for all viewports)
+// Smartphone Chassis Subcomponent (Proper hardware UI — notch,
+// camera lens, speaker, side buttons, home indicator)
 // -------------------------------------------------------------
 function PhoneFrame({
   project,
@@ -277,54 +275,83 @@ function PhoneFrame({
 }) {
   const isCompact = size === "compact";
   const displayImage = project.mobileImage || project.heroImage;
+  const sideBtn = "absolute w-[3px] rounded-full bg-gradient-to-b from-slate-400 via-slate-600 to-slate-400";
 
   return (
     <div
-      className={`relative rounded-[1.4rem] sm:rounded-[2rem] bg-slate-950 border-[3.5px] sm:border-[5px] border-slate-800 shadow-[0_20px_40px_rgba(0,0,0,0.85)] overflow-hidden flex flex-col select-none ${
-        isCompact
-          ? "w-20 sm:w-28 md:w-34 aspect-[9/18]"
-          : "w-36 sm:w-48 md:w-56 aspect-[9/18]"
-      }`}
+      className={`relative shrink-0 ${
+        isCompact ? "w-20 sm:w-28 md:w-34" : "w-36 sm:w-48 md:w-56"
+      } aspect-[9/18]`}
     >
-      {/* Top Dynamic Island */}
-      <div className="absolute top-1 sm:top-1.5 left-1/2 -translate-x-1/2 w-8 sm:w-14 h-2 sm:h-3 bg-black rounded-full z-30 flex items-center justify-between px-1">
-        <div className="w-1 h-1 rounded-full bg-slate-800" />
-        <div className="w-1 h-1 rounded-full bg-blue-900/60" />
-      </div>
+      {/* Side Hardware Buttons — Power (right), Mute + Volume (left) */}
+      <div
+        className={`${sideBtn} -right-[3px] top-[21%] ${
+          isCompact ? "h-7 sm:h-10" : "h-12 sm:h-16"
+        }`}
+      />
+      <div
+        className={`${sideBtn} -left-[3px] top-[16%] ${
+          isCompact ? "h-4 sm:h-6" : "h-7 sm:h-10"
+        }`}
+      />
+      <div
+        className={`${sideBtn} -left-[3px] top-[25%] ${
+          isCompact ? "h-6 sm:h-8" : "h-10 sm:h-14"
+        }`}
+      />
+      <div
+        className={`${sideBtn} -left-[3px] top-[36%] ${
+          isCompact ? "h-6 sm:h-8" : "h-10 sm:h-14"
+        }`}
+      />
 
-      {/* Status Bar */}
-      <div className="w-full pt-0.5 px-1.5 sm:px-2.5 flex items-center justify-between text-[5px] sm:text-[7px] text-slate-400 font-mono z-20">
-        <span>9:41</span>
-        <div className="flex items-center gap-0.5 sm:gap-1">
-          <span className="material-symbols-outlined text-[7px] sm:text-[9px]">wifi</span>
-          <span className="material-symbols-outlined text-[7px] sm:text-[9px]">battery_full</span>
-        </div>
-      </div>
-
-      {/* Inner Screen Content */}
-      <div className="relative w-full flex-grow overflow-hidden flex flex-col bg-slate-900">
-        <img src={displayImage} alt={project.title} className="w-full h-full object-cover" />
-
-        {/* Mobile UI App Glass Card Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent flex flex-col justify-end p-1.5 sm:p-2.5">
-          <p className="text-[7px] sm:text-[10px] font-bold text-white tracking-tight leading-tight">
-            {project.brandName}
-          </p>
-          <p className="text-[5px] sm:text-[8px] text-slate-300 font-medium line-clamp-1">
-            Mobile Experience
-          </p>
-          <div
-            className="mt-1 py-0.5 sm:py-1 px-1.5 rounded text-[5px] sm:text-[7px] font-bold text-white text-center shadow"
-            style={{ backgroundColor: project.accentColor }}
-          >
-            Launch App
+      {/* Phone Body — black chassis with metallic edge ring */}
+      <div className="relative w-full h-full rounded-[1.7rem] sm:rounded-[2.4rem] bg-slate-950 border-2 sm:border-[3px] border-slate-700/70 shadow-[0_20px_45px_rgba(0,0,0,0.85),inset_0_0_0_1.5px_rgba(255,255,255,0.07)] overflow-hidden flex flex-col select-none">
+        {/* Top Notch Bar — camera lens + speaker slit */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 z-30 w-[54%] h-[3.2%] min-h-[13px] sm:min-h-[19px] bg-slate-950 rounded-b-lg sm:rounded-b-xl border-x-2 border-b-2 border-slate-800/80 flex items-center justify-center gap-1.5 sm:gap-2">
+          {/* Camera Lens */}
+          <div className="relative w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-slate-800 ring-1 ring-slate-600/50">
+            <div className="absolute inset-[30%] rounded-full bg-blue-900/70" />
+            <div className="absolute top-[12%] left-[18%] w-[28%] h-[28%] rounded-full bg-slate-400/50" />
           </div>
+          {/* Speaker Slit */}
+          <div
+            className={`rounded-full bg-slate-800 ${
+              isCompact ? "w-5 sm:w-7 h-[2px]" : "w-8 sm:w-12 h-[2px] sm:h-[3px]"
+            }`}
+          />
         </div>
-      </div>
 
-      {/* Bottom Home Indicator */}
-      <div className="w-full py-0.5 flex items-center justify-center bg-slate-950">
-        <div className="w-8 sm:w-12 h-0.5 bg-slate-500 rounded-full" />
+        {/* Screen — image fills the bezel edge-to-edge */}
+        <div className="relative w-full h-full overflow-hidden bg-slate-900">
+          <img
+            src={displayImage}
+            alt={project.title}
+            className="w-full h-full object-cover"
+          />
+
+          {/* Mobile UI App Glass Card Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent flex flex-col justify-end p-1.5 sm:p-3">
+            <p className="text-[7px] sm:text-[10px] font-bold text-white tracking-tight leading-tight">
+              {project.brandName}
+            </p>
+            <p className="text-[5px] sm:text-[8px] text-slate-300 font-medium line-clamp-1">
+              Mobile Experience
+            </p>
+            <div
+              className="mt-1 py-0.5 sm:py-1 px-1.5 rounded-md text-[5px] sm:text-[7px] font-bold text-white text-center shadow"
+              style={{ backgroundColor: project.accentColor }}
+            >
+              Launch App
+            </div>
+          </div>
+
+          {/* Screen glare (subtle diagonal sheen) */}
+          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-60" />
+        </div>
+
+        {/* Bottom Home Indicator — floating */}
+        <div className="absolute bottom-1 sm:bottom-2 left-1/2 -translate-x-1/2 z-30 w-8 sm:w-14 h-[2.5px] sm:h-1 rounded-full bg-white/80 shadow" />
       </div>
     </div>
   );

@@ -168,6 +168,16 @@ export interface CmsProjectPayload {
   challenge?: string;
   solution?: string;
   deliverables?: string[];
+  objectives?: string[];
+  architecture?: string;
+  keyFeatures?: string[];
+  howSolvexaSolvedIt?: string;
+  outcome?: string;
+  techStack?: string;
+  mlPipeline?: string;
+  servicesDelivered?: string[];
+  designProcess?: string;
+  workflow?: string;
 }
 
 export interface CmsProjectRecord extends CmsProjectPayload {
@@ -210,6 +220,16 @@ export async function getAllProjectsFromDb(): Promise<CmsProjectRecord[]> {
       challenge: data.challenge || "",
       solution: data.solution || "",
       deliverables: Array.isArray(data.deliverables) ? data.deliverables : [],
+      objectives: Array.isArray(data.objectives) ? data.objectives : [],
+      architecture: data.architecture || "",
+      keyFeatures: Array.isArray(data.keyFeatures) ? data.keyFeatures : [],
+      howSolvexaSolvedIt: data.howSolvexaSolvedIt || "",
+      outcome: data.outcome || "",
+      techStack: data.techStack || "",
+      mlPipeline: data.mlPipeline || "",
+      servicesDelivered: Array.isArray(data.servicesDelivered) ? data.servicesDelivered : [],
+      designProcess: data.designProcess || "",
+      workflow: data.workflow || "",
       createdAt: data.createdAt || new Date().toISOString(),
       updatedAt: data.updatedAt || "",
     };
