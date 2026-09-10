@@ -22,25 +22,25 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-margin-mobile md:px-margin-tablet lg:px-margin-desktop py-space-3xl relative z-10 flex flex-col gap-space-2xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 items-start">
           {/* Col 1: Brand & Tagline */}
-          <div className="flex flex-col gap-space-md col-span-1 md:col-span-2 lg:col-span-1">
-            <div className="flex flex-col gap-space-xs">
+          <div className="flex flex-col gap-4 col-span-1 md:col-span-2 lg:col-span-1">
+            <div className="flex flex-col gap-3">
               <div className="flex items-center gap-space-xs">
                 <Link href="/">
                   <img src="/assets/logo.png" alt="Solvexa Logo" className="h-14 w-auto object-contain drop-shadow-md hover:opacity-90 transition-opacity" loading="lazy" decoding="async" />
                 </Link>
               </div>
-              <p className="font-body-md text-body-md text-on-surface-variant mt-2">
+              <p className="font-body-md text-body-md text-on-surface-variant leading-relaxed">
                 We design and build digital experiences, software, and AI solutions that help businesses grow.
               </p>
             </div>
           </div>
 
           {/* Col 2: Quick Links */}
-          <div className="flex flex-col gap-space-md">
+          <div className="flex flex-col gap-4">
             <h3 className="font-title-lg text-title-lg font-bold text-on-surface">Quick Links</h3>
-            <nav className="flex flex-col gap-space-xs">
+            <nav className="flex flex-col gap-2.5">
               <Link href="/" className="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors">Home</Link>
               <Link href="/about" className="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors">About Us</Link>
               <Link href="/services" className="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-colors">Services Hub</Link>
@@ -51,9 +51,9 @@ export default function Footer() {
           </div>
 
           {/* Col 3: Contact Info */}
-          <div className="flex flex-col gap-space-md">
+          <div className="flex flex-col gap-4">
             <h3 className="font-title-lg text-title-lg font-bold text-on-surface">Contact Us</h3>
-            <ul className="flex flex-col gap-space-xs">
+            <ul className="flex flex-col gap-3">
               <li>
                 <div className="flex items-center gap-space-xs font-body-md text-body-md text-on-surface-variant">
                   <span className="material-symbols-outlined text-base text-primary">location_on</span>
@@ -76,7 +76,7 @@ export default function Footer() {
           </div>
 
           {/* Col 4: Social & Connect */}
-          <div className="flex flex-col gap-space-md">
+          <div className="flex flex-col gap-4">
             <h3 className="font-title-lg text-title-lg font-bold text-on-surface">Connect</h3>
             <p className="text-xs text-on-surface-variant">
               Follow our journey, view live project updates, and connect with our engineering team:

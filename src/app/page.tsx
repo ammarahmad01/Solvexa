@@ -17,24 +17,22 @@ export default function Home() {
       {/* Rotating Stats Row */}
       <StatsCounter />
 
-      {/* 3.2 Trusted By / Tech Marquee */}
-      <TrustedBySection />
-
       {/* 3.3 Core Capabilities Showcase (Built for Velocity. Engineered for Scale.) */}
       <ClientAttractionSection />
 
       {/* 3.4 Our Services Grid */}
       <ServicesGridSection />
 
+      {/* 3.5 Brands That Trust Solvexa */}
+      <TrustedBySection />
 
-
-      {/* 3.5 "Why Our Clients Love Us?" Testimonials */}
+      {/* 3.6 "Why Our Clients Love Us?" Testimonials */}
       <ClientLoveSection />
 
       {/* 3.7 Our Technology Stack */}
       <TechStackSection />
 
-      {/* 3.6 Contact CTA / Lead Capture Form */}
+      {/* 3.8 Contact CTA / Lead Capture Form */}
       <ContactCtaSection />
 
       {/* 3.9 FAQ's */}

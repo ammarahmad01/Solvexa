@@ -56,7 +56,7 @@ function ProjectContent({ project }: { project: ProjectItem }) {
     <div className="flex flex-col items-start gap-4 sm:gap-5">
       {/* Heading — brand name accented, title below */}
       <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug text-left">
-        <span className="block" style={{ color: project.accentColor }}>
+        <span className="block text-primary">
           {project.brandName}
         </span>
         <span className="block text-white mt-1">{project.title}</span>
@@ -86,30 +86,6 @@ function ProjectContent({ project }: { project: ProjectItem }) {
           </div>
         </div>
       )}
-
-      {/* Action Buttons */}
-      <div className="w-full sm:w-auto flex items-center gap-2.5 sm:gap-4 pt-1 flex-wrap">
-        <Link
-          href={`/work/${project.slug}`}
-          className="w-full sm:w-auto text-center justify-center px-5 sm:px-7 py-2.5 sm:py-3 rounded-xl text-white font-bold text-xs sm:text-sm md:text-base transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-          style={{
-            backgroundColor: project.accentColor,
-            boxShadow: `0 8px 20px -4px ${project.themeGlow}`,
-          }}
-        >
-          Explore Case Study
-        </Link>
-
-        <a
-          href={project.liveUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-full sm:w-auto text-center justify-center px-4 sm:px-6 py-2.5 sm:py-3 rounded-xl bg-surface-container-high hover:bg-surface-container-highest text-white border border-outline-variant/40 hover:border-outline-variant/70 font-bold text-xs sm:text-sm md:text-base transition-all duration-200 flex items-center gap-2 shadow-sm hover:shadow hover:-translate-y-0.5"
-        >
-          <span className="material-symbols-outlined text-sm sm:text-base">language</span>
-          <span>Visit Live Site</span>
-        </a>
-      </div>
     </div>
   );
 }
@@ -118,34 +94,6 @@ function ProjectContent({ project }: { project: ProjectItem }) {
    Content for the capability / approach / tech / principles
    sections (single source: solvexa-work-page-content.md)
 ============================================================ */
-const CAPABILITIES = [
-  {
-    icon: "language",
-    title: "Web Development",
-    projects: ["Alkhidmat Foundation Punjab North", "Noor Educational System", "Tayyab Autos", "Draftly", "RentEase", "SolveFlow", "MealMates AI", "PlantGuard", "Automotive Web Application"],
-  },
-  {
-    icon: "smartphone",
-    title: "Mobile Applications",
-    projects: ["CrowdCam", "AutoAid", "MealMates AI", "PlantGuard", "Nimbus"],
-  },
-  {
-    icon: "psychology",
-    title: "AI & Machine Learning",
-    projects: ["MealMates AI", "PlantGuard", "Punjab Skill House", "BidFlow-AI", "Nimbus", "Noor Educational System AI Chatbot"],
-  },
-  {
-    icon: "terminal",
-    title: "Custom Software",
-    projects: ["SolveFlow", "RentEase", "Draftly", "Alkhidmat CRM/ERP", "Noor School Management System"],
-  },
-  {
-    icon: "palette",
-    title: "Creative & Digital",
-    projects: ["Punjab Skill House", "Graphic Design", "Video Editing"],
-  },
-];
-
 const APPROACH_STEPS = [
   { title: "Understand", desc: "We start by understanding the business problem, target users, requirements, and desired outcome." },
   { title: "Strategize", desc: "We determine the right product structure, technology, architecture, and development approach." },
@@ -155,15 +103,6 @@ const APPROACH_STEPS = [
   { title: "Test", desc: "We test functionality, responsiveness, performance, integrations, and user workflows." },
   { title: "Deploy", desc: "We prepare the product for production and deploy it using appropriate infrastructure." },
   { title: "Improve", desc: "We analyze feedback, solve issues, optimize performance, and continue improving the product." },
-];
-
-const TECH_DOMAINS = [
-  { icon: "web", domain: "Frontend", tech: "React, Next.js, TypeScript, Tailwind CSS" },
-  { icon: "dns", domain: "Backend", tech: "ASP.NET Core, C#, Node.js, REST APIs" },
-  { icon: "smartphone", domain: "Mobile", tech: "Flutter, React Native, Android" },
-  { icon: "database", domain: "Databases", tech: "PostgreSQL, MySQL, SQL Server, MongoDB, SQLite, Supabase" },
-  { icon: "psychology", domain: "AI & Machine Learning", tech: "Python, TensorFlow, Keras, CNN, Computer Vision, Machine Learning, LLM Integrations, RAG, AI Chatbots, Intelligent Automation" },
-  { icon: "cloud_sync", domain: "DevOps & Infrastructure", tech: "Docker, GitHub Actions, Kubernetes, ArgoCD, Cloud Platforms, CI/CD" },
 ];
 
 const PRINCIPLES = [
@@ -211,77 +150,6 @@ export default async function WorkPage() {
           </div>
         </div>
 
-        {/* Professional Highlights Row (below the intro) */}
-        <div className="max-w-5xl mx-auto w-full grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mt-10 sm:mt-12 pt-8 border-t border-outline-variant/20 text-left">
-          <div className="p-4 sm:p-5 rounded-2xl bg-surface-container-low/50 border border-outline-variant/25 backdrop-blur-xl">
-            <p className="text-xl sm:text-2xl lg:text-3xl font-black text-primary font-mono">16+</p>
-            <p className="text-xs sm:text-sm font-semibold text-white mt-1">Case Studies</p>
-            <p className="text-[11px] text-on-surface-variant line-clamp-1 mt-0.5">Web, mobile, AI &amp; creative</p>
-          </div>
-
-          <div className="p-4 sm:p-5 rounded-2xl bg-surface-container-low/50 border border-outline-variant/25 backdrop-blur-xl">
-            <p className="text-xl sm:text-2xl lg:text-3xl font-black text-primary font-mono">6</p>
-            <p className="text-xs sm:text-sm font-semibold text-white mt-1">Engineering Domains</p>
-            <p className="text-[11px] text-on-surface-variant line-clamp-1 mt-0.5">Frontend to DevOps &amp; AI</p>
-          </div>
-
-          <div className="p-4 sm:p-5 rounded-2xl bg-surface-container-low/50 border border-outline-variant/25 backdrop-blur-xl">
-            <p className="text-xl sm:text-2xl lg:text-3xl font-black text-primary font-mono">8-Step</p>
-            <p className="text-xs sm:text-sm font-semibold text-white mt-1">Delivery Process</p>
-            <p className="text-[11px] text-on-surface-variant line-clamp-1 mt-0.5">Understand → Improve</p>
-          </div>
-
-          <div className="p-4 sm:p-5 rounded-2xl bg-surface-container-low/50 border border-outline-variant/25 backdrop-blur-xl">
-            <p className="text-xl sm:text-2xl lg:text-3xl font-black text-primary font-mono">100%</p>
-            <p className="text-xs sm:text-sm font-semibold text-white mt-1">Custom-Built</p>
-            <p className="text-[11px] text-on-surface-variant line-clamp-1 mt-0.5">Tailored to every client</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          CASE STUDY INDEX
-      ======================================================== */}
-      <section className="w-full py-8 sm:py-10 px-margin-mobile md:px-margin-tablet lg:px-margin-desktop border-t border-outline-variant/15">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            eyebrow="Case Study Index"
-            title="Projects Delivered by Solvexa"
-            subtitle="A quick overview of every project — jump straight to the case study you want to explore."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-            {workData.map((project, i) => (
-              <a
-                key={project.id}
-                href={`#${project.id}`}
-                className="group flex items-center gap-3 p-3.5 rounded-2xl bg-surface-container-low/50 border border-outline-variant/25 hover:border-outline-variant/60 transition-all"
-              >
-                {project.clientLogo ? (
-                  <img
-                    src={project.clientLogo}
-                    alt={project.brandName}
-                    className="w-8 h-8 rounded-xl object-contain shrink-0 bg-white/5 p-0.5"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                ) : (
-                  <span
-                    className="w-8 h-8 rounded-xl flex items-center justify-center text-xs font-black font-mono shrink-0"
-                    style={{ backgroundColor: `${project.accentColor}22`, color: project.accentColor }}
-                  >
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                )}
-                <div className="min-w-0">
-                  <p className="text-sm font-bold text-white truncate group-hover:text-primary transition-colors">
-                    {project.brandName}
-                  </p>
-                  <p className="text-[11px] text-on-surface-variant truncate">{project.category}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-        </div>
       </section>
 
       {/* ========================================================
@@ -404,64 +272,6 @@ export default async function WorkPage() {
       </div>
 
       {/* ========================================================
-          OUR WORK BY CAPABILITY
-      ======================================================== */}
-      <section className="w-full py-14 sm:py-16 lg:py-20 px-margin-mobile md:px-margin-tablet lg:px-margin-desktop border-t border-outline-variant/15">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            eyebrow="Our Work by Capability"
-            title="One Team. Every Capability."
-            subtitle="Our projects span the full digital spectrum — here is how our work maps to what we do."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {CAPABILITIES.map((cap) => (
-              <div
-                key={cap.title}
-                className="p-5 sm:p-6 rounded-3xl bg-surface-container-low/50 border border-outline-variant/25 backdrop-blur-xl flex flex-col gap-4 hover:border-primary/40 transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-primary/15 border border-primary/25 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-primary text-xl">{cap.icon}</span>
-                  </div>
-                  <h3 className="font-title-lg text-lg font-bold text-white">{cap.title}</h3>
-                </div>
-                <div className="flex flex-wrap gap-1.5">
-                  {cap.projects.map((p) => (
-                    <span
-                      key={p}
-                      className="px-2.5 py-1 rounded-lg bg-surface-container-high/60 border border-outline-variant/30 text-[11px] sm:text-xs text-slate-200"
-                    >
-                      {p}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-
-            {/* Final CTA teaser card to balance the grid */}
-            <a
-              href="/contact"
-              className="group p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-primary/15 to-surface-container-low/50 border border-primary/30 backdrop-blur-xl flex flex-col justify-between gap-4 hover:border-primary/60 transition-all"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-primary/20 border border-primary/30 flex items-center justify-center shrink-0">
-                  <span className="material-symbols-outlined text-primary text-xl">add_circle</span>
-                </div>
-                <h3 className="font-title-lg text-lg font-bold text-white">Your Project Here</h3>
-              </div>
-              <p className="text-sm text-on-surface-variant leading-relaxed">
-                Have a challenge that fits one of these capabilities? Let&apos;s build the solution together.
-              </p>
-              <span className="inline-flex items-center gap-1.5 text-sm font-bold text-primary">
-                Start a Project
-                <span className="material-symbols-outlined text-base transition-transform group-hover:translate-x-1">arrow_forward</span>
-              </span>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
           OUR DEVELOPMENT APPROACH
       ======================================================== */}
       <section className="w-full py-14 sm:py-16 lg:py-20 px-margin-mobile md:px-margin-tablet lg:px-margin-desktop border-t border-outline-variant/15 bg-surface-container-lowest/25">
@@ -484,35 +294,6 @@ export default async function WorkPage() {
                 </span>
                 <h3 className="font-title-lg text-lg font-bold text-white">{step.title}</h3>
                 <p className="text-sm text-on-surface-variant leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          TECHNOLOGY CAPABILITIES
-      ======================================================== */}
-      <section className="w-full py-14 sm:py-16 lg:py-20 px-margin-mobile md:px-margin-tablet lg:px-margin-desktop border-t border-outline-variant/15">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            eyebrow="Technology Capabilities"
-            title="Modern Technology. Practical Solutions."
-            subtitle="Our projects can combine different technologies depending on the requirements."
-          />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {TECH_DOMAINS.map((d) => (
-              <div
-                key={d.domain}
-                className="p-5 sm:p-6 rounded-3xl bg-surface-container-low/50 border border-outline-variant/25 backdrop-blur-xl flex flex-col gap-3"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-2xl bg-primary/15 border border-primary/25 flex items-center justify-center shrink-0">
-                    <span className="material-symbols-outlined text-primary text-xl">{d.icon}</span>
-                  </div>
-                  <h3 className="font-title-lg text-lg font-bold text-white">{d.domain}</h3>
-                </div>
-                <p className="text-sm text-on-surface-variant leading-relaxed">{d.tech}</p>
               </div>
             ))}
           </div>

@@ -437,12 +437,12 @@ export const workData: ProjectItem[] = [
     ],
   },
   {
-    id: "punjab-skill-house",
-    slug: "punjab-skill-house-marketing",
-    brandName: "Punjab Skill House",
+    id: "punjab-silk-house",
+    slug: "punjab-silk-house-marketing",
+    brandName: "Punjab Silk House",
     brandSeparator: "–",
     title: "Social Media & Digital Marketing",
-    brandLogoType: "punjab-skill-house",
+    brandLogoType: "punjab-silk-house",
     deviceType: "web",
     accentColor: "#8b5cf6",
     themeGlow: "rgba(139, 92, 246, 0.25)",
@@ -450,12 +450,11 @@ export const workData: ProjectItem[] = [
     shortDesc:
       "Social media and digital marketing services.",
     description:
-      "Solvexa supported Punjab Skill House with social and digital marketing activities focused on improving its online communication, brand presentation, and audience engagement — planning digital content, maintaining a consistent visual identity, and producing communication materials for social media platforms.",
-    heroImage:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80",
+      "Solvexa supported Punjab Silk House with social and digital marketing activities focused on improving its online communication, brand presentation, and audience engagement — planning digital content, maintaining a consistent visual identity, and producing communication materials for social media platforms.",
+    heroImage: "/assets/Work/Punjab.png",
     technologies: ["Social Media", "Content Strategy", "Graphic Design"],
     liveUrl: "#",
-    client: "Punjab Skill House",
+    client: "Punjab Silk House",
     timeline: "Completed",
     metrics: "Digital",
     metricsLabel: "Marketing",
@@ -463,7 +462,7 @@ export const workData: ProjectItem[] = [
     categorySlug: "digital-marketing",
     galleryImages: [],
     overview:
-      "Punjab Skill House needed improved online communication, brand presentation, and audience engagement through structured digital marketing.",
+      "Punjab Silk House needed improved online communication, brand presentation, and audience engagement through structured digital marketing.",
     challenge:
       "Educational and skills-development organizations need to communicate valuable information while keeping content visually engaging and easy to understand.",
     solution:
@@ -522,8 +521,7 @@ export const workData: ProjectItem[] = [
       "AutoAid is an Android-based on-demand roadside assistance application designed to connect vehicle owners with nearby mechanics during breakdowns or roadside emergencies. Users can request assistance, share their live location and vehicle issue, communicate with mechanics, track the service process, and rate the completed job.",
     heroImage:
       "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80",
-    mobileImage:
-      "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=600&q=80",
+    mobileImage: "/assets/Work/AutoAid.jpg",
     technologies: ["Flutter", "Firebase", "Google Maps", "REST API"],
     liveUrl: "#",
     client: "AutoAid",
@@ -589,8 +587,7 @@ export const workData: ProjectItem[] = [
       "AI-powered RFP bid evaluation and vendor scoring engine.",
     description:
       "BidFlow-AI is an AI-powered bid engine designed to automate vendor evaluation for RFP-based procurement. Traditional proposal evaluation requires teams to manually read large documents, extract information, compare vendors, apply scoring criteria, and shortlist candidates. BidFlow-AI transforms this into an intelligent, automated pipeline using LLM-driven document extraction and a scoring engine that evaluates vendors against weighted criteria.",
-    heroImage:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/assets/Work/bidflow-removebg-preview.png",
     technologies: ["Next.js", "React", "Tailwind CSS", "SQLite", "OpenAI"],
     liveUrl: "#",
     client: "BidFlow-AI",
@@ -654,8 +651,7 @@ export const workData: ProjectItem[] = [
       "Real-time task management and collaboration platform.",
     description:
       "SolveFlow is a Trello-style task management platform designed to help teams organize work, assign responsibilities, track progress, and collaborate in real time. It combines a modern Next.js interface with an ASP.NET Core backend and PostgreSQL database, using SignalR for real-time communication.",
-    heroImage:
-      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/assets/Work/solveflow.png",
     technologies: ["C#", "ASP.NET Core", "Next.js", "TypeScript", "PostgreSQL", "Docker"],
     liveUrl: "#",
     client: "SolveFlow",
@@ -718,8 +714,7 @@ export const workData: ProjectItem[] = [
     shortDesc: "Full-stack online rental marketplace.",
     description:
       "RentEase is a full-stack rental marketplace that allows users to list items for rent, discover available products, make bookings, communicate with other users, and manage rental transactions — creating a complete digital marketplace experience for both renters and item owners.",
-    heroImage:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/assets/Work/rentease.png",
     technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe API"],
     liveUrl: "#",
     client: "RentEase",
@@ -894,64 +889,64 @@ export const workData: ProjectItem[] = [
     ],
   },
   {
-    id: "automotive-web-app",
-    slug: "automotive-web-application",
-    brandName: "Automotive Web",
+    id: "perfume-palace",
+    slug: "perfume-palace-ecommerce",
+    brandName: "Perfume Palace",
     brandSeparator: "–",
-    title: "Digital Platform for an Automotive Business",
-    brandLogoType: "automotive-web",
+    title: "Shopify Ecommerce Store for Premium Fragrances",
+    brandLogoType: "perfume-palace",
+    clientLogo: "/assets/Client Logo/PerfumePalace.jpeg",
     deviceType: "web",
-    accentColor: "#dc2626",
-    themeGlow: "rgba(220, 38, 38, 0.25)",
-    buttonGradient: "from-red-600 to-rose-700",
+    accentColor: "#d4af37",
+    themeGlow: "rgba(212, 175, 55, 0.25)",
+    buttonGradient: "from-amber-500 to-yellow-600",
     shortDesc:
-      "Digital platform for an automotive business.",
+      "Shopify ecommerce website for a premium perfume brand.",
     description:
-      "Solvexa developed a custom web solution for an automotive business to establish a professional digital presence and provide customers with an easier way to explore automotive services and information, using a modern responsive interface and structured content architecture.",
-    heroImage:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
-    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+      "Perfume Palace is a Shopify-based ecommerce store designed to showcase and sell premium fragrances online. Solvexa built a visually rich, brand-aligned storefront with intuitive product browsing, seamless checkout, and a luxurious user experience that reflects the elegance of the perfume industry.",
+    heroImage: "/assets/Work/perfumepalace.png",
+    technologies: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
     liveUrl: "#",
-    client: "Automotive Business",
+    client: "Perfume Palace",
     timeline: "Completed",
-    metrics: "Web",
-    metricsLabel: "Digital Platform",
-    category: "Digital Platform for an Automotive Business",
-    categorySlug: "web-development",
+    metrics: "Ecommerce",
+    metricsLabel: "Shopify Store",
+    category: "Shopify Ecommerce Website",
+    categorySlug: "ecommerce",
     galleryImages: [],
     overview:
-      "An automotive business needed a professional digital presence to make it easier for customers to explore automotive services and information.",
+      "Perfume Palace needed a premium online storefront to sell fragrances with a luxurious, brand-consistent shopping experience.",
     challenge:
-      "Automotive businesses often have a large amount of information that needs to be presented clearly without creating a complicated user experience.",
+      "A perfume ecommerce store needs to convey luxury and quality through visuals and UX while making product discovery and checkout effortless for customers.",
     solution:
-      "Solvexa organized information into clear categories and designed a visual hierarchy that helps users quickly understand services and take action.",
+      "Solvexa designed a Shopify storefront with elegant typography, rich product imagery, intuitive navigation, and a streamlined checkout flow tailored to the fragrance industry.",
     howSolvexaSolvedIt:
-      "Solvexa organized information into clear categories and designed a visual hierarchy that helps users quickly understand services and take action.",
+      "Solvexa built a custom Shopify theme with a focus on visual storytelling, product presentation, and conversion-optimized user flows — giving Perfume Palace a digital presence that matches its brand identity.",
     outcome:
-      "The platform provides a modern digital channel for customer discovery, communication, and business presentation.",
+      "Perfume Palace gained a professional ecommerce platform that showcases its fragrance collection beautifully and provides a smooth shopping experience for customers.",
     objectives: [
-      "Digitize the automotive business presence",
-      "Showcase products and services",
-      "Improve customer engagement",
-      "Make information easier to access",
-      "Create a responsive experience",
-      "Provide a scalable digital foundation",
+      "Build a premium Shopify ecommerce store",
+      "Showcase fragrance products with rich visuals",
+      "Provide intuitive product browsing and filtering",
+      "Enable seamless checkout and payment processing",
+      "Reflect brand luxury through design and UX",
+      "Optimize for mobile shopping",
     ],
-    architecture: "Frontend → API / Content Layer → Database / CMS",
+    architecture: "Shopify Storefront → Liquid Templates → Shopify Backend → Payment Gateway",
     keyFeatures: [
-      "Automotive service pages & product/service presentation",
-      "Responsive interface",
-      "Contact functionality",
-      "Structured content & mobile optimization",
-      "Modern UI",
+      "Product catalog with categories and filters",
+      "Rich product pages with imagery and descriptions",
+      "Shopping cart and secure checkout",
+      "Mobile-responsive design",
+      "Brand-consistent visual identity",
     ],
     techStack:
-      "Next.js / React · TypeScript · Tailwind CSS · API Integration · Database / CMS where required · Responsive Design",
+      "Shopify · Liquid · HTML · CSS · JavaScript · Payment Gateway Integration · Responsive Design",
     deliverables: [
-      "Responsive automotive web platform",
-      "Service & product presentation",
-      "Contact & discovery functionality",
-      "Mobile-optimized design",
+      "Custom Shopify ecommerce store",
+      "Product catalog and collection pages",
+      "Secure checkout and payment integration",
+      "Mobile-optimized storefront",
     ],
   },
   {
