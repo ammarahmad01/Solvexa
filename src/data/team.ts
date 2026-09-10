@@ -30,7 +30,7 @@ export const teamData: TeamMember[] = [
       "Strategic Governance & High-Impact Delivery Standards",
       "Cross-Functional Team Culture & Client Success"
     ],
-    image: "/assets/ammar.png",
+    image: "/assets/Team/Ammar Ahmed.png",
     skills: ["Strategic Vision", "Client Success", "Enterprise Partnerships", "Operations"],
     social: {
       linkedin: "https://www.linkedin.com/in/ammar-ahmad-012a29261/",
@@ -50,7 +50,7 @@ export const teamData: TeamMember[] = [
       "Next.js, WebGL & Real-Time 3D Interactive Graphics",
       "Autonomous AI Agent Orchestration & Distributed APIs"
     ],
-    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=85",
+    image: "/assets/Team/Rohan Bin Ejaz.png",
     skills: ["Full-Stack Architecture", "Next.js & React", "WebGL & 3D", "Cloud & AI Pipelines"],
     social: {
       linkedin: "https://www.linkedin.com/in/rohan-bin-ejaz-514177317/",
@@ -70,7 +70,7 @@ export const teamData: TeamMember[] = [
       "Global Brand Positioning & Digital Storytelling",
       "Data-Driven Performance SEO & Audience Expansion"
     ],
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=85",
+    image: "/assets/Team/abullah.png",
     skills: ["Growth Marketing", "Brand Positioning", "Performance SEO", "Conversion Optimization"],
     social: {
       linkedin: "https://www.linkedin.com/in/abdullah-abbasi-03133a404/",
