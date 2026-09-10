@@ -15,7 +15,7 @@ async function verifyAdminUser(req: NextRequest): Promise<{ authorized: boolean;
       return { authorized: false };
     }
     const token = authHeader.split("Bearer ")[1];
-    const auth = getAdminAuth();
+    const auth = await getAdminAuth();
     const decodedToken = await auth.verifyIdToken(token);
     return { authorized: true, email: decodedToken.email };
   } catch (error) {

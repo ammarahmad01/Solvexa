@@ -1,64 +1,95 @@
-import { initializeApp, getApps, cert, App } from "firebase-admin/app";
-import { getFirestore, Firestore, FieldValue } from "firebase-admin/firestore";
-import { getAuth, Auth } from "firebase-admin/auth";
-import fs from "fs";
-import path from "path";
+// Firebase Admin SDK — dynamically imported for Cloudflare Workers compatibility
+// The firebase-admin package uses Node.js APIs that may not be fully available
+// in all environments. Dynamic imports ensure graceful degradation.
 
-let adminApp: App;
+let adminApp: import("firebase-admin/app").App | null = null;
+let firestoreInstance: import("firebase-admin/firestore").Firestore | null = null;
+let authInstance: import("firebase-admin/auth").Auth | null = null;
+let initError: string | null = null;
 
-function getFirebaseAdminApp(): App {
-  if (getApps().length > 0) {
-    return getApps()[0];
-  }
+async function getFirebaseAdminApp() {
+  if (initError) throw new Error(initError);
+  if (adminApp) return adminApp;
 
-  // 1. Try environment variables
-  const projectId = process.env.FIREBASE_PROJECT_ID || "solvexa-bbff1";
-  const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
-  let privateKey = process.env.FIREBASE_PRIVATE_KEY;
+  try {
+    const [{ initializeApp, getApps, cert }, { getFirestore }, { getAuth }] = await Promise.all([
+      import("firebase-admin/app"),
+      import("firebase-admin/firestore"),
+      import("firebase-admin/auth"),
+    ]);
 
-  if (privateKey) {
-    // Unescape newlines if stored as escaped string
-    privateKey = privateKey.replace(/\\n/g, "\n");
-  }
+    if (getApps().length > 0) {
+      adminApp = getApps()[0];
+      firestoreInstance = getFirestore(adminApp);
+      authInstance = getAuth(adminApp);
+      return adminApp;
+    }
 
-  if (projectId && clientEmail && privateKey) {
-    adminApp = initializeApp({
-      credential: cert({
+    // 1. Try environment variables
+    const projectId = process.env.FIREBASE_PROJECT_ID || "solvexa-bbff1";
+    const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+    let privateKey = process.env.FIREBASE_PRIVATE_KEY;
+
+    if (privateKey) {
+      privateKey = privateKey.replace(/\\n/g, "\n");
+    }
+
+    if (projectId && clientEmail && privateKey) {
+      adminApp = initializeApp({
+        credential: cert({ projectId, clientEmail, privateKey }),
         projectId,
-        clientEmail,
-        privateKey,
-      }),
-      projectId,
-    });
-    return adminApp;
+      });
+      firestoreInstance = getFirestore(adminApp);
+      authInstance = getAuth(adminApp);
+      return adminApp;
+    }
+
+    // 2. Fallback to local service account file (Node.js only, not available in Workers)
+    try {
+      const fs = await import("fs");
+      const pathMod = await import("path");
+      const serviceAccountPath = pathMod.join(
+        process.cwd(),
+        "solvexa-bbff1-firebase-adminsdk-fbsvc-bd6c1d9a15.json"
+      );
+
+      if (fs.existsSync(serviceAccountPath)) {
+        const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, "utf8"));
+        adminApp = initializeApp({
+          credential: cert(serviceAccount),
+          projectId: serviceAccount.project_id,
+        });
+        firestoreInstance = getFirestore(adminApp);
+        authInstance = getAuth(adminApp);
+        return adminApp;
+      }
+    } catch {
+      // fs/path not available in this environment (e.g. Cloudflare Workers)
+    }
+
+    throw new Error("Firebase Admin credentials not found in env or local service account file.");
+  } catch (err) {
+    initError = err instanceof Error ? err.message : String(err);
+    throw err;
   }
-
-  // 2. Fallback to local service account file if available
-  const serviceAccountPath = path.join(
-    process.cwd(),
-    "solvexa-bbff1-firebase-adminsdk-fbsvc-bd6c1d9a15.json"
-  );
-
-  if (fs.existsSync(serviceAccountPath)) {
-    const serviceAccount = JSON.parse(fs.readFileSync(serviceAccountPath, "utf8"));
-    adminApp = initializeApp({
-      credential: cert(serviceAccount),
-      projectId: serviceAccount.project_id,
-    });
-    return adminApp;
-  }
-
-  throw new Error("Firebase Admin credentials not found in env or local service account file.");
 }
 
-export function getAdminFirestore(): Firestore {
-  const app = getFirebaseAdminApp();
-  return getFirestore(app);
+export async function getAdminFirestore() {
+  const app = await getFirebaseAdminApp();
+  if (!firestoreInstance) {
+    const { getFirestore } = await import("firebase-admin/firestore");
+    firestoreInstance = getFirestore(app);
+  }
+  return firestoreInstance;
 }
 
-export function getAdminAuth(): Auth {
-  const app = getFirebaseAdminApp();
-  return getAuth(app);
+export async function getAdminAuth() {
+  const app = await getFirebaseAdminApp();
+  if (!authInstance) {
+    const { getAuth } = await import("firebase-admin/auth");
+    authInstance = getAuth(app);
+  }
+  return authInstance;
 }
 
 export interface SubmissionPayload {
@@ -82,7 +113,8 @@ export interface SubmissionRecord extends SubmissionPayload {
 }
 
 export async function saveSubmissionToDb(payload: SubmissionPayload): Promise<string> {
-  const db = getAdminFirestore();
+  const db = await getAdminFirestore();
+  const { FieldValue } = await import("firebase-admin/firestore");
   const now = new Date().toISOString();
 
   const docRef = await db.collection("submissions").add({
@@ -97,7 +129,7 @@ export async function saveSubmissionToDb(payload: SubmissionPayload): Promise<st
 }
 
 export async function getAllSubmissions(): Promise<SubmissionRecord[]> {
-  const db = getAdminFirestore();
+  const db = await getAdminFirestore();
   const snapshot = await db.collection("submissions").orderBy("createdAt", "desc").get();
 
   return snapshot.docs.map((doc) => {
@@ -125,7 +157,7 @@ export async function updateSubmissionInDb(
   id: string,
   updates: { status?: SubmissionRecord["status"]; notes?: string }
 ): Promise<void> {
-  const db = getAdminFirestore();
+  const db = await getAdminFirestore();
   await db.collection("submissions").doc(id).update({
     ...updates,
     updatedAt: new Date().toISOString(),
@@ -133,7 +165,7 @@ export async function updateSubmissionInDb(
 }
 
 export async function deleteSubmissionFromDb(id: string): Promise<void> {
-  const db = getAdminFirestore();
+  const db = await getAdminFirestore();
   await db.collection("submissions").doc(id).delete();
 }
 
@@ -188,7 +220,7 @@ export interface CmsProjectRecord extends CmsProjectPayload {
 }
 
 export async function getAllProjectsFromDb(): Promise<CmsProjectRecord[]> {
-  const db = getAdminFirestore();
+  const db = await getAdminFirestore();
   const snapshot = await db.collection("projects").get();
 
   const projects: CmsProjectRecord[] = snapshot.docs.map((doc) => {
@@ -237,15 +269,14 @@ export async function getAllProjectsFromDb(): Promise<CmsProjectRecord[]> {
     };
   });
 
-  // Sort latest first
   return projects.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
 }
 
 export async function saveProjectToDb(payload: CmsProjectPayload): Promise<string> {
-  const db = getAdminFirestore();
+  const db = await getAdminFirestore();
+  const { FieldValue } = await import("firebase-admin/firestore");
   const now = new Date().toISOString();
 
-  // Create clean slug
   const baseSlug = payload.slug
     ? payload.slug.trim().toLowerCase().replace(/[^a-z0-9-]/g, "-")
     : payload.title.toLowerCase().replace(/[^a-z0-9-]/g, "-");
@@ -274,7 +305,7 @@ export async function saveProjectToDb(payload: CmsProjectPayload): Promise<strin
 }
 
 export async function updateProjectInDb(id: string, updates: Partial<CmsProjectPayload>): Promise<void> {
-  const db = getAdminFirestore();
+  const db = await getAdminFirestore();
   const now = new Date().toISOString();
   await db.collection("projects").doc(id).update({
     ...updates,
@@ -283,7 +314,7 @@ export async function updateProjectInDb(id: string, updates: Partial<CmsProjectP
 }
 
 export async function deleteProjectFromDb(id: string): Promise<void> {
-  const db = getAdminFirestore();
+  const db = await getAdminFirestore();
   await db.collection("projects").doc(id).delete();
 }
 
@@ -306,5 +337,3 @@ export async function getMergedWorkProjects() {
     return workData;
   }
 }
-
-

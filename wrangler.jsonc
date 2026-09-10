@@ -1,0 +1,35 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "solvexa-website",
+  "compatibility_date": "2024-12-30",
+  "compatibility_flags": [
+    // Enable Node.js API compatibility for firebase-admin and other Node packages
+    "nodejs_compat",
+    // Allow fetching external URLs
+    "global_fetch_strictly_public",
+  ],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      // Must match the "name" field above
+      "service": "solvexa-website",
+    },
+  ],
+  "r2_buckets": [
+    // Uncomment to enable incremental caching with R2
+    // Requires an R2 bucket to be created first
+    // {
+    //   "binding": "NEXT_INC_CACHE_R2_BUCKET",
+    //   "bucket_name": "solvexa-next-inc-cache",
+    // },
+  ],
+  "images": {
+    // Enable Cloudflare Images for Next.js image optimization
+    "binding": "IMAGES",
+  },
+}

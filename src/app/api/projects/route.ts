@@ -17,7 +17,7 @@ async function verifyAdminUser(req: NextRequest): Promise<{ authorized: boolean;
       return { authorized: false };
     }
     const token = authHeader.split("Bearer ")[1];
-    const auth = getAdminAuth();
+    const auth = await getAdminAuth();
     const decodedToken = await auth.verifyIdToken(token);
     return { authorized: true, email: decodedToken.email };
   } catch (error) {
@@ -33,7 +33,13 @@ export async function GET(req: NextRequest) {
     const slug = searchParams.get("slug");
     const sourceOnly = searchParams.get("sourceOnly"); // "db" or "all"
 
-    const dbProjects = await getAllProjectsFromDb();
+    let dbProjects: any[] = [];
+    try {
+      dbProjects = await getAllProjectsFromDb();
+    } catch (dbErr) {
+      console.warn("Firestore unavailable, falling back to static data:", dbErr);
+      dbProjects = [];
+    }
 
     if (sourceOnly === "db") {
       return NextResponse.json({
@@ -43,7 +49,6 @@ export async function GET(req: NextRequest) {
     }
 
     // Merge dynamic projects with static starter projects
-    // Dynamic projects with matching IDs override static ones
     const dbProjectMap = new Map(dbProjects.map((p) => [p.slug, p]));
     const dynamicOnly = dbProjects.filter((p) => !workData.some((w) => w.slug === p.slug));
 

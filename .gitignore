@@ -46,6 +46,11 @@ firebase-admin-key.json
 # vercel
 .vercel
 
+# cloudflare open-next build output
+.open-next
+cloudflare-env.d.ts
+.dev.vars
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
