@@ -4,7 +4,7 @@ export interface ProjectItem {
   brandName: string;
   brandSeparator: string;
   title: string;
-  brandLogoType: "custom-name-domain" | "luca" | "aetheria" | "apex" | "vaultpay" | "healthpulse" | "quantedge" | "omnicart" | "novapulse" | "cloudforge" | "edusphere" | "urbanride" | "solvcore" | "lumina" | "soundwave";
+  brandLogoType: string;
   deviceType: "web" | "mobile" | "both";
   accentColor: string;
   themeGlow: string;
@@ -26,6 +26,16 @@ export interface ProjectItem {
   challenge: string;
   solution: string;
   deliverables: string[];
+  objectives: string[];
+  architecture: string;
+  keyFeatures: string[];
+  howSolvexaSolvedIt: string;
+  outcome: string;
+  techStack: string;
+  mlPipeline?: string;
+  servicesDelivered?: string[];
+  designProcess?: string;
+  workflow?: string;
   testimonial?: {
     quote: string;
     author: string;
@@ -37,642 +47,1066 @@ export interface ProjectItem {
 
 export const workData: ProjectItem[] = [
   {
-    id: "custom-name-domain",
-    slug: "custom-name-domain",
-    brandName: "Custom Name Domain",
+    id: "alkhidmat-foundation",
+    slug: "alkhidmat-foundation-punjab-north",
+    brandName: "Alkhidmat Foundation",
     brandSeparator: "–",
-    title: "A Smarter Way to Build a Professional Digital Identity",
-    brandLogoType: "custom-name-domain",
+    title: "Punjab North — Digital Platform & Operations Ecosystem",
+    brandLogoType: "alkhidmat",
     deviceType: "web",
-    accentColor: "#0284c7",
-    themeGlow: "rgba(2, 132, 199, 0.25)",
-    buttonGradient: "from-sky-500 to-blue-600",
-    shortDesc: "All-in-one domain search, DNS verification, and branded webmail infrastructure platform.",
-    description: "Custom Name Domain is a SaaS platform developed by Solvexa that simplifies domain registration and professional email management. Users can search for domains, create branded email accounts, manage subscriptions, and access webmail from a single dashboard. The platform integrates Stripe for secure billing, Roundcube for webmail, and real-time DNS verification for a seamless experience. Built with the MERN stack, it provides a scalable, user-friendly solution for building a professional digital identity.",
-    heroImage: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
-    technologies: ["React", "Node.js", "MongoDB", "Express", "Stripe API", "Roundcube", "DNS Automation"],
-    liveUrl: "https://customnamedomain.com",
-    client: "Custom Name Domain LLC",
-    timeline: "6 Weeks",
-    metrics: "45K+",
-    metricsLabel: "Domains Registered",
-    category: "Website Development",
-    categorySlug: "web-development",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+    accentColor: "#10b981",
+    themeGlow: "rgba(16, 185, 129, 0.25)",
+    buttonGradient: "from-emerald-500 to-teal-600",
+    shortDesc: "Organizational website with online donations, CRM, ERP, and CMS.",
+    description:
+      "Alkhidmat Foundation Punjab North required a comprehensive digital platform capable of representing the organization's mission online while also supporting its operational and donation-related activities. Solvexa developed a modern organizational website combined with an online donation system and supporting management capabilities, giving visitors clear program information while giving the organization a structured way to manage digital content and operations.",
+    heroImage:
+      "https://images.unsplash.com/photo-1559027615-cd4628902d4a?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Next.js", "React", "TypeScript", "Supabase", "PostgreSQL"],
+    liveUrl: "#",
+    client: "Alkhidmat Foundation Punjab North",
+    timeline: "Completed",
+    metrics: "Full-Stack",
+    metricsLabel: "Web + CRM/ERP/CMS",
+    category: "Website, Online Donation System, CRM, ERP & CMS",
+    categorySlug: "web-crm-erp",
+    galleryImages: [],
+    overview:
+      "Alkhidmat Foundation Punjab North required a comprehensive digital platform capable of representing the organization's mission online while also supporting its operational and donation-related activities.",
+    challenge:
+      "The major challenge was combining a public-facing website with operational functionality while keeping the experience simple for visitors and manageable for administrators — and ensuring donation and organizational information could be handled reliably without complicating the user journey.",
+    solution:
+      "Solvexa separated public-facing experiences from administrative workflows while keeping them connected through a centralized backend. The platform was structured around reusable components, database-driven content, controlled administrative access, and scalable backend services.",
+    howSolvexaSolvedIt:
+      "Solvexa separated public-facing experiences from administrative workflows while keeping them connected through a centralized backend. The platform was structured around reusable components, database-driven content, controlled administrative access, and scalable backend services — allowing the organization to manage information efficiently while visitors received a fast, professional experience.",
+    outcome:
+      "The project created a stronger digital presence while establishing a centralized foundation for online donations, content management, and organizational operations.",
+    objectives: [
+      "Build a professional and trustworthy online presence",
+      "Provide clear information about programs and initiatives",
+      "Enable online donations",
+      "Simplify donation and contact management",
+      "Provide centralized content management",
+      "Support internal operational workflows",
+      "Improve accessibility across desktop and mobile devices",
+      "Create a scalable foundation for future digital services",
     ],
-    overview: "Custom Name Domain needed an integrated SaaS product allowing non-technical professionals to register domains, configure MX and SPF records, and access webmail from a unified dashboard.",
-    challenge: "Automating real-time DNS zone record generation across global nameservers while coordinating subscription billing states with active mailbox access.",
-    solution: "Solvexa engineered an event-driven Node.js backend with automated DNS propagation checks, seamless Stripe webhook handling, and a custom responsive React client portal.",
+    architecture: "Frontend → API / Server Logic → Supabase → PostgreSQL",
+    keyFeatures: [
+      "Organization website",
+      "Online donation system & donation management",
+      "CMS",
+      "CRM / management functionality",
+      "Contact forms",
+      "Administrative dashboard",
+      "Content management",
+      "Responsive design",
+      "Secure authentication",
+      "Data export and reporting capabilities",
+    ],
+    techStack:
+      "Next.js · React · TypeScript · Supabase · PostgreSQL · Authentication · REST/API integrations · Cloudflare · Responsive UI",
     deliverables: [
-      "Domain Search & WHOIS Availability Engine",
-      "Automated DNS Zone & MX Record Provisioning",
-      "Custom Webmail Integration via Roundcube API",
-      "Stripe Customer Billing & Subscription Dashboard"
+      "Organization website with responsive design",
+      "Online donation system & donation management",
+      "CRM / ERP management functionality",
+      "CMS & administrative dashboard",
     ],
-    testimonial: {
-      quote: "Solvexa transformed an intimidating DNS process into a smooth 2-minute user experience. Our customer churn dropped dramatically.",
-      author: "David Vance",
-      role: "Founder & CEO",
-      company: "Custom Name Domain",
-      rating: 5
-    }
   },
   {
-    id: "luca-ai",
-    slug: "luca-ai-literacy",
-    brandName: "LUCA.ai:",
-    brandSeparator: "",
-    title: "An AI-Powered Literacy & Learning Platform",
-    brandLogoType: "luca",
-    deviceType: "both",
-    accentColor: "#a855f7",
-    themeGlow: "rgba(168, 85, 247, 0.25)",
-    buttonGradient: "from-purple-500 to-indigo-600",
-    shortDesc: "AI phoneme recognition and adaptive literacy platform empowering students and educators.",
-    description: "LUCA.ai is an AI-powered literacy and learning platform designed to simplify educational technology through engaging storytelling and intuitive user experiences. Built with Webflow, responsive design, and a scalable CMS architecture, LUCA.ai empowers educators, schools, parents, and institutions with an accessible, high-performing digital platform that makes AI-driven literacy solutions easy to understand and explore.",
-    heroImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-    mobileImage: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80",
-    technologies: ["Webflow", "Next.js", "React", "TypeScript", "AI Speech API", "OpenAI", "TailwindCSS"],
-    liveUrl: "https://luca.ai",
-    client: "LUCALabs Education",
-    timeline: "7 Weeks",
-    metrics: "120K+",
-    metricsLabel: "Active Young Readers",
-    category: "Website Development",
-    categorySlug: "web-development",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80"
-    ],
-    overview: "LUCA.ai required a high-converting, vibrant digital platform that communicated the scientific breakthroughs of their phoneme-level AI reading engine to school districts and parents.",
-    challenge: "Presenting complex neural speech analysis and reading research in an approachable, engaging, and accessible interface suitable for schools and families.",
-    solution: "Solvexa designed and developed an interactive visual storytelling platform with interactive audio demonstrations, educator trial workflows, and streamlined CMS publishing.",
-    deliverables: [
-      "Interactive Product Showcase & Audio Demo",
-      "Educator Pilot Program Onboarding Funnel",
-      "Scalable CMS for Research Papers & Case Studies",
-      "Responsive Cross-Device Web Architecture"
-    ],
-    testimonial: {
-      quote: "Solvexa nailed our voice and mission instantly. The digital experience communicates the science behind LUCA with warmth and crystal-clear clarity.",
-      author: "Elena Rostova",
-      role: "VP of Product",
-      company: "LUCALabs",
-      rating: 5
-    }
-  },
-  {
-    id: "aetheria-os",
-    slug: "aetheria-ai-platform",
-    brandName: "Aetheria OS",
+    id: "noor-educational-system",
+    slug: "noor-educational-system",
+    brandName: "Noor Educational System",
     brandSeparator: "–",
-    title: "Autonomous Enterprise AI & Neural Agent Orchestration",
-    brandLogoType: "aetheria",
+    title: "AI-Powered Educational Platform & Learning Ecosystem",
+    brandLogoType: "noor",
     deviceType: "web",
-    accentColor: "#06b6d4",
-    themeGlow: "rgba(6, 182, 212, 0.25)",
-    buttonGradient: "from-cyan-500 to-blue-600",
-    shortDesc: "Sovereign enterprise AI control plane managing multi-tenant autonomous agent clusters.",
-    description: "Aetheria OS is an enterprise AI orchestration platform engineered by Solvexa to visualize, monitor, and deploy autonomous agent swarms in zero-trust environments. Teams can construct multi-modal workflows, inspect real-time token telemetry, and manage automated reasoning guardrails from a high-frequency interface. The platform integrates Pinecone vector storage, Anthropic and OpenAI model pipelines, and sub-millisecond WebSocket streaming for enterprise operations.",
-    heroImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80",
-    technologies: ["Next.js", "TypeScript", "Python", "FastAPI", "Pinecone", "WebSockets", "Docker"],
-    liveUrl: "https://aetheria-os.io",
-    client: "Aetheria AI Corp",
-    timeline: "8 Weeks",
-    metrics: "120K QPS",
-    metricsLabel: "Throughput Capacity",
-    category: "Website Development",
-    categorySlug: "web-development",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
+    accentColor: "#3b82f6",
+    themeGlow: "rgba(59, 130, 246, 0.25)",
+    buttonGradient: "from-blue-500 to-indigo-600",
+    shortDesc:
+      "Educational platform with AI chatbot, school management, LMS, and CMS.",
+    description:
+      "Noor Educational System required more than a traditional educational website — it needed a digital ecosystem capable of presenting educational information while supporting students, staff, administration, learning resources, and communication. Solvexa developed a website integrated with an AI chatbot, school management capabilities, LMS functionality, and CMS features into one unified educational platform.",
+    heroImage:
+      "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Next.js", "React", "TypeScript", "OpenAI", "Node.js"],
+    liveUrl: "#",
+    client: "Noor Educational System",
+    timeline: "Completed",
+    metrics: "AI + EdTech",
+    metricsLabel: "Full Platform",
+    category: "Education Website, AI Chatbot, School Management System, LMS & CMS",
+    categorySlug: "web-ai-edtech",
+    galleryImages: [],
+    overview:
+      "Noor Educational System needed a digital ecosystem capable of presenting educational information while supporting students, staff, administration, learning resources, and communication.",
+    challenge:
+      "The platform had to serve different users with different needs — visitors, students, teachers, and administrators — while the AI chatbot needed to provide useful answers while remaining connected to the educational context.",
+    solution:
+      "Solvexa designed the platform using modular functionality and role-based workflows. The AI assistant was integrated as a dedicated intelligent layer, while the management and learning systems remained structured around their specific workflows.",
+    howSolvexaSolvedIt:
+      "Solvexa designed the platform using modular functionality and role-based workflows. The AI assistant was integrated as a dedicated intelligent layer, while the management and learning systems remained structured around their specific workflows — making the platform easier to maintain, expand, and manage.",
+    outcome:
+      "Noor Educational System gained a centralized digital platform combining its website, learning environment, management functionality, content management, and AI assistance.",
+    objectives: [
+      "Create a professional educational website",
+      "Improve communication with students and visitors",
+      "Provide AI-powered assistance",
+      "Support school management operations",
+      "Provide an LMS environment",
+      "Centralize educational content",
+      "Give administrators control over website content",
+      "Improve accessibility to learning resources",
     ],
-    overview: "Aetheria required an ultra-responsive web control plane capable of visualizing multi-tenant AI pipelines and neural agent telemetry without browser lag.",
-    challenge: "Managing massive real-time WebSocket payloads while maintaining 60 FPS animations and adhering to institutional zero-trust security standards.",
-    solution: "Solvexa engineered a bespoke Next.js and WebGL architecture with off-main-thread Web Workers and instant telemetry dashboards.",
+    architecture:
+      "Web Application → Backend/API Layer → Database\nAI Chatbot → LLM Integration → Context / Knowledge Layer",
+    keyFeatures: [
+      "Educational website",
+      "AI chatbot",
+      "Student management",
+      "School management",
+      "LMS",
+      "CMS",
+      "Admin dashboard",
+      "Authentication",
+      "Course/learning content",
+      "Responsive interface",
+    ],
+    techStack:
+      "Next.js · React · TypeScript · Backend APIs · Database · AI/LLM integration · CMS · Authentication · Responsive UI",
     deliverables: [
-      "Custom Next.js Web Control Plane",
-      "Real-Time WebSocket & Telemetry Stream Processing",
-      "Interactive 3D Network Topology Visualizer",
-      "Enterprise RBAC & Auth Security"
+      "Educational website with AI chatbot",
+      "School management system",
+      "Learning management system (LMS)",
+      "CMS & admin dashboard",
     ],
-    testimonial: {
-      quote: "Solvexa compressed a multi-quarter rollout into 6 weeks without losing architectural elegance. Our enterprise clients marvel at the responsiveness.",
-      author: "Marcus Sterling",
-      role: "Managing Director",
-      company: "Apex Capital",
-      rating: 5
-    }
   },
   {
-    id: "apex-crm",
-    slug: "apex-mobile-crm",
-    brandName: "Apex Horizon",
+    id: "crowdcam",
+    slug: "crowdcam-event-management",
+    brandName: "CrowdCam",
     brandSeparator: "–",
-    title: "High-Performance Offline-First Field Sales Ecosystem",
-    brandLogoType: "apex",
+    title: "Mobile Event Management Application",
+    brandLogoType: "crowdcam",
     deviceType: "mobile",
     accentColor: "#f59e0b",
     themeGlow: "rgba(245, 158, 11, 0.25)",
     buttonGradient: "from-amber-500 to-orange-600",
-    shortDesc: "Offline-first sales enablement mobile app and dispatcher console for field sales reps.",
-    description: "Apex Horizon CRM is a cross-platform mobile and desktop sales enablement suite created for mobile workforces and enterprise logistics teams. Field representatives can generate contracts, log client meetings, and track real-time pipeline status without cellular connectivity. The system integrates SQLite offline storage, biometric document verification, automated WhatsApp dispatch triggers, and bi-directional cloud conflict resolution.",
-    heroImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80",
-    mobileImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=600&q=80",
-    technologies: ["React Native", "TypeScript", "SQLite", "Node.js", "Firebase", "AWS"],
-    liveUrl: "https://apexhorizon.cloud",
-    client: "Horizon Global Logistics",
-    timeline: "10 Weeks",
-    metrics: "+42%",
-    metricsLabel: "Rep Productivity Increase",
-    category: "Mobile App Development",
-    categorySlug: "mobile-app-development",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80"
+    shortDesc:
+      "Mobile event management application built with Flutter.",
+    description:
+      "CrowdCam is a mobile event management application developed with Flutter to simplify event-related activities and provide users with a centralized mobile experience. It focuses on organizing event information, managing users and event activities, and creating a smoother experience for participants and organizers.",
+    heroImage:
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80",
+    mobileImage:
+      "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80",
+    technologies: ["Flutter", "Dart", "Firebase", "REST API"],
+    liveUrl: "#",
+    client: "CrowdCam",
+    timeline: "Completed",
+    metrics: "Mobile",
+    metricsLabel: "Flutter App",
+    category: "Event Management Mobile Application",
+    categorySlug: "mobile-app",
+    galleryImages: [],
+    overview:
+      "CrowdCam needed a centralized mobile platform for organizing event information, managing users, and creating a smoother experience for participants and organizers.",
+    challenge:
+      "Event applications need to handle multiple user flows while keeping the interface simple enough for users who may only interact with the app during an event.",
+    solution:
+      "Solvexa focused on clear navigation, reusable components, structured data flows, and a mobile-first user experience.",
+    howSolvexaSolvedIt:
+      "Solvexa focused on clear navigation, reusable components, structured data flows, and a mobile-first user experience.",
+    outcome:
+      "CrowdCam provides a centralized mobile platform for managing and supporting event experiences.",
+    objectives: [
+      "Simplify event management",
+      "Centralize event information",
+      "Improve communication",
+      "Provide mobile-first accessibility",
+      "Improve participant engagement",
+      "Reduce manual event-management processes",
     ],
-    overview: "A mobile workforce of field sales representatives needed a frictionless app to track deals, log client interactions on the road, and sign contracts without cellular connectivity.",
-    challenge: "Handling multi-directional conflict resolution when syncing hundreds of offline contract revisions back to corporate cloud databases.",
-    solution: "Developed a native-feel React Native app with local SQLite storage, optimistic UI updates, biometric signing, and automated push notifications.",
+    architecture: "Flutter Application → API Layer → Backend Services → Database",
+    keyFeatures: [
+      "Event management & organization",
+      "User management",
+      "Mobile-first experience",
+      "Push notifications",
+      "Centralized event information",
+    ],
+    techStack:
+      "Flutter · Dart · Backend APIs · Database · Authentication · Cloud Services · Push Notifications",
     deliverables: [
-      "React Native iOS & Android Production App",
-      "Offline-First SQLite Caching Architecture",
-      "Biometric e-Signature & Camera Scanner",
-      "Automated WhatsApp & Push Notification Triggers"
+      "Flutter mobile application",
+      "Event management system",
+      "User management & authentication",
+      "Cloud-based backend services",
     ],
-    testimonial: {
-      quote: "Our field agents close deals in remote warehouses where other apps freeze. Solvexa gave us a competitive weapon.",
-      author: "Jessica Lin",
-      role: "VP of Sales Operations",
-      company: "Horizon Global",
-      rating: 5
-    }
   },
   {
-    id: "vaultpay-global",
-    slug: "vaultpay-fintech-gateway",
-    brandName: "VaultPay",
+    id: "tayyab-autos",
+    slug: "tayyab-autos-website",
+    brandName: "Tayyab Autos",
     brandSeparator: "–",
-    title: "Next-Gen Multi-Currency Cross-Border Settlement Gateway",
-    brandLogoType: "vaultpay",
-    deviceType: "both",
-    accentColor: "#10b981",
-    themeGlow: "rgba(16, 185, 129, 0.25)",
-    buttonGradient: "from-emerald-500 to-teal-600",
-    shortDesc: "Institutional treasury and cross-border payments portal processing high-volume remittances.",
-    description: "VaultPay Global is an institutional financial technology portal engineered to process high-volume international remittances and instant multi-currency treasury settlements. It features real-time FX rate locks, ISO 20022 compliance protocols, biometric fraud detection, and automated AML screening. Built on an event-driven Go microservices architecture with Next.js dashboards, it safeguards billions in monthly enterprise transactions.",
-    heroImage: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
-    mobileImage: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
-    technologies: ["Next.js", "React", "TypeScript", "PostgreSQL", "Redis", "Stripe API", "Docker"],
-    liveUrl: "https://vaultpay.global",
-    client: "VaultPay International",
-    timeline: "12 Weeks",
-    metrics: "$2.4B+",
-    metricsLabel: "Monthly Volume Settled",
-    category: "Website Development",
-    categorySlug: "web-development",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80"
-    ],
-    overview: "VaultPay required a rock-solid treasury workstation where international corporations can convert currencies, manage sub-accounts, and trigger wire transfers in seconds.",
-    challenge: "Achieving microsecond latency while executing strict cryptographic signature audits and bank-grade anti-money laundering checks on every payment.",
-    solution: "Engineered high-throughput Go backend services synchronized with an interactive React & Next.js dashboard featuring live WebSockets and hardware key authentication.",
-    deliverables: [
-      "Multi-Currency Treasury Dashboard",
-      "Real-Time FX Spot Execution Engine",
-      "Automated Compliance & AML Verification Module",
-      "Hardware Key (WebAuthn/FIDO2) Security Layer"
-    ],
-    testimonial: {
-      quote: "Security, speed, and absolute reliability. Solvexa delivered banking-grade software that passed all third-party SOC2 audits with flying colors.",
-      author: "Darius Sterling",
-      role: "Chief Compliance Officer",
-      company: "VaultPay",
-      rating: 5
-    }
-  },
-  {
-    id: "healthpulse-telehealth",
-    slug: "healthpulse-telehealth-ehr",
-    brandName: "HealthPulse",
-    brandSeparator: ":",
-    title: "HIPAA-Compliant Patient Portal & Clinical Video EHR",
-    brandLogoType: "healthpulse",
-    deviceType: "both",
-    accentColor: "#f43f5e",
-    themeGlow: "rgba(244, 63, 94, 0.25)",
-    buttonGradient: "from-rose-500 to-pink-600",
-    shortDesc: "End-to-end clinical telemedicine portal with encrypted WebRTC video and electronic health records.",
-    description: "HealthPulse is a certified telehealth and clinical workflow platform connecting patients with specialized healthcare providers across synchronous WebRTC video sessions. The portal includes smart scheduling, digital prescription dispatch, real-time vital telemetry recording, and end-to-end encrypted medical record transfers. Solvexa architected the solution with strict HIPAA compliance, React, WebRTC, and automated FHIR API interoperability.",
-    heroImage: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
-    mobileImage: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=600&q=80",
-    technologies: ["React", "Node.js", "TypeScript", "PostgreSQL", "Docker", "TailwindCSS"],
-    liveUrl: "https://healthpulse.med",
-    client: "PulseCare Health Network",
-    timeline: "9 Weeks",
-    metrics: "99.98%",
-    metricsLabel: "Clinical Consultation Uptime",
-    category: "Website Development",
-    categorySlug: "web-development",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=800&q=80"
-    ],
-    overview: "A national healthcare network needed an integrated telehealth portal that allowed doctors to conduct consultations and prescribe medications without leaving their clinical dashboard.",
-    challenge: "Maintaining low-latency HD video across spotty cellular connections while guaranteeing encrypted HIPAA data compliance.",
-    solution: "Built an adaptive bitrate WebRTC mesh architecture with automated bandwidth recovery, synchronized clinical charting, and digital signature prescription workflows.",
-    deliverables: [
-      "Encrypted WebRTC HD Video Consultation Room",
-      "FHIR-Compliant Electronic Health Record Integration",
-      "Automated e-Prescription & Pharmacy Dispatch",
-      "Patient Self-Scheduling & SMS Reminders"
-    ],
-    testimonial: {
-      quote: "Our physicians love how intuitive the charting and video interface is. Patient satisfaction ratings have reached an all-time high of 98%.",
-      author: "Dr. Rachel Adams",
-      role: "Chief Medical Officer",
-      company: "PulseCare",
-      rating: 5
-    }
-  },
-  {
-    id: "quantedge-terminal",
-    slug: "quantedge-trading-terminal",
-    brandName: "QuantEdge",
-    brandSeparator: "–",
-    title: "Algorithmic Trading & Ultra-Low Latency Market Telemetry",
-    brandLogoType: "quantedge",
+    title: "Modern Automotive Business Website",
+    brandLogoType: "tayyab-autos",
     deviceType: "web",
-    accentColor: "#38bdf8",
-    themeGlow: "rgba(56, 189, 248, 0.25)",
-    buttonGradient: "from-sky-400 to-indigo-600",
-    shortDesc: "High-frequency quantitative trading workbench with GPU Canvas charting and sub-millisecond execution.",
-    description: "QuantEdge Terminal is an institutional desktop and web trading workbench providing quantitative traders with sub-millisecond order routing, algorithmic backtesting, and volumetric heatmaps. The platform processes over 200,000 Level-2 market ticks per second using WebAssembly and Rust compute pipelines, coupled with GPU-accelerated Canvas charting and FIX protocol gateway integrations.",
-    heroImage: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
-    technologies: ["C#", "TypeScript", "React", "PostgreSQL", "Redis", "Docker"],
-    liveUrl: "https://quantedge.finance",
-    client: "QuantEdge Capital Management",
-    timeline: "14 Weeks",
-    metrics: "200K QPS",
-    metricsLabel: "Level-2 Tick Throughput",
-    category: "Desktop Applications",
-    categorySlug: "desktop-applications",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80"
+    accentColor: "#ef4444",
+    themeGlow: "rgba(239, 68, 68, 0.25)",
+    buttonGradient: "from-red-500 to-rose-600",
+    shortDesc:
+      "Modern responsive website for an automotive business.",
+    description:
+      "Tayyab Autos required a modern online presence that could showcase its automotive products and services professionally while making it easier for potential customers to discover and contact the business. Solvexa created a responsive automotive website focused on clean presentation, strong visual hierarchy, easy navigation, and mobile accessibility.",
+    heroImage:
+      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    liveUrl: "#",
+    client: "Tayyab Autos",
+    timeline: "Completed",
+    metrics: "Web",
+    metricsLabel: "Responsive Website",
+    category: "Automotive Business Website",
+    categorySlug: "web-development",
+    galleryImages: [],
+    overview:
+      "Tayyab Autos needed a modern online presence to showcase its automotive products and services professionally while making it easier for potential customers to discover and contact the business.",
+    challenge:
+      "The website needed to communicate automotive information clearly without overwhelming visitors with unnecessary content.",
+    solution:
+      "Solvexa focused on a visual-first interface with structured sections, clear calls-to-action, responsive layouts, and optimized content presentation.",
+    howSolvexaSolvedIt:
+      "Solvexa focused on a visual-first interface with structured sections, clear calls-to-action, responsive layouts, and optimized content presentation.",
+    outcome:
+      "A modern digital presence that gives the automotive business a stronger professional identity and makes its services easier for customers to discover.",
+    objectives: [
+      "Establish a professional online presence",
+      "Showcase automotive services/products",
+      "Improve customer discovery",
+      "Make contact information easily accessible",
+      "Build trust through professional presentation",
+      "Provide a mobile-friendly experience",
     ],
-    overview: "Proprietary trading desks needed a modernized terminal capable of rendering complex depth-of-book ladders and multi-exchange order books with zero UI stutter.",
-    challenge: "Rendering hundreds of thousands of order book modifications per second in a browser canvas without consuming excessive CPU cores.",
-    solution: "Architected a custom WebAssembly tick processor compiled from Rust, paired with double-buffered Canvas rendering and lightweight binary WebSockets.",
+    architecture: "Client Browser → Next.js Application → Content / API Layer",
+    keyFeatures: [
+      "Automotive service showcase",
+      "Responsive design",
+      "Contact functionality",
+      "Clean visual hierarchy",
+      "Mobile accessibility",
+    ],
+    techStack:
+      "Next.js · React · TypeScript · Tailwind CSS · Responsive Web Design · Modern deployment infrastructure",
     deliverables: [
-      "GPU-Accelerated Level-2 Order Book Visualizer",
-      "Algorithmic Strategy Backtesting Sandbox",
-      "Direct Market Access (DMA) FIX Gateway",
-      "Customizable Multi-Monitor Tile Window Manager"
+      "Responsive automotive business website",
+      "Mobile-optimized design",
+      "Contact & discovery features",
+      "Clean visual presentation",
     ],
-    testimonial: {
-      quote: "The tick processing speed is peerless. Solvexa gave our quants the edge they needed in fragmented market environments.",
-      author: "Vikram Malhotra",
-      role: "Head of Quantitative Strategies",
-      company: "QuantEdge",
-      rating: 5
-    }
   },
   {
-    id: "omnicart-global",
-    slug: "omnicart-commerce",
-    brandName: "OmniCart",
+    id: "mealmates-ai",
+    slug: "mealmates-ai-platform",
+    brandName: "MealMates AI",
     brandSeparator: "–",
-    title: "Headless Composable Commerce & Omni-Channel Retail Suite",
-    brandLogoType: "omnicart",
+    title: "AI-Powered Personalized Meal Planning Platform",
+    brandLogoType: "mealmates",
     deviceType: "both",
+    accentColor: "#22c55e",
+    themeGlow: "rgba(34, 197, 94, 0.25)",
+    buttonGradient: "from-green-500 to-emerald-600",
+    shortDesc:
+      "AI-powered personalized meal planning platform.",
+    description:
+      "MealMates AI is an AI-powered meal planning platform combining machine learning, personalized recommendations, user management, administration, and mobile/web applications. The system generates personalized meal recommendations based on user information and preferences while providing an organized digital experience through web and mobile interfaces.",
+    heroImage:
+      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80",
+    mobileImage:
+      "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=600&q=80",
+    technologies: ["Flutter", "Python", "Machine Learning", "REST API"],
+    liveUrl: "#",
+    client: "MealMates AI",
+    timeline: "Completed",
+    metrics: "AI + ML",
+    metricsLabel: "Full-Stack + ML",
+    category: "AI-Powered Personalized Meal Planning Platform",
+    categorySlug: "ai-mobile-web",
+    galleryImages: [],
+    overview:
+      "MealMates AI needed to generate personalized meal recommendations based on user information and preferences, combining ML with full-stack application development.",
+    challenge:
+      "Personalized recommendations require more than simply connecting an application to an AI model — input data needs to be cleaned and transformed into a format the model can understand, and the application needs to handle predictions reliably and present results in a user-friendly way.",
+    solution:
+      "Solvexa separated the machine learning pipeline from the application layer. The model was trained through a structured preprocessing and training workflow, while the backend provided a controlled interface for making predictions.",
+    howSolvexaSolvedIt:
+      "Solvexa separated the machine learning pipeline from the application layer. The model was trained through a structured preprocessing and training workflow, while the backend provided a controlled interface for making predictions — allowing the ML component to operate as part of the larger application rather than being tightly coupled to the UI.",
+    outcome:
+      "MealMates AI demonstrates Solvexa's ability to combine full-stack application development with machine learning and personalized digital experiences.",
+    objectives: [
+      "Provide personalized meal recommendations",
+      "Train and integrate an ML model",
+      "Build user management",
+      "Create an administrative system",
+      "Provide prediction functionality",
+      "Deliver web and mobile applications",
+      "Centralize user and application data",
+      "Create a scalable foundation for future AI features",
+    ],
+    architecture:
+      "Web / Mobile App → Backend API → User & Application Services → ML Prediction Service → Trained Model → Personalized Recommendation",
+    keyFeatures: [
+      "User registration/login & personalized profiles",
+      "Meal planning",
+      "AI/ML predictions & recommendation workflow",
+      "User management & admin dashboard",
+      "Backend APIs",
+      "Mobile and web applications",
+      "Model prediction pipeline",
+    ],
+    techStack:
+      "Flutter · Web Application · Backend APIs · Database · Python · Machine Learning · Data Preprocessing · Model Training · Prediction Pipeline · Admin Dashboard",
+    mlPipeline:
+      "Data Collection → Cleaning → Preprocessing → Feature Engineering → Model Training → Evaluation → Prediction",
+    deliverables: [
+      "Web and mobile applications",
+      "ML prediction pipeline",
+      "User management & admin dashboard",
+      "Personalized recommendation engine",
+    ],
+  },
+  {
+    id: "plantguard",
+    slug: "plantguard-ai-detection",
+    brandName: "PlantGuard",
+    brandSeparator: "–",
+    title: "AI-Powered Plant Disease Detection & Care Management",
+    brandLogoType: "plantguard",
+    deviceType: "both",
+    accentColor: "#16a34a",
+    themeGlow: "rgba(22, 163, 74, 0.25)",
+    buttonGradient: "from-green-600 to-emerald-700",
+    shortDesc:
+      "AI-powered plant disease detection and care management app.",
+    description:
+      "PlantGuard is an AI-powered plant health application designed to identify plant diseases from images and provide a digital interface for plant care management. The project combines deep learning, computer vision, image classification, Flutter mobile development, and web application development, with a CNN-based deep learning model trained to classify plant images and identify potential diseases.",
+    heroImage:
+      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1200&q=80",
+    mobileImage:
+      "https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=600&q=80",
+    technologies: ["Python", "TensorFlow", "Flutter", "REST API"],
+    liveUrl: "#",
+    client: "PlantGuard",
+    timeline: "Completed",
+    metrics: "AI / CV",
+    metricsLabel: "Deep Learning",
+    category: "AI-Powered Plant Disease Detection & Care Management",
+    categorySlug: "ai-computer-vision",
+    galleryImages: [],
+    overview:
+      "PlantGuard needed to identify plant diseases from images and provide a digital interface for plant care management, combining deep learning with mobile and web development.",
+    challenge:
+      "Plant disease classification can be affected by image quality, lighting conditions, backgrounds, plant varieties, and differences between training and real-world images.",
+    solution:
+      "Solvexa created a structured image preprocessing and model-training workflow and connected the trained model to application interfaces, separating the AI component from the presentation layer.",
+    howSolvexaSolvedIt:
+      "Solvexa created a structured image preprocessing and model-training workflow and connected the trained model to application interfaces, separating the AI component from the presentation layer so predictions could be delivered through both mobile and web experiences.",
+    outcome:
+      "PlantGuard demonstrates the practical application of deep learning and computer vision in an accessible plant-care product.",
+    objectives: [
+      "Detect plant diseases from images",
+      "Train a deep learning classification model",
+      "Provide accessible plant health assistance",
+      "Create mobile and web applications",
+      "Connect AI predictions with a user-friendly interface",
+      "Support plant care management",
+    ],
+    architecture:
+      "Plant Image → Image Preprocessing → CNN Model → Disease Classification → Prediction Result → Mobile / Web Interface",
+    keyFeatures: [
+      "Plant image upload/capture",
+      "AI disease detection & CNN classification",
+      "Prediction results & plant care information",
+      "Mobile and web applications",
+      "User management & backend integration",
+    ],
+    techStack:
+      "Python · TensorFlow / Keras · CNN · Deep Learning · Image Classification · Computer Vision · Flutter · Web Application · Backend APIs · Database",
+    mlPipeline:
+      "Dataset → Cleaning → Image Preprocessing → Training → Validation → Model Evaluation → Prediction",
+    deliverables: [
+      "CNN-based disease detection model",
+      "Flutter mobile application",
+      "Web application",
+      "Image preprocessing pipeline",
+    ],
+  },
+  {
+    id: "punjab-skill-house",
+    slug: "punjab-skill-house-marketing",
+    brandName: "Punjab Skill House",
+    brandSeparator: "–",
+    title: "Social Media & Digital Marketing",
+    brandLogoType: "punjab-skill-house",
+    deviceType: "web",
     accentColor: "#8b5cf6",
     themeGlow: "rgba(139, 92, 246, 0.25)",
     buttonGradient: "from-violet-500 to-purple-600",
-    shortDesc: "Sub-second headless e-commerce architecture powering dynamic international retail storefronts.",
-    description: "OmniCart is a headless enterprise e-commerce platform designed for global consumer brands seeking sub-second page loads and dynamic regional merchandising. The platform connects custom storefronts with distributed inventory hubs, automated tax calculation via Avalara, and frictionless Apple Pay and Google Pay checkout funnels. Powered by Next.js Server Components, Shopify Storefront API, and global edge CDNs.",
-    heroImage: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1200&q=80",
-    mobileImage: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=600&q=80",
-    technologies: ["Next.js", "React", "Shopify", "GraphQL", "TailwindCSS", "Stripe API"],
-    liveUrl: "https://omnicart.store",
-    client: "Aura Apparel Global",
-    timeline: "8 Weeks",
-    metrics: "+38%",
-    metricsLabel: "Mobile Checkout Conversion",
-    category: "Website Development",
-    categorySlug: "web-development",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=800&q=80"
+    shortDesc:
+      "Social media and digital marketing services.",
+    description:
+      "Solvexa supported Punjab Skill House with social and digital marketing activities focused on improving its online communication, brand presentation, and audience engagement — planning digital content, maintaining a consistent visual identity, and producing communication materials for social media platforms.",
+    heroImage:
+      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Social Media", "Content Strategy", "Graphic Design"],
+    liveUrl: "#",
+    client: "Punjab Skill House",
+    timeline: "Completed",
+    metrics: "Digital",
+    metricsLabel: "Marketing",
+    category: "Social Media & Digital Marketing",
+    categorySlug: "digital-marketing",
+    galleryImages: [],
+    overview:
+      "Punjab Skill House needed improved online communication, brand presentation, and audience engagement through structured digital marketing.",
+    challenge:
+      "Educational and skills-development organizations need to communicate valuable information while keeping content visually engaging and easy to understand.",
+    solution:
+      "Solvexa combined structured content planning with consistent graphic design and platform-specific communication, built around clear messaging, visual hierarchy, audience relevance, and consistent branding.",
+    howSolvexaSolvedIt:
+      "Solvexa combined structured content planning with consistent graphic design and platform-specific communication, built around clear messaging, visual hierarchy, audience relevance, and consistent branding.",
+    outcome:
+      "A more organized and professional digital communication presence designed to improve visibility and audience engagement.",
+    objectives: [
+      "Improve digital presence",
+      "Strengthen brand communication",
+      "Increase audience engagement",
+      "Maintain consistent visual identity",
+      "Communicate programs and services effectively",
+      "Create professional social media content",
     ],
-    overview: "A luxury lifestyle brand was losing mobile shoppers due to bloated legacy storefront load times exceeding 4.5 seconds.",
-    challenge: "Achieving perfect Lighthouse scores while loading rich 3D product previews and localized currency pricing across 40 countries.",
-    solution: "Developed a headless Next.js App Router storefront deployed on edge networks with incremental static regeneration and 1-click Express checkout.",
+    architecture: "Content Strategy → Design → Platform Distribution → Audience Engagement",
+    keyFeatures: [
+      "Social media management",
+      "Digital marketing & content planning",
+      "Social media creatives & campaign content",
+      "Brand communication",
+      "Audience-focused content",
+      "Digital promotion",
+    ],
+    techStack: "Social Media Management · Digital Marketing · Content Planning · Graphic Design · Brand Communication",
+    servicesDelivered: [
+      "Social media management",
+      "Digital marketing & content planning",
+      "Social media creatives & campaign content",
+      "Brand communication",
+      "Audience-focused content",
+      "Digital promotion",
+    ],
     deliverables: [
-      "Ultra-Fast Next.js Storefront with Instant Search",
-      "Multi-Currency & Geolocation Routing",
-      "Sanity CMS Headless Content Modeling",
-      "Integrated 1-Click Apple Pay & Google Pay Funnel"
+      "Social media management",
+      "Digital marketing strategy",
+      "Social media creatives",
+      "Brand communication materials",
     ],
-    testimonial: {
-      quote: "Our mobile bounce rates were cut in half on launch day. Solvexa delivered the sleekest commerce experience in our industry.",
-      author: "Chloe Dubois",
-      role: "E-Commerce Director",
-      company: "Aura Apparel",
-      rating: 5
-    }
   },
   {
-    id: "nova-pulse-game",
-    slug: "nova-pulse-interactive-game",
-    brandName: "Nova Pulse",
-    brandSeparator: ":",
-    title: "Interactive 3D Procedural Exploration & Spatial Simulation",
-    brandLogoType: "novapulse",
-    deviceType: "web",
-    accentColor: "#ec4899",
-    themeGlow: "rgba(236, 72, 153, 0.25)",
-    buttonGradient: "from-pink-500 to-purple-600",
-    shortDesc: "Procedural 3D planetary physics engine and interactive space simulator built in Unity & WebGL.",
-    description: "Nova Pulse is an immersive interactive 3D simulation and gaming experience engineered in Unity and WebGL. It features real-time procedural terrain generation, custom compute shaders, dynamic physics simulations, and atmospheric spatial audio. Solvexa developed the rendering pipeline and cross-platform controller integration, enabling smooth 60 FPS performance across desktop browsers and native gaming environments.",
-    heroImage: "https://images.unsplash.com/photo-1538481199705-c710c4e965fc?auto=format&fit=crop&w=1200&q=80",
-    technologies: ["C#", "Blender", "JavaScript", "HTML5", "CSS3"],
-    liveUrl: "https://novapulse.games",
-    client: "Pulse Interactive Studios",
-    timeline: "14 Weeks",
-    metrics: "4.9/5",
-    metricsLabel: "Player Store Rating",
-    category: "Game Development",
-    categorySlug: "game-development",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=800&q=80"
-    ],
-    overview: "An indie interactive studio commissioned Solvexa to develop the procedural rendering pipeline and flight physics for a retro-futuristic deep space exploration title.",
-    challenge: "Generating massive planetary landscapes on mid-tier hardware while maintaining rock-solid 60 FPS physics loops.",
-    solution: "Architected custom Unity compute shaders, dynamic mesh LOD algorithms, and an atmospheric spatial audio engine compiled to WebGL.",
-    deliverables: [
-      "Unity 3D Production Codebase & Flight Controller",
-      "Procedural Terrain & Planetary Generation Pipeline",
-      "Custom Post-Processing & Particle FX Shaders",
-      "Cross-Platform WebGL & Desktop Builds"
-    ],
-    testimonial: {
-      quote: "The visual fidelity and optimization Solvexa achieved exceeded what we thought was possible within our production timeline.",
-      author: "Fatima Shah",
-      role: "Game Director & Founder",
-      company: "Pulse Interactive",
-      rating: 5
-    }
-  },
-  {
-    id: "cloudforge-devops",
-    slug: "cloudforge-kubernetes-platform",
-    brandName: "CloudForge",
+    id: "autoaid",
+    slug: "autoaid-roadside-assistance",
+    brandName: "AutoAid",
     brandSeparator: "–",
-    title: "Autonomous Kubernetes Orchestrator & Multi-Cloud Control Plane",
-    brandLogoType: "cloudforge",
-    deviceType: "web",
-    accentColor: "#0ea5e9",
-    themeGlow: "rgba(14, 165, 233, 0.25)",
-    buttonGradient: "from-sky-500 to-indigo-600",
-    shortDesc: "Multi-cluster Kubernetes management plane with automated Helm pipelines and real-time observability.",
-    description: "CloudForge is an infrastructure automation and CI/CD observability platform that simplifies multi-cluster Kubernetes deployments across AWS, Google Cloud, and bare-metal servers. Engineers can visually build Helm deployment pipelines, manage secret rotation, and monitor pod health metrics in real time. The platform integrates Prometheus metrics, Grafana alerting hooks, and zero-trust IAM policies.",
-    heroImage: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&w=1200&q=80",
-    technologies: ["React", "TypeScript", "Docker", "GraphQL", "Node.js", "TailwindCSS"],
-    liveUrl: "https://cloudforge.dev",
-    client: "CloudForge Systems",
-    timeline: "11 Weeks",
-    metrics: "99.999%",
-    metricsLabel: "Control Plane Reliability",
-    category: "Website Development",
-    categorySlug: "web-development",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=80"
-    ],
-    overview: "DevOps teams managing hundreds of distributed microservices needed a unified cockpit to automate deployments and debug container crashes instantly.",
-    challenge: "Aggregating millions of telemetry logs from diverse cloud providers without inducing dashboard lag or memory spikes.",
-    solution: "Developed an ultra-lean Go agent network feeding an interactive React UI with streaming virtualized log viewers and topology maps.",
-    deliverables: [
-      "Multi-Cloud Kubernetes Fleet Visualizer",
-      "Automated Helm Rollout & Instant Rollback Pipeline",
-      "Prometheus & OpenTelemetry Metrics Dashboard",
-      "Zero-Trust Role-Based Access Control System"
-    ],
-    testimonial: {
-      quote: "CloudForge saved our DevOps team hundreds of on-call hours each month. Solvexa builds software that engineers genuinely love using.",
-      author: "Soren Nielsen",
-      role: "VP of Engineering",
-      company: "CloudForge",
-      rating: 5
-    }
-  },
-  {
-    id: "edusphere-lms",
-    slug: "edusphere-learning-management",
-    brandName: "EduSphere",
-    brandSeparator: ":",
-    title: "Adaptive AI Courseware & Real-Time Classroom Ecosystem",
-    brandLogoType: "edusphere",
-    deviceType: "both",
-    accentColor: "#3b82f6",
-    themeGlow: "rgba(59, 130, 246, 0.25)",
-    buttonGradient: "from-blue-500 to-indigo-600",
-    shortDesc: "Next-gen university learning platform with adaptive quiz engines and collaborative whiteboards.",
-    description: "EduSphere is a next-generation learning management ecosystem built for higher education and corporate upskilling academies. It combines adaptive AI quizzes, automated grading assistants, live interactive whiteboards, and student engagement analytics into a cohesive digital campus. Solvexa engineered the scalable LMS with Next.js, Node.js, Socket.io, and SCORM/LTI standard compliance.",
-    heroImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=80",
-    mobileImage: "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80",
-    technologies: ["Next.js", "Node.js", "TypeScript", "PostgreSQL", "Firebase", "TailwindCSS"],
-    liveUrl: "https://edusphere.learn",
-    client: "Global Academic Consortium",
-    timeline: "9 Weeks",
-    metrics: "250K+",
-    metricsLabel: "Enrolled Students",
-    category: "Website Development",
-    categorySlug: "web-development",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=800&q=80"
-    ],
-    overview: "A consortium of international colleges required an intuitive LMS capable of handling synchronous lectures, automated grading, and peer-to-peer breakout study rooms.",
-    challenge: "Supporting simultaneous exam submissions from thousands of concurrent students without socket disconnection or database deadlocks.",
-    solution: "Engineered an event-driven microservices architecture using Redis pub/sub, Next.js interactive canvases, and automated grading pipelines.",
-    deliverables: [
-      "Real-Time Collaborative Whiteboard & Breakout Rooms",
-      "Adaptive AI Knowledge Assessment Engine",
-      "SCORM & LTI Compliant Curriculum Importer",
-      "Instructor Analytics & Student Engagement Heatmaps"
-    ],
-    testimonial: {
-      quote: "The platform seamlessly handled our campus-wide midterms with zero latency. Solvexa delivered far ahead of schedule.",
-      author: "Professor Arthur Davies",
-      role: "Dean of Digital Learning",
-      company: "Academic Consortium",
-      rating: 5
-    }
-  },
-  {
-    id: "urbanride-mobility",
-    slug: "urbanride-fleet-telematics",
-    brandName: "UrbanRide",
-    brandSeparator: "–",
-    title: "Electric Fleet Dispatch & Micromobility Telematics Platform",
-    brandLogoType: "urbanride",
+    title: "On-Demand Roadside Assistance Mobile Application",
+    brandLogoType: "autoaid",
     deviceType: "mobile",
-    accentColor: "#10b981",
-    themeGlow: "rgba(16, 185, 129, 0.25)",
-    buttonGradient: "from-emerald-500 to-teal-600",
-    shortDesc: "Real-time electric scooter and vehicle fleet dispatch system with IoT geofencing.",
-    description: "UrbanRide is an end-to-end electric vehicle dispatch and fleet telematics platform managing thousands of scooters, bikes, and EV shuttles in metropolitan hubs. The system incorporates geofenced parking enforcement, real-time battery drain prediction, dynamic surge pricing algorithms, and instant Bluetooth lock/unlock protocols with 99.99% operational uptime.",
-    heroImage: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80",
-    mobileImage: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=600&q=80",
-    technologies: ["React Native", "Node.js", "PostgreSQL", "Redis", "TypeScript"],
-    liveUrl: "https://urbanride.io",
-    client: "UrbanRide Mobility Europe",
-    timeline: "12 Weeks",
-    metrics: "1.8M+",
-    metricsLabel: "Completed Rides",
-    category: "Mobile App Development",
-    categorySlug: "mobile-app-development",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80"
+    accentColor: "#f97316",
+    themeGlow: "rgba(249, 115, 22, 0.25)",
+    buttonGradient: "from-orange-500 to-red-600",
+    shortDesc:
+      "On-demand roadside assistance app connecting drivers with mechanics.",
+    description:
+      "AutoAid is an Android-based on-demand roadside assistance application designed to connect vehicle owners with nearby mechanics during breakdowns or roadside emergencies. Users can request assistance, share their live location and vehicle issue, communicate with mechanics, track the service process, and rate the completed job.",
+    heroImage:
+      "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80",
+    mobileImage:
+      "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=600&q=80",
+    technologies: ["Flutter", "Firebase", "Google Maps", "REST API"],
+    liveUrl: "#",
+    client: "AutoAid",
+    timeline: "Completed",
+    metrics: "Mobile",
+    metricsLabel: "Android App",
+    category: "On-Demand Roadside Assistance Mobile Application",
+    categorySlug: "mobile-app",
+    galleryImages: [],
+    overview:
+      "AutoAid needed to connect vehicle owners with nearby mechanics during breakdowns, providing real-time location sharing and communication.",
+    challenge:
+      "The key challenge was creating a reliable workflow for emergency situations where speed and accurate location information are critical.",
+    solution:
+      "Solvexa designed the application around a simple request lifecycle: a user quickly describes the issue and shares their location, the backend manages request information and connects it with available mechanics.",
+    howSolvexaSolvedIt:
+      "Solvexa designed the application around a simple request lifecycle: a user quickly describes the issue and shares their location, the backend manages request information and connects it with available mechanics, and notifications keep both sides informed throughout.",
+    outcome:
+      "AutoAid provides a structured digital solution for roadside assistance, making it easier for vehicle owners to request help and for mechanics to respond to service opportunities.",
+    objectives: [
+      "Connect vehicle owners with nearby mechanics",
+      "Reduce response time during breakdowns",
+      "Enable location-based assistance",
+      "Provide real-time service communication",
+      "Improve transparency between customers and mechanics",
+      "Allow users to rate completed services",
     ],
-    overview: "A rapid-growth micromobility operator needed a bulletproof passenger app and fleet maintenance dispatch dashboard capable of tracking 15,000 live GPS beacons.",
-    challenge: "Handling intermittent GPS drift in dense urban canyons and preventing unauthorized vehicle use through sub-second Bluetooth handshakes.",
-    solution: "Developed native React Native mobile apps with smart offline geofence caching and high-frequency MQTT telematics clusters.",
+    architecture:
+      "Flutter Mobile App → REST APIs → Backend → Database\nUser Location → Location Service → Backend → Nearby Mechanic",
+    keyFeatures: [
+      "User registration/login",
+      "Roadside assistance requests",
+      "Live location sharing",
+      "Issue description",
+      "Mechanic discovery",
+      "Service request management",
+      "Real-time status updates",
+      "Communication & notifications",
+      "Service ratings",
+      "Request history",
+    ],
+    techStack:
+      "Flutter · Android · Backend APIs · Database · GPS/Location Services · Real-Time Communication · Push Notifications · Authentication",
     deliverables: [
-      "Rider iOS & Android Mobile Apps with 1-Tap Unlock",
-      "Operations Dispatch Map with Real-Time Battery Health",
-      "Dynamic Geofenced Speed Limiting & Parking Zones",
-      "Automated Stripe Card & Apple Pay Billing Integration"
+      "Flutter mobile application",
+      "Live location sharing system",
+      "Mechanic discovery & matching",
+      "Rating & review system",
     ],
-    testimonial: {
-      quote: "Our dispatchers can locate, rebalance, and diagnose fleet units with unbelievable speed. Solvexa built the backbone of our operations.",
-      author: "Marcella Rossi",
-      role: "Operations Director",
-      company: "UrbanRide",
-      rating: 5
-    }
   },
   {
-    id: "solvcore-db",
-    slug: "solvcore-database-system",
-    brandName: "SolvCore",
+    id: "bidflow-ai",
+    slug: "bidflow-ai-evaluation",
+    brandName: "BidFlow-AI",
     brandSeparator: "–",
-    title: "High-Concurrency Distributed Database & Query Accelerator",
-    brandLogoType: "solvcore",
+    title: "AI-Powered RFP Bid Evaluation Engine",
+    brandLogoType: "bidflow",
     deviceType: "web",
     accentColor: "#06b6d4",
     themeGlow: "rgba(6, 182, 212, 0.25)",
     buttonGradient: "from-cyan-500 to-blue-600",
-    shortDesc: "High-throughput transactional database system with automated sharding and caching.",
-    description: "SolvCore is a distributed cloud database management suite built for high-throughput transactional applications requiring sub-10ms query execution across 100M+ records. Features include automated sharding, zero-downtime schema migrations, real-time read replica failover, and an intuitive visual query builder that optimizes slow joins automatically.",
-    heroImage: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
-    technologies: ["PostgreSQL", "Redis", "Python", "FastAPI", "Docker"],
-    liveUrl: "https://solvcore.data",
-    client: "Centric Retail Enterprise",
-    timeline: "7 Weeks",
-    metrics: "99.99%",
-    metricsLabel: "Database Cluster Uptime",
-    category: "Database Management",
-    categorySlug: "database-management",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=800&q=80"
+    shortDesc:
+      "AI-powered RFP bid evaluation and vendor scoring engine.",
+    description:
+      "BidFlow-AI is an AI-powered bid engine designed to automate vendor evaluation for RFP-based procurement. Traditional proposal evaluation requires teams to manually read large documents, extract information, compare vendors, apply scoring criteria, and shortlist candidates. BidFlow-AI transforms this into an intelligent, automated pipeline using LLM-driven document extraction and a scoring engine that evaluates vendors against weighted criteria.",
+    heroImage:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Next.js", "React", "Tailwind CSS", "SQLite", "OpenAI"],
+    liveUrl: "#",
+    client: "BidFlow-AI",
+    timeline: "Completed",
+    metrics: "AI",
+    metricsLabel: "Automation",
+    category: "AI-Powered RFP Bid Evaluation Engine",
+    categorySlug: "ai-automation",
+    galleryImages: [],
+    overview:
+      "BidFlow-AI needed to automate vendor evaluation for RFP-based procurement, replacing manual document review with AI-powered extraction and scoring.",
+    challenge:
+      "RFP documents are often unstructured, with different formats, terminology, and levels of detail. A second challenge was ensuring AI extraction could be converted into consistent information suitable for automated scoring.",
+    solution:
+      "Solvexa created an AI processing pipeline that separates document understanding from evaluation. The LLM extracts relevant information into structured fields, while the scoring engine applies predefined weighted criteria.",
+    howSolvexaSolvedIt:
+      "Solvexa created an AI processing pipeline that separates document understanding from evaluation. The LLM extracts relevant information into structured fields, while the scoring engine applies predefined weighted criteria rather than letting the AI model make the final decision independently — creating a more consistent and explainable evaluation workflow.",
+    outcome:
+      "BidFlow-AI significantly reduces repetitive proposal-review work and creates a faster, more structured approach to vendor evaluation and shortlisting.",
+    objectives: [
+      "Automate RFP document analysis",
+      "Extract structured information from documents",
+      "Reduce manual evaluation time",
+      "Apply consistent evaluation criteria",
+      "Score vendor proposals",
+      "Automatically shortlist suitable vendors",
+      "Provide a clear evaluation interface",
     ],
-    overview: "An omni-channel retailer with millions of monthly transactions was experiencing catastrophic bottlenecks during peak holiday sales flash events.",
-    challenge: "Refactoring legacy monolithic databases without downtime and migrating 100M+ transaction records safely.",
-    solution: "Designed an optimized PostgreSQL & Redis cluster architecture with automated read-replicas, schema partitioning, and continuous zero-downtime backup snapshots.",
+    architecture:
+      "RFP / Vendor Documents → Document Processing → LLM Extraction → Structured Data → Weighted Scoring Engine → Vendor Ranking → Automated Shortlist → Next.js Dashboard",
+    keyFeatures: [
+      "RFP document processing",
+      "AI-powered extraction",
+      "Structured proposal data",
+      "Weighted evaluation criteria",
+      "Vendor scoring & ranking",
+      "Automated shortlisting",
+      "Responsive dashboard with evaluation results",
+    ],
+    techStack:
+      "Next.js · React · Tailwind CSS · SQLite · LLM Integrations · AI Document Processing",
     deliverables: [
-      "Distributed Database Cluster Architecture",
-      "Zero-Downtime Data Migration & ETL Pipeline",
-      "Sub-10ms Redis Caching Layer for Hot Queries",
-      "Automated Failover & Real-Time Replication Monitoring"
+      "AI-powered document extraction pipeline",
+      "Weighted scoring engine",
+      "Vendor ranking dashboard",
+      "Automated shortlisting system",
     ],
-    testimonial: {
-      quote: "Our Black Friday query response times dropped from 4.2 seconds to 18 milliseconds. A transformative upgrade.",
-      author: "Abdullah",
-      role: "Lead Systems Architect",
-      company: "Centric Retail",
-      rating: 5
-    }
   },
   {
-    id: "lumina-branding",
-    slug: "lumina-brand-identity",
-    brandName: "Lumina Studio",
-    brandSeparator: ":",
-    title: "Full-Spectrum Luxury Brand Identity & Procedural Design System",
-    brandLogoType: "lumina",
-    deviceType: "both",
-    accentColor: "#d4af37",
-    themeGlow: "rgba(212, 175, 55, 0.25)",
-    buttonGradient: "from-amber-400 via-yellow-500 to-amber-600",
-    shortDesc: "Complete corporate identity system, luxury typography, and interactive design guidelines.",
-    description: "Lumina is a comprehensive corporate brand identity and digital design system crafted for a premier modern technology atelier. Solvexa developed the complete brand architecture, including the golden-ratio vector mark, interactive digital brand guidelines portal, 3D motion stingers, and precision component typography built to maintain consistency across global touchpoints.",
-    heroImage: "https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=1200&q=80",
-    mobileImage: "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=600&q=80",
-    technologies: ["Figma", "Photoshop", "Illustrator", "After Effects", "Next.js"],
-    liveUrl: "https://lumina.design",
-    client: "Lumina Lifestyle Group",
-    timeline: "4 Weeks",
-    metrics: "+65%",
-    metricsLabel: "Inbound Conversion Lift",
-    category: "Branding & Logo Design",
-    categorySlug: "branding-logo-design",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80"
-    ],
-    overview: "A high-end consumer technology venture required an iconic, minimalist brand identity capable of scaling from micro-app icons to architectural building signage.",
-    challenge: "Creating a geometric mark that communicated both avant-garde luxury and scientific precision without appearing cold or generic.",
-    solution: "Crafted a bespoke golden-ratio vector mark, proprietary color hierarchy, luxury typography styling, and a cinematic 4K motion logo sting.",
-    deliverables: [
-      "Master Vector Logo System (Primary, Monogram, Wordmark)",
-      "120-Page Comprehensive Brand Guidelines Book",
-      "3D Cinema 4D Animated Logo Sting & Sound Design",
-      "Interactive Web Guidelines Portal"
-    ],
-    testimonial: {
-      quote: "Solvexa gave our brand an aura of instant prestige and world-class polish. We have received endless praise on our new look.",
-      author: "Michael",
-      role: "Marketing Director",
-      company: "Lumina Lifestyle",
-      rating: 5
-    }
-  },
-  {
-    id: "soundwave-audio",
-    slug: "soundwave-audio-streaming",
-    brandName: "SoundWave",
+    id: "solveflow",
+    slug: "solveflow-task-management",
+    brandName: "SolveFlow",
     brandSeparator: "–",
-    title: "Lossless Spatial Audio Streaming & Creator Monetization Hub",
-    brandLogoType: "soundwave",
-    deviceType: "both",
+    title: "Real-Time Task Management & Collaboration Platform",
+    brandLogoType: "solveflow",
+    deviceType: "web",
     accentColor: "#a855f7",
     themeGlow: "rgba(168, 85, 247, 0.25)",
     buttonGradient: "from-purple-500 to-indigo-600",
-    shortDesc: "High-fidelity spatial audio streaming player with sub-second buffer and instant creator payouts.",
-    description: "SoundWave is a high-fidelity spatial audio streaming application and direct-to-fan monetization platform for independent artists and recording studios. It delivers 24-bit/192kHz lossless audio streaming, instant micropayments via Web3 and Stripe, dynamic lyric sync, and collaborative listening rooms. Solvexa engineered the responsive player architecture using modern Web Audio APIs and distributed edge CDNs.",
-    heroImage: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80",
-    mobileImage: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80",
-    technologies: ["Next.js", "React", "TypeScript", "Node.js", "TailwindCSS"],
-    liveUrl: "https://soundwave.fm",
-    client: "SoundWave Media Group",
-    timeline: "10 Weeks",
-    metrics: "2.5M+",
-    metricsLabel: "Monthly Stream Hours",
-    category: "Website Development",
-    categorySlug: "web-development",
-    galleryImages: [
-      "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80"
+    shortDesc:
+      "Real-time task management and collaboration platform.",
+    description:
+      "SolveFlow is a Trello-style task management platform designed to help teams organize work, assign responsibilities, track progress, and collaborate in real time. It combines a modern Next.js interface with an ASP.NET Core backend and PostgreSQL database, using SignalR for real-time communication.",
+    heroImage:
+      "https://images.unsplash.com/photo-1611224923853-80b023f02d71?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["C#", "ASP.NET Core", "Next.js", "TypeScript", "PostgreSQL", "Docker"],
+    liveUrl: "#",
+    client: "SolveFlow",
+    timeline: "Completed",
+    metrics: "Full-Stack",
+    metricsLabel: "Custom Software",
+    category: "Real-Time Task Management & Collaboration Platform",
+    categorySlug: "custom-software",
+    galleryImages: [],
+    overview:
+      "SolveFlow needed a centralized task management system with real-time collaboration and production-grade deployment architecture.",
+    challenge:
+      "Real-time collaboration requires more than standard request-response APIs, and the platform also needed a deployment architecture capable of supporting a scalable production environment.",
+    solution:
+      "SignalR was implemented for real-time communication so changes could be pushed to connected users without page refreshes. The backend was structured with ASP.NET Core, PostgreSQL provided relational data storage.",
+    howSolvexaSolvedIt:
+      "SignalR was implemented for real-time communication so changes could be pushed to connected users without page refreshes. The backend was structured with ASP.NET Core, PostgreSQL provided relational data storage, and Docker, Kubernetes, GitHub Actions, and ArgoCD created an automated deployment workflow.",
+    outcome:
+      "SolveFlow demonstrates Solvexa's ability to build modern collaborative systems with real-time communication and production-oriented DevOps architecture.",
+    objectives: [
+      "Create a centralized task management system",
+      "Support team collaboration",
+      "Enable role-based task assignment",
+      "Provide real-time updates",
+      "Organize projects and workflows",
+      "Build a scalable production architecture",
+      "Automate deployment",
     ],
-    overview: "Independent recording artists needed a streaming platform that prioritized audio fidelity and paid out royalties transparently within seconds of play.",
-    challenge: "Encoding and streaming uncompressed FLAC audio packets with zero jitter across mobile devices on varying network quality.",
-    solution: "Designed an edge-cached streaming pipeline utilizing modern Web Audio API decoders, Web Workers, and instant Stripe Connect split payouts.",
+    architecture:
+      "Next.js Frontend → ASP.NET Core Web API → Business Logic → PostgreSQL\nSignalR → Real-Time Events\nGitHub → GitHub Actions → Docker → Kubernetes → ArgoCD",
+    keyFeatures: [
+      "Project management, boards, and tasks",
+      "Role-based access & task assignment",
+      "Real-time updates & team collaboration",
+      "Status management",
+      "PostgreSQL data persistence",
+      "Containerized deployment",
+      "CI/CD pipeline",
+    ],
+    techStack:
+      "C# · ASP.NET Core · Next.js · TypeScript · PostgreSQL · SignalR · Docker · Kubernetes · GitHub Actions · ArgoCD",
     deliverables: [
-      "Lossless Spatial Audio Web & Mobile Player",
-      "Dynamic Synchronized Lyrics & Waveform Visualizer",
-      "Instant Creator Royalty Split Engine",
-      "Collaborative Virtual Listening Lounge"
+      "Next.js frontend with real-time updates",
+      "ASP.NET Core backend API",
+      "SignalR real-time collaboration",
+      "Docker + Kubernetes deployment pipeline",
     ],
-    testimonial: {
-      quote: "The audio clarity is astonishing. Solvexa engineered a streaming platform that artists trust and listeners adore.",
-      author: "Julian Vance",
-      role: "Head of Audio Engineering",
-      company: "SoundWave",
-      rating: 5
-    }
-  }
+  },
+  {
+    id: "rentease",
+    slug: "rentease-marketplace",
+    brandName: "RentEase",
+    brandSeparator: "–",
+    title: "Full-Stack Online Rental Marketplace",
+    brandLogoType: "rentease",
+    deviceType: "web",
+    accentColor: "#0ea5e9",
+    themeGlow: "rgba(14, 165, 233, 0.25)",
+    buttonGradient: "from-sky-500 to-blue-600",
+    shortDesc: "Full-stack online rental marketplace.",
+    description:
+      "RentEase is a full-stack rental marketplace that allows users to list items for rent, discover available products, make bookings, communicate with other users, and manage rental transactions — creating a complete digital marketplace experience for both renters and item owners.",
+    heroImage:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe API"],
+    liveUrl: "#",
+    client: "RentEase",
+    timeline: "Completed",
+    metrics: "Marketplace",
+    metricsLabel: "Full-Stack Platform",
+    category: "Online Rental Marketplace",
+    categorySlug: "marketplace",
+    galleryImages: [],
+    overview:
+      "RentEase needed a complete digital marketplace experience for users to list items, discover products, make bookings, and manage rental transactions.",
+    challenge:
+      "A marketplace has multiple connected workflows — listing, availability, booking, payment, deposit handling, communication, and reviews — that need to remain synchronized.",
+    solution:
+      "The platform was structured around clearly separated marketplace entities and workflows. Listings, users, bookings, payments, deposits, and reviews were treated as connected but independent modules.",
+    howSolvexaSolvedIt:
+      "The platform was structured around clearly separated marketplace entities and workflows. Listings, users, bookings, payments, deposits, and reviews were treated as connected but independent modules, keeping the system easier to manage and extend.",
+    outcome:
+      "RentEase provides a complete digital marketplace experience for users looking to rent or offer products for rent.",
+    objectives: [
+      "Create a complete rental marketplace",
+      "Allow owners to list items",
+      "Enable users to search and filter rentals",
+      "Support booking workflows",
+      "Handle payments securely",
+      "Manage deposits",
+      "Enable user communication",
+      "Provide reviews and ratings",
+    ],
+    architecture:
+      "Web Client → API/Backend → Database\nPayment Gateway → Transaction Processing → Booking\nMessaging Layer → User Communication",
+    keyFeatures: [
+      "User accounts",
+      "Rental listings, advanced search & filters",
+      "Booking system",
+      "Payment processing & deposit management",
+      "Reviews and ratings",
+      "User messaging",
+      "Rental management",
+    ],
+    techStack:
+      "Full-Stack Web Development · React/Next.js · Backend APIs · Database · Authentication · Payment Integration · Search & Filtering · Messaging",
+    deliverables: [
+      "Full-stack rental marketplace",
+      "Booking & payment system",
+      "User messaging platform",
+      "Reviews & ratings system",
+    ],
+  },
+  {
+    id: "nimbus",
+    slug: "nimbus-ai-assistant",
+    brandName: "Nimbus",
+    brandSeparator: "–",
+    title: "AI-Powered Social Media Marketing & Management Assistant",
+    brandLogoType: "nimbus",
+    deviceType: "both",
+    accentColor: "#ec4899",
+    themeGlow: "rgba(236, 72, 153, 0.25)",
+    buttonGradient: "from-pink-500 to-rose-600",
+    shortDesc:
+      "AI-powered social media marketing and management assistant.",
+    description:
+      "Nimbus is an AI-powered chatbot and digital assistant designed to support social media marketing and management activities across web and mobile experiences, combining conversational AI with business-focused workflows.",
+    heroImage:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+    mobileImage:
+      "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=600&q=80",
+    technologies: ["Next.js", "React", "OpenAI", "Node.js", "Flutter"],
+    liveUrl: "#",
+    client: "Nimbus",
+    timeline: "Completed",
+    metrics: "AI",
+    metricsLabel: "Chatbot Platform",
+    category: "AI-Powered Social Media Marketing & Management Assistant",
+    categorySlug: "ai-chatbot",
+    galleryImages: [],
+    overview:
+      "Nimbus needed to provide AI-powered marketing assistance through conversational AI combined with business-focused social media management workflows.",
+    challenge:
+      "AI assistants need to provide useful responses while maintaining context and following the purpose of the application — the challenge was creating an experience that feels like a useful marketing assistant rather than a generic chatbot.",
+    solution:
+      "Solvexa designed dedicated prompts, application workflows, and backend integration around the marketing use case, connecting the AI layer to the application's business logic.",
+    howSolvexaSolvedIt:
+      "Solvexa designed dedicated prompts, application workflows, and backend integration around the marketing use case, connecting the AI layer to the application's business logic so the assistant could operate within a structured product environment.",
+    outcome:
+      "Nimbus provides a practical AI interface for users looking to simplify and improve their social media marketing and management workflows.",
+    objectives: [
+      "Create an AI-powered marketing assistant",
+      "Provide conversational interaction",
+      "Support social media management workflows",
+      "Simplify marketing-related tasks",
+      "Provide web and mobile access",
+      "Create a scalable AI foundation",
+    ],
+    architecture:
+      "Web / Mobile Client → Backend API → AI Orchestration Layer → LLM → Response / Marketing Workflow",
+    keyFeatures: [
+      "AI chatbot & conversational interface",
+      "Marketing assistance",
+      "User management",
+      "Web and mobile applications",
+      "AI-powered, context-aware responses",
+    ],
+    techStack:
+      "AI/LLM Integration · React / Next.js · Mobile Application · Backend APIs · Database · Authentication · Prompt Engineering · API Integrations",
+    deliverables: [
+      "AI chatbot & conversational interface",
+      "Web and mobile applications",
+      "Marketing workflow automation",
+      "Context-aware AI responses",
+    ],
+  },
+  {
+    id: "draftly",
+    slug: "draftly-document-platform",
+    brandName: "Draftly",
+    brandSeparator: "–",
+    title: "Collaborative Online Document Creation Platform",
+    brandLogoType: "draftly",
+    deviceType: "web",
+    accentColor: "#6366f1",
+    themeGlow: "rgba(99, 102, 241, 0.25)",
+    buttonGradient: "from-indigo-500 to-violet-600",
+    shortDesc:
+      "Collaborative online document creation platform.",
+    description:
+      "Draftly is a browser-based document creation and management platform designed around the experience of modern online document editors, providing users with a centralized environment to create, edit, organize, and manage digital documents through a clean web interface.",
+    heroImage:
+      "https://images.unsplash.com/photo-1586281380349-632531db7ed4?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Next.js", "React", "TypeScript", "Node.js", "PostgreSQL"],
+    liveUrl: "#",
+    client: "Draftly",
+    timeline: "Completed",
+    metrics: "Web / SaaS",
+    metricsLabel: "Document Platform",
+    category: "Collaborative Online Document Creation Platform",
+    categorySlug: "web-saas",
+    galleryImages: [],
+    overview:
+      "Draftly needed a centralized browser-based environment for creating, editing, organizing, and managing digital documents through an intuitive web interface.",
+    challenge:
+      "Online document applications need to provide a smooth editing experience while maintaining reliable document persistence.",
+    solution:
+      "Solvexa designed the editor around reusable UI components and structured document data, while separating authentication, document management, and editing workflows.",
+    howSolvexaSolvedIt:
+      "Solvexa designed the editor around reusable UI components and structured document data, while separating authentication, document management, and editing workflows.",
+    outcome:
+      "Draftly provides a modern foundation for browser-based document creation and management.",
+    objectives: [
+      "Build an online document platform",
+      "Provide document creation and editing",
+      "Create an intuitive editor experience",
+      "Manage user documents",
+      "Provide secure user access",
+      "Create a scalable foundation for collaboration",
+    ],
+    architecture: "Browser → Web Application → API Layer → Database",
+    keyFeatures: [
+      "User authentication",
+      "Document creation, editing & management",
+      "Rich text editing",
+      "Document organization",
+      "Responsive interface",
+    ],
+    techStack:
+      "Modern Web Application · React / Next.js · TypeScript · Backend APIs · Database · Authentication · Rich Text Editing",
+    deliverables: [
+      "Online document editor",
+      "User authentication system",
+      "Document management backend",
+      "Responsive web interface",
+    ],
+  },
+  {
+    id: "automotive-web-app",
+    slug: "automotive-web-application",
+    brandName: "Automotive Web",
+    brandSeparator: "–",
+    title: "Digital Platform for an Automotive Business",
+    brandLogoType: "automotive-web",
+    deviceType: "web",
+    accentColor: "#dc2626",
+    themeGlow: "rgba(220, 38, 38, 0.25)",
+    buttonGradient: "from-red-600 to-rose-700",
+    shortDesc:
+      "Digital platform for an automotive business.",
+    description:
+      "Solvexa developed a custom web solution for an automotive business to establish a professional digital presence and provide customers with an easier way to explore automotive services and information, using a modern responsive interface and structured content architecture.",
+    heroImage:
+      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+    liveUrl: "#",
+    client: "Automotive Business",
+    timeline: "Completed",
+    metrics: "Web",
+    metricsLabel: "Digital Platform",
+    category: "Digital Platform for an Automotive Business",
+    categorySlug: "web-development",
+    galleryImages: [],
+    overview:
+      "An automotive business needed a professional digital presence to make it easier for customers to explore automotive services and information.",
+    challenge:
+      "Automotive businesses often have a large amount of information that needs to be presented clearly without creating a complicated user experience.",
+    solution:
+      "Solvexa organized information into clear categories and designed a visual hierarchy that helps users quickly understand services and take action.",
+    howSolvexaSolvedIt:
+      "Solvexa organized information into clear categories and designed a visual hierarchy that helps users quickly understand services and take action.",
+    outcome:
+      "The platform provides a modern digital channel for customer discovery, communication, and business presentation.",
+    objectives: [
+      "Digitize the automotive business presence",
+      "Showcase products and services",
+      "Improve customer engagement",
+      "Make information easier to access",
+      "Create a responsive experience",
+      "Provide a scalable digital foundation",
+    ],
+    architecture: "Frontend → API / Content Layer → Database / CMS",
+    keyFeatures: [
+      "Automotive service pages & product/service presentation",
+      "Responsive interface",
+      "Contact functionality",
+      "Structured content & mobile optimization",
+      "Modern UI",
+    ],
+    techStack:
+      "Next.js / React · TypeScript · Tailwind CSS · API Integration · Database / CMS where required · Responsive Design",
+    deliverables: [
+      "Responsive automotive web platform",
+      "Service & product presentation",
+      "Contact & discovery functionality",
+      "Mobile-optimized design",
+    ],
+  },
+  {
+    id: "graphic-design",
+    slug: "graphic-design-creative-solutions",
+    brandName: "Graphic Design",
+    brandSeparator: "–",
+    title: "Visual Identity, Marketing Creatives & Digital Assets",
+    brandLogoType: "graphic-design",
+    deviceType: "web",
+    accentColor: "#d946ef",
+    themeGlow: "rgba(217, 70, 239, 0.25)",
+    buttonGradient: "from-fuchsia-500 to-purple-600",
+    shortDesc:
+      "Visual identity, marketing creatives, and digital assets.",
+    description:
+      "Solvexa provides graphic design services that support businesses, organizations, campaigns, products, and digital platforms. Our design work focuses on creating visual communication that is professional, consistent, memorable, and aligned with the purpose of the brand.",
+    heroImage:
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Figma", "Photoshop", "Illustrator", "After Effects"],
+    liveUrl: "#",
+    client: "Multiple Clients",
+    timeline: "Ongoing",
+    metrics: "Creative",
+    metricsLabel: "Design Services",
+    category: "Visual Identity, Marketing Creatives & Digital Assets",
+    categorySlug: "creative",
+    galleryImages: [],
+    overview:
+      "Solvexa provides graphic design services that support businesses, organizations, campaigns, products, and digital platforms with professional visual communication.",
+    challenge:
+      "Different platforms have different requirements, audiences, and visual formats — the challenge is maintaining brand consistency while adapting content for each use case.",
+    solution:
+      "Solvexa builds designs around the brand's visual language, audience, communication objective, and platform requirements.",
+    howSolvexaSolvedIt:
+      "Solvexa builds designs around the brand's visual language, audience, communication objective, and platform requirements, focusing on typography, layout, hierarchy, consistency, and clear messaging to make every creative asset purposeful.",
+    outcome:
+      "Professional visual communication designed to strengthen brand identity and improve digital engagement.",
+    objectives: [
+      "Build stronger visual identities",
+      "Create professional marketing materials",
+      "Improve digital communication",
+      "Maintain brand consistency",
+      "Produce platform-ready creative assets",
+    ],
+    architecture: "Understand → Research → Concept → Design → Review → Refine → Deliver",
+    keyFeatures: [
+      "Brand identity & logo design",
+      "Social media graphics",
+      "Marketing banners & promotional materials",
+      "Presentation design",
+      "Website graphics",
+      "Digital advertisements",
+      "Event creatives",
+    ],
+    techStack:
+      "Brand identity · Logo design · Social media graphics · Marketing banners · Promotional materials · Presentation design · Website graphics · Digital advertisements · Event creatives · Business graphics",
+    designProcess: "Understand → Research → Concept → Design → Review → Refine → Deliver",
+    servicesDelivered: [
+      "Brand identity & logo design",
+      "Social media graphics",
+      "Marketing banners",
+      "Promotional materials",
+      "Presentation design",
+      "Website graphics",
+      "Digital advertisements",
+      "Event creatives",
+    ],
+    deliverables: [
+      "Brand identity systems",
+      "Marketing creatives & campaigns",
+      "Social media graphics",
+      "Digital advertisements & assets",
+    ],
+  },
+  {
+    id: "video-editing",
+    slug: "video-editing-motion-content",
+    brandName: "Video Editing",
+    brandSeparator: "–",
+    title: "Professional Video & Digital Content Production",
+    brandLogoType: "video-editing",
+    deviceType: "web",
+    accentColor: "#e11d48",
+    themeGlow: "rgba(225, 29, 72, 0.25)",
+    buttonGradient: "from-rose-600 to-red-700",
+    shortDesc:
+      "Professional video editing and motion content production.",
+    description:
+      "Solvexa provides video editing and digital content services for businesses, organizations, events, marketing campaigns, and online platforms — transforming raw footage and ideas into structured visual stories designed for digital audiences.",
+    heroImage:
+      "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Premiere Pro", "After Effects", "DaVinci Resolve"],
+    liveUrl: "#",
+    client: "Multiple Clients",
+    timeline: "Ongoing",
+    metrics: "Creative",
+    metricsLabel: "Video Production",
+    category: "Professional Video & Digital Content Production",
+    categorySlug: "creative",
+    galleryImages: [],
+    overview:
+      "Solvexa provides video editing and digital content services for businesses, organizations, events, marketing campaigns, and online platforms.",
+    challenge:
+      "Raw footage can contain inconsistent lighting, audio, pacing, framing, and unnecessary content.",
+    solution:
+      "Solvexa applies structured editing workflows to improve pacing, visual consistency, storytelling, audio, transitions, typography, and overall presentation.",
+    howSolvexaSolvedIt:
+      "Solvexa applies structured editing workflows to improve pacing, visual consistency, storytelling, audio, transitions, typography, and overall presentation.",
+    outcome:
+      "Professional video content designed to communicate ideas clearly and create stronger digital engagement.",
+    objectives: [
+      "Create professional video content",
+      "Improve brand communication",
+      "Produce promotional material",
+      "Create social media videos",
+      "Improve audience engagement",
+      "Turn raw footage into polished content",
+    ],
+    architecture: "Concept → Footage → Editing → Motion → Audio → Review → Final Delivery",
+    keyFeatures: [
+      "Promotional videos",
+      "Social media videos",
+      "Corporate & event videos",
+      "Product videos",
+      "Reels/short-form content",
+      "Motion graphics & visual effects",
+      "Audio synchronization",
+      "Color and visual enhancement",
+    ],
+    techStack:
+      "Promotional videos · Social media videos · Corporate videos · Event videos · Product videos · Reels/short-form content · Motion graphics · Video transitions · Text animation · Visual effects · Audio synchronization · Color and visual enhancement",
+    workflow: "Concept → Footage → Editing → Motion → Audio → Review → Final Delivery",
+    servicesDelivered: [
+      "Promotional videos",
+      "Social media videos",
+      "Corporate videos",
+      "Event videos",
+      "Product videos",
+      "Reels/short-form content",
+      "Motion graphics",
+      "Visual effects",
+    ],
+    deliverables: [
+      "Professional video production",
+      "Motion graphics & effects",
+      "Social media video content",
+      "Corporate & promotional videos",
+    ],
+  },
 ];
