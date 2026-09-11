@@ -451,8 +451,8 @@ export const workData: ProjectItem[] = [
       "Social media and digital marketing services.",
     description:
       "Solvexa supported Punjab Silk House with social and digital marketing activities focused on improving its online communication, brand presentation, and audience engagement — planning digital content, maintaining a consistent visual identity, and producing communication materials for social media platforms.",
-    heroImage: "/assets/Work/Punjab.png",
-    technologies: ["Social Media", "Content Strategy", "Graphic Design"],
+    heroImage: "/assets/Work/Punjab slik house.png",
+    technologies: ["Instagram", "Facebook", "Meta", "Graphic Design"],
     liveUrl: "#",
     client: "Punjab Silk House",
     timeline: "Completed",
@@ -519,8 +519,7 @@ export const workData: ProjectItem[] = [
       "On-demand roadside assistance app connecting drivers with mechanics.",
     description:
       "AutoAid is an Android-based on-demand roadside assistance application designed to connect vehicle owners with nearby mechanics during breakdowns or roadside emergencies. Users can request assistance, share their live location and vehicle issue, communicate with mechanics, track the service process, and rate the completed job.",
-    heroImage:
-      "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80",
+    heroImage: "/assets/Work/AutoAid.jpg",
     mobileImage: "/assets/Work/AutoAid.jpg",
     technologies: ["Flutter", "Firebase", "Google Maps", "REST API"],
     liveUrl: "#",
@@ -587,7 +586,7 @@ export const workData: ProjectItem[] = [
       "AI-powered RFP bid evaluation and vendor scoring engine.",
     description:
       "BidFlow-AI is an AI-powered bid engine designed to automate vendor evaluation for RFP-based procurement. Traditional proposal evaluation requires teams to manually read large documents, extract information, compare vendors, apply scoring criteria, and shortlist candidates. BidFlow-AI transforms this into an intelligent, automated pipeline using LLM-driven document extraction and a scoring engine that evaluates vendors against weighted criteria.",
-    heroImage: "/assets/Work/bidflow-removebg-preview.png",
+    heroImage: "/assets/Work/bidflow.png",
     technologies: ["Next.js", "React", "Tailwind CSS", "SQLite", "OpenAI"],
     liveUrl: "#",
     client: "BidFlow-AI",
@@ -651,7 +650,7 @@ export const workData: ProjectItem[] = [
       "Real-time task management and collaboration platform.",
     description:
       "SolveFlow is a Trello-style task management platform designed to help teams organize work, assign responsibilities, track progress, and collaborate in real time. It combines a modern Next.js interface with an ASP.NET Core backend and PostgreSQL database, using SignalR for real-time communication.",
-    heroImage: "/assets/Work/solveflow.png",
+    heroImage: "/assets/Work/solveflowM.png",
     technologies: ["C#", "ASP.NET Core", "Next.js", "TypeScript", "PostgreSQL", "Docker"],
     liveUrl: "#",
     client: "SolveFlow",
@@ -714,7 +713,7 @@ export const workData: ProjectItem[] = [
     shortDesc: "Full-stack online rental marketplace.",
     description:
       "RentEase is a full-stack rental marketplace that allows users to list items for rent, discover available products, make bookings, communicate with other users, and manage rental transactions — creating a complete digital marketplace experience for both renters and item owners.",
-    heroImage: "/assets/Work/rentease.png",
+    heroImage: "/assets/Work/rentease main.png",
     technologies: ["Next.js", "React", "Node.js", "PostgreSQL", "Stripe API"],
     liveUrl: "#",
     client: "RentEase",
@@ -904,7 +903,7 @@ export const workData: ProjectItem[] = [
       "Shopify ecommerce website for a premium perfume brand.",
     description:
       "Perfume Palace is a Shopify-based ecommerce store designed to showcase and sell premium fragrances online. Solvexa built a visually rich, brand-aligned storefront with intuitive product browsing, seamless checkout, and a luxurious user experience that reflects the elegance of the perfume industry.",
-    heroImage: "/assets/Work/perfumepalace.png",
+    heroImage: "/assets/Work/perfumepalace m.png",
     technologies: ["Shopify", "Liquid", "HTML", "CSS", "JavaScript"],
     liveUrl: "#",
     client: "Perfume Palace",

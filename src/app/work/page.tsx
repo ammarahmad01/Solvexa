@@ -116,6 +116,16 @@ const PRINCIPLES = [
 
 export default async function WorkPage() {
   const workData = (await getMergedWorkProjects()) as ProjectItem[];
+
+  // Extract unique client logos from all projects (local + CMS)
+  const clientLogos: { name: string; src: string }[] = [];
+  const seenLogos = new Set<string>();
+  for (const p of workData as any[]) {
+    if (p.clientLogo && !seenLogos.has(p.clientLogo)) {
+      seenLogos.add(p.clientLogo);
+      clientLogos.push({ name: p.brandName || p.client || "Client", src: p.clientLogo });
+    }
+  }
   return (
     <div className="flex flex-col w-full text-on-surface select-none relative overflow-x-hidden">
       {/* ========================================================
@@ -270,6 +280,57 @@ export default async function WorkPage() {
           );
         })}
       </div>
+
+      {/* ========================================================
+          BRANDS WE WORK FOR
+      ======================================================== */}
+      <section className="relative w-full py-14 sm:py-16 lg:py-20 px-margin-mobile md:px-margin-tablet lg:px-margin-desktop border-t border-outline-variant/15 bg-surface-container-lowest/25 overflow-hidden">
+        {/* Ambient background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-primary/5 rounded-full blur-3xl pointer-events-none -z-10" />
+
+        <div className="max-w-6xl mx-auto flex flex-col gap-6 sm:gap-8 items-center">
+          {/* Section Heading */}
+          <div className="flex flex-col items-center text-center max-w-3xl mx-auto">
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <span className="h-px w-8 bg-primary/60" />
+              <span className="text-xs font-mono uppercase tracking-[0.25em] text-primary font-semibold">Our Clients</span>
+              <span className="h-px w-8 bg-primary/60" />
+            </div>
+            <h2 className="font-headline-sm text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+              Brands We Work For
+            </h2>
+            <p className="text-sm sm:text-base text-on-surface-variant mt-3 max-w-xl">
+              Trusted by organizations across education, e-commerce, AI, events, and social impact — delivering digital solutions that drive real results.
+            </p>
+          </div>
+
+          {/* Client Logos Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-10 max-w-5xl mx-auto w-full pt-2 content-start items-start justify-items-center">
+            {clientLogos.map((client) => (
+              <div
+                key={client.name}
+                className="flex flex-col items-center justify-center group cursor-pointer w-24 sm:w-28 transition-transform duration-300 hover:-translate-y-1.5"
+              >
+                {/* Squircle Card Container */}
+                <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl sm:rounded-3xl bg-white/[0.04] backdrop-blur-xl border border-white/10 group-hover:border-primary/60 flex items-center justify-center shadow-lg group-hover:shadow-[0_12px_30px_-8px_rgba(212,175,55,0.25)] transition-all duration-300 p-3">
+                  <img
+                    src={client.src}
+                    alt={client.name}
+                    className="w-12 h-12 sm:w-14 sm:h-14 object-contain drop-shadow-[0_0_6px_rgba(255,215,0,0.2)] brightness-110 group-hover:scale-110 group-hover:brightness-125 group-hover:drop-shadow-[0_0_10px_rgba(255,215,0,0.35)] transition-all duration-300"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                {/* Brand Label */}
+                <span className="mt-2.5 text-xs sm:text-sm font-semibold text-on-surface group-hover:text-primary transition-colors text-center truncate max-w-full">
+                  {client.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* ========================================================
           OUR DEVELOPMENT APPROACH

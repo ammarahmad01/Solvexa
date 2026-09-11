@@ -140,7 +140,6 @@ const ICON_FILE_MAP: Record<string, string> = {
   "meta ads": "meta-icon.svg",
   "meta ads manager": "meta-icon.svg",
   "meta": "meta-icon.svg",
-  "facebook": "meta-icon.svg",
   "meta capi": "meta-icon.svg",
   "google analytics": "google-analytics-icon.svg",
   "google analytics 4": "google-analytics-icon.svg",
@@ -240,6 +239,14 @@ export default function TechLogo({ name, className = "w-6 h-6" }: TechLogoProps)
           <circle cx="24" cy="24" r="8.5" fill="none" stroke="#FFF" strokeWidth="3"/>
           <rect x="9" y="9" width="30" height="30" rx="8" fill="none" stroke="#FFF" strokeWidth="3"/>
           <circle cx="34" cy="14" r="2" fill="#FFF"/>
+        </svg>
+      );
+
+    case "facebook":
+      return (
+        <svg className={className} viewBox="0 0 48 48">
+          <rect width="48" height="48" rx="12" fill="#1877F2"/>
+          <path d="M29.5 25l.8-5.2h-5V16.5c0-1.4.7-2.8 2.9-2.8H30.5V9.2s-2-.3-3.9-.3c-3.9 0-6.4 2.4-6.4 6.6v4.3h-4.3v5.2h4.3v14.5h5.3V25h4z" fill="#FFF"/>
         </svg>
       );
 

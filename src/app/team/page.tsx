@@ -19,7 +19,7 @@ export default function TeamPage() {
       <section className="relative w-full overflow-hidden px-margin-mobile pb-14 pt-12 text-center md:px-margin-tablet md:pb-20 lg:px-margin-desktop">
         <div className="pointer-events-none absolute left-1/2 top-[-12rem] h-[28rem] w-[min(80vw,60rem)] -translate-x-1/2 rounded-full bg-primary/10 blur-[130px]" />
         <div className="relative mx-auto flex max-w-4xl flex-col items-center">
-          <h1 className="font-headline-lg text-5xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl">
+          <h1 className="font-headline-lg text-3xl sm:text-5xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight text-balance">
             <span className="bg-gradient-to-r from-primary-fixed via-primary to-primary-container bg-clip-text text-transparent">
               Executive Leadership
             </span>
@@ -46,64 +46,64 @@ export default function TeamPage() {
             return (
               <div
                 key={member.id}
-                className="team-profile group relative grid overflow-hidden rounded-[1.8rem] bg-surface-container-low/95 border border-outline-variant/30 hover:border-primary/50 shadow-xl hover:shadow-[0_18px_40px_-14px_rgba(242,202,80,0.16)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 lg:h-[420px] lg:grid-cols-12"
+                className="team-profile group relative grid grid-cols-1 lg:grid-cols-12 overflow-hidden rounded-[1.8rem] bg-surface-container-low/95 border border-outline-variant/30 hover:border-primary/50 shadow-xl hover:shadow-[0_18px_40px_-14px_rgba(242,202,80,0.16)] backdrop-blur-xl transition-all duration-300 hover:-translate-y-0.5 lg:h-[420px]"
                 style={{ animationDelay: `${index * 60}ms` }}
               >
-                {/* Content section: 7 cols on desktop with uniform padding */}
+                {/* Content section: full width on mobile, 7 cols on desktop */}
                 <div
-                  className={`flex flex-col justify-between p-7 sm:p-8 lg:p-8 lg:col-span-7 ${
+                  className={`flex flex-col justify-between p-5 sm:p-7 lg:p-8 lg:col-span-7 min-w-0 ${
                     isEven ? "lg:order-1" : "lg:order-2"
                   }`}
                 >
-                  <div>
+                  <div className="min-w-0">
                     {/* Department Meta */}
-                    <div className="mb-2 flex items-center justify-between">
-                      <p className="font-mono text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                    <div className="mb-2 flex items-center justify-between gap-2">
+                      <p className="font-mono text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-primary truncate">
                         {member.department}
                       </p>
                       {member.experience ? (
-                        <p className="font-mono text-xs font-medium text-on-surface-variant/75">
+                        <p className="font-mono text-[10px] sm:text-xs font-medium text-on-surface-variant/75 shrink-0">
                           {member.experience}
                         </p>
                       ) : null}
                     </div>
 
                     {/* Member Name & Role */}
-                    <h2 className="font-headline-sm text-2xl sm:text-[28px] font-extrabold text-white transition-colors group-hover:text-primary leading-tight">
+                    <h2 className="font-headline-sm text-xl sm:text-2xl lg:text-[28px] font-extrabold text-white transition-colors group-hover:text-primary leading-tight break-words">
                       {member.name}
                     </h2>
-                    <p className="text-sm sm:text-[15px] font-semibold text-primary/95 mt-0.5">
+                    <p className="text-xs sm:text-sm font-semibold text-primary/95 mt-0.5 break-words">
                       {member.role}
                     </p>
 
                     {/* Bio: 3 lines */}
-                    <p className="mt-3 text-sm leading-relaxed text-on-surface-variant line-clamp-3">
+                    <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm leading-relaxed text-on-surface-variant line-clamp-3">
                       {member.bio}
                     </p>
 
                     {/* Key Highlights: 2 points */}
                     {member.highlights && member.highlights.length > 0 ? (
-                      <div className="mt-3 space-y-1.5 border-l-2 border-primary/30 pl-3">
+                      <div className="mt-2.5 sm:mt-3 space-y-1 sm:space-y-1.5 border-l-2 border-primary/30 pl-2.5 sm:pl-3">
                         {member.highlights.slice(0, 2).map((item, hIdx) => (
-                          <div key={hIdx} className="flex items-center gap-2 text-xs sm:text-sm text-on-surface/90">
-                            <span className="material-symbols-outlined text-primary text-sm shrink-0">
+                          <div key={hIdx} className="flex items-start gap-1.5 sm:gap-2 text-[11px] sm:text-xs text-on-surface/90">
+                            <span className="material-symbols-outlined text-primary text-xs sm:text-sm shrink-0 mt-0.5">
                               check_circle
                             </span>
-                            <span className="line-clamp-1">{item}</span>
+                            <span className="line-clamp-2 break-words">{item}</span>
                           </div>
                         ))}
                       </div>
                     ) : null}
 
-                    {/* Focus & Skills: Clean Single-Line Tag List */}
-                    <div className="mt-3.5 pt-3 border-t border-outline-variant/15 flex items-center gap-x-2 text-xs">
-                      <span className="font-mono text-[11px] font-bold uppercase tracking-wider text-primary shrink-0">
+                    {/* Focus & Skills: Wrap on mobile */}
+                    <div className="mt-3 sm:mt-3.5 pt-2.5 sm:pt-3 border-t border-outline-variant/15 flex flex-wrap items-center gap-x-1.5 gap-y-1 text-[11px] sm:text-xs">
+                      <span className="font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-primary shrink-0">
                         Focus:
                       </span>
-                      <div className="flex items-center gap-1.5 overflow-hidden">
+                      <div className="flex flex-wrap items-center gap-1">
                         {member.skills.slice(0, 4).map((skill, sIdx, arr) => (
-                          <span key={skill} className="text-on-surface-variant font-medium whitespace-nowrap">
-                            {skill}{sIdx < arr.length - 1 ? <span className="mx-1.5 text-primary/40 font-normal">/</span> : null}
+                          <span key={skill} className="text-on-surface-variant font-medium">
+                            {skill}{sIdx < arr.length - 1 ? <span className="mx-1 text-primary/40 font-normal">/</span> : null}
                           </span>
                         ))}
                       </div>
@@ -111,13 +111,13 @@ export default function TeamPage() {
                   </div>
 
                   {/* Card Footer: Connect Action with LinkedIn */}
-                  <div className="mt-5 pt-3.5 border-t border-outline-variant/20 flex items-center justify-end">
+                  <div className="mt-4 sm:mt-5 pt-3 sm:pt-3.5 border-t border-outline-variant/20 flex items-center justify-end">
                     <a
                       href={member.social.linkedin || "/contact"}
                       target={member.social.linkedin ? "_blank" : undefined}
                       rel="noopener noreferrer"
                       aria-label={`Connect with ${member.name} on LinkedIn`}
-                      className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold text-primary transition-colors hover:text-primary-fixed"
+                      className="inline-flex items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-mono font-bold text-primary transition-colors hover:text-primary-fixed"
                     >
                       <span>Connect with {member.name.split(" ")[0]}</span>
                       <SocialIcon network="linkedin" />
@@ -125,9 +125,9 @@ export default function TeamPage() {
                   </div>
                 </div>
 
-                {/* Member Image: Full card coverage without separate borders or inner container */}
+                {/* Member Image: Half height on mobile, full on desktop */}
                 <div
-                  className={`relative h-72 sm:h-80 lg:h-full lg:col-span-5 overflow-hidden bg-surface-container-lowest ${
+                  className={`relative h-56 sm:h-72 lg:h-full lg:col-span-5 overflow-hidden bg-surface-container-lowest ${
                     isEven ? "lg:order-2" : "lg:order-1"
                   }`}
                 >

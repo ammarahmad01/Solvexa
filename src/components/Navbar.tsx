@@ -10,6 +10,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   // Do not render marketing navbar inside admin portal
@@ -182,7 +183,7 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <Link
             href="/contact"
-            className="relative inline-flex items-center justify-center px-6 py-2.5 sm:px-7 sm:py-2.5 rounded-full font-label-md text-sm sm:text-base font-bold text-on-primary bg-gradient-to-r from-primary-fixed via-primary to-primary-container shadow-[0_4px_20px_rgba(212,175,55,0.35)] hover:shadow-[0_0_28px_rgba(242,202,80,0.65)] hover:scale-105 active:scale-95 transition-all duration-300 border border-primary-fixed/40"
+            className="relative hidden lg:inline-flex items-center justify-center px-6 py-2.5 sm:px-7 sm:py-2.5 rounded-full font-label-md text-sm sm:text-base font-bold text-on-primary bg-gradient-to-r from-primary-fixed via-primary to-primary-container shadow-[0_4px_20px_rgba(212,175,55,0.35)] hover:shadow-[0_0_28px_rgba(242,202,80,0.65)] hover:scale-105 active:scale-95 transition-all duration-300 border border-primary-fixed/40"
           >
             <span className="relative z-10">Contact Us</span>
           </Link>
@@ -203,8 +204,8 @@ export default function Navbar() {
 
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden mt-3 max-w-7xl mx-auto rounded-3xl bg-surface-container-low/95 backdrop-blur-2xl border border-outline-variant/40 shadow-2xl p-6 pointer-events-auto animate-in fade-in slide-in-from-top-3 duration-200">
-          <div className="flex flex-col gap-2">
+        <div className="lg:hidden mt-3 max-w-7xl mx-auto rounded-3xl bg-surface-container-low/95 backdrop-blur-2xl border border-outline-variant/40 shadow-2xl pointer-events-auto animate-in fade-in slide-in-from-top-3 duration-200 max-h-[calc(100vh-7rem)] overflow-y-auto">
+          <div className="flex flex-col gap-1.5 p-5">
             <Link
               href="/"
               onClick={() => setMobileMenuOpen(false)}
@@ -214,15 +215,36 @@ export default function Navbar() {
             >
               Home
             </Link>
-            <Link
-              href="/services"
-              onClick={() => setMobileMenuOpen(false)}
-              className={`px-4 py-3 rounded-xl font-semibold text-sm transition-colors ${
+            <button
+              onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+              className={`px-4 py-3 rounded-xl font-semibold text-sm transition-colors flex items-center justify-between w-full ${
                 isActive("/services") ? "bg-surface-container-highest text-primary" : "text-on-surface hover:bg-surface-container-high"
               }`}
             >
-              Services (All 16 Services)
-            </Link>
+              <span>Services</span>
+              <span className={`material-symbols-outlined text-base transition-transform duration-200 ${mobileServicesOpen ? "rotate-180" : ""}`}>expand_more</span>
+            </button>
+            {mobileServicesOpen && (
+              <div className="flex flex-col gap-0.5 pl-3 border-l-2 border-primary/30 ml-5 my-1">
+                {servicesData.map((s) => (
+                  <Link
+                    key={s.id}
+                    href={`/services/${s.slug}`}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="px-3 py-2.5 rounded-lg text-sm font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/80 transition-colors truncate"
+                  >
+                    {s.title}
+                  </Link>
+                ))}
+                <Link
+                  href="/services"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="px-3 py-2.5 rounded-lg text-sm font-bold text-primary hover:bg-primary/10 transition-colors mt-1"
+                >
+                  View All Services →
+                </Link>
+              </div>
+            )}
             <Link
               href="/work"
               onClick={() => setMobileMenuOpen(false)}

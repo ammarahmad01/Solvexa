@@ -48,6 +48,7 @@ interface CmsProject {
   timeline?: string;
   metrics?: string;
   metricsLabel?: string;
+  clientLogo?: string;
   category: string;
   categorySlug?: string;
   galleryImages?: string[];
@@ -83,7 +84,7 @@ export default function AdminPortalPage() {
   const [user, setUser] = useState<User | null>(null);
   const [authChecking, setAuthChecking] = useState(true);
 
-  // Active Tab: "crm" (Inquiries) | "cms" (Portfolio CMS)
+  // Active Tab: "crm" (Inquiries) | "cms" (Work CMS)
   const [activeTab, setActiveTab] = useState<"crm" | "cms">("crm");
 
   // Login Form States
@@ -144,6 +145,7 @@ export default function AdminPortalPage() {
   const [pLiveUrl, setPLiveUrl] = useState("");
   const [pMetrics, setPMetrics] = useState("");
   const [pMetricsLabel, setPMetricsLabel] = useState("");
+  const [pClientLogo, setPClientLogo] = useState("");
   const [pTechInput, setPTechInput] = useState("");
   const [pOverview, setPOverview] = useState("");
   const [pChallenge, setPChallenge] = useState("");
@@ -206,7 +208,7 @@ export default function AdminPortalPage() {
     setCmsLoading(true);
     setCmsError("");
     try {
-      const res = await fetch("/api/projects?t=" + Date.now());
+      const res = await fetch("/api/projects");
       const data = await res.json();
       if (!res.ok) {
         throw new Error(data.error || "Failed to fetch portfolio projects");
@@ -235,8 +237,8 @@ export default function AdminPortalPage() {
 
   useEffect(() => {
     if (user) {
-      fetchSubmissions();
-      fetchProjects();
+      // Fetch both datasets in parallel for faster initial load
+      Promise.all([fetchSubmissions(), fetchProjects()]);
     }
   }, [user, fetchSubmissions, fetchProjects]);
 
@@ -281,6 +283,7 @@ export default function AdminPortalPage() {
     setPDeviceType("web");
     setPAccentColor("#F2CA50");
     setPHeroImage("https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80");
+    setPClientLogo("");
     setPShortDesc("");
     setPDescription("");
     setPClient("");
@@ -307,6 +310,7 @@ export default function AdminPortalPage() {
     setPDeviceType(proj.deviceType || "web");
     setPAccentColor(proj.accentColor || "#F2CA50");
     setPHeroImage(proj.heroImage || "");
+    setPClientLogo(proj.clientLogo || "");
     setPShortDesc(proj.shortDesc || "");
     setPDescription(proj.description || "");
     setPClient(proj.client || "");
@@ -362,6 +366,7 @@ export default function AdminPortalPage() {
       shortDesc: pShortDesc.trim(),
       description: pDescription.trim() || pShortDesc.trim(),
       heroImage: pHeroImage.trim() || "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+      clientLogo: pClientLogo.trim(),
       technologies: techs.length > 0 ? techs : ["Next.js", "TypeScript", "Tailwind CSS"],
       liveUrl: pLiveUrl.trim(),
       client: pClient.trim(),
@@ -857,63 +862,21 @@ export default function AdminPortalPage() {
   // -------------------------------------------------------------------------
   return (
     <div className="min-h-screen w-full bg-transparent text-on-surface select-none relative flex flex-col">
-      {/* UNIFIED EXECUTIVE TOP NAVBAR (PINNED AT THE VERY TOP) */}
-      <header className="sticky top-0 z-40 w-full border-b border-outline-variant/30 bg-surface-container-lowest/80 backdrop-blur-2xl px-4 sm:px-8 py-3 flex items-center justify-between shadow-2xl">
+      {/* UNIFIED EXECUTIVE TOP NAVBAR */}
+      <header className="sticky top-0 z-40 w-full border-b border-outline-variant/30 bg-surface-container-lowest/80 backdrop-blur-2xl px-3 sm:px-8 py-2.5 sm:py-3 flex flex-wrap items-center justify-between gap-2 shadow-2xl">
         {/* Left: Brand Mark */}
-        <div className="flex items-center gap-3 sm:gap-4">
-          <Link href="/" className="flex items-center group">
-            <img src="/assets/logo.png" alt="Solvexa" className="h-8 w-auto object-contain group-hover:scale-105 transition-transform" loading="lazy" decoding="async" />
-          </Link>
-
-          {/* Tab Switcher Pills */}
-          <div className="flex items-center p-1 rounded-xl bg-surface-container-highest/70 border border-outline-variant/35 ml-2 sm:ml-4 shadow-inner">
-            <button
-              onClick={() => setActiveTab("crm")}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                activeTab === "crm"
-                  ? "bg-primary text-on-primary shadow-md shadow-primary/20"
-                  : "text-on-surface-variant hover:text-white"
-              }`}
-            >
-              <span className="material-symbols-outlined text-base leading-none">inbox</span>
-              <span>CRM Inquiries</span>
-              <span
-                className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
-                  activeTab === "crm" ? "bg-on-primary/20 text-on-primary" : "bg-primary/20 text-primary"
-                }`}
-              >
-                {submissions.length}
-              </span>
-            </button>
-
-            <button
-              onClick={() => setActiveTab("cms")}
-              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
-                activeTab === "cms"
-                  ? "bg-primary text-on-primary shadow-md shadow-primary/20"
-                  : "text-on-surface-variant hover:text-white"
-              }`}
-            >
-              <span className="material-symbols-outlined text-base leading-none">grid_view</span>
-              <span>Portfolio CMS</span>
-              <span
-                className={`text-[10px] px-1.5 py-0.5 rounded-full font-bold ${
-                  activeTab === "cms" ? "bg-on-primary/20 text-on-primary" : "bg-primary/20 text-primary"
-                }`}
-              >
-                {projects.length}
-              </span>
-            </button>
-          </div>
-        </div>
+        <Link href="/" className="flex items-center group shrink-0">
+          <img src="/assets/logo.png" alt="Solvexa" className="h-7 sm:h-8 w-auto object-contain group-hover:scale-105 transition-transform" loading="lazy" decoding="async" />
+        </Link>
 
         {/* Right: Quick Actions, Refresh & Profile */}
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-3 order-2 sm:order-3">
           {/* Primary Action Button (Changes per tab) */}
           {activeTab === "cms" ? (
             <button
               onClick={openNewProjectModal}
-              className="px-3.5 py-2 rounded-xl bg-primary text-on-primary font-bold text-xs hover:bg-primary-fixed transition-all flex items-center gap-1.5 shadow-md shadow-primary/25 hover:shadow-primary/40 active:scale-95 cursor-pointer"
+              className="p-2 sm:px-3.5 sm:py-2 rounded-xl bg-primary text-on-primary font-bold text-xs hover:bg-primary-fixed transition-all flex items-center gap-1.5 shadow-md shadow-primary/25 hover:shadow-primary/40 active:scale-95 cursor-pointer"
+              title="Add Project"
             >
               <span className="material-symbols-outlined text-base font-bold">add</span>
               <span className="hidden sm:inline">Add Project</span>
@@ -922,19 +885,19 @@ export default function AdminPortalPage() {
             <button
               onClick={exportToCSV}
               title="Export leads to CSV"
-              className="px-3 py-2 rounded-xl bg-surface-container-high/80 border border-outline-variant/40 hover:border-primary/50 text-xs text-on-surface font-semibold flex items-center gap-1.5 hover:bg-surface-container-highest transition-all cursor-pointer shadow-sm"
+              className="p-2 sm:px-3 sm:py-2 rounded-xl bg-surface-container-high/80 border border-outline-variant/40 hover:border-primary/50 text-xs text-on-surface font-semibold flex items-center gap-1.5 hover:bg-surface-container-highest transition-all cursor-pointer shadow-sm"
             >
               <span className="material-symbols-outlined text-base text-primary">download</span>
-              <span className="hidden md:inline">Export CSV</span>
+              <span className="hidden sm:inline">Export CSV</span>
             </button>
           )}
 
-          {/* PROPER REFRESH BUTTON WITH TEXT, SPINNER & FEEDBACK */}
+          {/* Refresh Button */}
           <button
             onClick={handleRefresh}
             disabled={crmLoading || cmsLoading}
             title={lastRefreshed ? `Last updated: ${lastRefreshed.toLocaleTimeString()}` : "Refresh data"}
-            className="px-3 py-2 rounded-xl bg-surface-container-high/80 border border-outline-variant/40 hover:border-primary/50 text-xs text-white font-medium hover:bg-surface-container-highest transition-all flex items-center gap-2 cursor-pointer shadow-sm group"
+            className="p-2 sm:px-3 sm:py-2 rounded-xl bg-surface-container-high/80 border border-outline-variant/40 hover:border-primary/50 text-xs text-white font-medium hover:bg-surface-container-highest transition-all flex items-center gap-2 cursor-pointer shadow-sm group"
           >
             <span
               className={`material-symbols-outlined text-base leading-none transition-transform ${
@@ -962,32 +925,73 @@ export default function AdminPortalPage() {
           <button
             onClick={handleLogout}
             title="Sign out of portal"
-            className="px-3 py-2 rounded-xl bg-error/15 border border-error/30 text-error hover:bg-error/25 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer"
+            className="p-2 sm:px-3 sm:py-2 rounded-xl bg-error/15 border border-error/30 text-error hover:bg-error/25 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer"
           >
             <span className="material-symbols-outlined text-base leading-none">logout</span>
             <span className="hidden sm:inline">Sign Out</span>
           </button>
         </div>
+
+        {/* Tab Switcher Pills — wraps to row 2 on mobile, inline on desktop */}
+        <div className="flex items-center p-0.5 sm:p-1 rounded-xl bg-surface-container-highest/70 border border-outline-variant/35 w-full sm:w-auto order-3 sm:order-2 sm:ml-1 lg:ml-4 shadow-inner justify-center sm:justify-start">
+          <button
+            onClick={() => setActiveTab("crm")}
+            className={`flex-1 sm:flex-none flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-3.5 py-1.5 rounded-lg text-[10px] sm:text-xs font-semibold transition-all cursor-pointer ${
+              activeTab === "crm"
+                ? "bg-primary text-on-primary shadow-md shadow-primary/20"
+                : "text-on-surface-variant hover:text-white"
+            }`}
+          >
+            <span className="material-symbols-outlined text-sm sm:text-base leading-none">inbox</span>
+            <span>CRM</span>
+            <span
+              className={`text-[9px] sm:text-[10px] px-1 sm:px-1.5 py-0.5 rounded-full font-bold ${
+                activeTab === "crm" ? "bg-on-primary/20 text-on-primary" : "bg-primary/20 text-primary"
+              }`}
+            >
+              {submissions.length}
+            </span>
+          </button>
+
+          <button
+            onClick={() => setActiveTab("cms")}
+            className={`flex-1 sm:flex-none flex items-center justify-center gap-1 sm:gap-2 px-2 sm:px-3.5 py-1.5 rounded-lg text-[10px] sm:text-xs font-semibold transition-all cursor-pointer ${
+              activeTab === "cms"
+                ? "bg-primary text-on-primary shadow-md shadow-primary/20"
+                : "text-on-surface-variant hover:text-white"
+            }`}
+          >
+            <span className="material-symbols-outlined text-sm sm:text-base leading-none">grid_view</span>
+            <span>Work CMS</span>
+            <span
+              className={`text-[9px] sm:text-[10px] px-1 sm:px-1.5 py-0.5 rounded-full font-bold ${
+                activeTab === "cms" ? "bg-on-primary/20 text-on-primary" : "bg-primary/20 text-primary"
+              }`}
+            >
+              {projects.length}
+            </span>
+          </button>
+        </div>
       </header>
 
       {/* MAIN DASHBOARD CONTENT */}
-      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 flex flex-col gap-6">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-8 flex flex-col gap-4 sm:gap-6">
         {/* =========================================================
             TAB 1: CRM INQUIRIES
         ========================================================= */}
         {activeTab === "crm" && (
           <div className="flex flex-col gap-6">
             {/* KPI STATS CARDS (GLASSMORPHIC) */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4">
-              <div className="p-4 sm:p-5 rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant/30 shadow-xl flex flex-col justify-between">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant block mb-1">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
+              <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant/30 shadow-xl flex flex-col justify-between">
+                <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant block mb-1">
                   Total Leads
                 </span>
                 <span className="text-2xl sm:text-3xl font-extrabold text-white font-mono">{crmMetrics.total}</span>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-amber-500/30 shadow-xl flex flex-col justify-between">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-amber-400 block mb-1">
+              <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-amber-500/30 shadow-xl flex flex-col justify-between">
+                <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-amber-400 block mb-1">
                   New Unread
                 </span>
                 <span className="text-2xl sm:text-3xl font-extrabold text-amber-300 font-mono">
@@ -995,8 +999,8 @@ export default function AdminPortalPage() {
                 </span>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-sky-500/30 shadow-xl flex flex-col justify-between">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-400 block mb-1">
+              <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-sky-500/30 shadow-xl flex flex-col justify-between">
+                <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-sky-400 block mb-1">
                   In Discussion
                 </span>
                 <span className="text-2xl sm:text-3xl font-extrabold text-sky-300 font-mono">
@@ -1004,8 +1008,8 @@ export default function AdminPortalPage() {
                 </span>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-emerald-500/30 shadow-xl flex flex-col justify-between">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-400 block mb-1">
+              <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-emerald-500/30 shadow-xl flex flex-col justify-between">
+                <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-emerald-400 block mb-1">
                   Converted
                 </span>
                 <span className="text-2xl sm:text-3xl font-extrabold text-emerald-300 font-mono">
@@ -1086,7 +1090,7 @@ export default function AdminPortalPage() {
 
             {/* SUBMISSIONS LIST */}
             {filteredSubmissions.length === 0 ? (
-              <div className="p-16 rounded-3xl bg-surface-container-low/60 backdrop-blur-xl border border-outline-variant/30 text-center flex flex-col items-center justify-center shadow-xl">
+              <div className="p-10 sm:p-16 rounded-2xl sm:rounded-3xl bg-surface-container-low/60 backdrop-blur-xl border border-outline-variant/30 text-center flex flex-col items-center justify-center shadow-xl">
                 <span className="material-symbols-outlined text-3xl text-on-surface-variant mb-3">inbox</span>
                 <h3 className="text-base font-bold text-white">No inquiries found</h3>
                 <p className="text-xs text-on-surface-variant mt-1 max-w-sm">
@@ -1224,16 +1228,16 @@ export default function AdminPortalPage() {
         {activeTab === "cms" && (
           <div className="flex flex-col gap-6">
             {/* KPI STATS */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-4">
-              <div className="p-4 sm:p-5 rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant/30 shadow-xl">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant block mb-1">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4">
+              <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-outline-variant/30 shadow-xl">
+                <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-on-surface-variant block mb-1">
                   Total Case Studies
                 </span>
                 <span className="text-2xl sm:text-3xl font-extrabold text-white font-mono">{cmsMetrics.total}</span>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-sky-500/30 shadow-xl">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-sky-400 block mb-1">
+              <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-sky-500/30 shadow-xl">
+                <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-sky-400 block mb-1">
                   Web Applications
                 </span>
                 <span className="text-2xl sm:text-3xl font-extrabold text-sky-300 font-mono">
@@ -1241,8 +1245,8 @@ export default function AdminPortalPage() {
                 </span>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-emerald-500/30 shadow-xl">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-emerald-400 block mb-1">
+              <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-emerald-500/30 shadow-xl">
+                <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-emerald-400 block mb-1">
                   Mobile Ecosystems
                 </span>
                 <span className="text-2xl sm:text-3xl font-extrabold text-emerald-300 font-mono">
@@ -1250,8 +1254,8 @@ export default function AdminPortalPage() {
                 </span>
               </div>
 
-              <div className="p-4 sm:p-5 rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-purple-500/30 shadow-xl">
-                <span className="text-[11px] font-semibold uppercase tracking-wider text-purple-400 block mb-1">
+              <div className="p-3 sm:p-5 rounded-2xl sm:rounded-3xl bg-surface-container-low/80 backdrop-blur-xl border border-purple-500/30 shadow-xl">
+                <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-wider text-purple-400 block mb-1">
                   AI & Autonomous Swarms
                 </span>
                 <span className="text-2xl sm:text-3xl font-extrabold text-purple-300 font-mono">
@@ -1330,7 +1334,7 @@ export default function AdminPortalPage() {
 
             {/* PROJECTS GRID / TABLE */}
             {filteredProjects.length === 0 ? (
-              <div className="p-16 rounded-3xl bg-surface-container-low/60 backdrop-blur-xl border border-outline-variant/30 text-center flex flex-col items-center justify-center shadow-xl">
+              <div className="p-10 sm:p-16 rounded-2xl sm:rounded-3xl bg-surface-container-low/60 backdrop-blur-xl border border-outline-variant/30 text-center flex flex-col items-center justify-center shadow-xl">
                 <span className="material-symbols-outlined text-3xl text-on-surface-variant mb-3">folder_open</span>
                 <h3 className="text-base font-bold text-white">No projects found</h3>
                 <p className="text-xs text-on-surface-variant mt-1 max-w-sm">
@@ -1406,7 +1410,7 @@ export default function AdminPortalPage() {
                     {/* Bottom Action Footer */}
                     <div className="p-4 border-t border-outline-variant/20 bg-surface-container-high/30 flex items-center justify-between gap-2">
                       <Link
-                        href={`/work/${proj.slug}`}
+                        href={`/work#${proj.id || proj.slug}`}
                         target="_blank"
                         className="text-xs text-on-surface-variant hover:text-primary flex items-center gap-1 transition-colors"
                       >
@@ -2090,6 +2094,33 @@ export default function AdminPortalPage() {
                     />
                     <span className="absolute bottom-2 right-2 px-2.5 py-0.5 rounded-full bg-black/70 backdrop-blur-md text-[10px] text-white font-mono border border-white/10">
                       Live Preview
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              {/* Client Logo URL & Preview */}
+              <div>
+                <label className="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-1.5">
+                  Client Logo URL <span className="text-on-surface-variant/50 font-normal normal-case">(shown in Brands marquee & grid)</span>
+                </label>
+                <input
+                  type="url"
+                  value={pClientLogo}
+                  onChange={(e) => setPClientLogo(e.target.value)}
+                  placeholder="/assets/Client Logo/brand-logo.png"
+                  className="w-full px-4 py-2.5 rounded-xl bg-surface-container-highest/60 border border-outline-variant/40 focus:border-primary focus:outline-none text-white text-xs sm:text-sm"
+                />
+                {pClientLogo && (
+                  <div className="mt-2.5 relative w-20 h-20 rounded-2xl bg-surface-container-highest overflow-hidden border border-outline-variant/30 shadow-inner flex items-center justify-center">
+                    <img
+                      src={pClientLogo}
+                      alt="Client Logo Preview"
+                      className="w-14 h-14 object-contain"
+                      onError={(e) => { (e.target as HTMLImageElement).style.opacity = "0.2"; }}
+                    />
+                    <span className="absolute bottom-1 right-1 px-1.5 py-0.5 rounded-full bg-black/70 backdrop-blur-md text-[8px] text-white font-mono border border-white/10">
+                      Preview
                     </span>
                   </div>
                 )}

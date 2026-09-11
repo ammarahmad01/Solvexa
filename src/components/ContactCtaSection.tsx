@@ -1,17 +1,64 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
+
+const SERVICE_OPTIONS = [
+  "Web Development & Enterprise Platforms",
+  "Mobile App Development",
+  "UI/UX Design & Design Systems",
+  "Digital Marketing & Performance Growth",
+  "Search Engine Optimization (SEO & GEO)",
+  "Google & Meta Paid Advertising",
+  "Brand Identity & Design Systems",
+  "Video Production & Motion Graphics",
+  "Rapid MVP Development",
+  "Shopify Store Development & Headless Commerce",
+  "WordPress & Enterprise CMS Development",
+  "AI & Machine Learning Solutions",
+  "LLMs & Enterprise RAG Systems",
+  "Autonomous AI Agents",
+  "Custom Model Training & Fine-Tuning",
+  "FYP Ideas, Mentorship & Academic Prototyping",
+];
 
 export default function ContactCtaSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
+  const [dropdownPosition, setDropdownPosition] = useState<'bottom' | 'top'>('bottom');
+  const serviceDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close service dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (serviceDropdownRef.current && !serviceDropdownRef.current.contains(e.target as Node)) {
+        setServiceDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Smart positioning: open upward if not enough space below
+  const toggleServiceDropdown = () => {
+    if (!serviceDropdownOpen) {
+      const trigger = serviceDropdownRef.current;
+      if (trigger) {
+        const rect = trigger.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom;
+        const neededHeight = Math.min(window.innerHeight * 0.5, 320);
+        setDropdownPosition(spaceBelow >= neededHeight ? 'bottom' : 'top');
+      }
+    }
+    setServiceDropdownOpen(!serviceDropdownOpen);
+  };
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
     company: "",
-    service: "Web Development",
+    service: "",
     message: ""
   });
 
@@ -42,7 +89,7 @@ export default function ContactCtaSection() {
           email: "",
           phone: "",
           company: "",
-          service: "Web Development",
+          service: "",
           message: ""
         });
       } else {
@@ -208,19 +255,59 @@ export default function ContactCtaSection() {
                   <label className="block text-xs font-semibold text-on-surface-variant mb-1.5">
                     Service Needed <span className="text-primary">*</span>
                   </label>
-                  <select
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-surface-container-highest/70 border border-outline-variant/40 focus:border-primary focus:outline-none text-sm text-on-surface transition-colors cursor-pointer"
-                  >
-                    <option value="Web Development" className="bg-surface-container-low text-on-surface">Full-Stack Web Development</option>
-                    <option value="Mobile App Development" className="bg-surface-container-low text-on-surface">Mobile App Development (iOS &amp; Android)</option>
-                    <option value="Custom Software" className="bg-surface-container-low text-on-surface">Custom Software Engineering</option>
-                    <option value="AI & ML Solutions" className="bg-surface-container-low text-on-surface">AI &amp; Machine Learning Solutions</option>
-                    <option value="UI/UX Design" className="bg-surface-container-low text-on-surface">UI/UX &amp; Design Systems</option>
-                    <option value="Digital Transformation" className="bg-surface-container-low text-on-surface">Digital Transformation</option>
-                    <option value="MVP Development" className="bg-surface-container-low text-on-surface">MVP Development</option>
-                  </select>
+                  <div className="relative" ref={serviceDropdownRef}>
+                    {/* Trigger Button */}
+                    <button
+                      type="button"
+                      onClick={toggleServiceDropdown}
+                      className="w-full px-4 py-3 rounded-xl bg-surface-container-highest/70 border border-outline-variant/40 focus:border-primary focus:outline-none text-left text-sm text-on-surface transition-colors cursor-pointer"
+                    >
+                      <span className={formData.service ? "text-on-surface" : "text-on-surface-variant/50"}>
+                        {formData.service || "Select a service..."}
+                      </span>
+                    </button>
+                    <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant/60 text-lg pointer-events-none transition-transform duration-200 ${serviceDropdownOpen ? "rotate-180" : ""}`}>expand_more</span>
+
+                    {/* Dropdown Panel */}
+                    {serviceDropdownOpen && (
+                      <div className={`absolute z-50 w-full rounded-xl bg-surface-container-low/98 backdrop-blur-2xl border border-outline-variant/40 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.8)] max-h-[min(50vh,320px)] overflow-y-auto ${dropdownPosition === 'bottom' ? 'mt-2' : 'bottom-full mb-2'}`}>
+                        <div className="p-1.5 flex flex-col gap-0.5">
+                          {SERVICE_OPTIONS.map((svc) => (
+                            <button
+                              key={svc}
+                              type="button"
+                              onClick={() => {
+                                setFormData({ ...formData, service: svc });
+                                setServiceDropdownOpen(false);
+                              }}
+                              className={`w-full text-left px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
+                                formData.service === svc
+                                  ? "bg-primary/20 text-primary font-semibold"
+                                  : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/80"
+                              }`}
+                            >
+                              {svc}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* Hidden native select for form validation */}
+                    <select
+                      value={formData.service}
+                      required
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="absolute inset-0 w-full h-full opacity-0 pointer-events-none"
+                      tabIndex={-1}
+                      aria-hidden="true"
+                    >
+                      <option value=""></option>
+                      {SERVICE_OPTIONS.map((svc) => (
+                        <option key={svc} value={svc}>{svc}</option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 {/* Message Brief */}

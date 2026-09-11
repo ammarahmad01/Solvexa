@@ -39,17 +39,18 @@
 }
 
 @keyframes marquee-seamless {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-100%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 .animate-marquee-seamless {
   display: flex;
-  flex-shrink: 0;
-  animation: marquee-seamless 26s linear infinite;
+  width: max-content;
+  animation: marquee-seamless 30s linear infinite;
 }
 
-.animate-marquee-seamless:hover {
+.animate-marquee-seamless:hover,
+.group:hover .animate-marquee-seamless {
   animation-play-state: paused;
 }
 

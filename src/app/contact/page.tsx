@@ -1,12 +1,31 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 
 interface FaqItem {
   q: string;
   a: string;
 }
+
+const SERVICE_OPTIONS = [
+  "Web Development & Enterprise Platforms",
+  "Mobile App Development",
+  "UI/UX Design & Design Systems",
+  "Digital Marketing & Performance Growth",
+  "Search Engine Optimization (SEO & GEO)",
+  "Google & Meta Paid Advertising",
+  "Brand Identity & Design Systems",
+  "Video Production & Motion Graphics",
+  "Rapid MVP Development",
+  "Shopify Store Development & Headless Commerce",
+  "WordPress & Enterprise CMS Development",
+  "AI & Machine Learning Solutions",
+  "LLMs & Enterprise RAG Systems",
+  "Autonomous AI Agents",
+  "Custom Model Training & Fine-Tuning",
+  "FYP Ideas, Mentorship & Academic Prototyping",
+];
 
 const CONTACT_FAQS: FaqItem[] = [
   {
@@ -36,14 +55,71 @@ export default function ContactPage() {
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const [serviceDropdownOpen, setServiceDropdownOpen] = useState(false);
+  const [dropdownPosition, setDropdownPosition] = useState<'bottom' | 'top'>('bottom');
+  const serviceDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close service dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (serviceDropdownRef.current && !serviceDropdownRef.current.contains(e.target as Node)) {
+        setServiceDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Smart positioning: open upward if not enough space below
+  const toggleServiceDropdown = () => {
+    if (!serviceDropdownOpen) {
+      const trigger = serviceDropdownRef.current;
+      if (trigger) {
+        const rect = trigger.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom;
+        const neededHeight = Math.min(window.innerHeight * 0.5, 320);
+        setDropdownPosition(spaceBelow >= neededHeight ? 'bottom' : 'top');
+      }
+    }
+    setServiceDropdownOpen(!serviceDropdownOpen);
+  };
+
+  const [budgetDropdownOpen, setBudgetDropdownOpen] = useState(false);
+  const [budgetDropdownPosition, setBudgetDropdownPosition] = useState<'bottom' | 'top'>('bottom');
+  const budgetDropdownRef = useRef<HTMLDivElement>(null);
+
+  // Close budget dropdown on outside click
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (budgetDropdownRef.current && !budgetDropdownRef.current.contains(e.target as Node)) {
+        setBudgetDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
+  // Smart positioning for budget dropdown
+  const toggleBudgetDropdown = () => {
+    if (!budgetDropdownOpen) {
+      const trigger = budgetDropdownRef.current;
+      if (trigger) {
+        const rect = trigger.getBoundingClientRect();
+        const spaceBelow = window.innerHeight - rect.bottom;
+        const neededHeight = Math.min(window.innerHeight * 0.5, 250);
+        setBudgetDropdownPosition(spaceBelow >= neededHeight ? 'bottom' : 'top');
+      }
+    }
+    setBudgetDropdownOpen(!budgetDropdownOpen);
+  };
 
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
     company: "",
-    service: "Full-Stack Web Development",
-    budget: "$5,000 – $15,000",
+    service: "",
+    budget: "",
     message: "",
   });
 
@@ -218,37 +294,125 @@ export default function ContactPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-2">
-                        Service Needed
+                        Service Needed <span className="text-primary">*</span>
                       </label>
-                      <select
-                        value={formData.service}
-                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-surface-container-highest/80 border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none text-sm text-white transition-all cursor-pointer"
-                      >
-                        <option value="Full-Stack Web Development">Full-Stack Web Development</option>
-                        <option value="Mobile App Development">Mobile App Development</option>
-                        <option value="UI/UX & Design Systems">UI/UX &amp; Design Systems</option>
-                        <option value="AI & Machine Learning Solutions">AI &amp; Machine Learning Solutions</option>
-                        <option value="MVP Development">MVP Development</option>
-                        <option value="Branding & Digital Marketing">Branding &amp; Digital Marketing</option>
-                        <option value="Video Production & 3D Motion">Video Production &amp; 3D Motion</option>
-                      </select>
+                      <div className="relative" ref={serviceDropdownRef}>
+                        {/* Trigger Button */}
+                        <button
+                          type="button"
+                          onClick={toggleServiceDropdown}
+                          className="w-full px-4 py-3.5 pr-10 rounded-xl bg-surface-container-highest/80 border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary text-left text-sm text-white transition-all cursor-pointer"
+                        >
+                          <span className={formData.service ? "text-white" : "text-on-surface-variant/50"}>
+                            {formData.service || "Select a service..."}
+                          </span>
+                        </button>
+                        <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant/60 text-lg pointer-events-none transition-transform duration-200 ${serviceDropdownOpen ? "rotate-180" : ""}`}>expand_more</span>
+
+                        {/* Dropdown Panel */}
+                        {serviceDropdownOpen && (
+                          <div className={`absolute z-50 w-full rounded-xl bg-surface-container-low/98 backdrop-blur-2xl border border-outline-variant/40 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.8)] max-h-[min(50vh,320px)] overflow-y-auto ${dropdownPosition === 'bottom' ? 'mt-2' : 'bottom-full mb-2'}`}>
+                            <div className="p-1.5 flex flex-col gap-0.5">
+                              {SERVICE_OPTIONS.map((svc) => (
+                                <button
+                                  key={svc}
+                                  type="button"
+                                  onClick={() => {
+                                    setFormData({ ...formData, service: svc });
+                                    setServiceDropdownOpen(false);
+                                  }}
+                                  className={`w-full text-left px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
+                                    formData.service === svc
+                                      ? "bg-primary/20 text-primary font-semibold"
+                                      : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/80"
+                                  }`}
+                                >
+                                  {svc}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Hidden native select for form validation */}
+                        <select
+                          value={formData.service}
+                          required
+                          onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                          className="absolute inset-0 w-full h-full opacity-0 pointer-events-none"
+                          tabIndex={-1}
+                          aria-hidden="true"
+                        >
+                          <option value=""></option>
+                          {SERVICE_OPTIONS.map((svc) => (
+                            <option key={svc} value={svc}>{svc}</option>
+                          ))}
+                        </select>
+                      </div>
                     </div>
 
                     <div>
                       <label className="block text-xs font-semibold uppercase tracking-wider text-on-surface-variant mb-2">
                         Estimated Budget
                       </label>
-                      <select
-                        value={formData.budget}
-                        onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
-                        className="w-full px-4 py-3.5 rounded-xl bg-surface-container-highest/80 border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary focus:outline-none text-sm text-white transition-all cursor-pointer"
-                      >
-                        <option value="Under $5,000">Under $5,000</option>
-                        <option value="$5,000 – $15,000">$5,000 – $15,000</option>
-                        <option value="$15,000 – $35,000">$15,000 – $35,000</option>
-                        <option value="$35,000+">$35,000+</option>
-                      </select>
+                      <div className="relative" ref={budgetDropdownRef}>
+                        {/* Trigger Button */}
+                        <button
+                          type="button"
+                          onClick={toggleBudgetDropdown}
+                          className="w-full px-4 py-3.5 pr-10 rounded-xl bg-surface-container-highest/80 border border-outline-variant/40 focus:border-primary focus:ring-1 focus:ring-primary text-left text-sm text-white transition-all cursor-pointer"
+                        >
+                          <span className={formData.budget ? "text-white" : "text-on-surface-variant/50"}>
+                            {formData.budget || "Select a budget..."}
+                          </span>
+                        </button>
+                        <span className={`material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-on-surface-variant/60 text-lg pointer-events-none transition-transform duration-200 ${budgetDropdownOpen ? "rotate-180" : ""}`}>expand_more</span>
+
+                        {/* Dropdown Panel */}
+                        {budgetDropdownOpen && (
+                          <div className={`absolute z-50 w-full rounded-xl bg-surface-container-low/98 backdrop-blur-2xl border border-outline-variant/40 shadow-[0_20px_50px_-10px_rgba(0,0,0,0.8)] max-h-[min(50vh,250px)] overflow-y-auto ${budgetDropdownPosition === 'bottom' ? 'mt-2' : 'bottom-full mb-2'}`}>
+                            <div className="p-1.5 flex flex-col gap-0.5">
+                              {[
+                                "Under $1,000",
+                                "$1,000 – $5,000",
+                                "$5,000 – $10,000",
+                                "$10,000+",
+                              ].map((b) => (
+                                <button
+                                  key={b}
+                                  type="button"
+                                  onClick={() => {
+                                    setFormData({ ...formData, budget: b });
+                                    setBudgetDropdownOpen(false);
+                                  }}
+                                  className={`w-full text-left px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors cursor-pointer ${
+                                    formData.budget === b
+                                      ? "bg-primary/20 text-primary font-semibold"
+                                      : "text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/80"
+                                  }`}
+                                >
+                                  {b}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Hidden native select for form validation */}
+                        <select
+                          value={formData.budget}
+                          onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                          className="absolute inset-0 w-full h-full opacity-0 pointer-events-none"
+                          tabIndex={-1}
+                          aria-hidden="true"
+                        >
+                          <option value=""></option>
+                          <option value="Under $1,000">Under $1,000</option>
+                          <option value="$1,000 – $5,000">$1,000 – $5,000</option>
+                          <option value="$5,000 – $10,000">$5,000 – $10,000</option>
+                          <option value="$10,000+">$10,000+</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
 
